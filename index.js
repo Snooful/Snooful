@@ -2,7 +2,7 @@ const rqAll = require("require-all");
 const path = require("path");
 
 function send(msg) {
-
+    console.log(msg)
 }
 
 class Command {
@@ -11,10 +11,6 @@ class Command {
         this.description = cmd.description;
         this.run = cmd.run;
     }
-
-    run() {
-        return typeof cmd.run === "function" ? cmd.run() : send(cmd.run);
-    }
 }
 
 const commands = rqAll({
@@ -22,4 +18,14 @@ const commands = rqAll({
     resolve: commandInfo => new Command(commandInfo),
 });
 
-console.log(commands)
+const Dispatcher = require("./dispatcher.js");
+const chatDispatch = new Dispatcher({
+    username: "Snooful",
+}, commands);
+
+chatDispatch.handleMessage({
+    author: {
+        username: "haykam821"
+    },
+    content: "/info "
+});
