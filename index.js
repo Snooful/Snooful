@@ -1,31 +1,30 @@
-const rqAll = require("require-all");
-const path = require("path");
+const prefix = "/";
 
-function send(msg) {
-    console.log(msg)
-}
+const yargs = require("yargs");
+yargs.commandDir("commands");
 
-class Command {
-    constructor(cmd) {
-        this.name = cmd.name;
-        this.description = cmd.description;
-        this.run = cmd.run;
+yargs.fail(() => {
+    process.stdout.write("A user did an oops.\n");
+});
+
+yargs.check(argv => argv.message.author.username !== argv.client.username);
+
+function handleCommand(command = "") {
+    if (command.startsWith("/")) {
+        const unprefixedCmd = command.replace("/", "");
+
+        yargs.parse(unprefixedCmd, {
+            prefix,
+            message: {
+                author: {
+                    username: "haykam821",
+                },
+                send: console.log,
+            },
+            client: {
+                username: "Snooful",
+            },
+        });
     }
 }
-
-const commands = rqAll({
-    dirname: path.resolve("./commands"),
-    resolve: commandInfo => new Command(commandInfo),
-});
-
-const Dispatcher = require("./dispatcher.js");
-const chatDispatch = new Dispatcher({
-    username: "Snooful",
-}, commands);
-
-chatDispatch.handleMessage({
-    author: {
-        username: "haykam821"
-    },
-    content: "/info "
-});
+handleCommand("/info hi");

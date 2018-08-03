@@ -1,14 +1,11 @@
 module.exports = {
-    name: "info",
-    description: "Shows info about this bot.",
-    run: (msg, args) => {
-        process.stdout.write("Des");
-        setTimeout(() => {
-            process.stdout.write("pa");
-            setTimeout(() => {
-                process.stdout.write("cito\n");
-                setTimeout(() => {}, 1000);
-            }, 1000);
-        }, 1000);
+    command: "info",
+    describe: "Shows info about this bot.",
+    handler: args => {
+        args.message.send([
+            `I am ${args.client.username}, ready to help you with anything you need!`,
+            "My prefix is /, so to type a command you just do /command.",
+            "I was made by haykam821, but please direct all questions and concerns via /support!"
+        ].join("\n"));
     }
 };
