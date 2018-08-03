@@ -1,14 +1,24 @@
+/**
+ * The prefix required by commands to be considered by the bot.
+ */
 const prefix = "/";
 
 const yargs = require("yargs");
 yargs.commandDir("commands");
 
+/**
+ * Logs an end user-initiated fail (non-interrupting) to console.
+ */
 function safeFail() {
     return process.stdout.write("Someone or something failed. This might not be bad.\n");
 }
-yargs.fail(() => safeFail);
+yargs.fail(safeFail);
 yargs.exitProcess(false);
 
+/**
+ * Runs a command.
+ * @param {string} command The command to run, including prefix.
+ */
 function handleCommand(command = "") {
     const message = {
         author: {
