@@ -1,5 +1,8 @@
 const chance = require("chance").Chance();
 
+/**
+ * Gets a random hackerman statement
+ */
 function getValue() {
     return chance.pickone([
         `I'm in.`,
