@@ -1,6 +1,6 @@
 module.exports = {
-    name: "support",
-    describe: "Send support to Snooful's creator.",
+    name: "feedback",
+    describe: "Send feedback to Snooful's creator.",
     handler: args => {
         args.message.send(`I have recieved the following message from ${args.author.username}:`);
         // args.message.send(args[0]);
