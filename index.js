@@ -28,6 +28,7 @@ function handleCommand(command = "") {
                 prefix,
                 message,
                 client,
+                usage: yargs.getUsageInstance().getCommands(),
             });
         } catch {
             safeFail();
