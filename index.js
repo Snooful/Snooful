@@ -1,7 +1,7 @@
 /**
  * The prefix required by commands to be considered by the bot.
  */
-const prefix = "/";
+const prefix = "!";
 
 const yargs = require("yargs");
 yargs.commandDir("commands");
@@ -30,8 +30,8 @@ function handleCommand(command = "") {
         username: "Snooful",
     };
     
-    if (command.startsWith("/") && message.author.username !== client.username) {
-        const unprefixedCmd = command.replace("/", "");
+    if (command.startsWith(prefix) && message.author.username !== client.username) {
+        const unprefixedCmd = command.replace(prefix, "");
 
         try {
             yargs.parse(unprefixedCmd, {
@@ -45,4 +45,4 @@ function handleCommand(command = "") {
         }
     }
 }
-handleCommand("/info hi");
+handleCommand(prefix + "info hi");
