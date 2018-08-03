@@ -3,28 +3,35 @@ const prefix = "/";
 const yargs = require("yargs");
 yargs.commandDir("commands");
 
-yargs.fail(() => {
-    process.stdout.write("A user did an oops.\n");
-});
-
-yargs.check(argv => argv.message.author.username !== argv.client.username);
+function safeFail() {
+    return process.stdout.write("Someone or something failed. This might not be bad.\n");
+}
+yargs.fail(() => safeFail);
+yargs.exitProcess(false);
 
 function handleCommand(command = "") {
-    if (command.startsWith("/")) {
+    const message = {
+        author: {
+            username: "haykam821",
+        },
+        send: console.log,
+    };
+    const client = {
+        username: "Snooful",
+    };
+    
+    if (command.startsWith("/") && message.author.username !== client.username) {
         const unprefixedCmd = command.replace("/", "");
 
-        yargs.parse(unprefixedCmd, {
-            prefix,
-            message: {
-                author: {
-                    username: "haykam821",
-                },
-                send: console.log,
-            },
-            client: {
-                username: "Snooful",
-            },
-        });
+        try {
+            yargs.parse(unprefixedCmd, {
+                prefix,
+                message,
+                client,
+            });
+        } catch {
+            safeFail();
+        }
     }
 }
 handleCommand("/info hi");
