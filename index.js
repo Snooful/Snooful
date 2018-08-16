@@ -50,6 +50,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
+				version: require("./package.json").version,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
 				},
