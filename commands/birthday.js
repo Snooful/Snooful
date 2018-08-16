@@ -1,3 +1,12 @@
+const chance = require("chance").Chance();
+
+function getBirthdayWord() {
+	return chance.pickone([
+		"birthday",
+		"cake day",
+	]);
+}
+
 function getSong(name, type = "birthday", thirdLine) {
 	return [
 		`Happy ${type} to you,`,
@@ -10,12 +19,11 @@ function getSong(name, type = "birthday", thirdLine) {
 module.exports = {
 	command: "birthday <user>",
 	describe: "Sings a birthday song to a user!",
-	handler: async args => {
+	handler: args => {
 		if (args.user) {
-			const user = await args.sr.getUser(args.user);
-			args.send(getSong("u/" + user.name));
+			args.send(getSong("u/" + args.user, getBirthdayWord()));
 		} else {
-			args.send("Happy birthday dear... uh... who again?");
+			args.send(`Happy ${getBirthdayWord()} dear... uh... who again?`);
 		}
 	},
 };
