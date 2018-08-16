@@ -10,7 +10,7 @@ const log = {
 /**
  * The prefix required by commands to be considered by the bot.
  */
-const prefix = "!";
+const prefix = "a!";
 
 const yargs = require("yargs");
 yargs.commandDir("commands", {
@@ -84,7 +84,7 @@ handler.onUserReceivedInvitation = channel => {
 	log.events("invited to channel");
 	channel.join(() => {
 		log.events("automatically joined channel via invitation");
-		channel.sendUserMessage("Thanks for letting me into the channnel! I'm u/Snooful, your friendly bot asssistant.", () => {
+		channel.sendUserMessage(`Thanks for letting me into the channnel! I'm u/${clientInfo.nickname}, your friendly bot asssistant.`, () => {
 			log.events("sent introductory message");
 		});
 	});
