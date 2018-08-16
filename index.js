@@ -84,7 +84,7 @@ handler.onUserReceivedInvitation = channel => {
 	log.events("invited to channel");
 	channel.join(() => {
 		log.events("automatically joined channel via invitation");
-		channel.sendUserMessage(`Thanks for letting me into the channnel! I'm u/${clientInfo.nickname}, your friendly bot asssistant.`, () => {
+		channel.sendUserMessage(`Thanks for letting me into the channnel! I'm u/${client.nickname}, your friendly bot asssistant.`, () => {
 			log.events("sent introductory message");
 		});
 	});
