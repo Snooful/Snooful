@@ -10,7 +10,7 @@ const log = {
 /**
  * The prefix required by commands to be considered by the bot.
  */
-const prefix = "a!";
+const prefix = process.env.SNOOFUL_PREFIX || "!";
 
 const yargs = require("yargs");
 yargs.commandDir("commands", {
