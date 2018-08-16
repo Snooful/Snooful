@@ -1,1 +1,7 @@
 # Snooful
+
+A Reddit Chat bot.
+
+## Environment Variables
+
+To use Snooful, you must set two variables for the user ID (`SNOOFUL_ID`) and refresh token (`SNOOFUL_TOKEN`). Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can also set `DEBUG` to `snooful:*` to recieve logs of everything notable happening with Snooful.
