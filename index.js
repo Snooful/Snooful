@@ -1,3 +1,10 @@
+const debug = require("debug");
+const log = {
+	main: debug("snooful:main"),
+	events: debug("snooful:events"),
+	commands: debug("snooful:commands"),
+};
+
 /**
  * The prefix required by commands to be considered by the bot.
  */
@@ -12,7 +19,7 @@ yargs.commandDir("commands", {
  * Logs an end user-initiated fail (non-interrupting) to console.
  */
 function safeFail() {
-    return process.stdout.write("Someone or something failed. This might not be bad.\n");
+    return debug("Someone or something failed. This might not be bad.\n");
 }
 yargs.fail(safeFail);
 yargs.exitProcess(false);
@@ -29,6 +36,7 @@ let clientInfo = {};
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (command.startsWith(prefix) && message._sender.nickname !== clientInfo.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
+		log.commands("recieved command %s", unprefixedCmd);
 
 		try {
 			yargs.parse(unprefixedCmd, {
@@ -40,6 +48,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					channel.sendUserMessage(message, () => {});
 				},
 				usage: yargs.getUsageInstance().getCommands(),
+				log: log.commands,
 			});
 		} catch {
 			safeFail();
@@ -52,16 +61,26 @@ const sb = new Sendbird({
 	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13" // reddit chat!!
 });
 
-sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], userInfo => client = userInfo);
+log.main("connecting to sendbird");
+sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], (userInfo, error) => {
+	if (error) {
+		log.main("couldn't connect to sendbird");
+	} else {
+		log.main("connected to sendbird");
+		client = userInfo;
+	}
+});
 
 const handler = new sb.ChannelHandler();
 
 handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
 handler.onUserReceivedInvitation = channel => {
+	log.events("invited to channel");
 	channel.join(() => {
+		log.events("automatically joined channel via invitation");
 		channel.sendUserMessage("Thanks for letting me into the channnel! I'm u/Snooful, your friendly bot asssistant.", () => {
-			process.stdout.write("Joined a channel.\n");
-		})
+			log.events("sent introductory message");
+		});
 	});
 }
 
