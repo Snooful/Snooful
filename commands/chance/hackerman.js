@@ -12,7 +12,7 @@ function getValue() {
 }
 
 module.exports = {
-    command: "hackerban",
+    command: "hackerman",
     describe: "Transform yourself into Hackerman!",
-    handler: args => args.message.send(getValue()),
+    handler: args => args.send(getValue()),
 };

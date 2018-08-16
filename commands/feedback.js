@@ -2,9 +2,9 @@ module.exports = {
     name: "feedback",
     describe: "Send feedback to Snooful's creator.",
     handler: args => {
-        args.message.send(`I have recieved the following message from ${args.author.username}:`);
+        args.send(`I have recieved the following message from ${args.message._sender.nickname}:`);
         // args.message.send(args[0]);
 
-        args.message.send("I have contacted my creator for you.");
+        args.send("I have contacted my creator for you.");
     }
 };

@@ -4,7 +4,9 @@
 const prefix = "!";
 
 const yargs = require("yargs");
-yargs.commandDir("commands");
+yargs.commandDir("commands", {
+	recurse: true,
+});
 
 /**
  * Logs an end user-initiated fail (non-interrupting) to console.
@@ -25,7 +27,7 @@ let clientInfo = {};
  * @param {string} command The command to run, including prefix.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
-	if (command.startsWith(prefix) && message._sender.nickname !== username) {
+	if (command.startsWith(prefix) && message._sender.nickname !== clientInfo.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
 
 		try {
