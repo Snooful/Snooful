@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const debug = require("debug");
 const log = {
 	main: debug("snooful:main"),
