@@ -45,4 +45,17 @@ function handleCommand(command = "") {
         }
     }
 }
-handleCommand(prefix + "info hi");
+
+const Sendbird = require("sendbird");
+const sb = new Sendbird({
+	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13" // reddit chat!!
+});
+
+sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"]);
+
+const handler = new sb.ChannelHandler();
+handler.onMessageReceived = (channel, message) => {
+	return console.log(channel);
+};
+
+sb.addChannelHandler("handler", handler);
