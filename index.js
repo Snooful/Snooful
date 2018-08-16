@@ -16,34 +16,33 @@ yargs.fail(safeFail);
 yargs.exitProcess(false);
 
 /**
+ * The client information.
+ */
+let clientInfo = {};
+
+/**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
  */
-function handleCommand(command = "") {
-    const message = {
-        author: {
-            username: "haykam821",
-        },
-        send: console.log,
-    };
-    const client = {
-        username: "Snooful",
-    };
-    
-    if (command.startsWith(prefix) && message.author.username !== client.username) {
-        const unprefixedCmd = command.replace(prefix, "");
+function handleCommand(command = "", channel = {}, message = {}) {
+	if (command.startsWith(prefix) && message._sender.nickname !== username) {
+		const unprefixedCmd = command.replace(prefix, "");
 
-        try {
-            yargs.parse(unprefixedCmd, {
-                prefix,
-                message,
-                client,
-                usage: yargs.getUsageInstance().getCommands(),
-            });
-        } catch {
-            safeFail();
-        }
-    }
+		try {
+			yargs.parse(unprefixedCmd, {
+				prefix,
+				channel,
+				message,
+				client,
+				send: message => {
+					channel.sendUserMessage(message, () => {});
+				},
+				usage: yargs.getUsageInstance().getCommands(),
+			});
+		} catch {
+			safeFail();
+		}
+	}
 }
 
 const Sendbird = require("sendbird");
@@ -51,11 +50,8 @@ const sb = new Sendbird({
 	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13" // reddit chat!!
 });
 
-sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"]);
+sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], userInfo => client = userInfo);
 
 const handler = new sb.ChannelHandler();
-handler.onMessageReceived = (channel, message) => {
-	return console.log(channel);
-};
-
+handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
 sb.addChannelHandler("handler", handler);
