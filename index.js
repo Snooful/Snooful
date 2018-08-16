@@ -55,5 +55,14 @@ const sb = new Sendbird({
 sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], userInfo => client = userInfo);
 
 const handler = new sb.ChannelHandler();
+
 handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
+handler.onUserReceivedInvitation = channel => {
+	channel.join(() => {
+		channel.sendUserMessage("Thanks for letting me into the channnel! I'm u/Snooful, your friendly bot asssistant.", () => {
+			process.stdout.write("Joined a channel.\n");
+		})
+	});
+}
+
 sb.addChannelHandler("handler", handler);
