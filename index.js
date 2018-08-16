@@ -51,7 +51,7 @@ let clientInfo = {};
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (command.startsWith(prefix) && message._sender.nickname !== clientInfo.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
-		log.commands("recieved command %s", unprefixedCmd);
+		log.commands("recieved command '%s'", unprefixedCmd);
 
 		try {
 			yargs.parse(unprefixedCmd, {
@@ -60,7 +60,6 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
-				sr,
 				version,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
