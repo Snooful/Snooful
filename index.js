@@ -80,14 +80,17 @@ sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], (userInfo, e
 const handler = new sb.ChannelHandler();
 
 handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
-handler.onUserReceivedInvitation = (channel, inviter) => {
-	log.events("invited to channel");
-	channel.join(() => {
-		log.events("automatically joined channel via invitation");
-		channel.sendUserMessage(`Thanks for letting me into the channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant.`, () => {
-			log.events("sent introductory message");
+handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
+	if (invitees.map(invitee => invitee.nickname).includes(client.username)) {
+		// i have been invited to channel, let's join and send an introductory message!
+		log.events("invited to channel");
+		channel.join(() => {
+			log.events("automatically joined channel via invitation");
+			channel.sendUserMessage(`Thanks for letting me into the channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant.`, () => {
+				log.events("sent introductory message");
+			});
 		});
-	});
+	}
 }
 
 sb.addChannelHandler("handler", handler);
