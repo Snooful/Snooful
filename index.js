@@ -44,6 +44,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				channel,
 				message,
 				client,
+				sb,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
 				},
