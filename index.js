@@ -26,6 +26,9 @@ function safeFail() {
 yargs.fail(safeFail);
 yargs.exitProcess(false);
 
+yargs.help(false);
+yargs.version(false);
+
 /**
  * The client information.
  */
