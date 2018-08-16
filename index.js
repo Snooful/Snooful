@@ -7,6 +7,16 @@ const log = {
 	commands: debug("snooful:commands"),
 };
 
+const version = require("./package.json").version;
+
+/*const Snoowrap = require("snoowrap");
+const sr = new Snoowrap({
+	userAgent: `Snooful v${version}`,
+	clientId: process.env["SNOOFUL_CLIENT_ID"],
+	clientSecret: process.env["SNOOFUL_CLIENT_SECRET"],
+	refreshToken: process.env["SNOOFUL_TOKEN"],
+});*/
+
 /**
  * The prefix required by commands to be considered by the bot.
  */
@@ -50,7 +60,8 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
-				version: require("./package.json").version,
+				sr,
+				version,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
 				},
