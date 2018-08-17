@@ -23,7 +23,7 @@ yargs.commandDir("commands", {
  * Logs an end user-initiated fail (non-interrupting) to console.
  */
 function safeFail() {
-    return debug("Someone or something failed. This might not be bad.\n");
+    return log.commands("an error occured during command parsing/execution");
 }
 yargs.fail(safeFail);
 yargs.exitProcess(false);
