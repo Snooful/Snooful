@@ -11,6 +11,9 @@ class SettingsManager {
 		this.database = database;
 		this.init();
 
+		/**
+		 * The settings cache.
+		 */
 		this.settings = {};
 
 		this.setStatement = null;
@@ -27,9 +30,9 @@ class SettingsManager {
 		const rows = this.database.all("SELECT CAST(subreddit as TEXT) as subreddit, settings FROM settings").then(rows => {
 			debug("got rows of settings");
 			rows.forEach(row => {
-				debug("importing settings for r/%s", row.subreddit);
+				debug("caching settings for r/%s", row.subreddit);
 				this.settings[row.subreddit] = JSON.parse(row.settings);
-			})
+			});
 		});
 
 		this.database.prepare("INSERT OR REPLACE INTO settings VALUES(?, ?)").then(statement => {
@@ -39,6 +42,7 @@ class SettingsManager {
 	}
 
 	async update(subreddit) {
+		debug(`updating settings database for r/${subreddit}`);
 		return await this.setStatement.run(subreddit, JSON.stringify(this.settings[subreddit]));
 	}
 
@@ -51,8 +55,11 @@ class SettingsManager {
 	async set(subreddit, key, value) {
 		// Update our cache
 		if (!this.settings[subreddit]) {
+			debug(`making settings row for r/${subreddit} as it did not have one`);
 			this.settings[subreddit] = {};
 		}
+
+		debug(`set '${key}' to '${value}' for r/${subreddit}`);
 		this.settings[subreddit][key] = value;
 
 		return this.update(subreddit);
@@ -66,8 +73,11 @@ class SettingsManager {
 	async clear(subreddit, key) {
 		// Update our cache
 		if (!this.settings[subreddit]) {
+			debug(`making settings row for r/${subreddit} as it did not have one`);
 			this.settings[subreddit] = {};
 		}
+
+		debug(`cleared '${key}' for r/${subreddit}`);
 		this.settings[subreddit][key] = undefined;
 
 		return this.update(subreddit);
