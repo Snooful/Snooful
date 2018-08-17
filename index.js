@@ -115,11 +115,15 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.username)) {
 		// i have been invited to channel, let's join and send an introductory message!
 		log.events("invited to channel");
-		channel.acceptInvitation(() => {
-			log.events("automatically joined channel via invitation");
-			channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant.`, () => {
-				log.events("sent introductory message");
-			});
+		channel.acceptInvitation((channel, error) => {
+			if (error) {
+				log.events("failed to accept channel invitation");
+			} else {
+				log.events(`automatically accepted channel invitation to ${channel.name}`);
+				channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant.`, (message, error) => {
+					log.events(error ? "failed to send introductory message" : "sent introductory message");
+				});
+			}
 		});
 	}
 }
