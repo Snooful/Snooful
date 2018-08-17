@@ -8,11 +8,15 @@ module.exports = {
 			const result = await urbanDict.term(args.term);
 			const entry = result.entries[0];
 
-			args.send([
-				`${entry.word} (${entry.thumbs_up} votes)`,
-				"",
-				entry.definition,
-			].join("\n"));
+			if (entry) {
+				args.send([
+					`${entry.word} (${entry.thumbs_up} votes)`,
+					"",
+					entry.definition,
+				].join("\n"));
+			} else {
+				args.send("There was no result for that word on Urban Dictionary!");
+			}
 		} else {
 			args.send(`undefined - A subtle hint that you need to tell me which word to define.`);
 		}
