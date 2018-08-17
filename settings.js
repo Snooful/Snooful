@@ -1,4 +1,4 @@
-const debug = require("debug")("snooful:settings");
+const debug = require("./debug.js").settings;
 
 /**
  * Manages settings.

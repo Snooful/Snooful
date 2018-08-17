@@ -1,11 +1,6 @@
 require("dotenv").config();
 
-const debug = require("debug");
-const log = {
-	main: debug("snooful:main"),
-	events: debug("snooful:events"),
-	commands: debug("snooful:commands"),
-};
+const log = require("./debug.js");
 
 const version = require("./package.json").version;
 
@@ -123,14 +118,14 @@ handler.onMessageReceived = (channel, message) => handleCommand(message.message,
 handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
 		// i have been invited to channel, let's join and send an introductory message!
-		log.events("invited to channel");
+		log.invites("invited to channel");
 		channel.acceptInvitation((channel, error) => {
 			if (error) {
-				log.events("failed to accept channel invitation");
+				log.invites("failed to accept channel invitation");
 			} else {
-				log.events(`automatically accepted channel invitation to ${channel.name}`);
+				log.invites(`automatically accepted channel invitation to ${channel.name}`);
 				channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant.`, (message, error) => {
-					log.events(error ? "failed to send introductory message" : "sent introductory message");
+					log.invites(error ? "failed to send introductory message" : "sent introductory message");
 				});
 			}
 		});
@@ -143,22 +138,22 @@ function channelSub(channel) {
 }
 
 handler.onUserJoined = (channel, user) => {
-	log.events("user joined, handling join message");
+	log.gateway("user joined, handling join message");
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "join_message") !== undefined) {
 		channel.sendUserMessage(settings.get(sub, "join_message").replace(/{USER}/g, user.nickname), (message, error) => {
-			log.events(error ? "failed to send join message" : "sent join message");
+			log.gateway(error ? "failed to send join message" : "sent join message");
 		});
 	}
 };
 handler.onUserLeft = (channel, user) => {
-	log.events("user left, handling leave message");
+	log.gateway("user left, handling leave message");
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "leave_message") !== undefined) {
 		channel.sendUserMessage(settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname), (message, error) => {
-			log.events(error ? "failed to send leave message" : "sent leave message");
+			log.gateway(error ? "failed to send leave message" : "sent leave message");
 		});
 	}
 };
