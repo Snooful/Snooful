@@ -39,7 +39,7 @@ class SettingsManager {
 	}
 
 	async update(subreddit) {
-		return await this.setStatement.run(subreddit, this.settings[subreddit]);
+		return await this.setStatement.run(subreddit, JSON.stringify(this.settings[subreddit]));
 	}
 
 	/**

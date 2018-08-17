@@ -136,4 +136,27 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	}
 }
 
+function channelSub(channel) {
+	const data = JSON.parse(channel.data);
+	return data.subreddit.name;
+}
+
+handler.onUserJoined = (channel, user) => {
+	log.events("user joined, handling join message");
+
+	const sub = channelSub(channel);
+	console.log(settings.get(sub, "join_message"))
+	if (settings.get(sub, "join_message") !== undefined) {
+		channel.sendUserMessage(settings.get(sub, "join_message").replace(/{USER}/g, user.nickname), new Function());
+	}
+};
+handler.onUserLeft = (channel, user) => {
+	log.events("user left, handling leave message");
+
+	const sub = channelSub(channel);
+	if (settings.get(sub, "leave_message") !== undefined) {
+		channel.sendUserMessage(settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname), new Function());
+	}
+};
+
 sb.addChannelHandler("handler", handler);
