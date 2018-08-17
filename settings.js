@@ -38,6 +38,10 @@ class SettingsManager {
 		});
 	}
 
+	async update(subreddit) {
+		return await this.setStatement.run(subreddit, this.settings[subreddit]);
+	}
+
 	/**
 	 * Sets a key for a given subreddit.
 	 * @param {string} subreddit The subreddit/namespace to save the setting under.
@@ -51,9 +55,22 @@ class SettingsManager {
 		}
 		this.settings[subreddit][key] = value;
 
-		return await this.setStatement.run(subreddit, JSON.stringify({
-			[key]: value,
-		}));
+		return this.update(subreddit);
+	}
+
+	/**
+	 * Clears a key for a given subreddit.
+	 * @param {string} subreddit The subreddit/namespace to clear the setting in.
+	 * @param {string} key The key to clear.
+	 */
+	async clear(subreddit, key) {
+		// Update our cache
+		if (!this.settings[subreddit]) {
+			this.settings[subreddit] = {};
+		}
+		this.settings[subreddit][key] = undefined;
+
+		return this.update(subreddit);
 	}
 
 	/**
