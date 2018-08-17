@@ -138,6 +138,8 @@ function channelSub(channel) {
 }
 
 handler.onUserJoined = (channel, user) => {
+	if (user.nickname === client.nickname) return;
+
 	log.gateway("user joined, handling join message");
 
 	const sub = channelSub(channel);
@@ -148,6 +150,8 @@ handler.onUserJoined = (channel, user) => {
 	}
 };
 handler.onUserLeft = (channel, user) => {
+	if (user.nickname === client.nickname) return;
+	
 	log.gateway("user left, handling leave message");
 
 	const sub = channelSub(channel);
