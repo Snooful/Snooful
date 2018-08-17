@@ -89,7 +89,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					manager: settings,
 				},
 				version,
-				author: message._author.nickname,
+				author: message._sender.nickname,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
 				},
