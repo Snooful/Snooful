@@ -9,6 +9,17 @@ const log = {
 
 const version = require("./package.json").version;
 
+const sqlite = require("sqlite");
+const path = require("path");
+
+const SettingsManager = require("./settings.js");
+let settings = {};
+
+sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
+	log.main("opened database");
+	settings = new SettingsManager(database);
+});
+
 /**
  * The prefix required by commands to be considered by the bot.
  */
@@ -52,6 +63,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
+				settings,
 				version,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
