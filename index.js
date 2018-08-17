@@ -112,7 +112,7 @@ const handler = new sb.ChannelHandler();
 
 handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
 handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
-	if (invitees.map(invitee => invitee.nickname).includes(client.username)) {
+	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
 		// i have been invited to channel, let's join and send an introductory message!
 		log.events("invited to channel");
 		channel.acceptInvitation((channel, error) => {
