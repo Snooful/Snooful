@@ -5,7 +5,11 @@ module.exports = {
 		const newNum = Math.random();
 		const oldNum = args.settings.get("test");
 
-		args.send(`The new number is ${newNum}. The old number is ${oldNum}.`);
+		if (oldNum === undefined) {
+			args.send(`The number is ${newNum}. There was no number before.`);
+		} else {
+			args.send(`The new number is ${newNum}. The old number is ${oldNum}.`);
+		}
 
 		args.settings.set("test", newNum);
 	}
