@@ -115,7 +115,7 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.username)) {
 		// i have been invited to channel, let's join and send an introductory message!
 		log.events("invited to channel");
-		channel.join(() => {
+		channel.acceptInvitation(() => {
 			log.events("automatically joined channel via invitation");
 			channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant.`, () => {
 				log.events("sent introductory message");
