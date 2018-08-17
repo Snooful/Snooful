@@ -32,8 +32,9 @@ class SettingsManager {
 			})
 		});
 
-		this.setStatement = await this.database.prepare("INSERT OR REPLACE INTO settings VALUES(?, ?)").then(() => {
+		this.database.prepare("INSERT OR REPLACE INTO settings VALUES(?, ?)").then(statement => {
 			debug("prepared the set statement");
+			this.setStatement = statement;
 		});
 	}
 
@@ -45,6 +46,9 @@ class SettingsManager {
 	 */
 	async set(subreddit, key, value) {
 		// Update our cache
+		if (!this.settings[subreddit]) {
+			this.settings[subreddit] = {};
+		}
 		this.settings[subreddit][key] = value;
 
 		return await this.setStatement.run(subreddit, JSON.stringify({
@@ -59,7 +63,11 @@ class SettingsManager {
 	 * @returns *
 	 */
 	get(subreddit, key) {
-		return this.settings[subreddit][key];
+		if (this.settings[subreddit]) {
+			return this.settings[subreddit][key];
+		} else {
+			return undefined;
+		}
 	}
 }
 

@@ -61,7 +61,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			yargs.parse(unprefixedCmd, {
 				prefix,
 				channel,
-				channelData,
+				chData,
 				message,
 				client,
 				sb,
