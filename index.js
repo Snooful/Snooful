@@ -145,7 +145,6 @@ handler.onUserJoined = (channel, user) => {
 	log.events("user joined, handling join message");
 
 	const sub = channelSub(channel);
-	console.log(settings.get(sub, "join_message"))
 	if (settings.get(sub, "join_message") !== undefined) {
 		channel.sendUserMessage(settings.get(sub, "join_message").replace(/{USER}/g, user.nickname), new Function());
 	}
