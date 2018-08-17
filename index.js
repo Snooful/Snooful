@@ -146,7 +146,9 @@ handler.onUserJoined = (channel, user) => {
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "join_message") !== undefined) {
-		channel.sendUserMessage(settings.get(sub, "join_message").replace(/{USER}/g, user.nickname), new Function());
+		channel.sendUserMessage(settings.get(sub, "join_message").replace(/{USER}/g, user.nickname), (message, error) => {
+			log.events(error ? "failed to send join message" : "sent join message");
+		});
 	}
 };
 handler.onUserLeft = (channel, user) => {
@@ -154,7 +156,9 @@ handler.onUserLeft = (channel, user) => {
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "leave_message") !== undefined) {
-		channel.sendUserMessage(settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname), new Function());
+		channel.sendUserMessage(settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname), (message, error) => {
+			log.events(error ? "failed to send leave message" : "sent leave message");
+		});
 	}
 };
 
