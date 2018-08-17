@@ -16,7 +16,7 @@ const SettingsManager = require("./settings.js");
 let settings = {};
 
 sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
-	log.main("opened database");
+	log.main("opened settings database");
 	settings = new SettingsManager(database);
 });
 
@@ -57,13 +57,29 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		log.commands("recieved command '%s'", unprefixedCmd);
 
 		try {
+			const chData = JSON.parse(channel.data);
 			yargs.parse(unprefixedCmd, {
 				prefix,
 				channel,
+				channelData,
 				message,
 				client,
 				sb,
-				settings,
+				settings: {
+					/**
+					 * Sets a key for the current subreddit namespace.
+					 * @param {string} key The key to set.
+					 * @param {*} value The value to be set.
+					 */
+					set: async (key, value) => await settings.set(chData.subreddit.name, key, value),
+					/**
+					 * Gets a key from the current subreddit namespace.
+					 * @param {string} key The key to get.
+					 * @returns *
+					 */
+					get: key => settings.get(chData.subreddit.name, key),
+					manager: settings,
+				},
 				version,
 				send: message => {
 					channel.sendUserMessage(message, () => {});
