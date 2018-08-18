@@ -1,7 +1,7 @@
 const chunk = require("lodash.chunk");
 
 module.exports = {
-    command: "commands <page>",
+    command: "commands [page]",
 	describe: "List commands and their description.",
 	builder: builder => {
 		builder.positional("page", {

@@ -1,5 +1,5 @@
 module.exports = {
-	command: "setjoinmessage <joinMessage>",
+	command: "setjoinmessage [joinMessage]",
 	describe: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
 	handler: args => {
 		if (args.joinMessage) {

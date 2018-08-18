@@ -1,7 +1,7 @@
 const urbanDict = require("urban-dictionary");
 
 module.exports = {
-	command: "urban <term>",
+	command: "urban [term]",
 	describe: "Gets a term from Urban Dictionary.",
 	handler: args => {
 		if (args.term) {

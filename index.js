@@ -27,9 +27,10 @@ yargs.commandDir("commands", {
 
 /**
  * Logs an end user-initiated fail (non-interrupting) to console.
+ * @param {*} error The error that occured.
  */
-function safeFail() {
-    return log.commands("an error occured during command parsing/execution");
+function safeFail(error) {
+    return log.commands("an error occured during command parsing/execution: %O", error);
 }
 yargs.fail(safeFail);
 yargs.exitProcess(false);
@@ -91,8 +92,8 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				usage: yargs.getUsageInstance().getCommands(),
 				log: log.commands,
 			});
-		} catch {
-			safeFail();
+		} catch (error) {
+			safeFail(error);
 		}
 	}
 }

@@ -17,7 +17,7 @@ function getSong(name, type = "birthday", thirdLine) {
 }
 
 module.exports = {
-	command: "birthday <user>",
+	command: "birthday [user]",
 	describe: "Sings a birthday song to a user!",
 	handler: args => {
 		if (args.user) {
