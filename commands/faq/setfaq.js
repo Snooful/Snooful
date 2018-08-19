@@ -1,13 +1,13 @@
 module.exports = {
-	command: "changefaq [id] [value]",
-	describe: "Changes, creates, or deletes a FAQ message.",
+	command: "setfaq [id] [value]",
+	describe: "Sets or creates a FAQ message.",
 	builder: build => {
 		build.positional("id", {
 			describe: "The ID of the FAQ message to change.",
 			type: "string",
 		});
 		build.positional("value", {
-			describe: "The message to set. If left blank, deletes the FAQ message.",
+			describe: "The message to set the FAQ to.",
 			type: "string",
 		});
 	},
@@ -19,19 +19,13 @@ module.exports = {
 			if (args.value) {
 				msgs[args.id] = args.value;
 				args.settings.set("faq_messages", msgs);
+
 				args.send(idDoesExist ? "That FAQ message has been updated." : "A FAQ message has been created!");
 			} else {
-				if (idDoesExist) {
-					delete msgs[args.id];
-					args.settings.set("faq_messages", msgs);
-
-					args.send("That FAQ has been deleted.");
-				} else {
-					args.send("That FAQ doesn't even exist, silly.");
-				}
+				args.send("You need to specify the message for the FAQ.");
 			}
 		} else {
-			args.send(`You need to specify a FAQ to change. For a list of them, type ${args.prefix}listfaq.`);
+			args.send(`You need to specify a FAQ to change. To get a list of FAQs, type ${args.prefix}listfaq.`);
 		}
 	},
 };
