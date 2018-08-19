@@ -1,6 +1,11 @@
 module.exports = {
 	command: "setleavemessage [leaveMessage]",
 	describe: "Sets the message for channel leavers. {USER} is replaced with the user's name.",
+	aliases: [
+		"leavemessage",
+		"setleavemsg",
+		"leavemsg",
+	],
 	handler: args => {
 		if (args.leaveMessage) {
 			args.settings.set("leave_message", args.leaveMessage);
