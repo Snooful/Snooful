@@ -30,8 +30,10 @@ yargs.commandDir("commands", {
  * @param {*} error The error that occured.
  */
 function safeFail(error) {
-    return log.commands("an error occured during command parsing/execution: %O", error);
+	const errMsg = error instanceof Error ? error.message : error;
+    return log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
+
 yargs.fail(safeFail);
 yargs.exitProcess(false);
 
