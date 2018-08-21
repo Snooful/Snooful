@@ -5,14 +5,14 @@ const chunk = require("lodash.chunk");
 	* @name DataGetFunction
 	* @function
 	* @param args The arguments from Yargs.
-	* @returns *[]
+	* @returns *
 */
 
 /**
 	* Creates a pagined command using a set of data.
 	* @param {string} command The name of the command.
 	* @param {string} description The command description.
-	* @param {(DataGetFunction|*[])} data The data to paginate.
+	* @param {(DataGetFunction|*)} data The data to paginate.
 	* @param {string} dataType The type of data being displayed.
 */
 module.exports = async (command, description, data = [], dataType = "items") => {
@@ -26,7 +26,7 @@ module.exports = async (command, description, data = [], dataType = "items") => 
 		});
 	},
     handler: args => {
-	    	const resolvedData = typeof data === "function" ? await data(args) : data;
+	    	const resolvedData = Array.concat(typeof data === "function" ? await data(args) : data);
 	    
 		const list = chunk(resolvedData.sort(), 5);
 
