@@ -26,7 +26,7 @@ module.exports = async (command, description, data = [], dataType = "items") => 
 		});
 	},
     handler: args => {
-	    	const resolvedData = Array.concat(typeof data === "function" ? await data(args) : data);
+	    	const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
 	    
 		const list = chunk(resolvedData.sort(), 5);
 
