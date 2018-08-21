@@ -27,7 +27,7 @@ class SettingsManager {
 			debug("ensured the settings table exists");
 		});
 
-		const rows = this.database.all("SELECT CAST(subreddit as TEXT) as subreddit, settings FROM settings").then(rows => {
+		this.database.all("SELECT CAST(subreddit as TEXT) as subreddit, settings FROM settings").then(rows => {
 			debug("got rows of settings");
 			rows.forEach(row => {
 				debug("caching settings for r/%s", row.subreddit);

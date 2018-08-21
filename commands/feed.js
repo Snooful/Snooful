@@ -1,21 +1,21 @@
 const feedUsers = {
-	"haykam821": [
+	haykam821: [
 		"🍗 Master, please take this delicious leg of poultry.",
 		"🍗 403, access to feeding master denied.",
 	],
-	"DamnImLost": [
+	DamnImLost: [
 		"🗺 I think you need a map, not food.",
 		"🗺 I should really get them a map instead of food...",
 	],
-	"BigNig127": [
+	BigNig127: [
 		"🍎🍏🍎🍏🍎🍏🍎 Take these apples!!!",
 		"🍎🍏🍎🍏🍎🍏🍎 This user would like you to not go to the doctor ever in your life!!!",
 	],
-	"blackcats666": [
+	blackcats666: [
 		"🍒 Lucky you! Have a cherry.",
 		"🍒 Why am I giving a symbol of bad luck a symbol of good luck? It makes no sense!",
 	],
-	"JaysRooted": [
+	JaysRooted: [
 		"🍕 Have a slice of pizza, even though it's unhealthy.",
 		"🍕 Pizza is great. Yum. Don't eat too much, though.",
 	],

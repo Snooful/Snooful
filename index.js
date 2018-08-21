@@ -41,11 +41,13 @@ yargs.version(false);
 /**
  * The client information.
  */
-const clientInfo = {};
+let client = {};
 
 /**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
+ * @param {*} channel The channel the command was sent from.
+ * @param {*} message The message representing the command.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (command.startsWith(prefix) && message._sender.nickname !== clientInfo.nickname) {
@@ -55,22 +57,23 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		try {
 			const chData = JSON.parse(channel.data);
 			yargs.parse(unprefixedCmd, {
-				prefix,
-				channel,
+				author: message._sender.nickname,
 				chData,
-				message,
+				channel,
 				client,
+				log: log.commands,
+				message,
+				prefix,
 				sb,
+				send: text => {
+					channel.sendUserMessage(text, () => {
+						// A callback is required for some reason...
+					});
+				},
 				/**
 				 * A wrapper around the settings manager with methods applying to the current subreddit.
 				 */
 				settings: {
-					/**
-					 * Sets a key for the current subreddit namespace.
-					 * @param {string} key The key to set.
-					 * @param {*} value The value to be set.
-					 */
-					set: (key, value) => settings.set(chData.subreddit.name, key, value),
 					/**
 					 * Clears a key for the current subreddit namespace.
 					 * @param {string} key The key to clear.
@@ -82,15 +85,16 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					 * @returns *
 					 */
 					get: key => settings.get(chData.subreddit.name, key),
+					/**
+					 * Sets a key for the current subreddit namespace.
+					 * @param {string} key The key to set.
+					 * @param {*} value The value to be set.
+					 */
+					set: (key, value) => settings.set(chData.subreddit.name, key, value),
 					manager: settings,
 				},
 				version,
-				author: message._sender.nickname,
-				send: message => {
-					channel.sendUserMessage(message, () => {});
-				},
 				usage: yargs.getUsageInstance().getCommands(),
-				log: log.commands,
 			});
 		} catch (error) {
 			safeFail(error);
@@ -100,7 +104,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 
 const Sendbird = require("sendbird");
 const sb = new Sendbird({
-	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13", // reddit chat!!
+	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13",
 });
 
 log.main("connecting to sendbird");
@@ -118,7 +122,7 @@ const handler = new sb.ChannelHandler();
 handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
 handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
-		// i have been invited to channel, let's join and send an introductory message!
+		// I have been invited to channel, let's join and send an introductory message!
 		log.invites("invited to channel");
 		channel.acceptInvitation((channel, error) => {
 			if (error) {
