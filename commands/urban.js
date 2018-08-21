@@ -16,7 +16,7 @@ module.exports = {
 				args.send("There was no result for that word on Urban Dictionary!");
 			});
 		} else {
-			args.send(`undefined: A subtle hint that you need to tell me which word to define.`);
+			args.send("undefined: A subtle hint that you need to tell me which word to define.");
 		}
-	}
+	},
 };

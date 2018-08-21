@@ -9,5 +9,5 @@ module.exports = {
 			args.settings.clear("leave_message");
 			args.send("The leave message will not be sent.");
 		}
-	}
+	},
 };

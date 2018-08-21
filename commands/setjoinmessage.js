@@ -9,5 +9,5 @@ module.exports = {
 			args.settings.clear("join_message");
 			args.send("The join message will not be sent.");
 		}
-	}
+	},
 };

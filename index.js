@@ -30,7 +30,7 @@ yargs.commandDir("commands", {
  * @param {*} error The error that occured.
  */
 function safeFail(error) {
-    return log.commands("an error occured during command parsing/execution: %O", error);
+	return log.commands("an error occured during command parsing/execution: %O", error);
 }
 yargs.fail(safeFail);
 yargs.exitProcess(false);
@@ -41,7 +41,7 @@ yargs.version(false);
 /**
  * The client information.
  */
-let clientInfo = {};
+const clientInfo = {};
 
 /**
  * Runs a command.
@@ -100,11 +100,11 @@ function handleCommand(command = "", channel = {}, message = {}) {
 
 const Sendbird = require("sendbird");
 const sb = new Sendbird({
-	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13" // reddit chat!!
+	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13", // reddit chat!!
 });
 
 log.main("connecting to sendbird");
-sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], (userInfo, error) => {
+sb.connect(process.env.SNOOFUL_ID, process.env.SNOOFUL_TOKEN, (userInfo, error) => {
 	if (error) {
 		log.main("couldn't connect to sendbird");
 	} else {
@@ -131,7 +131,7 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 			}
 		});
 	}
-}
+};
 
 function channelSub(channel) {
 	const data = JSON.parse(channel.data);
@@ -152,7 +152,7 @@ handler.onUserJoined = (channel, user) => {
 };
 handler.onUserLeft = (channel, user) => {
 	if (user.nickname === client.nickname) return;
-	
+
 	log.gateway("user left, handling leave message");
 
 	const sub = channelSub(channel);

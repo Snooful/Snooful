@@ -1,7 +1,7 @@
 const chunk = require("lodash.chunk");
 
 module.exports = {
-    command: "commands [page]",
+	command: "commands [page]",
 	describe: "List commands and their description.",
 	builder: builder => {
 		builder.positional("page", {
@@ -10,7 +10,7 @@ module.exports = {
 			default: 1,
 		});
 	},
-    handler: args => {
+	handler: args => {
 		const allCommands = args.usage.map(command => `${args.prefix}${command[0]}: ${command[1]}`).sort();
 		const list = chunk(allCommands, 5);
 

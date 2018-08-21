@@ -5,5 +5,5 @@ module.exports = {
 	describe: "Links to the GitHub repository for Snooful.",
 	handler: args => {
 		args.send(`My source code is available at ${github}!`);
-	}
+	},
 };
