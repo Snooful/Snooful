@@ -1,10 +1,18 @@
 const chunk = require("lodash.chunk");
 
 /**
+	* Gets data for pagination.
+	* @name DataGetFunction
+	* @function
+	* @param args The arguments from Yargs.
+	* @returns *[]
+*/
+
+/**
 	* Creates a pagined command using a set of data.
 	* @param {string} command The name of the command.
 	* @param {string} description The command description.
-	* @param {function|*[]} data The data to paginate.
+	* @param {(DataGetFunction|*[])} data The data to paginate.
 	* @param {string} dataType The type of data being displayed.
 */
 module.exports = async (command, description, data = [], dataType = "items") => {
