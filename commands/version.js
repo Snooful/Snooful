@@ -8,5 +8,6 @@ module.exports = {
 			args.send(`I am running version ${args.version}! 😄`);
 		} else {
 			args.send(`I am running version ${args.version}, with the most recent commit being ${git.shortHash}!`);
+		}
 	}),
 };
