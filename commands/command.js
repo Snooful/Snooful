@@ -9,7 +9,7 @@ module.exports = {
 		"cmdinfo",
 	],
 	builder: cmd => {
-		cmd.positional("name{
+		cmd.positional("name", {
 			type: "string",
 			describe: "The command to view information about.",
 		});
