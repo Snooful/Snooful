@@ -11,11 +11,21 @@ const chunk = require("lodash.chunk");
 /**
 	* Creates a pagined command using a set of data.
 	* @param {string} command The name of the command.
-	* @param {string} description The command description.
 	* @param {(DataGetFunction|*)} data The data to paginate.
-	* @param {string} dataType The type of data being displayed.
+	* @param opts Other options.
+	* @param {string} opts.description The command description.
+	* @param {string} opts.dataType The type of data being displayed.
 */
-module.exports = (command, description, data = [], dataType = "items") => {
+module.exports = (command, data = [], opts = {}) => {
+	const options = Object.assign({
+		description: "",
+		dataType: "items",
+	}, opts);
+	
+	// legacy var names
+	const description = opts.description;
+	const dataType = opts.dataType;
+	
 	return {
 		command: command + " [page]",
 		describe: description,
