@@ -1,5 +1,5 @@
 module.exports = {
-	command: "command <name>",
+	command: "command [name]",
 	describe: "Views information about a command.",
 	aliases: [
 		"cmd",
@@ -14,5 +14,11 @@ module.exports = {
 			describe: "The command to view information about.",
 		});
 	},
-	handler: args => {},
+	handler: args => {
+		if (args.name) {
+			
+		} else {
+			args.send(`Please specify a command to view. To see all commands, do ${args.prefix}commands.`);
+		}
+	},
 };
