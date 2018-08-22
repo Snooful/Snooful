@@ -15,6 +15,7 @@ const chunk = require("lodash.chunk");
 	* @param opts Other options.
 	* @param {string} opts.description The command description.
 	* @param {string} opts.dataType The plural word used to describe the data.
+	* @param {string} [opts.footer] Text to display after the data as a footer.
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
@@ -45,7 +46,8 @@ module.exports = (command, data = [], opts = {}) => {
 				if (resolvedData.length === 0) {
 					args.send(`There are no ${options.dataType} to view.`);
 				} else {
-					args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ` + list[args.page - 1].join("\n• "));
+					const endText = opts.footer ? "\n\n" + opts.footer : "";
+					args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				}
 			} else {
 				args.send("That's an invalid page number!");
