@@ -1,6 +1,6 @@
 # Snooful
 
-A Reddit Chat bot.
+The most complete bot for moderation, utility, and fun in Reddit Chat.
 
 ## Environment Variables
 
