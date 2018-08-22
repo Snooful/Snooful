@@ -11,7 +11,7 @@
 		"urban-dictionary": "^2.1.2",
 		"yargs": "^12.0.1"
 	},
-	"description": "",
+	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
 	"main": "index.js",
 	"devDependencies": {},
