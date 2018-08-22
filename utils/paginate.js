@@ -42,7 +42,11 @@ module.exports = (command, data = [], opts = {}) => {
 			const list = chunk(resolvedData.sort(), 5);
 
 			if (args.page <= list.length && args.page > 0) {
-				args.send(`${resolvedData.length} commands (page ${args.page} of ${list.length}): \n\n• ` + list[args.page - 1].join("\n• "));
+				if (resolvedData.length === 0) {
+					args.send("There is no data to view.");
+				} else {
+					args.send(`${resolvedData.length} commands (page ${args.page} of ${list.length}): \n\n• ` + list[args.page - 1].join("\n• "));
+				}
 			} else {
 				args.send("That's an invalid page number!");
 			}
