@@ -15,6 +15,21 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	settings = new SettingsManager(database);
 });
 
+if (process.env.SNOOFUL_DASH_ENABLED) {
+	try {
+		const dashboard = require("snooful-dashboard");
+		dashboard.start({
+			port: process.env.SNOOFUL_DASH_PORT,
+			clientID: process.env.SNOOFUL_DASH_ID,
+			clientSecret: process.env.SNOOFUL_DASH_SECRET,
+		});
+	} catch {
+		log.main("dashboard could not be started because of a problem");
+	}
+} else {
+	log.main("dashboard is disabled, skipping");
+}
+
 /**
  * The prefix required by commands to be considered by the bot.
  */
