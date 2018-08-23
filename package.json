@@ -6,13 +6,14 @@
 		"color-namer": "^1.3.0",
 		"debug": "^3.1.0",
 		"dotenv": "^6.0.0",
+    "git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0",
 		"sendbird": "^3.0.71",
 		"sqlite": "^2.9.2",
 		"urban-dictionary": "^2.1.2",
 		"yargs": "^12.0.1"
 	},
-	"description": "",
+	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
 	"main": "index.js",
 	"devDependencies": {},
@@ -21,7 +22,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/haykam821/Snooful.git"
+		"url": "git+https://github.com/Snooful/Snooful.git"
 	},
 	"keywords": [
 		"reddit",
@@ -34,7 +35,7 @@
 	"author": "haykam821",
 	"license": "UNLICENSED",
 	"bugs": {
-		"url": "https://github.com/haykam821/Snooful/issues"
+		"url": "https://github.com/Snooful/Snooful/issues"
 	},
-	"homepage": "https://github.com/haykam821/Snooful#readme"
+	"homepage": "https://github.com/Snooful/Snooful#readme"
 }
