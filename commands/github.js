@@ -1,4 +1,4 @@
-const github = "https://github.com/haykam821/Snooful";
+const github = "https://github.com/Snooful/Snooful";
 
 module.exports = {
 	name: "github",
