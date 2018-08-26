@@ -14,6 +14,7 @@ const chunk = require("lodash.chunk");
 	* @param {(DataGetFunction|*)} [data] The data to paginate.
 	* @param [opts] Other options.
 	* @param {string} [opts.description] The command description.
+	* @param {string[]} [opts.aliases] The command's aliases.
 	* @param {string} [opts.dataType] The plural word used to describe the data.
 	* @param {string} [opts.footer] Text to display after the data as a footer.
 */
@@ -22,6 +23,7 @@ module.exports = (command, data = [], opts = {}) => {
 		description: "",
 		aliases: [],
 		dataType: "items",
+		footer: "",
 	}, opts);
 	
 	return {
