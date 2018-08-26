@@ -24,14 +24,10 @@ module.exports = (command, data = [], opts = {}) => {
 		dataType: "items",
 	}, opts);
 	
-	// legacy var names
-	const description = opts.description;
-	const dataType = opts.dataType;
-	
 	return {
 		command: command + " [page]",
-		describe: description,
-		aliases: opts.aliases,
+		describe: options.description,
+		aliases: options.aliases,
 		builder: builder => {
 			builder.positional("page", {
 				type: "number",
@@ -48,7 +44,7 @@ module.exports = (command, data = [], opts = {}) => {
 				if (resolvedData.length === 0) {
 					args.send(`There are no ${options.dataType} to view.`);
 				} else {
-					const endText = opts.footer ? "\n\n" + opts.footer : "";
+					const endText = options.footer ? "\n\n" + options.footer : "";
 					args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				}
 			} else {
