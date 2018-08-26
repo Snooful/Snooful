@@ -20,6 +20,7 @@ const chunk = require("lodash.chunk");
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
 		description: "",
+		aliases: [],
 		dataType: "items",
 	}, opts);
 	
@@ -30,6 +31,7 @@ module.exports = (command, data = [], opts = {}) => {
 	return {
 		command: command + " [page]",
 		describe: description,
+		aliases: opts.aliases,
 		builder: builder => {
 			builder.positional("page", {
 				type: "number",
