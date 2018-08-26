@@ -1,6 +1,9 @@
 module.exports = {
 	command: "echo <text...>",
 	describe: "Repeats a message.",
+	aliases: [
+		"repeat",
+	],
 	builder: cmd => {
 		cmd.positional("text", {
 			type: "string",

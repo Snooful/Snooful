@@ -30,8 +30,10 @@ yargs.commandDir("commands", {
  * @param {*} error The error that occured.
  */
 function safeFail(error) {
-    return log.commands("an error occured during command parsing/execution: %O", error);
+	const errMsg = error instanceof Error ? error.message : error;
+    return log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
+
 yargs.fail(safeFail);
 yargs.exitProcess(false);
 
@@ -61,29 +63,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
-				/**
-				 * A wrapper around the settings manager with methods applying to the current subreddit.
-				 */
-				settings: {
-					/**
-					 * Sets a key for the current subreddit namespace.
-					 * @param {string} key The key to set.
-					 * @param {*} value The value to be set.
-					 */
-					set: (key, value) => settings.set(chData.subreddit.name, key, value),
-					/**
-					 * Clears a key for the current subreddit namespace.
-					 * @param {string} key The key to clear.
-					 */
-					clear: key => settings.clear(chData.subreddit.name, key),
-					/**
-					 * Gets a key from the current subreddit namespace.
-					 * @param {string} key The key to get.
-					 * @returns *
-					 */
-					get: key => settings.get(chData.subreddit.name, key),
-					manager: settings,
-				},
+				settings: settings.subredditWrapper(chData.subreddit.name),
 				version,
 				author: message._sender.nickname,
 				send: message => {

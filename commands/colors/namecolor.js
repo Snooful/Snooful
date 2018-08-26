@@ -6,14 +6,14 @@ module.exports = {
 		"colorname",
 	],
 	describe: "Names a color.",
-	builder = build => {
+	builder: build => {
 		build.positional("color", {
 			type: "string",
 			describe: "The color to name.",
 		});
 		build.positional("count", {
 			type: "number",
-			describe: "The amount of names to assign.";
+			describe: "The amount of names to assign.",
 			default: 1,
 		});
 	},

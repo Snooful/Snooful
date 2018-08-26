@@ -2,7 +2,10 @@ const toChannel = "sendbird_group_channel_961019_3546ab525611fe34f46eb0e7b93257a
 
 module.exports = {
     command: "feedback [text...]",
-	describe: "Send feedback to Snooful's creator.",
+	describe: "Send feedback to Snooful's creator.", 
+	aliases: [
+		"suggest",
+	],
 	builder: cmd => {
 		cmd.positional("text", {
 			type: "string",
