@@ -35,7 +35,7 @@ module.exports = {
 				} else {
 					args.send("Please provide a proper integer for the amount of color names you would like to me to give.");
 				}
-			} catch {
+			} catch (error) {
 				const randColor = chance.color({
 					format: "hex",
 					casing: "upper",
