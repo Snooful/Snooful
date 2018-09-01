@@ -43,14 +43,14 @@ yargs.version(false);
 /**
  * The client information.
  */
-let clientInfo = {};
+let client = {};
 
 /**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
-	if (command.startsWith(prefix) && message._sender.nickname !== clientInfo.nickname) {
+	if (command.startsWith(prefix) && message._sender.nickname !== client.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
 		log.commands("recieved command '%s'", unprefixedCmd);
 
