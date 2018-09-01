@@ -17,6 +17,7 @@ const chunk = require("lodash.chunk");
 	* @param {string[]} [opts.aliases] The command's aliases.
 	* @param {string} [opts.dataType] The plural word used to describe the data.
 	* @param {string} [opts.footer] Text to display after the data as a footer.
+	* @param {string} [opts.noItemsMessage] The message to display if there are no items to view.
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
@@ -24,6 +25,7 @@ module.exports = (command, data = [], opts = {}) => {
 		aliases: [],
 		dataType: "items",
 		footer: "",
+		noItemsMessage: "",
 	}, opts);
 	
 	return {
@@ -45,7 +47,7 @@ module.exports = (command, data = [], opts = {}) => {
 			if (args.page <= list.length && args.page > 0) {
 				if (Number.isInteger(args.page)) {
 					if (resolvedData.length === 0) {
-						args.send(`There are no ${options.dataType} to view.`);
+						args.send(options.noItemsMessage || `There are no ${options.dataType} to view.`);
 					} else {
 						const endText = options.footer ? "\n\n" + options.footer : "";
 						args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
