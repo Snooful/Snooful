@@ -10,5 +10,5 @@ module.exports = {
 			describe: "The message to echo."
 		})
 	},
-	handler: args => args.send("\u200B" + args.text.join(" ")),
+	handler: args => args.send("🎙️ " + args.text.join(" ")),
 };
