@@ -70,7 +70,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
-				settings: settings.subredditWrapper(chData.subreddit ? chData.subreddit.name : channel.url),
+				settings: settings.subredditWrapper(channelSub(channel)),
 				version,
 				author: message._sender.nickname,
 				send: message => {
@@ -121,8 +121,12 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 }
 
 function channelSub(channel) {
-	const data = JSON.parse(channel.data);
-	return data.subreddit.name;
+	if (channel.data) {
+		const data = JSON.parse(channel.data);
+		return data.subreddit ? data.subreddit.name : channel.url;
+	} else {
+		return channel.url;
+	}
 }
 
 handler.onUserJoined = (channel, user) => {
