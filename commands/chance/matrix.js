@@ -16,7 +16,7 @@ module.exports = {
         } else if (args.amount > 40) {
             args.send("If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.");
         } else {
-            args.send(chance.n(chance.integer, 40, {
+            args.send(chance.n(chance.integer, args.amount, {
                 min: 0,
                 max: 1,
             }).join(""));
