@@ -18,7 +18,7 @@ module.exports = {
 					args.send("I couldn't send the feedback.");
 					args.log("error with feedback command");
 				} else {
-					channel.sendUserMessage(`I have recieved the following message from u/${args.message._sender.nickname}:`, new Function());
+					channel.sendUserMessage(`I have recieved the following message from u/${args.message._sender.nickname} in ${args.channel.name}:`, new Function());
 					channel.sendUserMessage(args.text.join(" "), new Function());
 
 					args.send("I have contacted my creator for you.");
