@@ -8,7 +8,7 @@ module.exports = {
 		const faqs = args.settings.get("faq_messages");
 
 		if (args.id) {
-			if (faqs[args.id]) {
+			if (faqs && faqs[args.id]) {
 				args.send("\u200B" + faqs[args.id]);
 			} else {
 				args.send(`There is no FAQ with that identifier. For a list of FAQs that exist, type ${args.prefix}listfaq.`);
