@@ -1,4 +1,5 @@
 const namer = require("color-namer");
+const chance = require("chance").Chance();
 
 module.exports = {
 	command: "namecolor [color] [count]",
@@ -19,12 +20,19 @@ module.exports = {
 	},
 	handler: args => {
 		if (args.color) {
-			const names = namer(args.color).ntc;
-			
-			if (args.count === 1) {
-				args.send(`This color is called ${names[0]}.`); 
-			} else {
-				args.send(`The closest names for this color are ${names.slice(0, args.count).join(", ")}.`);
+			try {
+				const names = namer(args.color).ntc.map(result => result.name);
+				if (args.count === 1) {
+					args.send(`This color is called ${names[0]}.`);
+				} else {
+					args.send(`The closest names for this color are ${names.slice(0, args.count).join(", ")}.`);
+				}
+			} catch {
+				const randColor = chance.color({
+					format: "hex",
+					casing: "upper",
+				});
+				args.send(`That color is invalid. Please provide a hexadecimal color, such as ${randColor}.`);
 			}
 		} else {
 			args.send("Give me a color to name.");
