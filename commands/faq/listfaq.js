@@ -2,7 +2,7 @@ module.exports = {
 	command: "listfaq",
 	describe: "Lists the identifiers of all the FAQs.",
 	handler: args => {
-		const ids = Object.keys(args.settings.get("faq_messages"));
+		const ids = Object.keys(args.settings.get("faq_messages") || {});
 
 		if (ids.length > 1) {
 			args.send(`There are ${ids.length} FAQs: ${ids.join(", ")}`);
