@@ -63,7 +63,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				client,
 				sb,
-				settings: settings.subredditWrapper(chData.subreddit.name),
+				settings: settings.subredditWrapper(chData.subreddit ? chData.subreddit.name : channel.url),
 				version,
 				author: message._sender.nickname,
 				send: message => {
