@@ -54,8 +54,15 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		const unprefixedCmd = command.replace(prefix, "");
 		log.commands("recieved command '%s'", unprefixedCmd);
 
+		let chData = {};
+		
 		try {
-			const chData = JSON.parse(channel.data);
+			chData = JSON.parse(channel.data);
+		} catch {
+			log.commands("couldn't parse extra channel data, this is fine");
+		}
+
+		try {
 			yargs.parse(unprefixedCmd, {
 				prefix,
 				channel,

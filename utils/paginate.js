@@ -43,11 +43,15 @@ module.exports = (command, data = [], opts = {}) => {
 			const list = chunk(resolvedData.sort(), 5);
 
 			if (args.page <= list.length && args.page > 0) {
-				if (resolvedData.length === 0) {
-					args.send(`There are no ${options.dataType} to view.`);
+				if (Number.isInteger(args.page)) {
+					if (resolvedData.length === 0) {
+						args.send(`There are no ${options.dataType} to view.`);
+					} else {
+						const endText = options.footer ? "\n\n" + options.footer : "";
+						args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
+					}
 				} else {
-					const endText = options.footer ? "\n\n" + options.footer : "";
-					args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
+					args.send("Page numbers must be integers.");
 				}
 			} else {
 				args.send("That's an invalid page number!");
