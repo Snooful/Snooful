@@ -24,8 +24,10 @@ module.exports = {
 				const names = namer(args.color).ntc.map(result => result.name);
 				if (args.count === 1) {
 					args.send(`This color is called ${names[0]}.`);
-				} else {
+				} else if (Number.isInteger(args.count)) {
 					args.send(`The closest names for this color are ${names.slice(0, args.count).join(", ")}.`);
+				} else {
+					args.send("Please provide a proper integer for the amount of color names you would like to me to give.");
 				}
 			} catch {
 				const randColor = chance.color({
