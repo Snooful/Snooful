@@ -7,6 +7,7 @@
 		"dotenv": "^6.0.0",
 		"git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0",
+		"rpg-dice-roller": "^2.0.0",
 		"sendbird": "^3.0.71",
 		"sqlite": "^2.9.2",
 		"urban-dictionary": "^2.1.2",
