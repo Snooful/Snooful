@@ -30,9 +30,9 @@ module.exports = {
 				if (myChoice === yourChoice) {
 					args.send(msg + `Oh, we both chose ${myChoice}! We should try this again.`);
 				} else if (beats[myChoice] === args.option) {
-					args.send(msg + `Haha, I beat you; ${myChoice} beats ${yourChoice}.`);
+					args.send(msg + `Haha, I beat you; my ${myChoice} beats your ${yourChoice}.`);
 				} else {
-					args.send(msg + `Darn, you got me there; ${yourChoice} beats ${myChoice}.`);
+					args.send(msg + `Darn, you got me there; your ${yourChoice} beats my ${myChoice}.`);
 				}
 			}
 		} else {
