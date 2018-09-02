@@ -1,5 +1,5 @@
 module.exports = {
-	command: "echo <text...>",
+	command: "echo [text...]",
 	describe: "Repeats a message.",
 	aliases: [
 		"repeat",
@@ -8,7 +8,13 @@ module.exports = {
 		cmd.positional("text", {
 			type: "string",
 			describe: "The message to echo."
-		})
+		});
 	},
-	handler: args => args.send("🎙️ " + args.text.join(" ")),
+	handler: args => {
+		if (args.text && args.length > 0) {
+			args.send("🎙️ " + args.text.join(" "));
+		} else {
+			args.send("Give me something to echo.");
+		}
+	},
 };
