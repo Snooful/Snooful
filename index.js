@@ -97,6 +97,22 @@ sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], (userInfo, e
 	} else {
 		log.main("connected to sendbird");
 		client = userInfo;
+
+		const query = sb.GroupChannel.createMyGroupChannelListQuery();
+		query.next(list => {
+			list.filter(channel => {
+				return channel.myMemberState = "invited";
+			}).forEach(channel => {
+				channel.acceptInvitation((channel, error) => {
+					if (!error) {
+						log.invites(`accepted channel invitation to ${channel.name} (late)`);
+						channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! Sorry I was late, but I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, error) => {
+							log.invites(error ? "failed to send introductory message (late)" : "sent introductory message (late)");
+						});
+					}
+				});
+			});
+		});
 	}
 });
 
