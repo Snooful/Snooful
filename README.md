@@ -17,7 +17,7 @@ To use Snooful, you must set two variables for the user ID (`SNOOFUL_ID`) and re
 
 You can also configure the prefix from the default `!` by setting `SNOOFUL_PREFIX`.
 
-Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can also set `DEBUG` to `snooful:*` to recieve logs of everything notable happening with Snooful. This package also has other environment variables that can be set, which are:
+Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can also set `DEBUG` to `snooful:*` to recieve logs of everything notable happening with Snooful. This package also has [other environment variables](https://github.com/visionmedia/debug#environment-variables) that can be set, which are:
 
 * `DEBUG_HIDE_DATE`
 * `DEBUG_COLORS`
