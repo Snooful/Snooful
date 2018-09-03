@@ -23,3 +23,12 @@ Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can 
 * `DEBUG_COLORS`
 * `DEBUG_DEPTH`
 * `DEBUG_SHOW_HIDDEN`
+
+Since this project uses [`dotenv`](https://www.npmjs.com/package/dotenv), your environment variables can be stored in `./.env`, which has been git-ignored, using the following syntax:
+
+```
+SNOOFUL_PREFIX=?
+SNOOFUL_ID=t2_a1b2c3
+SNOOFUL_TOKEN=f4k3_t0k3n
+DEBUG=snooful:*
+```
