@@ -9,6 +9,7 @@
 		"esrever": "^0.2.0",
 		"git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0",
+		"pm2": "^3.0.4",
 		"rpg-dice-roller": "^2.0.0",
 		"sendbird": "^3.0.71",
 		"sqlite": "^2.9.2",
@@ -18,9 +19,9 @@
 	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
 	"main": "index.js",
-	"devDependencies": {},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "pm2 stop snooful; pm2 start index.js --name snooful"
 	},
 	"repository": {
 		"type": "git",
