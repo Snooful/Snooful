@@ -7,6 +7,12 @@ module.exports = {
 		"urbandict",
 		"urbandictionary",
 	],
+	builder: build => {
+		build.positional("term", {
+			describe: "The term to define.",
+			type: "string",
+		});
+	},
 	handler: args => {
 		if (args.term) {
 			urbanDict.term(args.term).then(result => {
