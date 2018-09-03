@@ -9,6 +9,12 @@ module.exports = {
 		"croll",
 		"cdice",
 	],
+	builder: build => {
+		build.positional("dice", {
+			describe: "The dice you want to roll, in standard RPG format.",
+			type: "string",
+		});
+	},
 	handler: args => {
 		if (args.dice) {
 			const roll = DiceRoller.roll(args.dice);

@@ -15,6 +15,12 @@ const beats = {
 module.exports = {
 	command: "rps [option]",
 	describe: "Plays rock-paper-scissors with the bot.",
+	builder: build => {
+		build.positional("option", {
+			describe: "The option you want to play.",
+			type: "string",
+		});
+	},
 	handler: args => {
 		if (args.option) {
 			const yourChoice = dym(args.option, choices, {

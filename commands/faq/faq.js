@@ -1,9 +1,15 @@
 module.exports = {
-	command: "faq <id>",
+	command: "faq [id]",
 	describe: "Shows a prewritten FAQ.",
 	aliases: [
 		"getfaq",
 	],
+	builder: build => {
+		build.positional("id", {
+			describe: "The ID of the FAQ message to view.",
+			type: "string",
+		});
+	},
 	handler: args => {
 		const faqs = args.settings.get("faq_messages");
 
