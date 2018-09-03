@@ -5,6 +5,18 @@ module.exports = {
 		"leavemessage",
 		"setleavemsg",
 		"leavemsg",
+		"setquitmessage",
+		"quitmessage",
+		"setquitmsg",
+		"quitmsg",
+		"setgoodbyemessage",
+		"goodbyemessage",
+		"setgoodbyemsg",
+		"goodbyemsg",
+		"setbyemessage",
+		"byemessage",
+		"setbyemsg",
+		"byemsg",
 	],
 	builder: build => {
 		build.positional("leave-message", {

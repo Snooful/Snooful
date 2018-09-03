@@ -5,6 +5,14 @@ module.exports = {
 		"joinmessage",
 		"setjoinmsg",
 		"joinmsg",
+		"setwelcomemessage",
+		"welcomemessage",
+		"setwelcomemsg",
+		"welcomemsg",
+		"sethellomessage",
+		"hellomessage",
+		"sethellomsg",
+		"hellomsg",
 	],
 	builder: build => {
 		build.positional("join-message", {
