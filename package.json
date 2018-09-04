@@ -9,6 +9,7 @@
 		"esrever": "^0.2.0",
 		"git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0",
+		"moment-timezone": "^0.5.21",
 		"pm2": "^3.0.4",
 		"rpg-dice-roller": "^2.0.0",
 		"sendbird": "^3.0.71",
