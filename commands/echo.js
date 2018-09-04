@@ -11,10 +11,6 @@ module.exports = {
 		});
 	},
 	handler: args => {
-		if (args.text && args.text.length > 0) {
-			args.send("🎙️ " + args.text.join(" "));
-		} else {
-			args.send("Give me something to echo.");
-		}
+		args.send("Sorry, but this command is temporarily disabled until our command restriction system is implemented. Sorry!");
 	},
 };
