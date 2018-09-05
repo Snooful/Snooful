@@ -1,5 +1,8 @@
 # Snooful
 
+![GitHub issues](https://img.shields.io/github/issues/Snooful/Snooful.svg?style=popout)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Snooful/Snooful.svg?style=popout)
+
 The most complete bot for moderation, utility, and fun in Reddit Chat.
 
 ## Environment Variables
