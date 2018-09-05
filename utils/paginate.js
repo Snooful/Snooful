@@ -1,4 +1,9 @@
-const chunk = require("lodash.chunk");
+let chunk;
+try {
+	chunk = require("lodash.chunk");
+} catch (_) {
+	chunk = array => [array];
+}
 
 /**
 	* Gets data for pagination.
