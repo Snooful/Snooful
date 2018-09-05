@@ -8,7 +8,7 @@ Some dependencies do not need to be installed for Snooful to function, but they 
 
 * `debug` - replaced with a basic write to `stdout`
 * `dotenv` - you won't be able to set environment variables in `.env`
-* `esrever` - reversing won't account for fancy Unicode things
+* `esrever` - reversing (the `reverse` command) won't account for fancy Unicode things
 * `git-last-commit` - the most recent commit hash will never be shown in the `version` command
 * `lodash.chunk` - some commands (`commands` and `listfaq`) will not be paginated
 

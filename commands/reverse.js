@@ -1,7 +1,7 @@
 let rev;
 try {
 	rev = require("esrever").reverse;
-} catch (error) {
+} catch (_) {
 	rev = text => {
 		return text.split("").reverse().join("");
 	};

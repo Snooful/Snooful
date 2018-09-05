@@ -1,7 +1,7 @@
 let debug;
 try {
 	debug = require("debug");
-} catch (error) {
+} catch (_) {
 	debug = name => {
 		return msg => {
 			process.stdout.write(`${name} - ${msg}\n`);

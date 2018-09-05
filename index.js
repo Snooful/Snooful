@@ -1,4 +1,11 @@
-require("dotenv").config();
+let envs;
+try {
+	envs = require("dotenv").config().parsed || {};
+} catch (_) {
+	envs = {
+		parsed: {},
+	};
+}
 
 const log = require("./debug.js");
 
@@ -18,7 +25,7 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 /**
  * The prefix required by commands to be considered by the bot.
  */
-const prefix = process.env.SNOOFUL_PREFIX || "!";
+const prefix = envs.SNOOFUL_PREFIX || "!";
 
 const yargs = require("yargs");
 yargs.commandDir("commands", {
@@ -91,7 +98,7 @@ const sb = new Sendbird({
 });
 
 log.main("connecting to sendbird");
-sb.connect(process.env["SNOOFUL_ID"], process.env["SNOOFUL_TOKEN"], (userInfo, error) => {
+sb.connect(envs["SNOOFUL_ID"], envs["SNOOFUL_TOKEN"], (userInfo, error) => {
 	if (error) {
 		log.main("couldn't connect to sendbird");
 	} else {
