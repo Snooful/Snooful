@@ -18,7 +18,7 @@
 		"esrever": "^0.2.0",
 		"git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0"
-  },
+	},
 	"devDependencies": {
 		"eslint": "^5.4.0",
 		"eslint-config-haykam": "^1.3.0",

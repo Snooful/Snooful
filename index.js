@@ -83,6 +83,11 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				prefix,
 				sb,
+				send: message => {
+					channel.sendUserMessage(message.toString(), () => {
+						// Quite a useless callback...
+					});
+				},
 				settings: settings.subredditWrapper(channelSub(channel)),
 				usage: yargs.getUsageInstance().getCommands(),
 				version,
@@ -111,11 +116,9 @@ sb.connect(envs.SNOOFUL_ID, envs.SNOOFUL_TOKEN, (userInfo, error) => {
 			list.filter(channel => {
 				return channel.myMemberState = "invited";
 			}).forEach(channel => {
-				channel.acceptInvitation((acceptedChannel, acceptError) => {
-					if (acceptError) {
-						log.invites(`could not accept channel invitation to ${acceptedChannel.name} (late)`);
-					} else {
-						log.invites(`accepted channel invitation to ${acceptedChannel.name} (late)`);
+				channel.acceptInvitation((_, acceptError) => {
+					if (!acceptError) {
+						log.invites(`accepted channel invitation to ${channel.name} (late)`);
 					}
 				});
 			});
