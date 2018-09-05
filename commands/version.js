@@ -11,9 +11,9 @@ function sendVersion(args) {
 }
 
 module.exports = {
-    command: "version",
-    describe: "Shows the version of the bot.",
-    handler: args => {
+	command: "version",
+	describe: "Shows the version of the bot.",
+	handler: args => {
 		if (canUseHash) {
 			glc.getLastCommit((error, git) => {
 				if (error) {

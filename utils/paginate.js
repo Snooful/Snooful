@@ -53,16 +53,12 @@ module.exports = (command, data = [], opts = {}) => {
 			const list = chunk(resolvedData.sort(), 5);
 			if (resolvedData.length === 0) {
 				args.send(options.noItemsMessage || `There are no ${options.dataType} to view.`);
-			} else {
-				if (args.page <= list.length && args.page > 0) {
-					if (Number.isInteger(args.page)) {
-						const pageOfText = properChunk ? ` (page ${args.page} of ${list.length})` : "";
-						const endText = options.footer ? "\n\n" + options.footer : "";
+			} else if (args.page <= list.length && args.page > 0) {
+				if (Number.isSafeInteger(args.page)) {
+					const pageOfText = properChunk ? ` (page ${args.page} of ${list.length})` : "";
+					const endText = options.footer ? "\n\n" + options.footer : "";
 
-						args.send(`${resolvedData.length} ${options.dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
-					} else {
-						args.send("Page numbers must be integers.");
-					}
+					args.send(`${resolvedData.length} ${options.dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
 					args.send("Page numbers must be integers.");
 				}

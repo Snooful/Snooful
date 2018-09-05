@@ -99,7 +99,7 @@ const sb = new Sendbird({
 });
 
 log.main("connecting to sendbird");
-sb.connect(envs["SNOOFUL_ID"], envs["SNOOFUL_TOKEN"], (userInfo, error) => {
+sb.connect(envs.SNOOFUL_ID, envs.SNOOFUL_TOKEN, (userInfo, error) => {
 	if (error) {
 		log.main("couldn't connect to sendbird");
 	} else {
