@@ -9,6 +9,6 @@ module.exports = {
 	],
 	handler: args => args.send(`The die lands on a ${chance.integer({
 		min: 1,
-		max: 6
+		max: 6,
 	})}.`),
 };

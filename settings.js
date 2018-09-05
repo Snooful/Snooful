@@ -120,7 +120,7 @@ class SettingsManager {
 			 */
 			get: key => this.get(subreddit, key),
 			manager: this,
-		}
+		};
 	}
 }
 

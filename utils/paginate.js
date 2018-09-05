@@ -27,7 +27,7 @@ module.exports = (command, data = [], opts = {}) => {
 		footer: "",
 		noItemsMessage: "",
 	}, opts);
-	
+
 	return {
 		command: command + " [page]",
 		describe: options.description,
@@ -41,21 +41,19 @@ module.exports = (command, data = [], opts = {}) => {
 		},
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
-			
+
 			const list = chunk(resolvedData.sort(), 5);
 			if (resolvedData.length === 0) {
 				args.send(options.noItemsMessage || `There are no ${options.dataType} to view.`);
-			} else {
-				if (args.page <= list.length && args.page > 0) {
-					if (Number.isInteger(args.page)) {
-						const endText = options.footer ? "\n\n" + options.footer : "";
-						args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
-					} else {
-						args.send("Page numbers must be integers.");
-					}
+			} else if (args.page <= list.length && args.page > 0) {
+				if (Number.isInteger(args.page)) {
+					const endText = options.footer ? "\n\n" + options.footer : "";
+					args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
-					args.send("That's an invalid page number!");
+					args.send("Page numbers must be integers.");
 				}
+			} else {
+				args.send("That's an invalid page number!");
 			}
 		},
 	};

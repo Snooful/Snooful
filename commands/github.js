@@ -12,5 +12,5 @@ module.exports = {
 	],
 	handler: args => {
 		args.send(`My source code is available at ${github}!`);
-	}
+	},
 };

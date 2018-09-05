@@ -1,8 +1,8 @@
 const toChannel = "sendbird_group_channel_961019_3546ab525611fe34f46eb0e7b93257a9f2c0a4b2";
 
 module.exports = {
-    command: "feedback [text...]",
-	describe: "Send feedback to Snooful's creator.", 
+	command: "feedback [text...]",
+	describe: "Send feedback to Snooful's creator.",
 	aliases: [
 		"suggest",
 	],
