@@ -13,7 +13,12 @@ To use Snooful, you must set two variables for the user ID (`SNOOFUL_ID`) and re
 5. Click the `https://reddit.com` option under the newly expanded menu.
 6. Find the entry with a key starting with `chat.session`.
 7. Get the ID by finding it enclosed in square brackets after `chat.session` in the key, such as `chat.session[t2_XXXXX]`.
-8. Get the token by reading the JSON-encoded value of this entry (most developer tools let you view a parsed version too) and finding the `token`, such as `{"token": "XXXXXXXXXXXXX"}`. 
+8. Get the token by reading the JSON-encoded value of this entry (most developer tools let you view a parsed version too) and finding the `token`, such as `{"token": "XXXXXXXXXXXXX"}`.
+
+Snooful can store data for subreddits and groups. This is left to a separate module, which is configured with the `SNOOFUL_SETTINGS_MANAGER` environment variable, and must be resolvable by `require()`. Of course, you probably will need to `npm install` your module. We support either of these modules:
+
+* [`@snooful/sqlite-settings`](https://github.com/Snooful/SQLite-Settings)
+* [`@snooful/json-settings`](https://github.com/Snooful/JSON-Settings)
 
 You can also configure the prefix from the default `!` by setting `SNOOFUL_PREFIX`.
 

@@ -7,13 +7,8 @@ const version = require("./package.json").version;
 const sqlite = require("sqlite");
 const path = require("path");
 
-const SettingsManager = require("./settings.js");
-let settings = {};
-
-sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
-	log.main("opened settings database");
-	settings = new SettingsManager(database);
-});
+const SettingsManager = require(process.env.SNOOFUL_SETTINGS_MANAGER);
+const settings = new SettingsManager(path.resolve("./settings"));
 
 /**
  * The prefix required by commands to be considered by the bot.

@@ -60,5 +60,5 @@ typings/
 # next.js build output
 .next
 
-# per-subreddit settings database
-settings.sqlite3
+# settings storage file
+settings
