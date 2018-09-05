@@ -31,7 +31,7 @@ yargs.commandDir("commands", {
  */
 function safeFail(error) {
 	  const errMsg = error instanceof Error ? error.message : error;
-    return log.commands("an error occured during command parsing/execution: %s", errMsg);
+	return log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
 
 yargs.fail(safeFail);
@@ -57,7 +57,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		log.commands("recieved command '%s'", unprefixedCmd);
 
 		let chData = {};
-		
+
 		try {
 			chData = JSON.parse(channel.data);
 		} catch (error) {
@@ -102,12 +102,11 @@ sb.connect(process.env.SNOOFUL_ID, process.env.SNOOFUL_TOKEN, (userInfo, error) 
 			list.filter(channel => {
 				return channel.myMemberState = "invited";
 			}).forEach(channel => {
-				channel.acceptInvitation((channel, error) => {
-					if (!error) {
-						log.invites(`accepted channel invitation to ${channel.name} (late)`);
-						channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! Sorry I was late, but I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, error) => {
-							log.invites(error ? "failed to send introductory message (late)" : "sent introductory message (late)");
-						});
+				channel.acceptInvitation((acceptedChannel, acceptError) => {
+					if (acceptError) {
+						log.invites(`could not accept channel invitation to ${acceptedChannel.name} (late)`);
+					} else {
+						log.invites(`accepted channel invitation to ${acceptedChannel.name} (late)`);
 					}
 				});
 			});
