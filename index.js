@@ -28,10 +28,11 @@ yargs.commandDir("commands", {
 /**
  * Logs an end user-initiated fail (non-interrupting) to console.
  * @param {*} error The error that occured.
+ * @returns {undefined} Nothing is returned.
  */
 function safeFail(error) {
 	const errMsg = error instanceof Error ? error.message : error;
-	return log.commands("an error occured during command parsing/execution: %s", errMsg);
+	log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
 
 yargs.fail(safeFail);
@@ -50,6 +51,7 @@ let client = {};
  * @param {string} command The command to run, including prefix.
  * @param {*} channel The channel the command was sent from.
  * @param {*} message The message representing the command.
+ * @returns {undefined} Nothing is returned.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (command.startsWith(prefix) && message._sender.nickname !== client.nickname) {
@@ -75,8 +77,8 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				prefix,
 				sb,
 				settings: settings.subredditWrapper(channelSub(channel)),
-				version,
 				usage: yargs.getUsageInstance().getCommands(),
+				version,
 			});
 		} catch (error) {
 			safeFail(error);

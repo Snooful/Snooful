@@ -21,24 +21,24 @@ const chunk = require("lodash.chunk");
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
-		description: "",
 		aliases: [],
 		dataType: "items",
+		description: "",
 		footer: "",
 		noItemsMessage: "",
 	}, opts);
 
 	return {
-		command: command + " [page]",
-		describe: options.description,
 		aliases: options.aliases,
 		builder: builder => {
 			builder.positional("page", {
-				type: "number",
-				describe: "The page number to view.",
 				default: 1,
+				describe: "The page number to view.",
+				type: "number",
 			});
 		},
+		command: command + " [page]",
+		describe: options.description,
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
 

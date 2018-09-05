@@ -1,3 +1,6 @@
 {
-	"extends": "eslint-config-haykam"
+	"extends": "eslint-config-haykam",
+	"rules": {
+		"valid-jsdoc": "off"
+	}
 }
