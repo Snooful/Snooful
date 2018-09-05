@@ -1,8 +1,10 @@
-let chunk;
+let chunk, properChunk;
 try {
 	chunk = require("lodash.chunk");
+	properChunk = true;
 } catch (_) {
 	chunk = array => [array];
+	properChunk = false;
 }
 
 /**
@@ -14,7 +16,8 @@ try {
 */
 
 /**
-	* Creates a pagined command using a set of data.
+	* Creates a paginated command using a set of data.
+	* If lodash.chunk is not installed, works but without pages.
 	* @param {string} command The name of the command.
 	* @param {(DataGetFunction|*)} [data] The data to paginate.
 	* @param [opts] Other options.
@@ -53,8 +56,10 @@ module.exports = (command, data = [], opts = {}) => {
 			} else {
 				if (args.page <= list.length && args.page > 0) {
 					if (Number.isInteger(args.page)) {
+						const pageOfText = properChunk ? ` (page ${args.page} of ${list.length})` : "";
 						const endText = options.footer ? "\n\n" + options.footer : "";
-						args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
+
+						args.send(`${resolvedData.length} ${options.dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 					} else {
 						args.send("Page numbers must be integers.");
 					}
