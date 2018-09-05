@@ -30,7 +30,7 @@ yargs.commandDir("commands", {
  * @param {*} error The error that occured.
  */
 function safeFail(error) {
-	  const errMsg = error instanceof Error ? error.message : error;
+	const errMsg = error instanceof Error ? error.message : error;
 	return log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
 
@@ -121,13 +121,13 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
 		// I have been invited to channel, let's join and send an introductory message!
 		log.invites("invited to channel");
-		channel.acceptInvitation((channel, error) => {
+		channel.acceptInvitation((inviteChannel, error) => {
 			if (error) {
 				log.invites("failed to accept channel invitation");
 			} else {
 				log.invites(`automatically accepted channel invitation to ${channel.name}`);
-				channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, error) => {
-					log.invites(error ? "failed to send introductory message" : "sent introductory message");
+				channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, sendError) => {
+					log.invites(sendError ? "failed to send introductory message" : "sent introductory message");
 				});
 			}
 		});
