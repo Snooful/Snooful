@@ -83,8 +83,8 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				prefix,
 				sb,
-				send: message => {
-					channel.sendUserMessage(message.toString(), () => {
+				send: content => {
+					channel.sendUserMessage(content.toString(), () => {
 						// Quite a useless callback...
 					});
 				},
