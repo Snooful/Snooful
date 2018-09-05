@@ -30,10 +30,11 @@ To use Snooful, you must set two variables for the user ID (`SNOOFUL_ID`) and re
 
 ### Settings Manager
 
-Snooful can store data for subreddits and groups. This is left to a separate module, which is configured with the `SNOOFUL_SETTINGS_MANAGER` environment variable, and must be resolvable by `require()`. Of course, you probably will need to `npm install` your module. We support either of these modules:
+Snooful can store data for subreddits and groups. This is left to a separate module, which is configured with the `SNOOFUL_SETTINGS_MANAGER` environment variable, and must be resolvable by `require()`. Of course, you probably will need to `npm install` your module. We support these modules, which have been developed by us:
 
 * [`@snooful/sqlite-settings`](https://github.com/Snooful/SQLite-Settings)
 * [`@snooful/json-settings`](https://github.com/Snooful/JSON-Settings)
+* [`@snooful/yaml-settings`](https://github.com/Snooful/YAML-Settings)
 
 ### Command Prefix
 
