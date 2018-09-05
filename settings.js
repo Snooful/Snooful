@@ -21,13 +21,14 @@ class SettingsManager {
 
 	/**
 	 * Initializes the database.
+	 * @returns {undefined} Nothing is returned.,
 	 */
 	async init() {
 		await this.database.run("CREATE TABLE IF NOT EXISTS settings (subreddit VARCHAR(20) PRIMARY KEY, settings TEXT)").then(() => {
 			debug("ensured the settings table exists");
 		});
 
-		const rows = this.database.all("SELECT CAST(subreddit as TEXT) as subreddit, settings FROM settings").then(rows => {
+		this.database.all("SELECT CAST(subreddit as TEXT) as subreddit, settings FROM settings").then(rows => {
 			debug("got rows of settings");
 			rows.forEach(row => {
 				debug("caching settings for r/%s", row.subreddit);
@@ -103,24 +104,24 @@ class SettingsManager {
 	subredditWrapper(subreddit) {
 		return {
 			/**
-			 * Sets a key for the current subreddit namespace.
-			 * @param {string} key The key to set.
-			 * @param {*} value The value to be set.
-			 */
-			set: (key, value) => this.set(subreddit, key, value),
-			/**
 			 * Clears a key for the current subreddit namespace.
 			 * @param {string} key The key to clear.
 			 */
 			clear: key => this.clear(subreddit, key),
 			/**
-			 * Gets a key from the current subreddit namespace.
-			 * @param {string} key The key to get.
-			 * @returns *
-			 */
+				 * Gets a key from the current subreddit namespace.
+				 * @param {string} key The key to get.
+				 * @returns *
+				 */
 			get: key => this.get(subreddit, key),
 			manager: this,
-		}
+			/**
+			 * Sets a key for the current subreddit namespace.
+			 * @param {string} key The key to set.
+			 * @param {*} value The value to be set.
+			 */
+			set: (key, value) => this.set(subreddit, key, value),
+		};
 	}
 }
 

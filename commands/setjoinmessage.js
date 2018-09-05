@@ -1,6 +1,4 @@
 module.exports = {
-	command: "setjoinmessage [join-message]",
-	describe: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
 	aliases: [
 		"joinmessage",
 		"setjoinmsg",
@@ -20,6 +18,8 @@ module.exports = {
 			type: "string",
 		});
 	},
+	command: "setjoinmessage [join-message]",
+	describe: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
 	handler: args => {
 		if (args.joinMessage) {
 			args.settings.set("join_message", args.joinMessage);
@@ -28,5 +28,5 @@ module.exports = {
 			args.settings.clear("join_message");
 			args.send("The join message will not be sent.");
 		}
-	}
+	},
 };
