@@ -1,7 +1,8 @@
 const chance = require("chance").Chance();
 
 /**
- * Gets a random hackerman statement
+ * Gets a random hackerman statement that can include randomized values.
+ * @returns {string} A random hackerman statement.
  */
 function getValue() {
 	return chance.pickone([

@@ -1,15 +1,15 @@
 const moment = require("moment-timezone");
 
 module.exports = {
-	command: "time [zone]",
-	describe: "Gets the current time.",
 	builder: cmd => {
 		cmd.positional("zone", {
-			type: "string",
-			describe: "The timezone to get the time in.",
 			default: "EST",
+			describe: "The timezone to get the time in.",
+			type: "string",
 		});
 	},
+	command: "time [zone]",
+	describe: "Gets the current time.",
 	handler: args => {
 		const zone = moment.tz.zone(args.zone);
 		if (zone === null) {

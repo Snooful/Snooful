@@ -2,8 +2,6 @@ const rpgDiceRoller = require("rpg-dice-roller");
 const DiceRoller = new rpgDiceRoller.DiceRoller();
 
 module.exports = {
-	command: "customroll [dice]",
-	describe: "Rolls dice with a custom notation.",
 	aliases: [
 		"customdice",
 		"croll",
@@ -15,6 +13,8 @@ module.exports = {
 			type: "string",
 		});
 	},
+	command: "customroll [dice]",
+	describe: "Rolls dice with a custom notation.",
 	handler: args => {
 		if (args.dice) {
 			const roll = DiceRoller.roll(args.dice);
