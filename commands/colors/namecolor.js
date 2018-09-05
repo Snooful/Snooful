@@ -2,22 +2,22 @@ const namer = require("color-namer");
 const chance = require("chance").Chance();
 
 module.exports = {
-	command: "namecolor [color] [count]",
 	aliases: [
 		"colorname",
 	],
-	describe: "Names a color.",
 	builder: build => {
 		build.positional("color", {
-			type: "string",
 			describe: "The color to name.",
+			type: "string",
 		});
 		build.positional("count", {
-			type: "number",
-			describe: "The amount of names to assign.",
 			default: 1,
+			describe: "The amount of names to assign.",
+			type: "number",
 		});
 	},
+	command: "namecolor [color] [count]",
+	describe: "Names a color.",
 	handler: args => {
 		if (args.color) {
 			try {
@@ -37,8 +37,8 @@ module.exports = {
 				}
 			} catch (error) {
 				const randColor = chance.color({
-					format: "hex",
 					casing: "upper",
+					format: "hex",
 				});
 				args.send(`That color is invalid. Please provide a hexadecimal color, such as ${randColor}.`);
 			}

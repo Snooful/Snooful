@@ -1,14 +1,14 @@
 const chance = require("chance").Chance();
 
 module.exports = {
-	command: "roll",
-	describe: "Rolls a six-sided die.",
 	aliases: [
 		"dice",
 		"d6",
 	],
+	command: "roll",
+	describe: "Rolls a six-sided die.",
 	handler: args => args.send(`The die lands on a ${chance.integer({
+		max: 6,
 		min: 1,
-		max: 6
 	})}.`),
 };

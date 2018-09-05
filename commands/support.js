@@ -6,7 +6,7 @@ module.exports = {
 			if (getError) {
 				args.send("Sorry, I couldn't find the channel I wanted to invite you to!");
 			} else {
-				channel.invite([args.message.sender], (channel, inviteError) => {
+				channel.invite([args.message.sender], (_, inviteError) => {
 					if (inviteError) {
 						args.send("Sorry, something went wrong with the invitation!");
 					} else {

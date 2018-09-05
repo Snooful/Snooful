@@ -29,27 +29,27 @@ try {
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
-		description: "",
 		aliases: [],
 		dataType: "items",
+		description: "",
 		footer: "",
 		noItemsMessage: "",
 	}, opts);
-	
+
 	return {
-		command: command + " [page]",
-		describe: options.description,
 		aliases: options.aliases,
 		builder: builder => {
 			builder.positional("page", {
-				type: "number",
-				describe: "The page number to view.",
 				default: 1,
+				describe: "The page number to view.",
+				type: "number",
 			});
 		},
+		command: command + " [page]",
+		describe: options.description,
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
-			
+
 			const list = chunk(resolvedData.sort(), 5);
 			if (resolvedData.length === 0) {
 				args.send(options.noItemsMessage || `There are no ${options.dataType} to view.`);
@@ -64,8 +64,10 @@ module.exports = (command, data = [], opts = {}) => {
 						args.send("Page numbers must be integers.");
 					}
 				} else {
-					args.send("That's an invalid page number!");
+					args.send("Page numbers must be integers.");
 				}
+			} else {
+				args.send("That's an invalid page number!");
 			}
 		},
 	};

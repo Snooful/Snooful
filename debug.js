@@ -14,23 +14,23 @@ try {
  */
 module.exports = {
 	/**
-	 * Debug for initializing Snooful.
+	 * Debug for handling/parsing commands.
 	 */
-	main: debug("snooful:main"),
+	commands: debug("snooful:commands"),
 	/**
 	 * Debug for join and leave messages.
 	 */
 	gateway: debug("snooful:gateway"),
 	/**
-	 * Debug for handling/parsing commands.
+	 * Debug for automatically accepting invites to channels.
 	 */
-	commands: debug("snooful:commands"),
+	invites: debug("snooful:invites"),
+	/**
+	 * Debug for initializing Snooful.
+	 */
+	main: debug("snooful:main"),
 	/**
 	 * Debug for the settings manager.
 	 */
 	settings: debug("snooful:settings"),
-	/**
-	 * Debug for automatically accepting invites to channels.
-	 */
-	invites: debug("snooful:invites"),
 };

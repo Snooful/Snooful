@@ -12,5 +12,5 @@ module.exports = {
 		}
 
 		args.settings.set("test", newNum);
-	}
-}
+	},
+};
