@@ -1,6 +1,29 @@
 module.exports = {
-	command: "setleavemessage [leaveMessage]",
+	command: "setleavemessage [leave-message]",
 	describe: "Sets the message for channel leavers. {USER} is replaced with the user's name.",
+	aliases: [
+		"leavemessage",
+		"setleavemsg",
+		"leavemsg",
+		"setquitmessage",
+		"quitmessage",
+		"setquitmsg",
+		"quitmsg",
+		"setgoodbyemessage",
+		"goodbyemessage",
+		"setgoodbyemsg",
+		"goodbyemsg",
+		"setbyemessage",
+		"byemessage",
+		"setbyemsg",
+		"byemsg",
+	],
+	builder: build => {
+		build.positional("leave-message", {
+			describe: "The new leave message.",
+			type: "string",
+		});
+	},
 	handler: args => {
 		if (args.leaveMessage) {
 			args.settings.set("leave_message", args.leaveMessage);

@@ -30,8 +30,10 @@ yargs.commandDir("commands", {
  * @param {*} error The error that occured.
  */
 function safeFail(error) {
-	return log.commands("an error occured during command parsing/execution: %O", error);
+	  const errMsg = error instanceof Error ? error.message : error;
+    return log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
+
 yargs.fail(safeFail);
 yargs.exitProcess(false);
 
@@ -50,12 +52,19 @@ let client = {};
  * @param {*} message The message representing the command.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
-	if (command.startsWith(prefix) && message._sender.nickname !== clientInfo.nickname) {
+	if (command.startsWith(prefix) && message._sender.nickname !== client.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
 		log.commands("recieved command '%s'", unprefixedCmd);
 
+		let chData = {};
+		
 		try {
-			const chData = JSON.parse(channel.data);
+			chData = JSON.parse(channel.data);
+		} catch (error) {
+			log.commands("couldn't parse extra channel data, this is fine");
+		}
+
+		try {
 			yargs.parse(unprefixedCmd, {
 				author: message._sender.nickname,
 				chData,
@@ -65,34 +74,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				prefix,
 				sb,
-				send: text => {
-					channel.sendUserMessage(text, () => {
-						// A callback is required for some reason...
-					});
-				},
-				/**
-				 * A wrapper around the settings manager with methods applying to the current subreddit.
-				 */
-				settings: {
-					/**
-					 * Clears a key for the current subreddit namespace.
-					 * @param {string} key The key to clear.
-					 */
-					clear: key => settings.clear(chData.subreddit.name, key),
-					/**
-					 * Gets a key from the current subreddit namespace.
-					 * @param {string} key The key to get.
-					 * @returns *
-					 */
-					get: key => settings.get(chData.subreddit.name, key),
-					/**
-					 * Sets a key for the current subreddit namespace.
-					 * @param {string} key The key to set.
-					 * @param {*} value The value to be set.
-					 */
-					set: (key, value) => settings.set(chData.subreddit.name, key, value),
-					manager: settings,
-				},
+				settings: settings.subredditWrapper(channelSub(channel)),
 				version,
 				usage: yargs.getUsageInstance().getCommands(),
 			});
@@ -114,6 +96,22 @@ sb.connect(process.env.SNOOFUL_ID, process.env.SNOOFUL_TOKEN, (userInfo, error) 
 	} else {
 		log.main("connected to sendbird");
 		client = userInfo;
+
+		const query = sb.GroupChannel.createMyGroupChannelListQuery();
+		query.next(list => {
+			list.filter(channel => {
+				return channel.myMemberState = "invited";
+			}).forEach(channel => {
+				channel.acceptInvitation((channel, error) => {
+					if (!error) {
+						log.invites(`accepted channel invitation to ${channel.name} (late)`);
+						channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! Sorry I was late, but I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, error) => {
+							log.invites(error ? "failed to send introductory message (late)" : "sent introductory message (late)");
+						});
+					}
+				});
+			});
+		});
 	}
 });
 
@@ -138,8 +136,12 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 };
 
 function channelSub(channel) {
-	const data = JSON.parse(channel.data);
-	return data.subreddit.name;
+	if (channel.data) {
+		const data = JSON.parse(channel.data);
+		return data.subreddit ? data.subreddit.name : channel.url;
+	} else {
+		return channel.url;
+	}
 }
 
 handler.onUserJoined = (channel, user) => {

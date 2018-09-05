@@ -3,6 +3,16 @@ const urbanDict = require("urban-dictionary");
 module.exports = {
 	command: "urban [term]",
 	describe: "Gets a term from Urban Dictionary.",
+	aliases: [
+		"urbandict",
+		"urbandictionary",
+	],
+	builder: build => {
+		build.positional("term", {
+			describe: "The term to define.",
+			type: "string",
+		});
+	},
 	handler: args => {
 		if (args.term) {
 			urbanDict.term(args.term).then(result => {

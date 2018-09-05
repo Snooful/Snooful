@@ -96,6 +96,32 @@ class SettingsManager {
 			return undefined;
 		}
 	}
+
+	/**
+	 * A wrapper around the settings manager with methods applying to the current subreddit.
+	 */
+	subredditWrapper(subreddit) {
+		return {
+			/**
+			 * Sets a key for the current subreddit namespace.
+			 * @param {string} key The key to set.
+			 * @param {*} value The value to be set.
+			 */
+			set: (key, value) => this.set(subreddit, key, value),
+			/**
+			 * Clears a key for the current subreddit namespace.
+			 * @param {string} key The key to clear.
+			 */
+			clear: key => this.clear(subreddit, key),
+			/**
+			 * Gets a key from the current subreddit namespace.
+			 * @param {string} key The key to get.
+			 * @returns *
+			 */
+			get: key => this.get(subreddit, key),
+			manager: this,
+		}
+	}
 }
 
 module.exports = SettingsManager;

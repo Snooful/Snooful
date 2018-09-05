@@ -1,6 +1,6 @@
 module.exports = {
 	command: "dbtest",
-	describe: "Tests the database.",
+	describe: "Tests persistency of the settings system.",
 	handler: args => {
 		const newNum = Math.random();
 		const oldNum = args.settings.get("test");
