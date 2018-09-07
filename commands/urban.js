@@ -1,6 +1,16 @@
 const urbanDict = require("urban-dictionary");
 
 module.exports = {
+	aliases: [
+		"urbandict",
+		"urbandictionary",
+	],
+	builder: build => {
+		build.positional("term", {
+			describe: "The term to define.",
+			type: "string",
+		});
+	},
 	command: "urban [term]",
 	describe: "Gets a term from Urban Dictionary.",
 	handler: args => {
@@ -16,7 +26,7 @@ module.exports = {
 				args.send("There was no result for that word on Urban Dictionary!");
 			});
 		} else {
-			args.send(`undefined: A subtle hint that you need to tell me which word to define.`);
+			args.send("undefined: A subtle hint that you need to tell me which word to define.");
 		}
-	}
+	},
 };

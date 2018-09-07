@@ -1,4 +1,11 @@
-const chunk = require("lodash.chunk");
+let chunk, properChunk;
+try {
+	chunk = require("lodash.chunk");
+	properChunk = true;
+} catch (_) {
+	chunk = array => [array];
+	properChunk = false;
+}
 
 /**
 	* Gets data for pagination.
@@ -9,7 +16,8 @@ const chunk = require("lodash.chunk");
 */
 
 /**
-	* Creates a pagined command using a set of data.
+	* Creates a paginated command using a set of data.
+	* If lodash.chunk is not installed, works but without pages.
 	* @param {string} command The name of the command.
 	* @param {(DataGetFunction|*)} [data] The data to paginate.
 	* @param [opts] Other options.
@@ -21,37 +29,36 @@ const chunk = require("lodash.chunk");
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
-		description: "",
 		aliases: [],
 		dataType: "items",
+		description: "",
 		footer: "",
 		noItemsMessage: "",
 	}, opts);
-	
+
 	return {
-		command: command + " [page]",
-		describe: options.description,
 		aliases: options.aliases,
 		builder: builder => {
 			builder.positional("page", {
-				type: "number",
-				describe: "The page number to view.",
 				default: 1,
+				describe: "The page number to view.",
+				type: "number",
 			});
 		},
+		command: command + " [page]",
+		describe: options.description,
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
-			
-			const list = chunk(resolvedData.sort(), 5);
 
-			if (args.page <= list.length && args.page > 0) {
-				if (Number.isInteger(args.page)) {
-					if (resolvedData.length === 0) {
-						args.send(options.noItemsMessage || `There are no ${options.dataType} to view.`);
-					} else {
-						const endText = options.footer ? "\n\n" + options.footer : "";
-						args.send(`${resolvedData.length} ${options.dataType} (page ${args.page} of ${list.length}): \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
-					}
+			const list = chunk(resolvedData.sort(), 5);
+			if (resolvedData.length === 0) {
+				args.send(options.noItemsMessage || `There are no ${options.dataType} to view.`);
+			} else if (args.page <= list.length && args.page > 0) {
+				if (Number.isSafeInteger(args.page)) {
+					const pageOfText = properChunk ? ` (page ${args.page} of ${list.length})` : "";
+					const endText = options.footer ? "\n\n" + options.footer : "";
+
+					args.send(`${resolvedData.length} ${options.dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
 					args.send("Page numbers must be integers.");
 				}
