@@ -25,9 +25,34 @@ module.exports = {
 					const speed = moment.duration(topRun.times.primary_t, "seconds").format("h [hours], m [minutes], s [seconds]");
 					args.send(`The world record for ${game.names.international} is at ${speed}. For more information, view ${topRun.weblink}.`);
 				});
-			}).catch(err => {
-				console.log(err);
-				args.send("I could not fetch the game!");
+			}).catch(error => {
+				if (error instanceof got.CacheError) {
+					args.send("There was an error reading from the cache!");
+				} else if (error instanceof got.RequestError) {
+					args.send("There was an error when trying to make a request to the speedrun.com API!");
+				} else if (error instanceof got.ReadError) {
+					args.send("There was an error reading from the response stream!");
+				} else if (error instanceof got.ParseError) {
+					args.send("The speedrun.com API isn't sending valid JSON, for some reason!");
+				} else if (error instanceof got.HTTPError) {
+					if (error.statusCode.startsWith("4")) {
+						args.send("There was a client error!");
+					} else if (error.statusCode.startsWith("5")) {
+						args.send("The server had an error!");
+					} else {
+						args.send("There was an HTTP error!");
+					}
+				} else if (error instanceof got.MaxRedirectsError) {
+					args.send("There were too many redirects!");
+				} else if (error instanceof got.UnsupportedProtocolError) {
+					args.send("The protocol is unsupported!");
+				} else if (error instanceof got.CancelError) {
+					args.send("The request was cancelled.");
+				} else if (error instanceof got.TimeoutError) {
+					args.send("The game lookup took too long!");
+				} else {
+					args.send("I could not fetch the game!");
+				}
 			});
 		} else {
 			args.send("Please specify a game.");
