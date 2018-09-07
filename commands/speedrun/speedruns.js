@@ -5,13 +5,13 @@ const moment = require("moment");
 require("moment-duration-format");
 
 module.exports = {
-	command: "record [game]",
-	describe: "Gets the world record for a game on speedrun.com.",
 	aliases: [
 		"toprun",
 		"wr",
 		"worldrecord",
 	],
+	command: "record [game]",
+	describe: "Gets the world record for a game on speedrun.com.",
 	handler: args => {
 		if (args.game) {
 			rp(url`https://www.speedrun.com/api/v1/games?name=${args.game}&max=1`).then(gamesRaw => {
@@ -20,7 +20,7 @@ module.exports = {
 					const topRun = JSON.parse(runsRaw).data[0].runs[0].run;
 					const speed = moment.duration(topRun.times.primary_t, "seconds").format("h [hours], m [minutes], s [seconds]");
 					args.send(`The world record for ${game.names.international} is at ${speed}. For more information, view ${topRun.weblink}.`);
-				})
+				});
 			}).catch(() => {
 				args.send("I could not fetch the game!");
 			});
