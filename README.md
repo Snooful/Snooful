@@ -2,6 +2,7 @@
 
 ![GitHub issues](https://img.shields.io/github/issues/Snooful/Snooful.svg?style=popout)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Snooful/Snooful.svg?style=popout)
+[![Travis (.com)](https://img.shields.io/travis/com/Snooful/Snooful.svg?style=popout)](https://travis-ci.com/Snooful/Snooful)
 
 The most complete bot for moderation, utility, and fun in Reddit Chat.
 
