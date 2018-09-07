@@ -1,6 +1,4 @@
 module.exports = {
-	command: "faq [id]",
-	describe: "Shows a prewritten FAQ.",
 	aliases: [
 		"getfaq",
 	],
@@ -10,6 +8,8 @@ module.exports = {
 			type: "string",
 		});
 	},
+	command: "faq [id]",
+	describe: "Shows a prewritten FAQ.",
 	handler: args => {
 		const faqs = args.settings.get("faq_messages");
 

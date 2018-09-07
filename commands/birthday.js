@@ -17,8 +17,6 @@ function getSong(name, type = "birthday", thirdLine) {
 }
 
 module.exports = {
-	command: "birthday [user]",
-	describe: "Sings a birthday song to a user!",
 	aliases: [
 		"cakeday",
 		"bday",
@@ -29,6 +27,8 @@ module.exports = {
 			type: "string",
 		});
 	},
+	command: "birthday [user]",
+	describe: "Sings a birthday song to a user!",
 	handler: args => {
 		if (args.user) {
 			args.send(getSong("u/" + args.user, getBirthdayWord()));

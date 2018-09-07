@@ -1,6 +1,4 @@
 module.exports = {
-	command: "setfaq [id] [value]",
-	describe: "Sets or creates a FAQ message.",
 	builder: build => {
 		build.positional("id", {
 			describe: "The ID of the FAQ message to change.",
@@ -11,9 +9,11 @@ module.exports = {
 			type: "string",
 		});
 	},
+	command: "setfaq [id] [value]",
+	describe: "Sets or creates a FAQ message.",
 	handler: args => {
 		if (args.id) {
-			const msgs = args.settings.get("faq_messages") || {}; // this is a temporary name!
+			const msgs = args.settings.get("faq_messages") || {};
 			const idDoesExist = msgs[args.id] !== undefined;
 
 			if (args.value) {

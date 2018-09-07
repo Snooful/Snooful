@@ -1,6 +1,4 @@
 module.exports = {
-	command: "command [name]",
-	describe: "Views information about a command.",
 	aliases: [
 		"cmd",
 		"viewcommand",
@@ -10,10 +8,12 @@ module.exports = {
 	],
 	builder: cmd => {
 		cmd.positional("name", {
-			type: "string",
 			describe: "The command to view information about.",
+			type: "string",
 		});
 	},
+	command: "command [name]",
+	describe: "Views information about a command.",
 	handler: args => {
 		if (args.name) {
 			const command = args.usage.filter(usage => usage[0].split(" ")[0] === args.name)[0];
