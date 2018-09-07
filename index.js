@@ -1,4 +1,11 @@
-require("dotenv").config();
+let envs;
+try {
+	envs = require("dotenv").config().parsed || {};
+} catch (_) {
+	envs = {
+		parsed: {},
+	};
+}
 
 const log = require("./debug.js");
 
@@ -18,7 +25,7 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 /**
  * The prefix required by commands to be considered by the bot.
  */
-const prefix = process.env.SNOOFUL_PREFIX || "!";
+const prefix = envs.SNOOFUL_PREFIX || "!";
 
 const yargs = require("yargs");
 yargs.commandDir("commands", {
@@ -76,6 +83,11 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				message,
 				prefix,
 				sb,
+				send: content => {
+					channel.sendUserMessage(content.toString(), () => {
+						// Quite a useless callback...
+					});
+				},
 				settings: settings.subredditWrapper(channelSub(channel)),
 				usage: yargs.getUsageInstance().getCommands(),
 				version,
@@ -92,7 +104,7 @@ const sb = new Sendbird({
 });
 
 log.main("connecting to sendbird");
-sb.connect(process.env.SNOOFUL_ID, process.env.SNOOFUL_TOKEN, (userInfo, error) => {
+sb.connect(envs.SNOOFUL_ID, envs.SNOOFUL_TOKEN, (userInfo, error) => {
 	if (error) {
 		log.main("couldn't connect to sendbird");
 	} else {
@@ -104,11 +116,9 @@ sb.connect(process.env.SNOOFUL_ID, process.env.SNOOFUL_TOKEN, (userInfo, error) 
 			list.filter(channel => {
 				return channel.myMemberState = "invited";
 			}).forEach(channel => {
-				channel.acceptInvitation((acceptedChannel, acceptError) => {
-					if (acceptError) {
-						log.invites(`could not accept channel invitation to ${acceptedChannel.name} (late)`);
-					} else {
-						log.invites(`accepted channel invitation to ${acceptedChannel.name} (late)`);
+				channel.acceptInvitation((_, acceptError) => {
+					if (!acceptError) {
+						log.invites(`accepted channel invitation to ${channel.name} (late)`);
 					}
 				});
 			});

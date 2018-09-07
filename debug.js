@@ -1,4 +1,13 @@
-const debug = require("debug");
+let debug;
+try {
+	debug = require("debug");
+} catch (_) {
+	debug = name => {
+		return msg => {
+			process.stdout.write(`${name} - ${msg}\n`);
+		};
+	};
+}
 
 /**
  * All debuggers.
