@@ -73,7 +73,7 @@
 
 		"birthday_song": "Feliz {0} a ti,\n¡feliz {0} a ti!\nFeliz {0} a {1},\n¡feliz {0} a ti!",
 		"birthday_type": "cumpleaños",
-		"birthday_user_unspecified": "Feliz {0} a quién?"
+		"birthday_user_unspecified": "¿Feliz {0} a quién?"
 	},
 	"pt": {
 		"ping_response": "Pong!",
