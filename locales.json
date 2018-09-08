@@ -94,39 +94,39 @@
 		"urban_dictionary_no_result": "Não tem resultado pra isso no Dicionario Urbano!",
 		"urban_dictionary_unspecified_word": "indefinido: Me diga oque procurar no Dicionario Urbano.",
 
-		"invalid_timezone": "Isso não é um Fuso horario valido.",
-		"current_time": "O Horario agora em {} é {}.",
+		"invalid_timezone": "Isso não é um fuso horario valido.",
+		"current_time": "O horario agora em {} é {}.",
 
-		"support_channel_missing": "Desculpa, Eu não achei o chat que queria convidar!",
-		"support_invite_error": "Desculpa, Algo deu errado no convite!",
-		"support_invited": "Eu te convidei pro canal de Suporte.",
+		"support_channel_missing": "Desculpa, eu não achei o chat que queria convidar!",
+		"support_invite_error": "Desculpa, algo deu errado no convite!",
+		"support_invited": "Eu te convidei pro canal de suporte.",
 
-		"update_join_message": "A Messagem de Boas Vindas foi Mudada.",
-		"clear_join_message": "A Mensagem de Boas Vindas não vai ser Enviada.",
+		"update_join_message": "A messagem de boas vindas foi mudada.",
+		"clear_join_message": "A mensagem de boas vindas não vai ser enviada.",
 
-		"update_leave_message": "A Mensagem de Até Mais foi Mudada.",
-		"clear_leave_message": "A Mensagem de Até Mais não vai ser Enviada.",
+		"update_leave_message": "A mensagem de até mais foi mudada.",
+		"clear_leave_message": "A mensagem de até mais não vai ser enviada.",
 
-		"reverse": "Invertendo isso Nos Da: {}",
-		"unspecified_reverse_message": "Porfavor Especifique oque Voce quer Inverter.",
+		"reverse": "Invertendo isso nos da: {}",
+		"unspecified_reverse_message": "Porfavor especifique oque voce quer inverter.",
 
-		"info": "Eu sou O u/{0},Pronto pra te ajudar!\nMy prefix is {1}, Então  {1}command.\nEu fui feito por u/Haykam821, E traduzido para Portugues Por u/GammaRaul, Mas PorFavor Mande Todas as Perguntas Via {1}feedback!",
+		"info": "Eu sou O u/{0}, pronto pra te ajudar!\nMy prefix is {1}, Então {1}command.\nEu fui feito por haykam821, e traduzido para Portugues por u/GammaRaul, mas por favor mande todas as perguntas via {1}feedback!",
 
-		"github": "Meu Codigo Sorce esta Disponivel em {}!",
+		"github": "Meu codigo sorce esta disponivel em {}!",
 
-		"feedback_error": "Eu não Consegui Mandar O Feedback",
-		"feedback_recieved": "Voce Recebi uma Mensagem de u/{} via {}:\n\n{}",
-		"feedback_success": "Eu Contatei o meu Criador para Voce.",
-		"feedback_unspecified": "Voce Precisa colocar Feedback para manda-lo!",
+		"feedback_error": "Eu não consegui mandar o feedback",
+		"feedback_recieved": "Voce recebi uma mensagem de u/{} via {}:\n\n{}",
+		"feedback_success": "Eu contatei o meu criador para voce.",
+		"feedback_unspecified": "Voce precisa colocar feedback para manda-lo!",
 
-		"number_created": "O Numero é {}. Não tinha Numero Antes",
-		"number_changed": "O Numero Novo é {}. O Numera velho Era {}.",
+		"number_created": "O numero é {}. Não tinha numero antes",
+		"number_changed": "O numero novo é {}. O numera velho era {}.",
 
-		"command_not_found": "Não Existe Comando assim.",
-		"command_unspecified": "Porfavor Especifique Que Comando Voce Quer Ver. Para Ver Todos Os Comandos, Faça {}commands.",
+		"command_not_found": "Não existe comando assim.",
+		"command_unspecified": "Porfavor especifique que comando voce quer ver. Para ver todos os comandos, faça {}commands.",
 
-		"birthday_song": "Feliz {0} Pra Voce,\nFeliz {0} Pra Voce!\nFeliz {0} {1}...\nFeliz {0} Pra Voce!",
+		"birthday_song": "Feliz {0} pra voce,\nfeliz {0} pra voce!\nFeliz {0} {1}...\nfeliz {0} pra voce!",
 		"birthday_type": "aniversario",
-		"birthday_user_unspecified": "Feliz {} Pra Voce,\nFeliz {} Pra Voce! /nFeliz {} Pra... Uh... Quem Mesmo?"
+		"birthday_user_unspecified": "Feliz {} pra voce,\nfeliz {} pra voce!\nFeliz {} pra... uh... quem mesmo?"
 	}
 }
