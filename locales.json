@@ -14,6 +14,8 @@
 		"language_not_available": "Sorry, but that language is not available at this moment.",
 		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
 
+		"current_language": "Snooful's language is currently set to {}. You can change it with {}setlang.",
+
 		"version": "I am running version {}! 😄",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
 
