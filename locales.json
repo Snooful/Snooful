@@ -25,7 +25,19 @@
 
 		"whoami": "Te llaman u/{}."
 	},
-	"pt": {
+	"pt": {"ping_response": "Pong!",
+
+"page_number_not_integer": "Numeeros De Pagina Precisam Ser Numeros Inteiros.",
+"page_number_invalid": "Isso É Um Numero De Pagina Invalido!",
+
+"language_updated": "O Indioma De Snooful Foi Mudado Com Sucesso.",
+"language_not_available": "Desculpa, Mas, Essa Linguagem Não Esta Disponivel No Momento.",
+"new_language_unspecified": "Para Mudar A Linguagem De Snooful, Voce Precisa Falar Qual Linguagem Voce Quer Que Ele Fale.",
+
+"version": "Eu Estou Andando Na Versão {}! 😄",
+"version_hash": "Eu Estou Andando Na Versão {}, Com O Ultimo Commit Sendo {}!",
+
+"whoami": "Ah, Humanos Bobos, Sempre Esquecendo Seus Nomes. Mas Eu  Nao Vou Te Jogar Muito Na Sombra, u/{}."
 		
 	}
 }
