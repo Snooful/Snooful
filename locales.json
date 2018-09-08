@@ -20,7 +20,10 @@
 		"whereami": "You are in {}.",
 
 		"urban_dictionary_no_result": "There was no result for that word on Urban Dictionary!",
-		"urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define."
+		"urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
+
+		"invalid_timezone": "That's not a valid time zone.",
+		"current_time": "The current time in {} is {}."
 	},
 	"es": {
 		"ping_response": "¡Doop!",
