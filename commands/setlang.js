@@ -11,7 +11,7 @@ module.exports = {
 		if (args.lang) {
 			if (Object.keys(args.locales).includes(args.lang) || args.lang === "uǝ") {
 				args.settings.set("lang", args.lang);
-				args.send(args.localize("language_updated"));
+				args.send(args.localize("language_updated", args.localize("language")));
 			} else {
 				args.send(args.localize("language_not_available"));
 			}

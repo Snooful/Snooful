@@ -1,5 +1,7 @@
 {
 	"en": {
+		"language": "English",
+
 		"ping_response": [
 			"Pong!",
 			"Plink!"
@@ -8,7 +10,7 @@
 		"page_number_not_integer": "Page numbers must be integers.",
 		"page_number_invalid": "That's an invalid page number!",
 
-		"language_updated": "Snooful's language has been updated here.",
+		"language_updated": "Snooful's language has been updated to {} here.",
 		"language_not_available": "Sorry, but that language is not available at this moment.",
 		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
 
@@ -61,6 +63,8 @@
 		"birthday_user_unspecified": "Happy {} dear... uh... who again?"
 	},
 	"es": {
+		"language": "Español",
+
 		"ping_response": "¡Doop!",
 
 		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
@@ -76,6 +80,8 @@
 		"birthday_user_unspecified": "¿Feliz {0} a quién?"
 	},
 	"pt": {
+		"language": "Portugues",
+
 		"ping_response": "Pong!",
 
 		"page_number_not_integer": "Numeros de pagina precisam ser numeros inteiros.",
