@@ -48,7 +48,10 @@
 		"feedback_unspecified": "You need to provide some feedback!",
 
 		"number_created": "The number is {}. There was no number before.",
-		"number_changed": "The new number is {}. The old number is {}."
+		"number_changed": "The new number is {}. The old number is {}.",
+
+		"command_not_found": "There is no command with that name.",
+		"command_unspecified": "Please specify a command to view. To see all commands, do {}commands."
 	},
 	"es": {
 		"ping_response": "¡Doop!",

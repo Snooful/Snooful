@@ -24,10 +24,10 @@ module.exports = {
 					command[3].length > 0 ? "Aliases: " + command[3].join(", ") : "",
 				].join("\n"));
 			} else {
-				args.send("There is no command with that name.");
+				args.send(args.localize("command_not_found"));
 			}
 		} else {
-			args.send(`Please specify a command to view. To see all commands, do ${args.prefix}commands.`);
+			args.send(args.localize("command_unspecified", args.prefix));
 		}
 	},
 };
