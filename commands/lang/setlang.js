@@ -1,4 +1,11 @@
 module.exports = {
+	aliases: [
+		"setlanguage",
+		"changelang",
+		"changelanguage",
+		"updatelang",
+		"updatelanguage",
+	],
 	builder: build => {
 		build.positional("lang", {
 			describe: "The language message for Snooful to use in this room/subreddit.",
