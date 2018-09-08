@@ -51,7 +51,14 @@
 		"number_changed": "The new number is {}. The old number is {}.",
 
 		"command_not_found": "There is no command with that name.",
-		"command_unspecified": "Please specify a command to view. To see all commands, do {}commands."
+		"command_unspecified": "Please specify a command to view. To see all commands, do {}commands.",
+
+		"birthday_song": "Happy {0} to you,\nhappy {0} to you!\nHappy {0}, dear {1}...\nhappy {0} to you!",
+		"birthday_type": [
+			"birthday",
+			"cake day"
+		],
+		"birthday_user_unspecified": "Happy {} dear... uh... who again?"
 	},
 	"es": {
 		"ping_response": "¡Doop!",
@@ -62,7 +69,11 @@
 		"version": "Mi versión es {}.",
 		"version_hash": "Mi versión es {} ({}).",
 
-		"whoami": "Te llaman u/{}."
+		"whoami": "Te llaman u/{}.",
+
+		"birthday_song": "Feliz {0} a ti,\n¡feliz {0} a ti!\nFeliz {0} a {1},\n¡feliz {0} a ti!",
+		"birthday_type": "cumpleaños",
+		"birthday_user_unspecified": "Feliz {0} a quién?"
 	},
 	"pt": {
 		"ping_response": "Pong!",
