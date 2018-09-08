@@ -27,7 +27,13 @@
 
 		"support_channel_missing": "Sorry, I couldn't find the channel I wanted to invite you to!",
 		"support_invite_error": "Sorry, something went wrong with the invitation!",
-		"support_invited": "I've invited you to the support channel."
+		"support_invited": "I've invited you to the support channel.",
+
+		"update_join_message": "The join message has been updated.",
+		"clear_join_message": "The join message will not be sent.",
+
+		"update_leave_message": "The leave message has been updated.",
+		"clear_leave_message": "The leave message will not be sent."
 	},
 	"es": {
 		"ping_response": "¡Doop!",

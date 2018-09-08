@@ -27,10 +27,10 @@ module.exports = {
 	handler: args => {
 		if (args.leaveMessage) {
 			args.settings.set("leave_message", args.leaveMessage);
-			args.send("The leave message has been updated.");
+			args.send(args.localize("update_leave_message"));
 		} else {
 			args.settings.clear("leave_message");
-			args.send("The leave message will not be sent.");
+			args.send(args.localize("clear_leave_message"));
 		}
 	},
 };

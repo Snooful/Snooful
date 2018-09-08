@@ -23,10 +23,10 @@ module.exports = {
 	handler: args => {
 		if (args.joinMessage) {
 			args.settings.set("join_message", args.joinMessage);
-			args.send("The join message has been updated.");
+			args.send(args.localize("update_join_message"));
 		} else {
 			args.settings.clear("join_message");
-			args.send("The join message will not be sent.");
+			args.send(args.localize("clear_join_message"));
 		}
 	},
 };
