@@ -45,7 +45,10 @@
 		"feedback_error": "I couldn't send the feedback.",
 		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
 		"feedback_success": "I have contacted my creator for you.",
-		"feedback_unspecified": "You need to provide some feedback!"
+		"feedback_unspecified": "You need to provide some feedback!",
+
+		"number_created": "The number is {}. There was no number before.",
+		"number_changed": "The new number is {}. The old number is {}."
 	},
 	"es": {
 		"ping_response": "¡Doop!",
