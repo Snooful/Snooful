@@ -63,7 +63,7 @@ let client = {};
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (command.startsWith(prefix) && message._sender.nickname !== client.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
-		log.commands("recieved command '%s'", unprefixedCmd);
+		log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
 		let chData = {};
 
