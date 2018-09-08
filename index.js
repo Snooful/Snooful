@@ -17,6 +17,9 @@ const path = require("path");
 const SettingsManager = require("./settings.js");
 let settings = {};
 
+const locales = require("./locales.json");
+const format = require("string-format");
+
 sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	log.main("opened settings database");
 	settings = new SettingsManager(database);
@@ -73,12 +76,22 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			log.commands("couldn't parse extra channel data, this is fine");
 		}
 
+		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
+
 		try {
 			yargs.parse(unprefixedCmd, {
 				author: message._sender.nickname,
 				chData,
 				channel,
 				client,
+				localize: (key = "", ...formats) => {
+					const lang = settingsWrapper.get("lang");
+
+					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
+					const msg = thisLocal[key] || locales.en[key];
+
+					return format(msg, ...formats);
+				},
 				log: log.commands,
 				message,
 				prefix,
@@ -88,7 +101,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 						// Quite a useless callback...
 					});
 				},
-				settings: settings.subredditWrapper(channelSub(channel)),
+				settings: settingsWrapper,
 				usage: yargs.getUsageInstance().getCommands(),
 				version,
 			});
