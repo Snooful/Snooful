@@ -28,17 +28,17 @@
 	"pt": {
 		"ping_response": "Pong!",
 
-		"page_number_not_integer": "Numeeros De Pagina Precisam Ser Numeros Inteiros.",
-		"page_number_invalid": "Isso É Um Numero De Pagina Invalido!",
+		"page_number_not_integer": "Numeros de pagina precisam ser numeros inteiros.",
+		"page_number_invalid": "Isso é um numero de pagina invalido!",
 
-		"language_updated": "O Indioma De Snooful Foi Mudado Com Sucesso.",
-		"language_not_available": "Desculpa, Mas, Essa Linguagem Não Esta Disponivel No Momento.",
-		"new_language_unspecified": "Para Mudar A Linguagem De Snooful, Voce Precisa Falar Qual Linguagem Voce Quer Que Ele Fale.",
+		"language_updated": "O indioma de Snooful foi mudado com sucesso.",
+		"language_not_available": "Desculpa, mas, essa linguagem não esta disponivel no momento.",
+		"new_language_unspecified": "Para mudar a linguagem de Snooful, voce precisa falar qual linguagem voce quer que ele fale.",
 
-		"version": "Eu Estou Andando Na Versão {}! 😄",
-		"version_hash": "Eu Estou Andando Na Versão {}, Com O Ultimo Commit Sendo {}!",
+		"version": "Eu estou andando na versão {}! 😄",
+		"version_hash": "Eu estou andando na versão {}, com o ultimo commit sendo {}!",
 
-		"whoami": "Ah, Humanos Bobos, Sempre Esquecendo Seus Nomes. Mas Eu  Nao Vou Te Jogar Muito Na Sombra, u/{}."
+		"whoami": "Ah, humanos bobos, sempre esquecendo seus nomes. Mas eu nao vou te jogar muito na sombra, u/{}."
 
 	}
 }
