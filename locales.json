@@ -33,7 +33,10 @@
 		"clear_join_message": "The join message will not be sent.",
 
 		"update_leave_message": "The leave message has been updated.",
-		"clear_leave_message": "The leave message will not be sent."
+		"clear_leave_message": "The leave message will not be sent.",
+
+		"reverse": "Reversing that gives us: {}",
+		"unspecified_reverse_message": "Please specify the text to reverse."
 	},
 	"es": {
 		"ping_response": "¡Doop!",
