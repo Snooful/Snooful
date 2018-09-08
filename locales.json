@@ -66,7 +66,12 @@
 
 		"delete_faq_success": "That FAQ has been deleted.",
 		"delete_faq_nonexistent": "That FAQ doesn't even exist, silly.",
-		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq."
+		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
+
+		"faq_message_updated": "That FAQ message has been updated.",
+		"faq_message_created": "A FAQ message has been created!",
+		"setfaq_message_unspecified": "You need to specify the message for the FAQ.",
+		"setfaq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq."
 	},
 	"es": {
 		"language": "Español",
