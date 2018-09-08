@@ -89,8 +89,49 @@
 		"version_hash": "Eu estou andando na versão {}, com o ultimo commit sendo {}!",
 
 		"whoami": "Ah, humanos bobos, sempre esquecendo seus nomes. Mas eu nao vou te jogar muito na sombra, u/{}."
-	},
-	"hi": {
-		
+		"whereami": "Voce esta dentro de {}.",
+
+		"urban_dictionary_no_result": "Não tem resultado pra isso no Dicionario Urbano!",
+		"urban_dictionary_unspecified_word": "indefinido: Me diga oque procurar no Dicionario Urbano.",
+
+		"invalid_timezone": "Isso não é um Fuso horario valido.",
+		"current_time": "O Horario agora em {} é {}.",
+
+		"support_channel_missing": "Desculpa, Eu não achei o chat que queria convidar!",
+		"support_invite_error": "Desculpa, Algo deu errado no convite!",
+		"support_invited": "Eu te convidei pro canal de Suporte.",
+
+		"update_join_message": "A Messagem de Boas Vindas foi Mudada.",
+		"clear_join_message": "A Mensagem de Boas Vindas não vai ser Enviada.",
+
+		"update_leave_message": "A Mensagem de Até Mais foi Mudada.",
+		"clear_leave_message": "A Mensagem de Até Mais não vai ser Enviada.",
+
+		"reverse": "Invertendo isso Nos Da: {}",
+		"unspecified_reverse_message": "Porfavor Especifique oque Voce quer Inverter.",
+
+		"info": "Eu sou O u/{0},Pronto pra te ajudar!\nMy prefix is {1}, Então  {1}command.\nEu fui feito por u/Haykam821, E traduzido para Portugues Por u/GammaRaul, Mas PorFavor Mande Todas as Perguntas Via {1}feedback!",
+
+		"github": "Meu Codigo Sorce esta Disponivel em {}!",
+
+		"feedback_error": "Eu não Consegui Mandar O Feedback",
+		"feedback_recieved": "Voce Recebi uma Mensagem de u/{} via {}:\n\n{}",
+		"feedback_success": "Eu Contatei o meu Criador para Voce.",
+		"feedback_unspecified": "Voce Precisa colocar Feedback para manda-lo!",
+
+		"number_created": "O Numero é {}. Não tinha Numero Antes",
+		"number_changed": "O Numero Novo é {}. O Numera velho Era {}.",
+
+		"command_not_found": "Não Existe Comando assim.",
+		"command_unspecified": "Porfavor Especifique Que Comando Voce Quer Ver. Para Ver Todos Os Comandos, Faça {}commands.",
+
+		"birthday_song": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce!\nFeliz Aniversario {1}...\nFeliz Aniversario Pra Voce!
+		"birthday_type": [
+			"birthday",
+			"cake day"
+		],
+		"birthday_user_unspecified": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce! /nFeliz Aniversario Pra... Uh... Quem Mesmo?"
+		},
+
 	}
 }
