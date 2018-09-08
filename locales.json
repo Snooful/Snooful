@@ -11,6 +11,8 @@
 
 		"version": "I am running version {}! 😄",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
+
+		"whoami": "Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}."
 	},
 	"es": {
 		"ping_response": "¡Doop!",
@@ -20,5 +22,7 @@
 
 		"version": "Mi versión es {}.",
 		"version_hash": "Mi versión es {} ({}).",
+
+		"whoami": "Te llaman u/{}."
 	}
 }
