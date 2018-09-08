@@ -125,7 +125,8 @@
 		"command_not_found": "Não Existe Comando assim.",
 		"command_unspecified": "Porfavor Especifique Que Comando Voce Quer Ver. Para Ver Todos Os Comandos, Faça {}commands.",
 
-		"birthday_song": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce!\nFeliz Aniversario {1}...\nFeliz Aniversario Pra Voce!",
-		"birthday_user_unspecified": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce! /nFeliz Aniversario Pra... Uh... Quem Mesmo?"
+		"birthday_song": "Feliz {0} Pra Voce,\nFeliz {0} Pra Voce!\nFeliz {0} {1}...\nFeliz {0} Pra Voce!",
+		"birthday_type": "aniversario",
+		"birthday_user_unspecified": "Feliz {} Pra Voce,\nFeliz {} Pra Voce! /nFeliz {} Pra... Uh... Quem Mesmo?"
 	}
 }
