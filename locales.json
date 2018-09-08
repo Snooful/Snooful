@@ -101,6 +101,7 @@
 		"language_updated": "O indioma de Snooful foi mudado com sucesso.",
 		"language_not_available": "Desculpa, mas, essa linguagem não esta disponivel no momento.",
 		"new_language_unspecified": "Para mudar a linguagem de Snooful, voce precisa falar qual linguagem voce quer que ele fale.",
+		"current_language": "A linguagem do snooful é {}. Voce pode mudar a linguagem com {}setlang.",
 
 		"version": "Eu estou andando na versão {}! 😄",
 		"version_hash": "Eu estou andando na versão {}, com o ultimo commit sendo {}!",
@@ -145,5 +146,6 @@
 		"birthday_song": "Feliz {0} pra voce,\nfeliz {0} pra voce!\nFeliz {0} {1}...\nfeliz {0} pra voce!",
 		"birthday_type": "aniversario",
 		"birthday_user_unspecified": "Feliz {} pra voce,\nfeliz {} pra voce!\nFeliz {} pra... uh... quem mesmo?"
+
 	}
 }
