@@ -1,8 +1,11 @@
 {
 	"en": {
 
+		"language_updated": "Snooful's language has been updated here.",
+		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
 	},
 	"es": {
+		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
 
 	}
 }
