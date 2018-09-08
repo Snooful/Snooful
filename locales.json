@@ -89,6 +89,8 @@
 		"version_hash": "Eu estou andando na versão {}, com o ultimo commit sendo {}!",
 
 		"whoami": "Ah, humanos bobos, sempre esquecendo seus nomes. Mas eu nao vou te jogar muito na sombra, u/{}."
-
+	},
+	"hi": {
+		
 	}
 }
