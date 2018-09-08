@@ -1,5 +1,7 @@
 {
 	"en": {
+		"ping_response": "Pong!",
+
 		"page_number_not_integer": "Page numbers must be integers.",
 		"page_number_invalid": "That's an invalid page number!",
 
@@ -8,6 +10,8 @@
 		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
 	},
 	"es": {
+		"ping_response": "¡Doop!",
+
 		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
 
