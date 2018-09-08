@@ -23,7 +23,11 @@
 		"urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
 
 		"invalid_timezone": "That's not a valid time zone.",
-		"current_time": "The current time in {} is {}."
+		"current_time": "The current time in {} is {}.",
+
+		"support_channel_missing": "Sorry, I couldn't find the channel I wanted to invite you to!",
+		"support_invite_error": "Sorry, something went wrong with the invitation!",
+		"support_invited": "I've invited you to the support channel."
 	},
 	"es": {
 		"ping_response": "¡Doop!",
