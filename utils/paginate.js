@@ -60,10 +60,10 @@ module.exports = (command, data = [], opts = {}) => {
 
 					args.send(`${resolvedData.length} ${options.dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
-					args.send("Page numbers must be integers.");
+					args.send(args.localize("page_number_not_integer"));
 				}
 			} else {
-				args.send("That's an invalid page number!");
+				args.send(args.localize("page_number_invalid"));
 			}
 		},
 	};

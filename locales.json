@@ -2,10 +2,12 @@
 	"en": {
 
 		"language_updated": "Snooful's language has been updated here.",
+		"language_not_available": "Sorry, but that language is not available at this moment.",
 		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
 	},
 	"es": {
 		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
+		"language_not_available": "Ese lenguaje no está disponible.",
 
 	}
 }
