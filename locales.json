@@ -38,7 +38,9 @@
 		"reverse": "Reversing that gives us: {}",
 		"unspecified_reverse_message": "Please specify the text to reverse.",
 
-		"info": "I am u/{0}, ready to help you with anything you need!\nMy prefix is {1}, so to type a command you just do {1}command.\nI was made by haykam821, but please direct all questions and concerns via {1}feedback!"
+		"info": "I am u/{0}, ready to help you with anything you need!\nMy prefix is {1}, so to type a command you just do {1}command.\nI was made by haykam821, but please direct all questions and concerns via {1}feedback!",
+
+		"github": "My source code is available at {}!"
 	},
 	"es": {
 		"ping_response": "¡Doop!",
