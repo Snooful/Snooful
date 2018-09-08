@@ -1,0 +1,18 @@
+module.exports = {
+	builder: build => {
+		build.positional("lang", {
+			describe: "The language message for Snooful to use in this room/subreddit.",
+			type: "string",
+		});
+	},
+	command: "setlang [lang]",
+	describe: "Changes the language of Snooful.",
+	handler: args => {
+		if (args.lang) {
+			args.settings.set("lang", args.lang);
+			args.send(args.localize("language_updated"));
+		} else {
+			args.send(args.localize("new_language_unspecified"));
+		}
+	},
+};
