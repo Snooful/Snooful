@@ -9,8 +9,12 @@ module.exports = {
 	describe: "Changes the language of Snooful.",
 	handler: args => {
 		if (args.lang) {
-			args.settings.set("lang", args.lang);
-			args.send(args.localize("language_updated"));
+			if (Object.keys(args.locales).includes(args.lang)) {
+				args.settings.set("lang", args.lang);
+				args.send(args.localize("language_updated"));
+			} else {
+				args.send(args.localize("language_not_available"));
+			}
 		} else {
 			args.send(args.localize("new_language_unspecified"));
 		}

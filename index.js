@@ -84,6 +84,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				chData,
 				channel,
 				client,
+				locales,
 				localize: (key = "", ...formats) => {
 					const lang = settingsWrapper.get("lang");
 
