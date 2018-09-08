@@ -1,5 +1,7 @@
 {
 	"en": {
+		"page_number_not_integer": "Page numbers must be integers.",
+		"page_number_invalid": "That's an invalid page number!",
 
 		"language_updated": "Snooful's language has been updated here.",
 		"language_not_available": "Sorry, but that language is not available at this moment.",
