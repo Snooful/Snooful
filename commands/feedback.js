@@ -15,21 +15,22 @@ module.exports = {
 		if (args.text) {
 			args.sb.GroupChannel.getChannel(toChannel, (channel, error) => {
 				if (error) {
-					args.send("I couldn't send the feedback.");
-					args.log("error with feedback command");
+					args.send(args.localize("feedback_error"));
+					args.log("error with fetching feedback channel");
 				} else {
-					channel.sendUserMessage(`I have recieved the following message from u/${args.message._sender.nickname} in ${args.channel.name}:\n\n${args.text.join(" ")}`, (sentMsg, sendError) => {
+					channel.sendUserMessage(args.localize("feedback_recieved", args.author, args.channel.name, args.text.join(" ")), (_, sendError) => {
 						if (sendError) {
+							args.send(args.localize("feedback_error"));
 							args.log("could not send feedback to channel");
 						} else {
 							args.log("sent feedback to channel");
 						}
 					});
-					args.send("I have contacted my creator for you.");
+					args.send(args.localize("feedback_success"));
 				}
 			});
 		} else {
-			args.send("You need to provide some feedback!");
+			args.send(args.localize("feedback_unspecified"));
 		}
 	},
 };

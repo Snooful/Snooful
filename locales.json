@@ -40,7 +40,12 @@
 
 		"info": "I am u/{0}, ready to help you with anything you need!\nMy prefix is {1}, so to type a command you just do {1}command.\nI was made by haykam821, but please direct all questions and concerns via {1}feedback!",
 
-		"github": "My source code is available at {}!"
+		"github": "My source code is available at {}!",
+
+		"feedback_error": "I couldn't send the feedback.",
+		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
+		"feedback_success": "I have contacted my creator for you.",
+		"feedback_unspecified": "You need to provide some feedback!"
 	},
 	"es": {
 		"ping_response": "¡Doop!",
