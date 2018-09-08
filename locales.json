@@ -62,7 +62,11 @@
 			"birthday",
 			"cake day"
 		],
-		"birthday_user_unspecified": "Happy {} dear... uh... who again?"
+		"birthday_user_unspecified": "Happy {} dear... uh... who again?",
+
+		"delete_faq_success": "That FAQ has been deleted.",
+		"delete_faq_nonexistent": "That FAQ doesn't even exist, silly.",
+		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq."
 	},
 	"es": {
 		"language": "Español",
