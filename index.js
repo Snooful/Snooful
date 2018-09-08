@@ -20,6 +20,8 @@ let settings = {};
 const locales = require("./locales.json");
 const format = require("string-format");
 
+const chance = new require("chance").Chance();
+
 sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	log.main("opened settings database");
 	settings = new SettingsManager(database);
@@ -91,7 +93,9 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
 					const msg = thisLocal[key] || locales.en[key];
 
-					return format(msg, ...formats);
+					const msgChosen = Array.isArray(msg) ? chance.pickone(msg) : msg;
+
+					return format(msgChosen, ...formats);
 				},
 				log: log.commands,
 				message,

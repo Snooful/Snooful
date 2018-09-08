@@ -1,6 +1,9 @@
 {
 	"en": {
-		"ping_response": "Pong!",
+		"ping_response": [
+			"Pong!",
+			"Plink!"
+		],
 
 		"page_number_not_integer": "Page numbers must be integers.",
 		"page_number_invalid": "That's an invalid page number!",
