@@ -19,6 +19,7 @@ let settings = {};
 
 const locales = require("./locales.json");
 const format = require("string-format");
+const upsidedown = require("upsidedown");
 
 const chance = new require("chance").Chance();
 
@@ -94,8 +95,9 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					const msg = thisLocal[key] || locales.en[key];
 
 					const msgChosen = Array.isArray(msg) ? chance.pickone(msg) : msg;
+					const msgFlipped = lang === "uǝ" ? upsidedown(msgChosen) : msgChosen;
 
-					return format(msgChosen, ...formats);
+					return format(msgFlipped, ...formats);
 				},
 				log: log.commands,
 				message,

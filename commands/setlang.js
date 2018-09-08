@@ -9,7 +9,7 @@ module.exports = {
 	describe: "Changes the language of Snooful.",
 	handler: args => {
 		if (args.lang) {
-			if (Object.keys(args.locales).includes(args.lang)) {
+			if (Object.keys(args.locales).includes(args.lang) || args.lang === "uǝ") {
 				args.settings.set("lang", args.lang);
 				args.send(args.localize("language_updated"));
 			} else {
