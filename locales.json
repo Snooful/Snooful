@@ -88,7 +88,7 @@
 		"version": "Eu estou andando na versão {}! 😄",
 		"version_hash": "Eu estou andando na versão {}, com o ultimo commit sendo {}!",
 
-		"whoami": "Ah, humanos bobos, sempre esquecendo seus nomes. Mas eu nao vou te jogar muito na sombra, u/{}."
+		"whoami": "Ah, humanos bobos, sempre esquecendo seus nomes. Mas eu nao vou te jogar muito na sombra, u/{}.",
 		"whereami": "Voce esta dentro de {}.",
 
 		"urban_dictionary_no_result": "Não tem resultado pra isso no Dicionario Urbano!",
@@ -125,13 +125,7 @@
 		"command_not_found": "Não Existe Comando assim.",
 		"command_unspecified": "Porfavor Especifique Que Comando Voce Quer Ver. Para Ver Todos Os Comandos, Faça {}commands.",
 
-		"birthday_song": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce!\nFeliz Aniversario {1}...\nFeliz Aniversario Pra Voce!
-		"birthday_type": [
-			"birthday",
-			"cake day"
-		],
+		"birthday_song": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce!\nFeliz Aniversario {1}...\nFeliz Aniversario Pra Voce!",
 		"birthday_user_unspecified": "Feliz Aniversario Pra Voce,\nFeliz Aniversario Pra Voce! /nFeliz Aniversario Pra... Uh... Quem Mesmo?"
-		},
-
 	}
 }
