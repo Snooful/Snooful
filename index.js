@@ -85,7 +85,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				sb,
 				send: content => {
 					return new Promise((resolve, reject) => {
-						channel.sendUserMessage(content.toString(), (error, sentMessage) => {
+						channel.sendUserMessage(content.toString(), (sentMessage, error) => {
 							if (error) {
 								reject(error);
 							} else {
