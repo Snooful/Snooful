@@ -88,6 +88,14 @@
 
 		"matrix_amount_too_low": "We need at least some binary. Give me a number bigger than that.",
 		"matrix_amount_too_high": "If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.",
+
+		"color_amount_too_low": "I need to provide you with at least one name for this color.",
+		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
+		"color_amount_invalid": "Please provide a proper integer for the amount of color names you would like to me to give.",
+		"color_name": "This color is called {}.",
+		"color_names": "The closest names for this color are {}.",
+		"color_invalid": "That color is invalid. Please provide a hexadecimal color, such as {}.",
+		"color_unspecified": "Give me a color to name."
 	},
 	"es": {
 		"language": "Español",

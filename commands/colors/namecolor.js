@@ -23,27 +23,26 @@ module.exports = {
 			try {
 				const names = namer(args.color).ntc.map(result => result.name);
 				if (args.count === 1) {
-					args.send(`This color is called ${names[0]}.`);
+					args.send(args.localize("color_name", names[0]));
 				} else if (Number.isInteger(args.count)) {
 					if (args.count > 10) {
-						args.send(`I cannot provide you with ${args.count} colors because that would spam this chat.`);
+						args.send(args.localize("color_amount_too_high", args.count));
 					} else if (args.count < 1) {
-						args.send("I need to provide you with at least one name for this color.");
+						args.send(args.localize("color_amount_too_low"));
 					} else {
-						args.send(`The closest names for this color are ${names.slice(0, args.count).join(", ")}.`);
+						args.send(args.localize("color_names", names.slice(0, args.count).join(", ")));
 					}
 				} else {
-					args.send("Please provide a proper integer for the amount of color names you would like to me to give.");
+					args.send(args.localize("color_amount_invalid"));
 				}
 			} catch (error) {
-				const randColor = chance.color({
+				args.send(args.localize("color_invalid", chance.color({
 					casing: "upper",
 					format: "hex",
-				});
-				args.send(`That color is invalid. Please provide a hexadecimal color, such as ${randColor}.`);
+				})));
 			}
 		} else {
-			args.send("Give me a color to name.");
+			args.send(args.localize("color_unspecified"));
 		}
 	},
 };
