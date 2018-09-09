@@ -17,7 +17,7 @@ module.exports = {
 
 				args.send(args.localize("delete_faq_success"));
 			} else {
-				args.send(args.localize("delete_faq_nonexistent"));
+				args.send(args.localize("delete_faq_nonexistent", args.prefix, args.id));
 			}
 		} else {
 			args.send(args.localize("delete_faq_unspecified", args.prefix));

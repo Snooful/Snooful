@@ -21,9 +21,15 @@
 		"version": "I am running version {}! 😄",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
 
-		"whoami": "Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
+		"whoami": [
+			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
+			"You need a nametag, u/{}..."
+		],
 
-		"whereami": "You are in {}.",
+		"whereami": [
+			"You are in {}.",
+			"Don't you have a GPS or something? Whatever, you're in {} right now."
+		],
 
 		"urban_dictionary_no_result": "There was no result for that word on Urban Dictionary!",
 		"urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
@@ -42,11 +48,17 @@
 		"clear_leave_message": "The leave message will not be sent.",
 
 		"reverse": "Reversing that gives us: {}",
-		"unspecified_reverse_message": "Please specify the text to reverse.",
+		"unspecified_reverse_message": [
+			"Please specify the text to reverse.",
+			"What text would you like me to reverse?"
+		],
 
 		"info": "I am u/{0}, ready to help you with anything you need!\nMy prefix is {1}, so to find a command you just do {1}command.\nI was made by haykam821, but please direct all questions and concerns via {1}feedback!",
 
-		"github": "My source code is available at {}!",
+		"github": [
+			"My source code is available at {}!",
+			"You can find my source code at {}."
+		],
 
 		"feedback_error": "I couldn't send the feedback.",
 		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
@@ -64,10 +76,21 @@
 			"birthday",
 			"cake day"
 		],
-		"birthday_user_unspecified": "Happy {} dear... uh... who again?",
+		"birthday_user_unspecified": [
+			"Happy {} dear... uh... who again?",
+			"Wait a second... who am I singing happy {} to again?"
+		],
 
-		"delete_faq_success": "That FAQ has been deleted.",
-		"delete_faq_nonexistent": "That FAQ doesn't even exist, silly.",
+		"delete_faq_success": [
+			"That FAQ has been deleted.",
+			"That FAQ has been purged from existence."
+		],
+		"delete_faq_nonexistent": [
+			"That FAQ doesn't even exist, silly.",
+			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one?",
+			"I don't see a FAQ with an identifier of '{1}'. Is the one you gave me correct?",
+			"There is no FAQ with that ID, so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {}listfaq."
+		],
 		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
 		
 		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
@@ -93,8 +116,14 @@
 		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
 		"custom_roll_results": "Dice output: {}, with a total of {}.",
 
-		"matrix_amount_too_low": "We need at least some binary. Give me a number bigger than that.",
-		"matrix_amount_too_high": "If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.",
+		"matrix_amount_too_low": [
+			"We need at least some binary. Give me a number bigger than that.",
+			"To hack into the NSA, we need to have some binary. Please give me a number bigger than that."
+		],
+		"matrix_amount_too_high": [
+			"If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.",
+			"Woah there! That's a lot of binary. If I post that, we might hack the simulation."
+		],
 
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
@@ -102,7 +131,10 @@
 		"color_name": "This color is called {}.",
 		"color_names": "The closest names for this color are {}.",
 		"color_invalid": "That color is invalid. Please provide a hexadecimal color, such as {}.",
-		"color_unspecified": "Give me a color to name."
+		"color_unspecified": [
+			"Give me a color to name.",
+			"In order to name your color, I need a color to name."
+		]
 	},
 	"es": {
 		"language": "Español",
