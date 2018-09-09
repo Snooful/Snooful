@@ -7,8 +7,10 @@
 			"Plink!"
 		],
 
+		"page_counter": "(page {} of {})",
 		"page_number_not_integer": "Page numbers must be integers.",
 		"page_number_invalid": "That's an invalid page number!",
+		"no_pagination_items": "There are no {} to view.",
 
 		"language_updated": "Snooful's language has been updated to {} here.",
 		"language_not_available": "Sorry, but that language is not available at this moment.",
@@ -71,12 +73,20 @@
 		"faq_message_updated": "That FAQ message (with ID '{}') has been updated.",
 		"faq_message_created": "A FAQ message (with ID '{}') has been created!",
 		"setfaq_message_unspecified": "You need to specify the message for the FAQ.",
-		"setfaq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq."
+		"setfaq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
+
+		"faq_datatype": "FAQs",
+		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
+
+		"command_datatype": "commands"
 	},
 	"es": {
 		"language": "Español",
 
 		"ping_response": "¡Doop!",
+
+		"page_counter": "(página {} de {})",
+		"no_pagination_items": "No hay {} para ver.",
 
 		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
@@ -88,7 +98,12 @@
 
 		"birthday_song": "Feliz {0} a ti,\n¡feliz {0} a ti!\nFeliz {0} a {1},\n¡feliz {0} a ti!",
 		"birthday_type": "cumpleaños",
-		"birthday_user_unspecified": "¿Feliz {0} a quién?"
+		"birthday_user_unspecified": "¿Feliz {0} a quién?",
+
+		"faq_datatype": "preguntas frecuentes",
+		"no_faqs": "No hay {type}. Puedes hacer uno usando {prefix}setfaq.",
+
+		"command_datatype": "comandos"
 	},
 	"pt": {
 		"language": "Portugues",
