@@ -84,8 +84,14 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				prefix,
 				sb,
 				send: content => {
-					channel.sendUserMessage(content.toString(), () => {
-						// Quite a useless callback...
+					return new Promise((resolve, reject) => {
+						channel.sendUserMessage(content.toString(), (error, sentMessage) => {
+							if (error) {
+								reject(error);
+							} else {
+								resolve(sentMessage);
+							}
+						});
 					});
 				},
 				settings: settings.subredditWrapper(channelSub(channel)),
