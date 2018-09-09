@@ -43,9 +43,13 @@
 
 		"update_join_message": "The join message has been updated.",
 		"clear_join_message": "The join message will not be sent.",
+		"update_join_message_no_change": "That is already the join message.",
+		"clear_join_message_no_change": "I haven't been sending the join message.",
 
 		"update_leave_message": "The leave message has been updated.",
 		"clear_leave_message": "The leave message will not be sent.",
+		"update_leave_message_no_change": "That is already the leave message.",
+		"clear_leave_message_no_change": "I haven't been sending the leave message.",
 
 		"reverse": "Reversing that gives us: {}",
 		"unspecified_reverse_message": [
