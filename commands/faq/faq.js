@@ -17,10 +17,10 @@ module.exports = {
 			if (faqs && faqs[args.id]) {
 				args.send("ℹ️ " + faqs[args.id]);
 			} else {
-				args.send(`There is no FAQ with that identifier. For a list of FAQs that exist, type ${args.prefix}listfaq.`);
+				args.send(args.localize("faq_nonexistent", args.prefix));
 			}
 		} else {
-			args.send(`You need to specify an identifier for the FAQ you want to show. To find this list, type ${args.prefix}listfaq.`);
+			args.send(args.localize("faq_unspecified", args.prefix));
 		}
 	},
 };

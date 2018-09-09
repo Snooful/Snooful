@@ -69,6 +69,9 @@
 		"delete_faq_success": "That FAQ has been deleted.",
 		"delete_faq_nonexistent": "That FAQ doesn't even exist, silly.",
 		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
+		
+		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
+		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",
 
 		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
 		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
