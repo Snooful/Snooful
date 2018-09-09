@@ -51,6 +51,10 @@
 		"update_leave_message_no_change": "That is already the leave message.",
 		"clear_leave_message_no_change": "I haven't been sending the leave message.",
 
+		"record_fetch_error": "I could not fetch the game!",
+		"record_game_unspecified": "Please specify a game.",
+		"record": "The world record for {} is at {}. For more information, view {}.",
+
 		"reverse": "Reversing that gives us: {}",
 		"unspecified_reverse_message": [
 			"Please specify the text to reverse.",
