@@ -84,7 +84,10 @@
 			"The die lands on a {}.",
 			"After a couple of bounces, the die finally settles on a {}.",
 			"The die falls off the table, but lands on a {}."
-		]
+		],
+
+		"matrix_amount_too_low": "We need at least some binary. Give me a number bigger than that.",
+		"matrix_amount_too_high": "If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.",
 	},
 	"es": {
 		"language": "Español",
