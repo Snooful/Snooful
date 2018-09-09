@@ -144,7 +144,11 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 				log.invites("failed to accept channel invitation");
 			} else {
 				log.invites(`automatically accepted channel invitation to ${channel.name}`);
-				channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, sendError) => {
+				channel.sendUserMessage([
+					`Thanks for inviting me to this channnel, u/${inviter.nickname}!`,
+					`I'm u/${client.nickname}, your friendly bot asssistant,`,
+					`and you can do ${prefix}commands to get started.`,
+				].join(" "), (message, sendError) => {
 					log.invites(sendError ? "failed to send introductory message" : "sent introductory message");
 				});
 			}
