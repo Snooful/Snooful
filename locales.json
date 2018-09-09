@@ -70,10 +70,10 @@
 		"delete_faq_nonexistent": "That FAQ doesn't even exist, silly.",
 		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
 
-		"faq_message_updated": "That FAQ message (with ID '{}') has been updated.",
-		"faq_message_created": "A FAQ message (with ID '{}') has been created!",
-		"setfaq_message_unspecified": "You need to specify the message for the FAQ.",
-		"setfaq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
+		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
+		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
+		"set_faq_message_unspecified": "You need to specify the message for the FAQ.",
+		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 
 		"faq_datatype": "FAQs",
 		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",

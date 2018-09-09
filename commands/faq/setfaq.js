@@ -20,12 +20,12 @@ module.exports = {
 				msgs[args.id] = args.value;
 				args.settings.set("faq_messages", msgs);
 
-				args.send(idDoesExist ? args.localize("faq_message_updated", args.id) : args.localize("faq_message_created", args.id));
+				args.send(idDoesExist ? args.localize("set_faq_message_success_update", args.id) : args.localize("set_faq_message_success_create", args.id));
 			} else {
-				args.send(args.localize("setfaq_message_unspecified"));
+				args.send(args.localize("set_faq_message_unspecified"));
 			}
 		} else {
-			args.send(args.localize("setfaq_id_unspecified", args.prefix));
+			args.send(args.localize("set_faq_id_unspecified", args.prefix));
 		}
 	},
 };
