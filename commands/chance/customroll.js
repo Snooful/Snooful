@@ -19,15 +19,15 @@ module.exports = {
 		if (args.dice) {
 			const roll = DiceRoller.roll(args.dice);
 			if (roll.rolls.length === 0) {
-				args.send("That seems to be invalid syntax. Please use proper dice notation.");
+				args.send(args.localize("custom_roll_notation_invalid"));
 			} else {
 				const lands = roll.rolls[0];
 				const sum = lands.reduce((prev, curr) => prev + curr);
 
-				args.send(`Dice output: ${lands.join(", ")}, with a total of ${sum}.`);
+				args.send(args.localize("custom_roll_results", lands.join(", "), sum));
 			}
 		} else {
-			args.send("Specify the dice you want to roll using standard notation.");
+			args.send(args.localize("custom_roll_notation_unspecified"));
 		}
 	},
 };

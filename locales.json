@@ -89,6 +89,10 @@
 			"The die falls off the table, but lands on a {}."
 		],
 
+		"custom_roll_notation_invalid": "That seems to be invalid syntax. Please use proper dice notation.",
+		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
+		"custom_roll_results": "Dice output: {}, with a total of {}.",
+
 		"matrix_amount_too_low": "We need at least some binary. Give me a number bigger than that.",
 		"matrix_amount_too_high": "If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.",
 
