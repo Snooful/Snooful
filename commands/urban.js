@@ -1,4 +1,5 @@
 const urbanDict = require("urban-dictionary");
+const truncate = require("truncate");
 
 module.exports = {
 	aliases: [
@@ -20,7 +21,7 @@ module.exports = {
 				args.send([
 					`${entry.word} (${entry.thumbs_up} votes)`,
 					"",
-					entry.definition,
+					truncate(entry.definition, 120),
 				].join("\n"));
 			}).catch(() => {
 				args.send("There was no result for that word on Urban Dictionary!");

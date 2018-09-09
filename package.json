@@ -17,6 +17,7 @@
 		"rpg-dice-roller": "^2.0.0",
 		"sendbird": "^3.0.77",
 		"sqlite": "^2.9.2",
+		"truncate": "^2.0.1",
 		"urban-dictionary": "^2.1.2",
 		"url-escape-tag": "^1.0.0",
 		"yargs": "^12.0.1"
