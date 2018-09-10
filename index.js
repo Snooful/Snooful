@@ -1,10 +1,9 @@
 let envs;
 try {
-	envs = require("dotenv").config().parsed || {};
+	const dotenv = require("dotenv").config();
+	envs = dotenv.parsed || {};
 } catch (_) {
-	envs = {
-		parsed: {},
-	};
+	envs = process.env;
 }
 
 const log = require("./debug.js");
