@@ -33,6 +33,7 @@
 
 		"urban_dictionary_no_result": "There was no result for that word on Urban Dictionary!",
 		"urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
+		"definition_vote_count": "({} votes)",
 
 		"invalid_timezone": "That's not a valid time zone.",
 		"current_time": "The current time in {} is {}.",
@@ -154,6 +155,8 @@
 
 		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
+		
+		"definition_vote_count": "({} votos)",
 
 		"version": "Mi versión es {}.",
 		"version_hash": "Mi versión es {} ({}).",
