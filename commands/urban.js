@@ -18,7 +18,7 @@ module.exports = {
 			urbanDict.term(args.term).then(result => {
 				const entry = result.entries[0];
 				args.send([
-					`${entry.word} (${entry.thumbs_up} votes)`,
+					`${entry.word} ${args.localize("definition_vote_count", entry.thumbs_up)}`,
 					"",
 					entry.definition,
 				].join("\n"));
