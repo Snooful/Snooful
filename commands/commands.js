@@ -6,6 +6,6 @@ module.exports = paginate("commands", args => {
 		"help",
 		"cmds",
 	],
-	dataType: "commands",
+	dataType: "command_datatype",
 	description: "List commands and their description.",
 });

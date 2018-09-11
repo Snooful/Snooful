@@ -1,10 +1,9 @@
 let envs;
 try {
-	envs = require("dotenv").config().parsed || {};
+	const dotenv = require("dotenv").config();
+	envs = dotenv.parsed || {};
 } catch (_) {
-	envs = {
-		parsed: {},
-	};
+	envs = process.env;
 }
 
 const log = require("./debug.js");
@@ -16,6 +15,12 @@ const path = require("path");
 
 const SettingsManager = require("./settings.js");
 let settings = {};
+
+const locales = require("./locales.json");
+const format = require("string-format");
+const upsidedown = require("upsidedown");
+
+const chance = new require("chance").Chance();
 
 sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	log.main("opened settings database");
@@ -73,12 +78,26 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			log.commands("couldn't parse extra channel data, this is fine");
 		}
 
+		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
+
 		try {
 			yargs.parse(unprefixedCmd, {
 				author: message._sender.nickname,
 				chData,
 				channel,
 				client,
+				locales,
+				localize: (key = "", ...formats) => {
+					const lang = settingsWrapper.get("lang");
+
+					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
+					const msg = thisLocal[key] || locales.en[key];
+
+					const msgChosen = Array.isArray(msg) ? chance.pickone(msg) : msg;
+					const msgFlipped = lang === "uǝ" ? upsidedown(msgChosen) : msgChosen;
+
+					return format(msgFlipped, ...formats);
+				},
 				log: log.commands,
 				message,
 				prefix,
@@ -94,7 +113,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 						});
 					});
 				},
-				settings: settings.subredditWrapper(channelSub(channel)),
+				settings: settingsWrapper,
 				usage: yargs.getUsageInstance().getCommands(),
 				version,
 			});

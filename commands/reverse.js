@@ -18,9 +18,9 @@ module.exports = {
 	describe: "Reverses text.",
 	handler: args => {
 		if (args.text) {
-			args.send("Reversing that gives us: " + rev(args.text.join(" ")));
+			args.send(args.localize("reverse", rev(args.text.join(" "))));
 		} else {
-			args.send("Please specify the text to reverse.");
+			args.send(args.localize("unspecified_reverse_message"));
 		}
 	},
 };

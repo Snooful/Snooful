@@ -6,9 +6,9 @@ module.exports = {
 		const oldNum = args.settings.get("test");
 
 		if (oldNum === undefined) {
-			args.send(`The number is ${newNum}. There was no number before.`);
+			args.send(args.localize("number_created", newNum));
 		} else {
-			args.send(`The new number is ${newNum}. The old number is ${oldNum}.`);
+			args.send(args.localize("number_changed", newNum, oldNum));
 		}
 
 		args.settings.set("test", newNum);

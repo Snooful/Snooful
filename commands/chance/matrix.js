@@ -12,9 +12,9 @@ module.exports = {
 	describe: "Provides a line of random binary.",
 	handler: args => {
 		if (args.amount < 1) {
-			args.send("We need at least some binary. Give me a number bigger than that.");
+			args.send(args.localize("matrix_amount_too_low"));
 		} else if (args.amount > 40) {
-			args.send("If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.");
+			args.send(args.localize("matrix_amount_too_high"));
 		} else {
 			args.send(chance.n(chance.integer, args.amount, {
 				max: 1,

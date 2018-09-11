@@ -15,12 +15,12 @@ module.exports = {
 				delete msgs[args.id];
 				args.settings.set("faq_messages", msgs);
 
-				args.send("That FAQ has been deleted.");
+				args.send(args.localize("delete_faq_success"));
 			} else {
-				args.send("That FAQ doesn't even exist, silly.");
+				args.send(args.localize("delete_faq_nonexistent", args.prefix, args.id));
 			}
 		} else {
-			args.send(`You need to specify a FAQ to delete. To get a list of FAQs, type ${args.prefix}listfaq.`);
+			args.send(args.localize("delete_faq_unspecified", args.prefix));
 		}
 	},
 };

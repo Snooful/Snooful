@@ -7,7 +7,7 @@ try {
 }
 
 function sendVersion(args) {
-	return args.send(`I am running version ${args.version}! 😄`);
+	return args.send(args.localize("version", args.version));
 }
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
 				if (error) {
 					sendVersion(args);
 				} else {
-					args.send(`I am running version ${args.version}, with the most recent commit being ${git.shortHash}!`);
+					args.send(args.localize("version_hash", args.version, git.shortHash));
 				}
 			});
 		} else {

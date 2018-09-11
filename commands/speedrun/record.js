@@ -19,13 +19,13 @@ module.exports = {
 				rp(url `https://www.speedrun.com/api/v1/games/${game.id}/records?miscellaneous=no&scope=full-game&top=1`).then(runsRaw => {
 					const topRun = JSON.parse(runsRaw).data[0].runs[0].run;
 					const speed = moment.duration(topRun.times.primary_t, "seconds").format("h [hours], m [minutes], s [seconds]");
-					args.send(`The world record for ${game.names.international} is at ${speed}. For more information, view ${topRun.weblink}.`);
+					args.send(args.localize("record", game.names.international, speed, topRun.weblink));
 				});
 			}).catch(() => {
-				args.send("I could not fetch the game!");
+				args.send(args.localize("record_fetch_error"));
 			});
 		} else {
-			args.send("Please specify a game.");
+			args.send(args.localize("record_game_unspecified"));
 		}
 	},
 };
