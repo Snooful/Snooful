@@ -3,7 +3,7 @@
 const assert = require("chai").assert;
 
 const locales = require("./locales.json");
-const verify = require("locale-code").verify;
+const validate = require("locale-code").validate;
 
 function eachLocale(callback) {
 	Object.keys(locales).forEach(key => {
@@ -17,7 +17,7 @@ describe("localization", () => {
 	});
 	it("locale codes are correct", () => {
 		eachLocale((_, key) => {
-			assert.isTrue(verify(key));
+			assert.isTrue(validate(key));
 		});
 	});
 	it("each locale is an object", () => {
