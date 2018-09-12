@@ -9,7 +9,7 @@ function safeLocal(localize, prefix, otherPart, ...formats) {
 	}
 }
 
-function errorHandler(error, send, localize, type = "game", prefix = "fetch") {
+function errorHandler(error, send, localize, type, prefix) {
 	if (error instanceof got.CacheError) {
 		send(safeLocal(localize, prefix, "cache_error", type));
 	} else if (error instanceof got.RequestError) {
@@ -50,10 +50,17 @@ function errorHandler(error, send, localize, type = "game", prefix = "fetch") {
  * @param {string} opts.contentType The type of content being requested for use in the error handler.
  * @returns {Promise} A promise that resolves to got's response.
  */
-module.exports = (url, args = {}, opts = {}) => {
-	return got(url, opts.got || {}).catch(error => {
-		if (opts.handleErrors) {
-			errorHandler(error, args.send, args.localize, args.localize(opts.contentType), opts.errorKeyPrefix);
+module.exports = (url, args = {}, opts) => {
+	const optsFixed = Object.assign({
+		contentType: "data",
+		errorKeyPrefix: "fetch",
+		got: {},
+		handleErrors: true,
+	}, opts);
+
+	return got(url, optsFixed.got || {}).catch(error => {
+		if (optsFixed.handleErrors) {
+			errorHandler(error, args.send, args.localize, args.localize(optsFixed.contentType), optsFixed.errorKeyPrefix);
 		}
 	});
 };

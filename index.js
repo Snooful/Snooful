@@ -102,10 +102,14 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
 					const msg = thisLocal[key] || locales.en[key];
 
-					const msgChosen = chanceFormats(msg);
+					if (msg) {
+						const msgChosen = chanceFormats(msg);
 
-					const formatted = format(msgChosen, ...formats);
-					return lang === "uǝ" ? upsidedown(formatted) : formatted;
+						const formatted = format(msgChosen, ...formats);
+						return lang === "uǝ" ? upsidedown(formatted) : formatted;
+					} else {
+						return undefined;
+					}
 				},
 				log: log.commands,
 				message,
