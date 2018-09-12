@@ -94,9 +94,9 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					const msg = thisLocal[key] || locales.en[key];
 
 					const msgChosen = Array.isArray(msg) ? chance.pickone(msg) : msg;
-					const msgFlipped = lang === "uǝ" ? upsidedown(msgChosen) : msgChosen;
 
-					return format(msgFlipped, ...formats);
+					const formatted = format(msgChosen, ...formats);
+					return lang === "uǝ" ? upsidedown(formatted) : formatted;
 				},
 				log: log.commands,
 				message,
