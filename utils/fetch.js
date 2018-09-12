@@ -30,8 +30,8 @@ function errorHandler(error, send, localize, type = "game", prefix = "fetch") {
 	}
 }
 
-module.exports = (url, gotOpts, args = {}, opts = {}) => {
-  return got(url, gotOpts).catch(error => {
+module.exports = (url, args = {}, opts = {}) => {
+  return got(url, opts.got || {}).catch(error => {
     errorHandler(error, args.send, args.localize, args.localize(opts.contentType), opts.errorKeyPrefix);
   });
 };
