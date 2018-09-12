@@ -1,5 +1,5 @@
 {
-	"en": {
+	"en-US": {
 		"language": "English",
 
 		"ping_response": [
@@ -145,7 +145,7 @@
 			"In order to name your color, I need a color to name."
 		]
 	},
-	"es": {
+	"es-ES": {
 		"language": "Español",
 
 		"ping_response": "¡Doop!",
@@ -172,7 +172,7 @@
 
 		"command_datatype": "comandos"
 	},
-	"pt": {
+	"pt-BR": {
 		"language": "Portugues",
 
 		"ping_response": "Pong!",

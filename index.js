@@ -99,8 +99,8 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				localize: (key = "", ...formats) => {
 					const lang = settingsWrapper.get("lang");
 
-					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
-					const msg = thisLocal[key] || locales.en[key];
+					const thisLocal = lang ? (locales[lang] || locales["en-US"]) : locales["en-US"];
+					const msg = thisLocal[key] || locales["en-US"][key];
 
 					const msgChosen = chanceFormats(msg);
 

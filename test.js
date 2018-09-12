@@ -13,7 +13,7 @@ function eachLocale(callback) {
 
 describe("localization", () => {
 	it("has english", () => {
-		assert.isDefined(locales.en);
+		assert.isDefined(locales["en-US"]);
 	});
 	it("locale codes are correct", () => {
 		eachLocale((_, key) => {
