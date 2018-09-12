@@ -21,6 +21,15 @@ const format = require("string-format");
 const upsidedown = require("upsidedown");
 
 const chance = new require("chance").Chance();
+function chanceFormats(msg) {
+	if (Array.isArray(msg)) {
+		return chance.pickone(msg)
+	} else if (msg instanceof Object) {
+		return chance.weighted(Object.keys(msg), Object.values(msg))
+	} else {
+		return msg.toString();
+	}
+}
 
 sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	log.main("opened settings database");
@@ -93,7 +102,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
 					const msg = thisLocal[key] || locales.en[key];
 
-					const msgChosen = Array.isArray(msg) ? chance.pickone(msg) : msg;
+					const msgChosen = chanceFormats(msg);
 
 					const formatted = format(msgChosen, ...formats);
 					return lang === "uǝ" ? upsidedown(formatted) : formatted;
