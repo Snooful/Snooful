@@ -4,7 +4,7 @@ const got = require("got");
 const moment = require("moment");
 require("moment-duration-format");
 
-function errorHandler(error, send, type = "game") {
+function errorHandler(error, send, localize, type = "game") {
 	if (error instanceof got.CacheError) {
 		send("There was an error reading from the cache!");
 	} else if (error instanceof got.RequestError) {
@@ -22,13 +22,13 @@ function errorHandler(error, send, type = "game") {
 			send("There was an HTTP error!");
 		}
 	} else if (error instanceof got.MaxRedirectsError) {
-		send("There were too many redirects!");
+		send(`There were too many redirects when attempting to retrieve the ${type}!`);
 	} else if (error instanceof got.UnsupportedProtocolError) {
 		send("The protocol is unsupported!");
 	} else if (error instanceof got.CancelError) {
 		send("The request was cancelled.");
 	} else if (error instanceof got.TimeoutError) {
-		send(`The ${type} lookup took too long!`);
+		send(`Retrieving the ${type} took too long!`);
 	} else {
 		send(`I could not fetch the ${type}!`);
 	}
@@ -55,10 +55,10 @@ module.exports = {
 					const speed = moment.duration(topRun.times.primary_t, "seconds").format("h [hours], m [minutes], s [seconds]");
 					args.send(args.localize("record", game.names.international, speed, topRun.weblink));
 				}).catch(error => {
-					errorHandler(error, args.send, "runs");
+					errorHandler(error, args.send, args.localize, "runs");
 				});
 			}).catch(error => {
-				errorHandler(error, args.send, "game");
+				errorHandler(error, args.send, args.localize, "game");
 			});
 		} else {
 			args.send(args.localize("record_game_unspecified"));
