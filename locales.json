@@ -84,6 +84,7 @@
 			"My source code is available at {}!",
 			"You can find my source code at {}."
 		],
+		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, our GitHub repository is available at {0}!",
 
 		"feedback_error": "I couldn't send the feedback.",
 		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
