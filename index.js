@@ -41,10 +41,8 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
  */
 const prefix = envs.SNOOFUL_PREFIX || "!";
 
-const yargs = require("yargs");
-yargs.commandDir("commands", {
-	recurse: true,
-});
+const parser = require("@snooful/orangered-parser");
+parser.registerDirectory("./commands");
 
 /**
  * Logs an end user-initiated fail (non-interrupting) to console.
@@ -55,12 +53,6 @@ function safeFail(error) {
 	const errMsg = error instanceof Error ? error.message : error;
 	log.commands("an error occured during command parsing/execution: %s", errMsg);
 }
-
-yargs.fail(safeFail);
-yargs.exitProcess(false);
-
-yargs.help(false);
-yargs.version(false);
 
 /**
  * The client information.
@@ -90,7 +82,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
 
 		try {
-			yargs.parse(unprefixedCmd, {
+			parser.parse(unprefixedCmd, {
 				author: message._sender.nickname,
 				chData,
 				channel,
@@ -114,6 +106,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				log: log.commands,
 				message,
 				prefix,
+				registry: parser.getCommandRegistry(),
 				sb,
 				send: content => {
 					return new Promise((resolve, reject) => {
@@ -127,7 +120,6 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					});
 				},
 				settings: settingsWrapper,
-				usage: yargs.getUsageInstance().getCommands(),
 				version,
 			});
 		} catch (error) {
