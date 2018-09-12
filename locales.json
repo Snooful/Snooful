@@ -52,7 +52,6 @@
 		"update_leave_message_no_change": "That is already the leave message.",
 		"clear_leave_message_no_change": "I haven't been sending the leave message.",
 
-		"record_error": "I could not fetch the game!",
 		"record_cache_error": "There was an error reading from the cache!",
 		"record_request_error": "There was an error when trying to make a request to the speedrun.com API!",
 		"record_read_error": "There was an error reading from the response stream!",
