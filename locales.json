@@ -107,7 +107,7 @@
 
 		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
 		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
-		"set_faq_message_unspecified": "You need to specify the message for the FAQ.",
+		"set_faq_message_unspecified": "You need to specify the message for the FAQ. If you would like to get rid of this FAQ, use {}delfaq.",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 
 		"faq_datatype": "FAQs",
