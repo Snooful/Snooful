@@ -52,9 +52,25 @@
 		"update_leave_message_no_change": "That is already the leave message.",
 		"clear_leave_message_no_change": "I haven't been sending the leave message.",
 
-		"record_fetch_error": "I could not fetch the game!",
+		"record_request_error": "There was an error when trying to make a request to the speedrun.com API!",
+		"record_parse_error": "The speedrun.com API isn't sending valid JSON, for some reason!",
 		"record_game_unspecified": "Please specify a game.",
 		"record": "The world record for {} is at {}. For more information, view {}.",
+		"record_runs_type": "runs",
+		"record_game_type": "game",
+		
+		"fetch_cache_error": "There was an error reading from the cache!",
+		"fetch_request_error": "There was an error when trying to make a request to get the {}!",
+		"fetch_read_error": "There was an error reading from the response stream!",
+		"fetch_parse_error": "There was an error while trying to parse the {}!",
+		"fetch_4xx_error": "There was a client error!",
+		"fetch_5xx_error": "The server had an error!",
+		"fetch_http_error": "There was an HTTP error!",
+		"fetch_redirect_error": "There were too many redirects!",
+		"fetch_protocol_error": "The protocol is unsupported!",
+		"fetch_cancel_error": "The request was cancelled.",
+		"fetch_timeout_error": "The {} lookup took too long!",
+		"fetch_generic_error": "I could not fetch the {}!",
 
 		"reverse": "Reversing that gives us: {}",
 		"unspecified_reverse_message": [
@@ -68,6 +84,7 @@
 			"My source code is available at {}!",
 			"You can find my source code at {}."
 		],
+		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, our GitHub repository is available at {0}!",
 
 		"feedback_error": "I couldn't send the feedback.",
 		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
