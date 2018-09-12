@@ -18,6 +18,7 @@ module.exports = {
 			got: {
 				json: true,
 			},
+			handleErrors: false,
 		}).then(response => {
 			const issues = response.body;
 			args.send(args.localize("github_contribute", repoURL, issues.length));
