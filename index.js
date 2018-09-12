@@ -23,9 +23,9 @@ const upsidedown = require("upsidedown");
 const chance = new require("chance").Chance();
 function chanceFormats(msg) {
 	if (Array.isArray(msg)) {
-		return chance.pickone(msg)
+		return chance.pickone(msg);
 	} else if (msg instanceof Object) {
-		return chance.weighted(Object.keys(msg), Object.values(msg))
+		return chance.weighted(Object.keys(msg), Object.values(msg));
 	} else {
 		return msg.toString();
 	}
