@@ -6,31 +6,31 @@ require("moment-duration-format");
 
 function errorHandler(error, send, localize, type = "game") {
 	if (error instanceof got.CacheError) {
-		send("There was an error reading from the cache!");
+		send(localize("speedrun_cache_error", type));
 	} else if (error instanceof got.RequestError) {
-		send("There was an error when trying to make a request to the speedrun.com API!");
+		send(localize("speedrun_request_error", type));
 	} else if (error instanceof got.ReadError) {
-		send("There was an error reading from the response stream!");
+		send(localize("speedrun_read_error", type));
 	} else if (error instanceof got.ParseError) {
-		send("The speedrun.com API isn't sending valid JSON, for some reason!");
+		send(localize("speedrun_parse_error", type));
 	} else if (error instanceof got.HTTPError) {
 		if (error.statusCode.startsWith("4")) {
-			send("There was a client error!");
+			send(localize("speedrun_4xx_error", type, error.statusCode));
 		} else if (error.statusCode.startsWith("5")) {
-			send("The server had an error!");
+			send(localize("speedrun_5xx_error", type, error.statusCode));
 		} else {
-			send("There was an HTTP error!");
+			send(localize("speedrun_http_error", type, error.statusCode));
 		}
 	} else if (error instanceof got.MaxRedirectsError) {
-		send(`There were too many redirects when attempting to retrieve the ${type}!`);
+		send(localize("speedrun_redirect_error", type));
 	} else if (error instanceof got.UnsupportedProtocolError) {
-		send("The protocol is unsupported!");
+		send(localize("speedrun_protocol_error", type));
 	} else if (error instanceof got.CancelError) {
-		send("The request was cancelled.");
+		send(localize("speedrun_cancel_error", type));
 	} else if (error instanceof got.TimeoutError) {
-		send(`Retrieving the ${type} took too long!`);
+		send(localize("speedrun_timeout_error", type));
 	} else {
-		send(`I could not fetch the ${type}!`);
+		send(localize("speedrun_generic_error", type));
 	}
 }
 
@@ -55,10 +55,10 @@ module.exports = {
 					const speed = moment.duration(topRun.times.primary_t, "seconds").format("h [hours], m [minutes], s [seconds]");
 					args.send(args.localize("record", game.names.international, speed, topRun.weblink));
 				}).catch(error => {
-					errorHandler(error, args.send, args.localize, "runs");
+					errorHandler(error, args.send, args.localize, args.localize("record_runs_type"));
 				});
 			}).catch(error => {
-				errorHandler(error, args.send, args.localize, "game");
+				errorHandler(error, args.send, args.localize, args.localize("record_game_type"));
 			});
 		} else {
 			args.send(args.localize("record_game_unspecified"));
