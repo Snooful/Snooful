@@ -39,6 +39,7 @@
 		"eslint-plugin-json": "^1.2.1",
 		"eslint-plugin-markdown": "^1.0.0-beta.6",
 		"eslint-plugin-unicorn": "^5.0.0",
+		"locale-code": "^2.0.1",
 		"mocha": "^5.2.0"
 	},
 	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
