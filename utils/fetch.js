@@ -39,6 +39,17 @@ function errorHandler(error, send, localize, type = "game", prefix = "fetch") {
 	}
 }
 
+/**
+ * Fetches a URL with got which has optional error handling.
+ * @param {string} url The URL to fetch.
+ * @param {Object} args Arguments from the handler.
+ * @param {Object} opts Extra options.
+ * @param {Object} opts.got Options for got to use.
+ * @param {boolean} opts.handleErrors If enabled, sends a message when an error occurs with the request.
+ * @param {string} opts.errorKeyPrefix The prefix for the localization keys of errors.
+ * @param {string} opts.contentType The type of content being requested for use in the error handler.
+ * @returns {Promise} A promise that resolves to got's response.
+ */
 module.exports = (url, args = {}, opts = {}) => {
 	return got(url, opts.got || {}).catch(error => {
 		if (opts.handleErrors) {
