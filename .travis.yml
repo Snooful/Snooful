@@ -4,3 +4,4 @@ node_js:
   - lts/*
 script:
   - npm run lint
+  - npm test

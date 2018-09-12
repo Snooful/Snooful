@@ -21,12 +21,19 @@ module.exports = {
 	command: "setjoinmessage [join-message]",
 	describe: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
 	handler: args => {
+		const oldMsg = args.settings.get("join_message");
 		if (args.joinMessage) {
-			args.settings.set("join_message", args.joinMessage);
-			args.send("The join message has been updated.");
+			if (oldMsg === args.joinMessage) {
+				args.send(args.localize("update_join_message_no_change"));
+			} else {
+				args.settings.set("join_message", args.joinMessage);
+				args.send(args.localize("update_join_message"));
+			}
+		} else if (oldMsg === undefined) {
+			args.send(args.localize("clear_join_message_no_change"));
 		} else {
 			args.settings.clear("join_message");
-			args.send("The join message will not be sent.");
+			args.send(args.localize("clear_join_message"));
 		}
 	},
 };

@@ -18,15 +18,15 @@ module.exports = {
 			urbanDict.term(args.term).then(result => {
 				const entry = result.entries[0];
 				args.send([
-					`${entry.word} (${entry.thumbs_up} votes)`,
+					`${entry.word} ${args.localize("definition_vote_count", entry.thumbs_up)}`,
 					"",
 					entry.definition,
 				].join("\n"));
 			}).catch(() => {
-				args.send("There was no result for that word on Urban Dictionary!");
+				args.send(args.localize("urban_dictionary_no_result"));
 			});
 		} else {
-			args.send("undefined: A subtle hint that you need to tell me which word to define.");
+			args.send(args.localize("urban_dictionary_unspecified_word"));
 		}
 	},
 };

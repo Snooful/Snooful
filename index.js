@@ -1,10 +1,9 @@
 let envs;
 try {
-	envs = require("dotenv").config().parsed || {};
+	const dotenv = require("dotenv").config();
+	envs = dotenv.parsed || {};
 } catch (_) {
-	envs = {
-		parsed: {},
-	};
+	envs = process.env;
 }
 
 const log = require("./debug.js");
@@ -16,6 +15,21 @@ const path = require("path");
 
 const SettingsManager = require("./settings.js");
 let settings = {};
+
+const locales = require("./locales.json");
+const format = require("string-format");
+const upsidedown = require("upsidedown");
+
+const chance = new require("chance").Chance();
+function chanceFormats(msg) {
+	if (Array.isArray(msg)) {
+		return chance.pickone(msg);
+	} else if (msg instanceof Object) {
+		return chance.weighted(Object.keys(msg), Object.values(msg));
+	} else {
+		return msg.toString();
+	}
+}
 
 sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	log.main("opened settings database");
@@ -63,7 +77,7 @@ let client = {};
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (command.startsWith(prefix) && message._sender.nickname !== client.nickname) {
 		const unprefixedCmd = command.replace(prefix, "");
-		log.commands("recieved command '%s'", unprefixedCmd);
+		log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
 		let chData = {};
 
@@ -73,22 +87,42 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			log.commands("couldn't parse extra channel data, this is fine");
 		}
 
+		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
+
 		try {
 			yargs.parse(unprefixedCmd, {
 				author: message._sender.nickname,
 				chData,
 				channel,
 				client,
+				locales,
+				localize: (key = "", ...formats) => {
+					const lang = settingsWrapper.get("lang");
+
+					const thisLocal = lang ? (locales[lang] || locales.en) : locales.en;
+					const msg = thisLocal[key] || locales.en[key];
+
+					const msgChosen = chanceFormats(msg);
+
+					const formatted = format(msgChosen, ...formats);
+					return lang === "uǝ" ? upsidedown(formatted) : formatted;
+				},
 				log: log.commands,
 				message,
 				prefix,
 				sb,
 				send: content => {
-					channel.sendUserMessage(content.toString(), () => {
-						// Quite a useless callback...
+					return new Promise((resolve, reject) => {
+						channel.sendUserMessage(content.toString(), (sentMessage, error) => {
+							if (error) {
+								reject(error);
+							} else {
+								resolve(sentMessage);
+							}
+						});
 					});
 				},
-				settings: settings.subredditWrapper(channelSub(channel)),
+				settings: settingsWrapper,
 				usage: yargs.getUsageInstance().getCommands(),
 				version,
 			});
@@ -138,7 +172,11 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 				log.invites("failed to accept channel invitation");
 			} else {
 				log.invites(`automatically accepted channel invitation to ${channel.name}`);
-				channel.sendUserMessage(`Thanks for inviting me to this channnel, u/${inviter.nickname}! I'm u/${client.nickname}, your friendly bot asssistant, and you can do ${prefix}commands to get started.`, (message, sendError) => {
+				channel.sendUserMessage([
+					`Thanks for inviting me to this channnel, u/${inviter.nickname}!`,
+					`I'm u/${client.nickname}, your friendly bot asssistant,`,
+					`and you can do ${prefix}commands to get started.`,
+				].join(" "), (message, sendError) => {
 					log.invites(sendError ? "failed to send introductory message" : "sent introductory message");
 				});
 			}
