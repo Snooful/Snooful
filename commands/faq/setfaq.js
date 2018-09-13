@@ -1,16 +1,14 @@
 module.exports = {
-	builder: build => {
-		build.positional("id", {
-			describe: "The ID of the FAQ message to change.",
-			type: "string",
-		});
-		build.positional("value", {
-			describe: "The message to set the FAQ to.",
-			type: "string",
-		});
-	},
-	command: "setfaq [id] [value]",
-	describe: "Sets or creates a FAQ message.",
+	arguments: [{
+		description: "The ID of the FAQ message to change.",
+		key: "id",
+		type: "string",
+	}, {
+		description: "The message to set the FAQ to.",
+		key: "value",
+		type: "string",
+	}],
+	description: "Sets or creates a FAQ message.",
 	handler: args => {
 		if (args.id) {
 			const msgs = args.settings.get("faq_messages") || {};
@@ -28,4 +26,5 @@ module.exports = {
 			args.send(args.localize("set_faq_id_unspecified", args.prefix));
 		}
 	},
+	name: "setfaq",
 };
