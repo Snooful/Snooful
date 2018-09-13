@@ -1,12 +1,10 @@
 module.exports = {
-	builder: build => {
-		build.positional("id", {
-			describe: "The ID of the FAQ to delete.",
-			type: "string",
-		});
-	},
-	command: "delfaq [id]",
-	describe: "Deletes a FAQ message.",
+	arguments: [{
+		describe: "The ID of the FAQ to delete.",
+		key: "id",
+		type: "string",
+	}],
+	description: "Deletes a FAQ message.",
 	handler: args => {
 		if (args.id) {
 			const msgs = args.settings.get("faq_messages") || {};
@@ -23,4 +21,5 @@ module.exports = {
 			args.send(args.localize("delete_faq_unspecified", args.prefix));
 		}
 	},
+	name: "delfaq",
 };
