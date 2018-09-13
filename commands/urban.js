@@ -5,13 +5,12 @@ module.exports = {
 		"urbandict",
 		"urbandictionary",
 	],
-	builder: build => {
-		build.positional("term", {
-			describe: "The term to define.",
-			type: "string",
-		});
-	},
-	command: "urban [term]",
+	arguments: [{
+		description: "The term to define.",
+		key: "term",
+		type: "string",
+
+	}],
 	describe: "Gets a term from Urban Dictionary.",
 	handler: args => {
 		if (args.term) {
@@ -29,4 +28,5 @@ module.exports = {
 			args.send(args.localize("urban_dictionary_unspecified_word"));
 		}
 	},
+	name: "urban",
 };
