@@ -6,13 +6,12 @@ module.exports = {
 		"commandinfo",
 		"cmdinfo",
 	],
-	builder: cmd => {
-		cmd.positional("name", {
-			describe: "The command to view information about.",
-			type: "string",
-		});
-	},
-	command: "command [name]",
+	arguments: [{
+		description: "The command to view information about.",
+		key: "name",
+		type: "string",
+	}],
+	command: "command",
 	describe: "Views information about a command.",
 	handler: args => {
 		if (args.name) {
