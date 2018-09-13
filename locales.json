@@ -160,7 +160,16 @@
 		"color_unspecified": [
 			"Give me a color to name.",
 			"In order to name your color, I need a color to name."
-		]
+		],
+
+		"argument_unavailable_choice": "Your value for the '{key}' argument is not one of the available choices.",
+		"argument_invalid": "The '{key}' argument is invalid.",
+		"string_argument_regexp_fail": "Your value for the '{key}' argument does not follow the allowed format.",
+		"string_argument_too_long": "Your value for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
+		"string_argument_too_short": "Your value for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
+		"integer_argument_invalid": "The value for the '{key}' argument must be an integer.",
+		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
+		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}."
 	},
 	"es-ES": {
 		"language": "Español",
