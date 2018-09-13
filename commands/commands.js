@@ -1,6 +1,6 @@
 const paginate = require("./../utils/paginate.js");
 module.exports = paginate("commands", args => {
-	return args.usage.map(command => `${args.prefix}${command[0]}: ${command[1]}`);
+	return args.registry.map(command => `${args.prefix}${command.name}: ${command.description}`);
 }, {
 	aliases: [
 		"help",
