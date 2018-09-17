@@ -140,6 +140,7 @@
 
 		"custom_roll_notation_invalid": "That seems to be invalid syntax. Please use proper dice notation.",
 		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
+		"custom_roll_max": "Sorry, but I will not be able to handle that request; it's simply too much for me.",
 		"custom_roll_results": "Dice output: {}, with a total of {}.",
 
 		"matrix_amount_too_low": [
