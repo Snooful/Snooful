@@ -12,9 +12,9 @@
 		"page_number_invalid": "That's an invalid page number!",
 		"no_pagination_items": "There are no {} to view.",
 
-		"language_updated": "Snooful's language has been updated to {} here.",
-		"language_not_available": "Sorry, but that language is not available at this moment.",
-		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
+		"language_updated": "My language has been updated to {} here.",
+		"language_not_available": "Sorry, but I cannot speak that language currently.",
+		"new_language_unspecified": "To change my anguage, you must specify the new language.",
 
 		"current_language": "Snooful's language is currently set to {}. You can change it with {}setlang.",
 
@@ -84,7 +84,7 @@
 			"My source code is available at {}!",
 			"You can find my source code at {}."
 		],
-		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, our GitHub repository is available at {0}!",
+		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, the GitHub repository with my source code is available at {0}!",
 
 		"feedback_error": "I couldn't send the feedback.",
 		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
@@ -170,7 +170,7 @@
 		"page_counter": "(página {} de {})",
 		"no_pagination_items": "No hay {} para ver.",
 
-		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
+		"language_updated": "Mi idioma se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
 		
 		"definition_vote_count": "({} votos)",
