@@ -21,7 +21,6 @@
 	},
 	"optionalDependencies": {
 		"debug": "^3.1.0",
-		"dotenv": "^6.0.0",
 		"esrever": "^0.2.0",
 		"git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0"
