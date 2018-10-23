@@ -17,11 +17,32 @@ module.exports = {
 		if (args.name) {
 			const command = args.usage.filter(usage => usage[0].split(" ")[0] === args.name)[0];
 			if (command) {
-				args.send([
-					"Command: " + args.prefix + command[0],
-					command[1] ? "Description: " + command[1] : "",
-					command[3].length > 0 ? "Aliases: " + command[3].join(", ") : "",
-				].join("\n"));
+				const msg = [];
+				
+				msg.push(args.prefix + command.toString());
+				
+				if (command.description) {
+					msg.push("Description: " + command.description);
+				}
+				
+				
+				if (command.aliases.length > 0) {
+					if (command.aliases.length === 1) {
+						msg.push("Alias: " + args.prefix + command.aliases[0]);
+					} else {
+						msg.push("Aliases:\n  - " + args.prefix + command.aliases.join("\n  - " + args.prefix));
+					}
+				}
+				
+				if (command.arguments.length > 0) {			
+					const arglist = command.arguments.map(arg => {
+						const argtype = args.localize("argument_type" + arg.type);
+						return `- ${arg.name} (${argtype}): ${arg.description}`;
+					});
+					msg.push("Arguments:\n  " + arglist.join("\n  "));
+				}
+					
+				args.send(msg.join("\n\n"));
 			} else {
 				args.send(args.localize("command_not_found"));
 			}
