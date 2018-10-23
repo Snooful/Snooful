@@ -15,20 +15,23 @@ module.exports = {
 	describe: "Views information about a command.",
 	handler: args => {
 		if (args.name) {
-			const command = args.usage.filter(usage => usage[0].split(" ")[0] === args.name)[0];
+			const command = args.registry.filter(cmd => {
+				return cmd.name === args.name;
+			})[0];
+
 			if (command) {
 				const msg = [];
 
 				// Full command template
-				msg.push(args.prefix + command.toString());
+				msg.push(args.prefix + command.usage());
 
 				// Description
 				if (command.description) {
-					msg.push("Description: " + command.description);
+					msg.push(command.longDescription);
 				}
 
 				// Aliases
-				if (command.aliases.length > 0) {
+				if (command.aliases && command.aliases.length > 0) {
 					if (command.aliases.length === 1) {
 						msg.push("Alias: " + args.prefix + command.aliases[0]);
 					} else {
@@ -37,10 +40,12 @@ module.exports = {
 				}
 
 				// Arguments
-				if (command.arguments.length > 0) {
+				if (command.arguments && command.arguments.length > 0) {
 					const arglist = command.arguments.map(arg => {
-						const argtype = args.localize("argument_type" + arg.type);
-						return `• ${arg.name} (${argtype}): ${arg.description}`;
+						const argtype = args.localize("argument_type" + arg.type) || arg.type;
+						const desc = arg.description ? ": " + arg.description : "";
+
+						return `• ${arg.key} (${argtype})` + desc;
 					});
 					msg.push("Arguments:\n" + arglist.join("\n"));
 				}

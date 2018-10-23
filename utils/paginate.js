@@ -40,7 +40,7 @@ module.exports = (command, data = [], opts = {}) => {
 		aliases: options.aliases,
 		arguments: [{
 			default: 1,
-			description: "The page number to view.",
+			description: "The page index to view.",
 			key: "page",
 			type: "integer",
 		}],
