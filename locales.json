@@ -5,6 +5,11 @@
 		"alias_datatype": "aliases",
 		"alias_listing": "{} (alias of {})",
 
+		"isalias_unspecified_command": "You need to specify the command to check. ",
+		"isalias_nonexistent_command": "That command does not exist.",
+		"isalias_true": "The command, {}, is an alias of {}.",
+		"isalias_false": "The command, {}, is not an alias.",
+
 		"ping_response": [
 			"Pong!",
 			"Plink!"
