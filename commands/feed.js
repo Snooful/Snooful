@@ -26,14 +26,12 @@ const defaultFeed = [
 ];
 
 module.exports = {
-	builder: build => {
-		build.positional("user", {
-			describe: "The user to feed. If unspecified, feeds you.",
-			type: "string",
-		});
-	},
-	command: "feed [user]",
-	describe: "Feeds you or a specified user food.",
+	arguments: [{
+		description: "The user to feed. If unspecified, feeds you.",
+		key: "user",
+		type: "string",
+	}],
+	description: "Feeds you or a specified user food.",
 	handler: args => {
 		if (args.user === undefined || args.user === args.author) {
 			if (feedUsers[args.author]) {
@@ -47,4 +45,5 @@ module.exports = {
 			args.send(defaultFeed[1]);
 		}
 	},
+	name: "feed",
 };

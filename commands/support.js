@@ -1,6 +1,5 @@
 module.exports = {
-	command: "support",
-	describe: "Invites you to Snooful's support channel.",
+	description: "Invites you to Snooful's support channel.",
 	handler: args => {
 		args.sb.GroupChannel.getChannel("sendbird_group_channel_961019_fb957911b064712bc24f215f2ebc4a64168df72d", (channel, getError) => {
 			if (getError) {
@@ -16,4 +15,5 @@ module.exports = {
 			}
 		});
 	},
+	name: "support",
 };

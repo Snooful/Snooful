@@ -12,14 +12,12 @@ module.exports = {
 		"sethellomsg",
 		"hellomsg",
 	],
-	builder: build => {
-		build.positional("join-message", {
-			describe: "The new join message.",
-			type: "string",
-		});
-	},
-	command: "setjoinmessage [join-message]",
-	describe: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
+	arguments: [{
+		description: "The new join message.",
+		key: "join-message",
+		type: "string",
+	}],
+	description: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
 	handler: args => {
 		const oldMsg = args.settings.get("join_message");
 		if (args.joinMessage) {
@@ -36,4 +34,5 @@ module.exports = {
 			args.send(args.localize("clear_join_message"));
 		}
 	},
+	name: "setjoinmessage",
 };

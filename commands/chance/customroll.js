@@ -13,7 +13,7 @@ module.exports = {
 			type: "string",
 		});
 	},
-	command: "customroll [dice]",
+	command: "customroll",
 	describe: "Rolls dice with a custom notation.",
 	handler: args => {
 		if (args.dice) {

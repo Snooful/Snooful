@@ -11,8 +11,7 @@ module.exports = {
 		"homepage",
 		"website",
 	],
-	command: "github",
-	describe: "Links to the GitHub repository for Snooful.",
+	description: "Links to the GitHub repository for Snooful.",
 	handler: args => {
 		get(`https://api.github.com/repos/${github}/issues`, args, {
 			got: {
@@ -26,4 +25,5 @@ module.exports = {
 			args.send(args.localize("github", repoURL));
 		});
 	},
+	name: "github",
 };

@@ -16,14 +16,12 @@ module.exports = {
 		"setbyemsg",
 		"byemsg",
 	],
-	builder: build => {
-		build.positional("leave-message", {
-			describe: "The new leave message.",
-			type: "string",
-		});
-	},
-	command: "setleavemessage [leave-message]",
-	describe: "Sets the message for channel leavers. {USER} is replaced with the user's name.",
+	builder: [{
+		describe: "The new leave message.",
+		key: "leave-message",
+		type: "string",
+	}],
+	description: "Sets the message for channel leavers. {USER} is replaced with the user's name.",
 	handler: args => {
 		const oldMsg = args.settings.get("join_message");
 		if (args.leaveMessage) {
@@ -40,4 +38,5 @@ module.exports = {
 			args.send(args.localize("clear_leave_message"));
 		}
 	},
+	name: "setleavemessage",
 };

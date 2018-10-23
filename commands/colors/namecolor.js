@@ -5,18 +5,16 @@ module.exports = {
 	aliases: [
 		"colorname",
 	],
-	builder: build => {
-		build.positional("color", {
-			describe: "The color to name.",
-			type: "string",
-		});
-		build.positional("count", {
-			default: 1,
-			describe: "The amount of names to assign.",
-			type: "number",
-		});
-	},
-	command: "namecolor [color] [count]",
+	arguments: [{
+		description: "The color to name.",
+		key: "color",
+		type: "string",
+	}, {
+		default: 1,
+		description: "The amount of names to assign.",
+		key: "count",
+		type: "number",
+	}],
 	describe: "Names a color.",
 	handler: args => {
 		if (args.color) {
@@ -45,4 +43,5 @@ module.exports = {
 			args.send(args.localize("color_unspecified"));
 		}
 	},
+	name: "namecolor",
 };

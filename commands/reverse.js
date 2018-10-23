@@ -8,14 +8,12 @@ try {
 }
 
 module.exports = {
-	builder: build => {
-		build.positional("text", {
-			describe: "The text to reverse.",
-			type: "string",
-		});
-	},
-	command: "reverse [text...]",
-	describe: "Reverses text.",
+	arguments: [{
+		description: "The text to reverse.",
+		key: "text",
+		type: "string",
+	}],
+	description: "Reverses text.",
 	handler: args => {
 		if (args.text) {
 			args.send(args.localize("reverse", rev(args.text.join(" "))));
@@ -23,4 +21,5 @@ module.exports = {
 			args.send(args.localize("unspecified_reverse_message"));
 		}
 	},
+	name: "reverse",
 };

@@ -1,15 +1,13 @@
 const chance = require("chance").Chance();
 
 module.exports = {
-	builder: build => {
-		build.positional("amount", {
-			default: 30,
-			description: "The length of the matrix line.",
-			type: "number",
-		});
-	},
-	command: "matrix [amount]",
-	describe: "Provides a line of random binary.",
+	arguments: [{
+		default: 30,
+		description: "The length of the matrix line.",
+		key: "amount",
+		type: "number",
+	}],
+	description: "Provides a line of random binary.",
 	handler: args => {
 		if (args.amount < 1) {
 			args.send(args.localize("matrix_amount_too_low"));
@@ -22,4 +20,5 @@ module.exports = {
 			}).join(""));
 		}
 	},
+	name: "matrix",
 };
