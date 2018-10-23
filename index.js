@@ -3,6 +3,8 @@ const config = Object.assign({
 	prefix: "!",
 }, require("./config.json"));
 
+const snoowrap = require("snoowrap");
+
 const log = require("./debug.js");
 
 const version = require("./package.json").version;
@@ -138,27 +140,44 @@ const sb = new Sendbird({
 	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13",
 });
 
-log.main("connecting to sendbird");
-sb.connect(config.id, config.token, (userInfo, error) => {
-	if (error) {
-		log.main("couldn't connect to sendbird");
-	} else {
-		log.main("connected to sendbird");
-		client = userInfo;
-
-		const query = sb.GroupChannel.createMyGroupChannelListQuery();
-		query.next(list => {
-			list.filter(channel => {
-				return channel.myMemberState = "invited";
-			}).forEach(channel => {
-				channel.acceptInvitation((_, acceptError) => {
-					if (!acceptError) {
-						log.invites(`accepted channel invitation to ${channel.name} (late)`);
-					}
-				});
+function acceptInvitesLate() {
+	const query = sb.GroupChannel.createMyGroupChannelListQuery();
+	query.next(list => {
+		list.filter(channel => {
+			return channel.myMemberState = "invited";
+		}).forEach(channel => {
+			channel.acceptInvitation((_, acceptError) => {
+				if (!acceptError) {
+					log.invites(`accepted channel invitation to ${channel.name} (late)`);
+				}
 			});
 		});
-	}
+	});
+}
+
+const rClient = new snoowrap(Object.assign(config.credentials, {
+	userAgent: `Snooful v${version}`,
+}));
+
+log.main("fetching new access token");
+rClient.oauthRequest({
+	baseUrl: "https://s.reddit.com/api/v1",
+	uri: "/sendbird/me",
+	method: "get",
+}).then(response => {
+	log.main("connecting to sendbird");
+	sb.connect(config.id, response.sb_access_token, (userInfo, error) => {
+		if (error) {
+			log.main("couldn't connect to sendbird");
+		} else {
+			log.main("connected to sendbird");
+			client = userInfo;
+
+			acceptInvitesLate();
+		}
+	});
+}).catch(() => {
+	log.main("could not get access token");
 });
 
 const handler = new sb.ChannelHandler();

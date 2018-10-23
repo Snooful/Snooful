@@ -12,6 +12,7 @@
 		"pm2": "^3.0.4",
 		"rpg-dice-roller": "^2.0.0",
 		"sendbird": "^3.0.77",
+		"snoowrap": "^1.15.2",
 		"sqlite": "^2.9.2",
 		"string-format": "^2.0.0",
 		"upsidedown": "0.0.5",
