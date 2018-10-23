@@ -12,5 +12,6 @@ module.exports = paginate("commands", args => {
 		"cmds",
 	],
 	dataType: "command_datatype",
-	description: "Gives a list of commands List commands and their description.",
+	description: "Gives a list of commands.",
+	longDescription: "Gives a list of all non-alias commands and their description.",
 });

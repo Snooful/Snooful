@@ -35,7 +35,7 @@ module.exports = {
 					if (command.aliases.length === 1) {
 						msg.push("Alias: " + args.prefix + command.aliases[0]);
 					} else {
-						msg.push("Aliases:\n•" + args.prefix + command.aliases.join("\n•" + args.prefix));
+						msg.push("Aliases:\n• " + args.prefix + command.aliases.join("\n• " + args.prefix));
 					}
 				}
 
