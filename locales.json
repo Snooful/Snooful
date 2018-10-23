@@ -2,6 +2,9 @@
 	"en-US": {
 		"language": "English",
 
+		"alias_datatype": "aliases",
+		"alias_listing": "{} (alias of {})",
+
 		"ping_response": [
 			"Pong!",
 			"Plink!"
