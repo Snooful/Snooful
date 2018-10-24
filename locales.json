@@ -4,9 +4,7 @@
 
 		"alias_datatype": "aliases",
 		"alias_listing": "{} (alias of {})",
-
-		"isalias_unspecified_command": "You need to specify the command to check. ",
-		"isalias_nonexistent_command": "That command does not exist.",
+		
 		"isalias_true": "The command, {}, is an alias of {}.",
 		"isalias_false": "The command, {}, is not an alias.",
 
@@ -171,6 +169,7 @@
 		],
 
 		"argument_unavailable_choice": "Your value for the '{key}' argument is not one of the available choices.",
+		"argument_required": "You must provide a {2} for the '{key}' argument.",
 		"argument_invalid": "The '{key}' argument is invalid.",
 		"string_argument_regexp_fail": "Your value for the '{key}' argument does not follow the allowed format.",
 		"string_argument_too_long": "Your value for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
@@ -179,7 +178,12 @@
 		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
 		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}.",
 		"command_argument_not_original": "You can not specify an alias of another command for the '{key}' argument.",
-		"command_argument_nonexistent": "The command specified in the '{key}' argument does not exist."
+		"command_argument_nonexistent": "The command specified in the '{key}' argument does not exist.",
+
+		"argument_type_generic": "value",
+		"argument_type_string": "string",
+		"argument_type_integer": "integer",
+		"argument_type_command": "command"
 	},
 	"es-ES": {
 		"language": "Español",
@@ -206,7 +210,12 @@
 		"faq_datatype": "preguntas frecuentes",
 		"no_faqs": "No hay {type}. Puedes hacer uno usando {prefix}setfaq.",
 
-		"command_datatype": "comandos"
+		"command_datatype": "comandos",
+
+		"argument_required": "Es necesario proporcionar un {2} para el argumento '{key}'.",
+
+		"argument_type_generic": "contenido",
+		"argument_type_command": "comando"
 	},
 	"pt-BR": {
 		"language": "Portugues",
