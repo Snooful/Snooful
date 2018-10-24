@@ -177,7 +177,9 @@
 		"string_argument_too_short": "Your value for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
 		"integer_argument_invalid": "The value for the '{key}' argument must be an integer.",
 		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
-		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}."
+		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}.",
+		"command_argument_not_original": "You can not specify an alias of another command for the '{key}' argument.",
+		"command_argument_nonexistent": "The command specified in the '{key}' argument does not exist."
 	},
 	"es-ES": {
 		"language": "Español",
