@@ -11,7 +11,7 @@
 		"ping_response": [
 			"Pong!",
 			"Plink!",
-			"Dink!",
+			"Dink!"
 		],
 
 		"page_counter": "(page {} of {})",
@@ -33,7 +33,7 @@
 
 		"whoami": [
 			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
-			"You need a nametag, u/{}..."
+			"You need a nametag, u/{}...",
 			"Do you need to write 'u/{}' on your hand so you can remember?"
 		],
 

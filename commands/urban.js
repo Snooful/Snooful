@@ -9,7 +9,6 @@ module.exports = {
 		description: "The term to define.",
 		key: "term",
 		type: "string",
-
 	}],
 	describe: "Gets a term from Urban Dictionary.",
 	handler: args => {

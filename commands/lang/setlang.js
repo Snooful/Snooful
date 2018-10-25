@@ -10,7 +10,6 @@ module.exports = {
 		description: "The language message for Snooful to use in this room/subreddit.",
 		key: "lang",
 		type: "string",
-
 	}],
 	description: "Changes the language of Snooful.",
 	handler: args => {

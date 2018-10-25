@@ -13,7 +13,7 @@ module.exports = {
 		default: 1,
 		description: "The amount of names to assign.",
 		key: "count",
-		type: "number",
+		type: "integer",
 	}],
 	describe: "Names a color.",
 	handler: args => {
