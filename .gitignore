@@ -62,3 +62,6 @@ typings/
 
 # per-subreddit settings database
 settings.sqlite3
+
+# config
+config.json

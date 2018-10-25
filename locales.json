@@ -1,6 +1,6 @@
 {
 	"en-US": {
-		"language": "English",
+		"language": "English (American)",
 
 		"alias_datatype": "aliases",
 		"alias_listing": "{} (alias of {})",
@@ -10,7 +10,8 @@
 
 		"ping_response": [
 			"Pong!",
-			"Plink!"
+			"Plink!",
+			"Dink!",
 		],
 
 		"page_counter": "(page {} of {})",
@@ -18,9 +19,12 @@
 		"page_number_invalid": "That's an invalid page number!",
 		"no_pagination_items": "There are no {} to view.",
 
-		"language_updated": "Snooful's language has been updated to {} here.",
-		"language_not_available": "Sorry, but that language is not available at this moment.",
-		"new_language_unspecified": "To change Snooful's language, you must specify the new language.",
+		"language_updated": [
+			"My language has been updated to {} here.",
+			"I'll now speak {} here."
+		],
+		"language_not_available": "Sorry, but I cannot speak that language currently.",
+		"new_language_unspecified": "To change my language, you must specify the new language.",
 
 		"current_language": "Snooful's language is currently set to {}. You can change it with {}setlang.",
 
@@ -30,33 +34,53 @@
 		"whoami": [
 			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
 			"You need a nametag, u/{}..."
+			"Do you need to write 'u/{}' on your hand so you can remember?"
 		],
 
 		"whereami": [
 			"You are in {}.",
-			"Don't you have a GPS or something? Whatever, you're in {} right now."
+			"Don't you have a GPS or something? Whatever, you're in {} right now.",
+			"Do I really have to tell you this? You're in {}..."
 		],
 
-		"urban_dictionary_no_result": "There was no result for that word on Urban Dictionary!",
+		"urban_dictionary_no_result": [
+			"There was no result for that word on Urban Dictionary!",
+			"That word is not currently in Urban Dictionary."
+		],
 		"urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
 		"definition_vote_count": "({} votes)",
 
-		"invalid_timezone": "That's not a valid time zone.",
-		"current_time": "The current time in {} is {}.",
+		"invalid_timezone": [
+			"That's not a valid time zone.",
+			"That's not a time zone I've heard of!"
+		],
+		"current_time": [
+			"The current time in {} is {}.",
+			"Right now in {}, it is {}."
+		],
 
 		"support_channel_missing": "Sorry, I couldn't find the channel I wanted to invite you to!",
 		"support_invite_error": "Sorry, something went wrong with the invitation!",
-		"support_invited": "I've invited you to the support channel.",
+		"support_invited": [
+			"I've invited you to the support channel.",
+			"Check your channel invites; I've sent an invite for the support channel to you."
+		],
 
 		"update_join_message": "The join message has been updated.",
 		"clear_join_message": "The join message will not be sent.",
 		"update_join_message_no_change": "That is already the join message.",
-		"clear_join_message_no_change": "I haven't been sending the join message.",
+		"clear_join_message_no_change": [
+			"I haven't been sending the join message.",
+			"I'd stop sending the join message, if not for the fact that I haven't been doing that in the first place."
+		],
 
 		"update_leave_message": "The leave message has been updated.",
 		"clear_leave_message": "The leave message will not be sent.",
 		"update_leave_message_no_change": "That is already the leave message.",
-		"clear_leave_message_no_change": "I haven't been sending the leave message.",
+		"clear_leave_message_no_change": [
+			"I haven't been sending the leave message.",
+			"I'd stop sending the join message, if not for the fact that I haven't been doing that in the first place."
+		],
 
 		"record_request_error": "There was an error when trying to make a request to the speedrun.com API!",
 		"record_parse_error": "The speedrun.com API isn't sending valid JSON, for some reason!",
@@ -78,7 +102,10 @@
 		"fetch_timeout_error": "The {} lookup took too long!",
 		"fetch_generic_error": "I could not fetch the {}!",
 
-		"reverse": "Reversing that gives us: {}",
+		"reverse": [
+			"Reversing that gives us: {}",
+			"After swapping the order of that text, we get: {}"
+		],
 		"unspecified_reverse_message": [
 			"Please specify the text to reverse.",
 			"What text would you like me to reverse?"
@@ -90,11 +117,18 @@
 			"My source code is available at {}!",
 			"You can find my source code at {}."
 		],
-		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, our GitHub repository is available at {0}!",
+		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, the GitHub repository with my source code is available at {0}!",
 
-		"feedback_error": "I couldn't send the feedback.",
+		"feedback_error": [
+			"I couldn't send the feedback.",
+			"Sorry, but something went wrong when I tried to send the feedback."
+		],
 		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
-		"feedback_success": "I have contacted my creator for you.",
+		"feedback_success": [
+			"I have contacted my creator for you.",
+			"Your feedback has been passed on to my creator. Thank you for sending it!",
+			"Thanks! I've given that feedback to my creator."
+		],
 		"feedback_unspecified": "You need to provide some feedback!",
 
 		"number_created": "The number is {}. There was no number before.",
@@ -146,6 +180,7 @@
 
 		"custom_roll_notation_invalid": "That seems to be invalid syntax. Please use proper dice notation.",
 		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
+		"custom_roll_max": "Sorry, but I will not be able to handle that request; it's simply too much for me.",
 		"custom_roll_results": "Dice output: {}, with a total of {}.",
 
 		"matrix_amount_too_low": [
@@ -165,7 +200,8 @@
 		"color_invalid": "That color is invalid. Please provide a hexadecimal color, such as {}.",
 		"color_unspecified": [
 			"Give me a color to name.",
-			"In order to name your color, I need a color to name."
+			"In order to name your color, I need a color to name.",
+			"How am I supposed to name nothing? You need to provide me with a color."
 		],
 
 		"argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
@@ -193,7 +229,7 @@
 		"page_counter": "(página {} de {})",
 		"no_pagination_items": "No hay {} para ver.",
 
-		"language_updated": "El idioma de Snooful se ha actualizado aquí.",
+		"language_updated": "Mi idioma se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
 		
 		"definition_vote_count": "({} votos)",
