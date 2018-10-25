@@ -205,22 +205,28 @@
 			"How am I supposed to name nothing? You need to provide me with a color."
 		],
 
+		"command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
+		"command_argument_nonexistent": "The {2} specified in the '{key}' argument does not exist.",
 		"argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
 		"argument_required": "You must provide a {2} for the '{key}' argument.",
-		"argument_invalid": "The '{key}' argument is invalid.",
-		"string_argument_regexp_fail": "The {2} provided for the '{key}' argument does not follow the allowed format.",
-		"string_argument_too_long": "The {2} provided for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
-		"string_argument_too_short": "The {2} provided for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
+		"argument_invalid": "The value provided for the '{key}' argument is invalid.",
 		"integer_argument_invalid": "The value provided for the '{key}' argument must be an integer.",
 		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
 		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}.",
-		"command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
-		"command_argument_nonexistent": "The {2} specified in the '{key}' argument does not exist.",
+		"string_argument_regexp_fail": "The {2} provided for the '{key}' argument does not follow the allowed format.",
+		"string_argument_too_long": "The {2} provided for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
+		"string_argument_too_short": "The {2} provided for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
+		"subreddit_argument_too_short": "The {2} provided for the '{key}' is too long; subreddits must have at least 3 characters in their name.",
+		"subreddit_argument_too_long": "The {2} provided for the '{key}' is too long; subreddits can only have up to 20 characters in their name.",
+		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
+		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
 
+		"argument_type_command": "command",
 		"argument_type_generic": "value",
-		"argument_type_string": "string",
 		"argument_type_integer": "integer",
-		"argument_type_command": "command"
+		"argument_type_string": "string",
+		"argument_type_subreddit": "subreddit",
+		"argument_type_user": "user"
 	},
 	"es-ES": {
 		"language": "Español",
