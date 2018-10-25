@@ -6,7 +6,7 @@ module.exports = {
 	arguments: [{
 		description: "The user to wish a happy birthday to.",
 		key: "user",
-		type: "string",
+		type: "user",
 	}],
 	description: "Sings a birthday song to a user!",
 	handler: args => {
