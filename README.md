@@ -19,10 +19,6 @@ Some dependencies do not need to be installed for Snooful to function, but they 
 
 Snooful uses JSON for configuration. This file is located at `./config.json`, and must be created manually.
 
-### ID
-
-This is the ID of the user. In the near future, this will not be needed.
-
 ### Credentials
 
 To use Snooful, you must provide credentials, which are taken from [snoowrap](https://not-an-aardvark.github.io/snoowrap/snoowrap.html#snoowrap__anchor). The user agent cannot be set as it is automatically set to one containing the version. To get these, go to [applications](https://www.reddit.com/prefs/apps/) and generate a new app. Fill in the `credentials` object of configuration (see the [example config](#example_config) for what a script-type config would look like).

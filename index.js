@@ -165,16 +165,21 @@ rClient.oauthRequest({
 	uri: "/sendbird/me",
 	method: "get",
 }).then(response => {
-	log.main("connecting to sendbird");
-	sb.connect(config.id, response.sb_access_token, (userInfo, error) => {
-		if (error) {
-			log.main("couldn't connect to sendbird");
-		} else {
-			log.main("connected to sendbird");
-			client = userInfo;
+	log.main("getting id");
+	rClient.getMe().id.then(id => {
+		log.main("connecting to sendbird");
+		sb.connect("t2_" + id, response.sb_access_token, (userInfo, error) => {
+			if (error) {
+				log.main("couldn't connect to sendbird");
+			} else {
+				log.main("connected to sendbird");
+				client = userInfo;
 
-			acceptInvitesLate();
-		}
+				acceptInvitesLate();
+			}
+		});
+	}).catch(() => {
+		log.main("could not get id");
 	});
 }).catch(() => {
 	log.main("could not get access token");
