@@ -132,7 +132,7 @@
 		"feedback_unspecified": "You need to provide some feedback!",
 
 		"number_created": "The number is {}. There was no number before.",
-		"number_changed": "The new number is {}. The old number is {}.",
+		"number_changed": "The new number is {}. The previous number was {}.",
 
 		"command_aliases_single": "Alias:",
 		"command_aliases": "Aliases:",

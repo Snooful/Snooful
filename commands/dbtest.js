@@ -1,7 +1,12 @@
+const chance = require("chance").Chance();
+
 module.exports = {
 	description: "Tests persistency of the settings system.",
 	handler: args => {
-		const newNum = Math.random();
+		const newNum = chance.integer({
+			max: 300,
+			min: 1,
+		});
 		const oldNum = args.settings.get("test");
 
 		if (oldNum === undefined) {
