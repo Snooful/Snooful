@@ -3,7 +3,7 @@ const config = Object.assign({
 	prefix: "!",
 }, require("./config.json"));
 
-const snoowrap = require("snoowrap");
+const Snoowrap = require("snoowrap");
 
 const log = require("./debug.js");
 
@@ -113,6 +113,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				log: log.commands,
 				message,
 				prefix,
+				reddit,
 				sb,
 				send: content => {
 					return new Promise((resolve, reject) => {
@@ -155,13 +156,13 @@ function acceptInvitesLate() {
 	});
 }
 
-const rClient = new snoowrap(Object.assign(config.credentials, {
+const reddit = new Snoowrap(Object.assign(config.credentials, {
 	userAgent: `Snooful v${version}`,
 }));
 
 async function launch() {
 	log.main("fetching new access token");
-	const sbInfo = await rClient.oauthRequest({
+	const sbInfo = await reddit.oauthRequest({
 		baseUrl: "https://s.reddit.com/api/v1",
 		method: "get",
 		uri: "/sendbird/me",
@@ -170,7 +171,7 @@ async function launch() {
 	});
 
 	log.main("getting id");
-	const id = await rClient.getMe().id.catch(() => {
+	const id = await reddit.getMe().id.catch(() => {
 		log.main("could not get id");
 	});
 
