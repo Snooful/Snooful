@@ -159,31 +159,34 @@ const rClient = new snoowrap(Object.assign(config.credentials, {
 	userAgent: `Snooful v${version}`,
 }));
 
-log.main("fetching new access token");
-rClient.oauthRequest({
-	baseUrl: "https://s.reddit.com/api/v1",
-	uri: "/sendbird/me",
-	method: "get",
-}).then(response => {
-	log.main("getting id");
-	rClient.getMe().id.then(id => {
-		log.main("connecting to sendbird");
-		sb.connect("t2_" + id, response.sb_access_token, (userInfo, error) => {
-			if (error) {
-				log.main("couldn't connect to sendbird");
-			} else {
-				log.main("connected to sendbird");
-				client = userInfo;
-
-				acceptInvitesLate();
-			}
-		});
+async function launch() {
+	log.main("fetching new access token");
+	const sbInfo = await rClient.oauthRequest({
+		baseUrl: "https://s.reddit.com/api/v1",
+		method: "get",
+		uri: "/sendbird/me",
 	}).catch(() => {
+		log.main("could not get access token");
+	});
+
+	log.main("getting id");
+	const id = await rClient.getMe().id.catch(() => {
 		log.main("could not get id");
 	});
-}).catch(() => {
-	log.main("could not get access token");
-});
+
+	log.main("connecting to sendbird");
+	sb.connect("t2_" + id, sbInfo.sb_access_token, (userInfo, error) => {
+		if (error) {
+			log.main("couldn't connect to sendbird");
+		} else {
+			log.main("connected to sendbird");
+			client = userInfo;
+
+			acceptInvitesLate();
+		}
+	});
+}
+launch();
 
 const handler = new sb.ChannelHandler();
 
