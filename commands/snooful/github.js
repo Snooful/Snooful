@@ -1,7 +1,7 @@
 const github = "Snooful/Snooful";
 const repoURL = `https://github.com/${github}`;
 
-const get = require("./../utils/fetch.js");
+const get = require("./../../utils/fetch.js");
 
 module.exports = {
 	aliases: [

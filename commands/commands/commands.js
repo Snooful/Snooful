@@ -1,4 +1,4 @@
-const paginate = require("./../utils/paginate.js");
+const paginate = require("./../../utils/paginate.js");
 module.exports = paginate("commands", args => {
 	return args.registry.filter(command => {
 		// Remove aliases
