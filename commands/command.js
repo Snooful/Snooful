@@ -28,9 +28,9 @@ module.exports = {
 		// Aliases
 		if (command.aliases && command.aliases.length > 0) {
 			if (command.aliases.length === 1) {
-				msg.push("Alias: " + args.prefix + command.aliases[0]);
+				msg.push(args.localize("command_aliases_single") + " " + args.prefix + command.aliases[0]);
 			} else {
-				msg.push("Aliases:\n• " + args.prefix + command.aliases.join("\n• " + args.prefix));
+				msg.push(args.localize("command_aliases") + "\n• " + args.prefix + command.aliases.join("\n• " + args.prefix));
 			}
 		}
 
@@ -42,7 +42,7 @@ module.exports = {
 
 				return `• ${arg.key} (${argtype})` + desc;
 			});
-			msg.push("Arguments:\n" + arglist.join("\n"));
+			msg.push(args.localize("command_arguments") + "\n" + arglist.join("\n"));
 		}
 
 		// Send it!

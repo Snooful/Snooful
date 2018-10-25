@@ -134,8 +134,9 @@
 		"number_created": "The number is {}. There was no number before.",
 		"number_changed": "The new number is {}. The old number is {}.",
 
-		"command_not_found": "There is no command with that name.",
-		"command_unspecified": "Please specify a command to view. To see all commands, do {}commands.",
+		"command_aliases_single": "Alias:",
+		"command_aliases": "Aliases:",
+		"command_arguments": "Arguments:",
 
 		"birthday_song": "Happy {0} to you,\nhappy {0} to you!\nHappy {0}, dear {1}...\nhappy {0} to you!",
 		"birthday_type": [
@@ -238,6 +239,10 @@
 		"version_hash": "Mi versión es {} ({}).",
 
 		"whoami": "Te llaman u/{}.",
+
+		"command_aliases_single": "Alternativa:",
+		"command_aliases": "Alternativas:",
+		"command_arguments": "Opciones:",
 
 		"birthday_song": "Feliz {0} a ti,\n¡feliz {0} a ti!\nFeliz {0} a {1},\n¡feliz {0} a ti!",
 		"birthday_type": "cumpleaños",
