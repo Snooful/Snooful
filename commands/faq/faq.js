@@ -8,7 +8,6 @@ module.exports = {
 		type: "string",
 	}],
 	description: "Shows a prewritten FAQ.",
-	longDescription: "Shows a FAQ message that has been set previously.",
 	handler: args => {
 		const faqs = args.settings.get("faq_messages");
 
@@ -22,5 +21,6 @@ module.exports = {
 			args.send(args.localize("faq_unspecified", args.prefix));
 		}
 	},
+	longDescription: "Shows a FAQ message that has been set previously.",
 	name: "faq",
 };

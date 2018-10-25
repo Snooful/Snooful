@@ -38,14 +38,13 @@ module.exports = (command, data = [], opts = {}) => {
 
 	return {
 		aliases: options.aliases,
-		builder: builder => {
-			builder.positional("page", {
-				default: 1,
-				describe: "The page number to view.",
-				type: "number",
-			});
-		},
-		command: command + " [page]",
+		arguments: [{
+			default: 1,
+			description: "The page index to view.",
+			key: "page",
+			type: "integer",
+		}],
+		command: command,
 		describe: options.description,
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);

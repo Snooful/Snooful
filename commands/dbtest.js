@@ -1,6 +1,5 @@
 module.exports = {
-	command: "dbtest",
-	describe: "Tests persistency of the settings system.",
+	description: "Tests persistency of the settings system.",
 	handler: args => {
 		const newNum = Math.random();
 		const oldNum = args.settings.get("test");
@@ -13,4 +12,5 @@ module.exports = {
 
 		args.settings.set("test", newNum);
 	},
+	name: "dbtest",
 };

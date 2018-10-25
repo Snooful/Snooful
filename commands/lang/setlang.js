@@ -6,14 +6,12 @@ module.exports = {
 		"updatelang",
 		"updatelanguage",
 	],
-	builder: build => {
-		build.positional("lang", {
-			describe: "The language message for Snooful to use in this room/subreddit.",
-			type: "string",
-		});
-	},
-	command: "setlang [lang]",
-	describe: "Changes the language of Snooful.",
+	arguments: [{
+		description: "The language message for Snooful to use in this room/subreddit.",
+		key: "lang",
+		type: "string",
+	}],
+	description: "Changes the language of Snooful.",
 	handler: args => {
 		if (args.lang) {
 			if (Object.keys(args.locales).includes(args.lang) || args.lang === "uǝ") {
@@ -26,4 +24,5 @@ module.exports = {
 			args.send(args.localize("new_language_unspecified"));
 		}
 	},
+	name: "setlang",
 };

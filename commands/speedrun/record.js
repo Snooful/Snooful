@@ -10,8 +10,12 @@ module.exports = {
 		"wr",
 		"worldrecord",
 	],
-	command: "record [game]",
-	describe: "Gets the world record for a game on record.com.",
+	arguments: [{
+		description: "The game to get the world record of.",
+		key: "game",
+		type: "string",
+	}],
+	description: "Gets the world record for a game on speedrun.com.",
 	handler: args => {
 		if (args.game) {
 			fetch(url`https://www.speedrun.com/api/v1/games?name=${args.game}&max=1`, args, {
@@ -38,4 +42,5 @@ module.exports = {
 			args.send(args.localize("record_game_unspecified"));
 		}
 	},
+	name: "record",
 };

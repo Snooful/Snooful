@@ -4,13 +4,12 @@ module.exports = {
 	aliases: [
 		"suggest",
 	],
-	builder: cmd => {
-		cmd.positional("text", {
-			type: "string",
-		});
-	},
-	command: "feedback [text...]",
-	describe: "Send feedback to Snooful's creator.",
+	arguments: [{
+		description: "The feedback to send.",
+		key: "text",
+		type: "string",
+	}],
+	description: "Send feedback to Snooful's creator.",
 	handler: args => {
 		if (args.text) {
 			args.sb.GroupChannel.getChannel(toChannel, (channel, error) => {
@@ -33,4 +32,5 @@ module.exports = {
 			args.send(args.localize("feedback_unspecified"));
 		}
 	},
+	name: "feedback",
 };

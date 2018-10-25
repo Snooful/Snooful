@@ -2,10 +2,16 @@
 	"en-US": {
 		"language": "English (American)",
 
+		"alias_datatype": "aliases",
+		"alias_listing": "{} (alias of {})",
+		
+		"isalias_true": "The command, {}, is an alias of {}.",
+		"isalias_false": "The command, {}, is not an alias.",
+
 		"ping_response": [
 			"Pong!",
 			"Plink!",
-			"Dink!",
+			"Dink!"
 		],
 
 		"page_counter": "(page {} of {})",
@@ -27,7 +33,7 @@
 
 		"whoami": [
 			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
-			"You need a nametag, u/{}..."
+			"You need a nametag, u/{}...",
 			"Do you need to write 'u/{}' on your hand so you can remember?"
 		],
 
@@ -128,8 +134,9 @@
 		"number_created": "The number is {}. There was no number before.",
 		"number_changed": "The new number is {}. The old number is {}.",
 
-		"command_not_found": "There is no command with that name.",
-		"command_unspecified": "Please specify a command to view. To see all commands, do {}commands.",
+		"command_aliases_single": "Alias:",
+		"command_aliases": "Aliases:",
+		"command_arguments": "Arguments:",
 
 		"birthday_song": "Happy {0} to you,\nhappy {0} to you!\nHappy {0}, dear {1}...\nhappy {0} to you!",
 		"birthday_type": [
@@ -196,7 +203,30 @@
 			"Give me a color to name.",
 			"In order to name your color, I need a color to name.",
 			"How am I supposed to name nothing? You need to provide me with a color."
-		]
+		],
+
+		"command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
+		"command_argument_nonexistent": "The {2} specified in the '{key}' argument does not exist.",
+		"argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
+		"argument_required": "You must provide a {2} for the '{key}' argument.",
+		"argument_invalid": "The value provided for the '{key}' argument is invalid.",
+		"integer_argument_invalid": "The value provided for the '{key}' argument must be an integer.",
+		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
+		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}.",
+		"string_argument_regexp_fail": "The {2} provided for the '{key}' argument does not follow the allowed format.",
+		"string_argument_too_long": "The {2} provided for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
+		"string_argument_too_short": "The {2} provided for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
+		"subreddit_argument_too_short": "The {2} provided for the '{key}' is too long; subreddits must have at least 3 characters in their name.",
+		"subreddit_argument_too_long": "The {2} provided for the '{key}' is too long; subreddits can only have up to 20 characters in their name.",
+		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
+		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
+
+		"argument_type_command": "command",
+		"argument_type_generic": "value",
+		"argument_type_integer": "integer",
+		"argument_type_string": "string",
+		"argument_type_subreddit": "subreddit",
+		"argument_type_user": "user"
 	},
 	"es-ES": {
 		"language": "Español",
@@ -216,6 +246,10 @@
 
 		"whoami": "Te llaman u/{}.",
 
+		"command_aliases_single": "Alternativa:",
+		"command_aliases": "Alternativas:",
+		"command_arguments": "Opciones:",
+
 		"birthday_song": "Feliz {0} a ti,\n¡feliz {0} a ti!\nFeliz {0} a {1},\n¡feliz {0} a ti!",
 		"birthday_type": "cumpleaños",
 		"birthday_user_unspecified": "¿Feliz {0} a quién?",
@@ -223,7 +257,12 @@
 		"faq_datatype": "preguntas frecuentes",
 		"no_faqs": "No hay {type}. Puedes hacer uno usando {prefix}setfaq.",
 
-		"command_datatype": "comandos"
+		"command_datatype": "comandos",
+
+		"argument_required": "Es necesario proporcionar un {2} para el argumento '{key}'.",
+
+		"argument_type_generic": "contenido",
+		"argument_type_command": "comando"
 	},
 	"pt-BR": {
 		"language": "Portugues",
