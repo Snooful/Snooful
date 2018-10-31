@@ -2,6 +2,7 @@ let rev;
 try {
 	rev = require("esrever").reverse;
 } catch (_) {
+	// Simplified version of what esrever does (not accurate!)
 	rev = text => {
 		return text.split("").reverse().join("");
 	};
@@ -16,7 +17,7 @@ module.exports = {
 	description: "Reverses text.",
 	handler: args => {
 		if (args.text) {
-			args.send(args.localize("reverse", rev(args.text.join(" "))));
+			args.send(args.localize("reverse", rev(args.text)));
 		} else {
 			args.send(args.localize("unspecified_reverse_message"));
 		}
