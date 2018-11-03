@@ -7,6 +7,7 @@ module.exports = {
 		key: "amount",
 		type: "number",
 	}],
+	category: "chance",
 	description: "Provides a line of random binary.",
 	handler: args => {
 		if (args.amount < 1) {

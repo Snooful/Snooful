@@ -12,6 +12,7 @@ module.exports = {
 		required: true,
 		type: "command",
 	}],
+	category: "commands",
 	description: "Views information about a command.",
 	handler: args => {
 		const command = args.name;

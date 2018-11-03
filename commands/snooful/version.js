@@ -11,6 +11,7 @@ function sendVersion(args) {
 }
 
 module.exports = {
+	category: "snooful",
 	description: "Shows the version of the bot.",
 	handler: args => {
 		if (canUseHash) {

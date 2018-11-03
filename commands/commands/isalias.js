@@ -4,6 +4,7 @@ module.exports = {
 		key: "command",
 		type: "string",
 	}],
+	category: "commands",
 	description: "Checks if a given command is an alias.",
 	handler: args => {
 		if (args.command) {

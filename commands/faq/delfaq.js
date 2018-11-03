@@ -4,6 +4,7 @@ module.exports = {
 		key: "id",
 		type: "string",
 	}],
+	category: "faq",
 	description: "Deletes a FAQ message.",
 	handler: args => {
 		if (args.id) {
