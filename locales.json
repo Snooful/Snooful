@@ -2,6 +2,8 @@
 	"en-US": {
 		"language": "English (American)",
 
+		"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {prefix}commands to get started.",
+
 		"alias_datatype": "aliases",
 		"alias_listing": "{} (alias of {})",
 		
