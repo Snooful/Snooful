@@ -113,6 +113,8 @@
 			"What text would you like me to reverse?"
 		],
 
+		"alternate_case": "Let's mock this text: {}",
+
 		"info": "I am u/{0}, ready to help you with anything you need!\nMy prefix is {1}, so to find a command you just do {1}command.\nI was made by haykam821, but please direct all questions and concerns via {1}feedback!",
 
 		"github": [

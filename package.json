@@ -2,6 +2,7 @@
 	"name": "snooful",
 	"dependencies": {
 		"@snooful/orangered-parser": "^2.0.0",
+		"alternating-case": "^1.0.0",
 		"chance": "^1.0.16",
 		"color-namer": "^1.3.0",
 		"didyoumean2": "^1.3.0",
