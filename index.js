@@ -92,11 +92,12 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
 		let chData = {};
-
-		try {
-			chData = JSON.parse(channel.data);
-		} catch (error) {
-			log.commands("couldn't parse extra channel data, this is fine");
+		if (channel.data) {
+			try {
+				chData = JSON.parse(channel.data);
+			} catch (error) {
+				log.commands("couldn't parse extra channel data, this is fine");
+			}
 		}
 
 		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
