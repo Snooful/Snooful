@@ -266,7 +266,11 @@
 		"argument_required": "Es necesario proporcionar un {2} para el argumento '{key}'.",
 
 		"argument_type_generic": "contenido",
-		"argument_type_command": "comando"
+		"argument_type_command": "comando",
+		"argument_type_integer": "entero",
+		"argument_type_string": "texto",
+		"argument_type_subreddit": "comunidad",
+		"argument_type_user": "usuario"
 	},
 	"pt-BR": {
 		"language": "Portugues",
