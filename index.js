@@ -115,6 +115,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				localize: (...args) => {
 					return localize(settingsWrapper.get("lang"), ...args);
 				},
+				localizeO: localize,
 				log: log.commands,
 				message,
 				prefix,

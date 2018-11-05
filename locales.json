@@ -31,6 +31,9 @@
 
 		"current_language": "Snooful's language is currently set to {}. You can change it with {}setlang.",
 
+		"lang_datatype": "languages",
+		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
+
 		"version": "I am running version {}! 😄",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
 
@@ -244,6 +247,8 @@
 
 		"language_updated": "Mi idioma se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
+
+		"lang_datatype": "idiomas",
 		
 		"definition_vote_count": "({} votos)",
 
