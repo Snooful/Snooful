@@ -59,7 +59,9 @@ module.exports = (command, data = [], opts = {}) => {
 			} else if (args.page <= list.length && args.page > 0) {
 				if (Number.isSafeInteger(args.page)) {
 					const pageOfText = properChunk ? " " + args.localize("page_counter", args.page, list.length) : "";
-					const endText = options.footer ? "\n\n" + options.footer : "";
+
+					const localizedFooterPossibly = args.localize(options.footer) || options.footer;
+					const endText = options.footer ? "\n\n" + localizedFooterPossibly : "";
 
 					args.send(`${resolvedData.length} ${dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
