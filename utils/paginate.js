@@ -30,7 +30,7 @@ try {
 module.exports = (command, data = [], opts = {}) => {
 	const options = Object.assign({
 		aliases: [],
-		dataType: "items",
+		dataType: "generic_datatype",
 		description: "",
 		footer: "",
 		longDescription: opts.description || "",

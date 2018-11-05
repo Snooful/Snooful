@@ -20,6 +20,7 @@
 		"page_number_not_integer": "Page numbers must be integers.",
 		"page_number_invalid": "That's an invalid page number!",
 		"no_pagination_items": "There are no {} to view.",
+		"generic_datatype": "items",
 
 		"language_updated": [
 			"My language has been updated to {} here.",
@@ -239,6 +240,7 @@
 
 		"page_counter": "(página {} de {})",
 		"no_pagination_items": "No hay {} para ver.",
+		"generic_datatype": "artículos",
 
 		"language_updated": "Mi idioma se ha actualizado aquí.",
 		"language_not_available": "Ese lenguaje no está disponible.",
