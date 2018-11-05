@@ -121,7 +121,7 @@
 			"My source code is available at {}!",
 			"You can find my source code at {}."
 		],
-		"github_contribute": "There are {1} issues/pull requests open right now. If you would like to contribute, the GitHub repository with my source code is available at {0}!",
+		"github_contribute": "There are {issues} issues and {prs} pull requests open right now. If you would like to contribute, the GitHub repository with my source code is available at {url}!",
 
 		"feedback_error": [
 			"I couldn't send the feedback.",
