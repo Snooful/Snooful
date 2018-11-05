@@ -33,6 +33,7 @@ module.exports = (command, data = [], opts = {}) => {
 		dataType: "items",
 		description: "",
 		footer: "",
+		longDescription: opts.description || "",
 		noItemsMessage: "",
 	}, opts);
 
@@ -44,24 +45,25 @@ module.exports = (command, data = [], opts = {}) => {
 			key: "page",
 			type: "integer",
 		}],
-		command: command,
-		describe: options.description,
+		description: options.description,
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
 			const dataType = args.localize(options.dataType);
 
+			/**
+				* An expanded object for use in localization.
+			*/
+			const expandedArgs = Object.assign(args, {
+				type: dataType,
+			});
+
 			const list = chunk(resolvedData.sort(), 5);
 			if (resolvedData.length === 0) {
-				args.send(options.noItemsMessage ? args.localize(options.noItemsMessage, {
-					prefix: args.prefix,
-					type: dataType,
-				}) : args.localize("no_pagination_items", dataType));
+				args.send(options.noItemsMessage ? args.localize(options.noItemsMessage, expandedArgs) : args.localize("no_pagination_items", dataType));
 			} else if (args.page <= list.length && args.page > 0) {
 				if (Number.isSafeInteger(args.page)) {
 					const pageOfText = properChunk ? " " + args.localize("page_counter", args.page, list.length) : "";
-
-					const localizedFooterPossibly = args.localize(options.footer) || options.footer;
-					const endText = options.footer ? "\n\n" + localizedFooterPossibly : "";
+					const endText = options.footer ? "\n\n" + (args.localize(options.footer, expandedArgs) || options.footer) : "";
 
 					args.send(`${resolvedData.length} ${dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
@@ -71,5 +73,7 @@ module.exports = (command, data = [], opts = {}) => {
 				args.send(args.localize("page_number_invalid"));
 			}
 		},
+		longDescription: options.longDescription,
+		name: command,
 	};
 };
