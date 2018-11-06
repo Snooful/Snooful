@@ -127,6 +127,11 @@
 		],
 		"github_contribute": "There are {issues} issues and {prs} pull requests open right now. If you would like to contribute, the GitHub repository with my source code is available at {url}!",
 
+		"gitlab": [
+			"The GitLab mirror of the GitHub repository can be found at {}.",
+			"There is a mirror of the GitHub repository on GitLab, which you can find at {}."
+		],
+
 		"feedback_error": [
 			"I couldn't send the feedback.",
 			"Sorry, but something went wrong when I tried to send the feedback."
