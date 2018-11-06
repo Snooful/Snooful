@@ -208,6 +208,8 @@
 
 		"wikipedia_article_not_found": "That Wikipedia article could not be found.",
 
+		"duration": "That duration is {} seconds.",
+
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 		"color_amount_invalid": "Please provide a proper integer for the amount of color names you would like to me to give.",
@@ -235,13 +237,15 @@
 		"subreddit_argument_too_long": "The {2} provided for the '{key}' is too long; subreddits can only have up to 20 characters in their name.",
 		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
 		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
+		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
 
 		"argument_type_command": "command",
 		"argument_type_generic": "value",
 		"argument_type_integer": "integer",
 		"argument_type_string": "string",
 		"argument_type_subreddit": "subreddit",
-		"argument_type_user": "user"
+		"argument_type_user": "user",
+		"argument_type_duration": "duration"
 	},
 	"es-ES": {
 		"language": "Español",
@@ -284,7 +288,8 @@
 		"argument_type_integer": "entero",
 		"argument_type_string": "texto",
 		"argument_type_subreddit": "comunidad",
-		"argument_type_user": "usuario"
+		"argument_type_user": "usuario",
+		"argument_type_duration": "duración"
 	},
 	"pt-BR": {
 		"language": "Portugues",
@@ -342,6 +347,5 @@
 		"birthday_song": "Feliz {0} pra voce,\nfeliz {0} pra voce!\nFeliz {0} {1}...\nfeliz {0} pra voce!",
 		"birthday_type": "aniversario",
 		"birthday_user_unspecified": "Feliz {} pra voce,\nfeliz {} pra voce!\nFeliz {} pra... uh... quem mesmo?"
-
 	}
 }
