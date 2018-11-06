@@ -41,7 +41,17 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 const prefix = config.prefix || "!";
 
 const parser = require("@snooful/orangered-parser");
-parser.registerDirectory("./commands");
+const creq = require("clear-require");
+
+/**
+ * Reloads the commands.
+ */
+function reload() {
+	parser.clear();
+	creq.all();
+	parser.registerDirectory("./commands");
+}
+reload();
 
 /**
  * Logs an end user-initiated fail (non-interrupting) to console.
@@ -121,6 +131,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				prefix,
 				reddit,
 				registry: parser.getCommandRegistry(),
+				reload,
 				sb,
 				send: content => {
 					return new Promise((resolve, reject) => {
