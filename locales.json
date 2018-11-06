@@ -206,6 +206,8 @@
 			"Woah there! That's a lot of binary. If I post that, we might hack the simulation."
 		],
 
+		"wikipedia_article_not_found": "That Wikipedia article could not be found.",
+
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 		"color_amount_invalid": "Please provide a proper integer for the amount of color names you would like to me to give.",

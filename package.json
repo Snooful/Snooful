@@ -19,7 +19,8 @@
 		"string-format": "^2.0.0",
 		"upsidedown": "0.0.5",
 		"urban-dictionary": "^2.1.2",
-		"url-escape-tag": "^1.0.0"
+		"url-escape-tag": "^1.0.0",
+		"wikijs": "^4.8.1"
 	},
 	"optionalDependencies": {
 		"debug": "^3.1.0",
