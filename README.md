@@ -33,7 +33,7 @@ Here are some official settings manager modules:
 * [`@snooful/json-settings`](https://github.com/Snooful/JSON-Settings)
 * [`@snooful/yaml-settings`](https://github.com/Snooful/YAML-Settings)
 
-Delete the `settings` file before switching managers or you will run into some unintended effects, such as a crash.
+Switching the settings manager does not transfer the existing data. However, you can use a tool to do this yourself.
 
 ### Prefix
 

@@ -61,7 +61,7 @@ typings/
 .next
 
 # settings storage file
-settings
+settings*
 
 # config
 config.json

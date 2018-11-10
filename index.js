@@ -13,8 +13,8 @@ const version = require("./package.json").version;
 
 const path = require("path");
 
-const SettingsManager = require(config.settingsManager);
-const settings = new SettingsManager(path.resolve("./settings"));
+const { SettingsManager, extension } = require(config.settingsManager);
+const settings = new SettingsManager(path.resolve("./settings" + extension));
 
 const locales = require("./locales.json");
 const format = require("string-format");
