@@ -1,5 +1,8 @@
 const config = Object.assign({
 	credentials: {},
+	dashboard: {
+		enabled: true,
+	},
 	prefix: "!",
 }, require("./config.json"));
 
@@ -35,16 +38,16 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 	settings = new SettingsManager(database);
 });
 
-if (process.env.SNOOFUL_DASH_ENABLED) {
+if (config.dashboard.enabled) {
 	try {
-		const dashboard = require("snooful-dashboard");
-		dashboard.start({
-			port: process.env.SNOOFUL_DASH_PORT,
-			clientID: process.env.SNOOFUL_DASH_ID,
-			clientSecret: process.env.SNOOFUL_DASH_SECRET,
-		});
-	} catch {
-		log.main("dashboard could not be started because of a problem");
+		const dashboard = require("@snooful/dashboard");
+		dashboard.start(config.dashboard);
+	} catch (error) {
+		if (error.code === "MODULE_NOT_FOUND") {
+			log.main("dashboard could not be started because it could not be found");
+		} else {
+			log.main("dashboard could not be started because of a problem");
+		}
 	}
 } else {
 	log.main("dashboard is disabled, skipping");

@@ -25,7 +25,7 @@ To use Snooful, you must provide credentials, which are taken from [snoowrap](ht
 
 ### Dashboard
 
-The [dashboard](https://github.com/Snooful/Snooful-Dashboard) can be enabled or disabled (`SNOOFUL_DASH_ENABLED`). You can also configure the port (`SNOOFUL_DASH_PORT`), client ID (`SNOOFUL_DASH_ID`), and client secret (`SNOOFUL_DASH_SECRET`). The last two are necessary for logins to be possible.
+The [dashboard](https://github.com/Snooful/Snooful-Dashboard) has its own configuration under `dashboard`. To toggle the dashboard, set `dashboard.enabled` to a boolean (by default, it is enabled). You can also configure the port (`dashboard.port`), client ID (clientID`), and client secret (`clientSecret`). The last two configuration options are necessary for logins to be possible.
 
 ### Prefix
 
