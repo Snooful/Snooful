@@ -28,14 +28,15 @@ try {
 	* @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
 */
 module.exports = (command, data = [], opts = {}) => {
-	const options = Object.assign({
+	const options = {
 		aliases: [],
 		dataType: "generic_datatype",
 		description: "",
 		footer: "",
 		longDescription: opts.description || "",
 		noItemsMessage: "",
-	}, opts);
+		...opts,
+	};
 
 	return {
 		aliases: options.aliases,
