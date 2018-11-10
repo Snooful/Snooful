@@ -20,6 +20,8 @@ const locales = require("./locales.json");
 const format = require("string-format");
 const upsidedown = require("upsidedown");
 
+const pify = require("./utils/promisify").sb;
+
 const chance = new require("chance").Chance();
 /**
  * Selects a string.
@@ -167,10 +169,8 @@ function acceptInvitesLate() {
 		list.filter(channel => {
 			return channel.myMemberState = "invited";
 		}).forEach(channel => {
-			channel.acceptInvitation((_, acceptError) => {
-				if (!acceptError) {
-					log.invites(`accepted channel invitation to ${channel.name} (late)`);
-				}
+			pify(channel.acceptInvitation.bind(channel)).then(() => {
+				log.invites(`accepted channel invitation to ${channel.name} (late)`);
 			});
 		});
 	});
@@ -199,15 +199,13 @@ async function launch() {
 	});
 
 	log.main("connecting to sendbird");
-	sb.connect("t2_" + id, sbInfo.sb_access_token, (userInfo, error) => {
-		if (error) {
-			log.main("couldn't connect to sendbird");
-		} else {
-			log.main("connected to sendbird");
-			client = userInfo;
+	pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
+		log.main("connected to sendbird");
+		client = userInfo;
 
-			acceptInvitesLate();
-		}
+		acceptInvitesLate();
+	}).catch(() => {
+		log.main("couldn't connect to sendbird");
 	});
 }
 launch();
@@ -219,19 +217,19 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
 		// I have been invited to channel, let's join and send an introductory message!
 		log.invites("invited to channel");
-		channel.acceptInvitation((inviteChannel, error) => {
-			if (error) {
-				log.invites("failed to accept channel invitation");
-			} else {
-				log.invites(`automatically accepted channel invitation to ${channel.name}`);
-				channel.sendUserMessage(localize("en-US", "invite_message", {
-					inviter: inviter.nickname,
-					me: client.nickname,
-					prefix,
-				}), (message, sendError) => {
-					log.invites(sendError ? "failed to send introductory message" : "sent introductory message");
-				});
-			}
+		pify(channel.acceptInvitation.bind(channel)).then(() => {
+			log.invites(`automatically accepted channel invitation to ${channel.name}`);
+			pify(channel.sendUserMessage.bind(channel), channel.sendUserMessage(localize("en-US", "invite_message", {
+				inviter: inviter.nickname,
+				me: client.nickname,
+				prefix,
+			}))).then(() => {
+				log.invites("sent introductory message");
+			}).catch(() => {
+				log.invites("failed to send introductory message");
+			});
+		}).catch(() => {
+			log.invites("failed to accept channel invitation");
 		});
 	}
 };
@@ -256,8 +254,10 @@ handler.onUserJoined = (channel, user) => {
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "join_message") !== undefined) {
-		channel.sendUserMessage(settings.get(sub, "join_message").replace(/{USER}/g, user.nickname), (message, error) => {
-			log.gateway(error ? "failed to send join message" : "sent join message");
+		pify(channel.sendUserMessage.bind(channel), settings.get(sub, "join_message").replace(/{USER}/g, user.nickname)).then(() => {
+			log.gateway("sent join message");
+		}).catch(() => {
+			log.gateway("failed to send join message");
 		});
 	}
 };
@@ -268,8 +268,10 @@ handler.onUserLeft = (channel, user) => {
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "leave_message") !== undefined) {
-		channel.sendUserMessage(settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname), (message, error) => {
-			log.gateway(error ? "failed to send leave message" : "sent leave message");
+		pify(channel.sendUserMessage.bind(channel), settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname)).then(() => {
+			log.gateway("sent leave message");
+		}).catch(() => {
+			log.gateway("failed to send leave message");
 		});
 	}
 };

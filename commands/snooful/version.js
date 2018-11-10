@@ -6,16 +6,16 @@ try {
 	canUseHash = false;
 }
 
+const { pify } = require("./../../utils/promisify.js");
+
 module.exports = {
 	description: "Shows the version of the bot.",
 	handler: args => {
 		if (canUseHash) {
-			glc.getLastCommit((error, git) => {
-				if (error) {
-					return args.send(args.localize("version", args.version));
-				} else {
-					args.send(args.localize("version_hash", args.version, git.shortHash));
-				}
+			pify(glc.getLastCommit).then(git => {
+				args.send(args.localize("version_hash", args.version, git.shortHash));
+			}).catch(() => {
+				args.send(args.localize("version", args.version));
 			});
 		} else {
 			return args.send(args.localize("version", args.version));
