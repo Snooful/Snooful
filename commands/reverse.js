@@ -1,18 +1,26 @@
-const rev = require("esrever");
+let rev;
+try {
+	rev = require("esrever").reverse;
+} catch (_) {
+	// Simplified version of what esrever does (not accurate!)
+	rev = text => {
+		return text.split("").reverse().join("");
+	};
+}
+
 module.exports = {
-	command: "reverse [text...]",
-	describe: "Reverses text.",
-	builder: build => {
-		build.positional("text", {
-			describe: "The text to reverse.",
-			type: "string",
-		});
-	},
+	arguments: [{
+		description: "The text to reverse.",
+		key: "text",
+		type: "string",
+	}],
+	description: "Reverses text.",
 	handler: args => {
 		if (args.text) {
-			args.send("Reversing that gives us: " + rev.reverse(args.text.join(" ")));
+			args.send(args.localize("reverse", rev(args.text)));
 		} else {
-			args.send("Please specify the text to reverse.");
+			args.send(args.localize("unspecified_reverse_message"));
 		}
 	},
+	name: "reverse",
 };

@@ -1,31 +1,30 @@
 module.exports = {
-	command: "setfaq [id] [value]",
-	describe: "Sets or creates a FAQ message.",
-	builder: build => {
-		build.positional("id", {
-			describe: "The ID of the FAQ message to change.",
-			type: "string",
-		});
-		build.positional("value", {
-			describe: "The message to set the FAQ to.",
-			type: "string",
-		});
-	},
+	arguments: [{
+		description: "The ID of the FAQ message to change.",
+		key: "id",
+		type: "string",
+	}, {
+		description: "The message to set the FAQ to.",
+		key: "value",
+		type: "string",
+	}],
+	description: "Sets or creates a FAQ message.",
 	handler: args => {
 		if (args.id) {
-			const msgs = args.settings.get("faq_messages") || {}; // this is a temporary name!
+			const msgs = args.settings.get("faq_messages") || {};
 			const idDoesExist = msgs[args.id] !== undefined;
 
 			if (args.value) {
 				msgs[args.id] = args.value;
 				args.settings.set("faq_messages", msgs);
 
-				args.send(idDoesExist ? "That FAQ message has been updated." : "A FAQ message has been created!");
+				args.send(idDoesExist ? args.localize("set_faq_message_success_update", args.id) : args.localize("set_faq_message_success_create", args.id));
 			} else {
-				args.send("You need to specify the message for the FAQ.");
+				args.send(args.localize("set_faq_message_unspecified", args.prefix));
 			}
 		} else {
-			args.send(`You need to specify a FAQ to change. To get a list of FAQs, type ${args.prefix}listfaq.`);
+			args.send(args.localize("set_faq_id_unspecified", args.prefix));
 		}
 	},
+	name: "setfaq",
 };

@@ -1,32 +1,27 @@
 # Snooful
 
+![GitHub issues](https://img.shields.io/github/issues/Snooful/Snooful.svg?style=popout)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Snooful/Snooful.svg?style=popout)
+[![Travis (.com)](https://img.shields.io/travis/com/Snooful/Snooful.svg?style=popout)](https://travis-ci.com/Snooful/Snooful)
+
 The most complete bot for moderation, utility, and fun in Reddit Chat.
 
-## Environment Variables
+## Optional Dependencies
 
-Snooful and its dependencies have multiple environment variables that you may configure.
+Some dependencies do not need to be installed for Snooful to function, but they do provide some features that will automatically disable if not present. Here is a reference to modules that do this and what changes when they aren't installed:
 
-Since this project uses [`dotenv`](https://www.npmjs.com/package/dotenv), your environment variables can be stored in `./.env`, which has been git-ignored, using the following syntax:
+* [`debug`](https://www.npmjs.com/package/debug) - replaced with a basic write to `stdout`
+* [`esrever`](https://www.npmjs.com/package/esrever) - reversing (the `reverse` command) won't account for [fancy Unicode things](https://mathiasbynens.be/notes/javascript-encoding)
+* [`git-last-commit`](https://www.npmjs.com/package/git-last-commit) - the most recent commit hash will never be shown in the `version` command
+* [`lodash.chunk`](https://www.npmjs.com/package/lodash.chunk) - some commands (like `commands` and `listfaq`) will not be paginated
 
-```
-SNOOFUL_PREFIX=?
-SNOOFUL_ID=t2_a1b2c3
-SNOOFUL_TOKEN=f4k3_t0k3n
-DEBUG=snooful:*
-```
+## Configuration
 
-### ID and Token
+Snooful uses JSON for configuration. This file is located at `./config.json`, and must be created manually.
 
-To use Snooful, you must set two variables for the user ID (`SNOOFUL_ID`) and refresh token (`SNOOFUL_TOKEN`). Currently, you must get these values from the local storage of Reddit, which can be done with the following:
+### Credentials
 
-1. Navigate to Reddit on a desktop browser.
-2. Open your developer tools panel (using Chrome and Windows, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>).
-3. Click the `Application` tab from the top bar (it may be collapsed).
-4. Under the `Storage` section of the sidebar, expand `Local Storage` .
-5. Click the `https://reddit.com` option under the newly expanded menu.
-6. Find the entry with a key starting with `chat.session`.
-7. Get the ID by finding it enclosed in square brackets after `chat.session` in the key, such as `chat.session[t2_XXXXX]`.
-8. Get the token by reading the JSON-encoded value of this entry (most developer tools let you view a parsed version too) and finding the `token`, such as `{"token": "XXXXXXXXXXXXX"}`.
+To use Snooful, you must provide credentials, which are taken from [snoowrap](https://not-an-aardvark.github.io/snoowrap/snoowrap.html#snoowrap__anchor). The user agent cannot be set as it is automatically set to one containing the version. To get these, go to [applications](https://www.reddit.com/prefs/apps/) and generate a new app. Fill in the `credentials` object of configuration (see the [example config](#example_config) for what a script-type config would look like).
 
 ### Settings Manager
 
@@ -36,15 +31,34 @@ Snooful can store data for subreddits and groups. This is left to a separate mod
 * [`@snooful/json-settings`](https://github.com/Snooful/JSON-Settings)
 * [`@snooful/yaml-settings`](https://github.com/Snooful/YAML-Settings)
 
-### Command Prefix
+### Prefix
 
-You can also configure the prefix from the default `!` by setting `SNOOFUL_PREFIX`.
+You can also configure the prefix from the default `!` by setting `prefix`. The prefix is the thing that differentiates a command from a message. Basically, with a prefix of `?`, you must type `?ping` to run the `ping` command.
 
 ### Debugging
 
-Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can also set `DEBUG` to `snooful:*` to recieve logs of everything notable happening with Snooful. This package also has [other environment variables](https://github.com/visionmedia/debug#environment-variables) that can be set, which are:
+Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can also set the environment variable `DEBUG` to `snooful:*` to recieve logs of everything notable happening with Snooful. This package also has [other environment variables](https://github.com/visionmedia/debug#environment-variables) that can be set, which are:
 
 * `DEBUG_HIDE_DATE`
 * `DEBUG_COLORS`
 * `DEBUG_DEPTH`
 * `DEBUG_SHOW_HIDDEN`
+
+These environment variables have no effect if `debug` is not installed.
+
+### Example Config
+
+Here is an example configuration:
+
+```json
+{
+  "prefix": "?",
+  "id": "t2_a1b2c3",
+  "credentials": {
+    "clientId": "a897d89f89e",
+    "clientSecret": "0202390301209919219810929012",
+    "username": "Snooful-Example",
+    "password": "h0pefully-s3cure"
+  }
+}
+```

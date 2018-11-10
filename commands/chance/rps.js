@@ -2,25 +2,23 @@ const chance = require("chance").Chance();
 const dym = require("didyoumean2");
 
 const choices = [
-	"rock",
 	"paper",
+	"rock",
 	"scissors",
 ];
 const beats = {
-	"rock": "scissors",
-	"scissors": "paper",
-	"paper": "rock",
+	paper: "rock",
+	rock: "scissors",
+	scissors: "paper",
 };
 
 module.exports = {
-	command: "rps [option]",
-	describe: "Plays rock-paper-scissors with the bot.",
-	builder: build => {
-		build.positional("option", {
-			describe: "The option you want to play.",
-			type: "string",
-		});
-	},
+	arguments: [{
+		description: "The option you want to play.",
+		key: "option",
+		type: "string",
+	}],
+	description: "Plays rock-paper-scissors with the bot.",
 	handler: args => {
 		if (args.option) {
 			const yourChoice = dym(args.option, choices, {
@@ -45,4 +43,5 @@ module.exports = {
 			args.send("You need to specify the move you would like to make.");
 		}
 	},
+	name: "rps",
 };

@@ -1,15 +1,13 @@
 module.exports = {
-	command: "faq [id]",
-	describe: "Shows a prewritten FAQ.",
 	aliases: [
 		"getfaq",
 	],
-	builder: build => {
-		build.positional("id", {
-			describe: "The ID of the FAQ message to view.",
-			type: "string",
-		});
-	},
+	arguments: [{
+		description: "The ID of the FAQ message to view.",
+		key: "id",
+		type: "string",
+	}],
+	description: "Shows a prewritten FAQ.",
 	handler: args => {
 		const faqs = args.settings.get("faq_messages");
 
@@ -17,10 +15,12 @@ module.exports = {
 			if (faqs && faqs[args.id]) {
 				args.send("ℹ️ " + faqs[args.id]);
 			} else {
-				args.send(`There is no FAQ with that identifier. For a list of FAQs that exist, type ${args.prefix}listfaq.`);
+				args.send(args.localize("faq_nonexistent", args.prefix));
 			}
 		} else {
-			args.send(`You need to specify an identifier for the FAQ you want to show. To find this list, type ${args.prefix}listfaq.`);
+			args.send(args.localize("faq_unspecified", args.prefix));
 		}
 	},
+	longDescription: "Shows a FAQ message that has been set previously.",
+	name: "faq",
 };

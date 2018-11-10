@@ -1,39 +1,20 @@
-const chance = require("chance").Chance();
-
-function getBirthdayWord() {
-	return chance.pickone([
-		"birthday",
-		"cake day",
-	]);
-}
-
-function getSong(name, type = "birthday", thirdLine) {
-	return [
-		`Happy ${type} to you,`,
-		`happy ${type} to you!`,
-		thirdLine || `Happy ${type}, dear ${name}...`,
-		`happy ${type} to you!`,
-	].join("\n");
-}
-
 module.exports = {
-	command: "birthday [user]",
-	describe: "Sings a birthday song to a user!",
 	aliases: [
 		"cakeday",
 		"bday",
 	],
-	builder: build => {
-		build.positional("user", {
-			describe: "The user to wish a happy birthday to.",
-			type: "string",
-		});
-	},
+	arguments: [{
+		description: "The user to wish a happy birthday to.",
+		key: "user",
+		type: "user",
+	}],
+	description: "Sings a birthday song to a user!",
 	handler: args => {
 		if (args.user) {
-			args.send(getSong("u/" + args.user, getBirthdayWord()));
+			args.send(args.localize("birthday_song", args.localize("birthday_type"), "u/" + args.user));
 		} else {
-			args.send(`Happy ${getBirthdayWord()} dear... uh... who again?`);
+			args.send(args.localize("birthday_user_unspecified", args.localize("birthday_type")));
 		}
 	},
+	name: "birthday",
 };
