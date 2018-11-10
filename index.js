@@ -10,7 +10,6 @@ const log = require("./debug.js");
 
 const version = require("./package.json").version;
 
-const sqlite = require("sqlite");
 const path = require("path");
 
 const SettingsManager = require(process.env.SNOOFUL_SETTINGS_MANAGER);
