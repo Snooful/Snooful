@@ -5,6 +5,10 @@ const assert = require("chai").assert;
 const locales = require("./locales.json");
 const validate = require("locale-code").validate;
 
+/**
+ * Loops through every locale.
+ * @param {Function} callback
+ */
 function eachLocale(callback) {
 	Object.keys(locales).forEach(key => {
 		callback(locales[key], key);

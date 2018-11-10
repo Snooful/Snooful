@@ -8,10 +8,6 @@ try {
 
 const { pify } = require("./../../utils/promisify.js");
 
-function sendVersion(args) {
-	return args.send(args.localize("version", args.version));
-}
-
 module.exports = {
 	description: "Shows the version of the bot.",
 	handler: args => {
@@ -19,10 +15,10 @@ module.exports = {
 			pify(glc.getLastCommit).then(git => {
 				args.send(args.localize("version_hash", args.version, git.shortHash));
 			}).catch(() => {
-				sendVersion(args);
+				args.send(args.localize("version", args.version))
 			});
 		} else {
-			sendVersion(args);
+			return args.send(args.localize("version", args.version));
 		}
 	},
 	name: "version",

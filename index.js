@@ -1,7 +1,9 @@
-const config = Object.assign({
+const config = {
 	credentials: {},
 	prefix: "!",
-}, require("./config.json"));
+	settingsManager: "",
+	...require("./config.json"),
+};
 
 const Snoowrap = require("snoowrap");
 
@@ -9,11 +11,10 @@ const log = require("./debug.js");
 
 const version = require("./package.json").version;
 
-const sqlite = require("sqlite");
 const path = require("path");
 
-const SettingsManager = require("./settings.js");
-let settings = {};
+const { SettingsManager, extension } = require(config.settingsManager);
+const settings = new SettingsManager(path.resolve("./settings" + extension));
 
 const locales = require("./locales.json");
 const format = require("string-format");
@@ -22,6 +23,10 @@ const upsidedown = require("upsidedown");
 const pify = require("./utils/promisify").sb;
 
 const chance = new require("chance").Chance();
+/**
+ * Selects a string.
+ * @param {(object|*[]|*)} msg If an object, selects an key based on the weight value. If an array, picks a random element. Otherwise, converts to a string.
+ */
 function chanceFormats(msg) {
 	if (Array.isArray(msg)) {
 		return chance.pickone(msg);
@@ -31,11 +36,6 @@ function chanceFormats(msg) {
 		return msg.toString();
 	}
 }
-
-sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
-	log.main("opened settings database");
-	settings = new SettingsManager(database);
-});
 
 /**
  * The prefix required by commands to be considered by the bot.
@@ -160,6 +160,9 @@ const sb = new Sendbird({
 	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13",
 });
 
+/**
+ * Accepts invites to all channels with pending invitations.
+ */
 function acceptInvitesLate() {
 	const query = sb.GroupChannel.createMyGroupChannelListQuery();
 	query.next(list => {
@@ -177,6 +180,9 @@ const reddit = new Snoowrap(Object.assign(config.credentials, {
 	userAgent: `Snooful v${version}`,
 }));
 
+/**
+ * Grabs a new access token and connects to Sendbird.
+ */
 async function launch() {
 	log.main("fetching new access token");
 	const sbInfo = await reddit.oauthRequest({
@@ -228,6 +234,10 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	}
 };
 
+/**
+ * Gets the subreddit from a channel.
+ * @param {*} channel The channel to get the subreddit from.
+*/
 function channelSub(channel) {
 	if (channel.data) {
 		const data = JSON.parse(channel.data);
