@@ -19,7 +19,7 @@ const locales = require("./locales.json");
 const format = require("string-format");
 const upsidedown = require("upsidedown");
 
-const pify = require("./utils/promisify");
+const pify = require("./utils/promisify").sb;
 
 const chance = new require("chance").Chance();
 function chanceFormats(msg) {

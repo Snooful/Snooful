@@ -1,5 +1,5 @@
 const supportChannel = "sendbird_group_channel_961019_fb957911b064712bc24f215f2ebc4a64168df72d";
-const pify = require("./../../utils/promisify.js");
+const pify = require("./../../utils/promisify.js").sb;
 
 module.exports = {
 	description: "Invites you to Snooful's support channel.",

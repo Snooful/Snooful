@@ -1,5 +1,5 @@
 const toChannel = "sendbird_group_channel_961019_3546ab525611fe34f46eb0e7b93257a9f2c0a4b2";
-const pify = require("./../../utils/promisify.js");
+const pify = require("./../../utils/promisify.js").sb;
 
 module.exports = {
 	aliases: [
@@ -14,7 +14,7 @@ module.exports = {
 	handler: args => {
 		if (args.text) {
 			pify(args.sb.GroupChannel.getChannel.bind(args.sb.GroupChannel), toChannel).then(channel => {
-				const feedbackMsg = args.localize("feedback_recieved", args.author, args.channel.name, args.text.join(" "));
+				const feedbackMsg = args.localize("feedback_recieved", args.author, args.channel.name, args.text);
 				pify(channel.sendUserMessage.bind(channel), feedbackMsg).then(() => {
 					args.log("sent feedback to channel");
 					args.send(args.localize("feedback_success"));
