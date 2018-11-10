@@ -15,7 +15,7 @@ module.exports = {
 			pify(glc.getLastCommit).then(git => {
 				args.send(args.localize("version_hash", args.version, git.shortHash));
 			}).catch(() => {
-				args.send(args.localize("version", args.version))
+				args.send(args.localize("version", args.version));
 			});
 		} else {
 			return args.send(args.localize("version", args.version));
