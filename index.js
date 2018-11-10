@@ -1,6 +1,7 @@
 const config = {
 	credentials: {},
 	prefix: "!",
+	settingsManager: "",
 	...require("./config.json"),
 };
 
@@ -12,7 +13,7 @@ const version = require("./package.json").version;
 
 const path = require("path");
 
-const SettingsManager = require(process.env.SNOOFUL_SETTINGS_MANAGER);
+const SettingsManager = require(config.settingsManager);
 const settings = new SettingsManager(path.resolve("./settings"));
 
 const locales = require("./locales.json");

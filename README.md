@@ -25,11 +25,15 @@ To use Snooful, you must provide credentials, which are taken from [snoowrap](ht
 
 ### Settings Manager
 
-Snooful can store data for subreddits and groups. This is left to a separate module, which is configured with the `SNOOFUL_SETTINGS_MANAGER` environment variable, and must be resolvable by `require()`. Of course, you probably will need to `npm install` your module. We support these modules, which have been developed by us:
+Snooful can store data for subreddits and groups. This is left to a separate module, which is configured with the `settingsManager` option. This value must be resolvable by `require()`, or else Snooful will not run. Because of this, it is necessary to `npm install` the settings manager before you set that option.
+
+Here are some official settings manager modules:
 
 * [`@snooful/sqlite-settings`](https://github.com/Snooful/SQLite-Settings)
 * [`@snooful/json-settings`](https://github.com/Snooful/JSON-Settings)
 * [`@snooful/yaml-settings`](https://github.com/Snooful/YAML-Settings)
+
+Delete the `settings` file before switching managers or you will run into some unintended effects, such as a crash.
 
 ### Prefix
 
