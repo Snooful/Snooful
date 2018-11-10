@@ -19,8 +19,13 @@ module.exports = {
 			},
 			handleErrors: false,
 		}).then(response => {
-			const issues = response.body;
-			args.send(args.localize("github_contribute", repoURL, issues.length));
+			const trackers = response.body;
+
+			args.send(args.localize("github_contribute", {
+				issues: trackers.filter(item => !item.pull_request).length,
+				prs: trackers.filter(item => item.pull_request).length,
+				url: repoURL,
+			}));
 		}).catch(() => {
 			args.send(args.localize("github", repoURL));
 		});

@@ -43,7 +43,17 @@ sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
 const prefix = config.prefix || "!";
 
 const parser = require("@snooful/orangered-parser");
-parser.registerDirectory("./commands");
+const creq = require("clear-require");
+
+/**
+ * Reloads the commands.
+ */
+function reload() {
+	parser.clear();
+	creq.all();
+	parser.registerDirectory("./commands");
+}
+reload();
 
 /**
  * Logs an end user-initiated fail (non-interrupting) to console.
@@ -61,6 +71,27 @@ function safeFail(error) {
 let client = {};
 
 /**
+ * Formats a string.
+ * @param {string} lang A language code. If the key is not localized in this language or this value is not provided, uses en-US.
+ * @param {string} key The key to localize.
+ * @param {...any} formats The values to provide for placeholders.
+ * @return {?string} A string if a localization could be provided, or null.
+ */
+function localize(lang = "en-US", key = "", ...formats) {
+	const thisLocal = lang ? (locales[lang] || locales["en-US"]) : locales["en-US"];
+	const msg = thisLocal[key] || locales["en-US"][key];
+
+	if (msg) {
+		const msgChosen = chanceFormats(msg);
+
+		const formatted = format(msgChosen, ...formats);
+		return lang === "uǝ" ? upsidedown(formatted) : formatted;
+	} else {
+		return null;
+	}
+}
+
+/**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
  * @param {*} channel The channel the command was sent from.
@@ -73,11 +104,12 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
 		let chData = {};
-
-		try {
-			chData = JSON.parse(channel.data);
-		} catch (error) {
-			log.commands("couldn't parse extra channel data, this is fine");
+		if (channel.data) {
+			try {
+				chData = JSON.parse(channel.data);
+			} catch (error) {
+				log.commands("couldn't parse extra channel data, this is fine");
+			}
 		}
 
 		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
@@ -89,26 +121,19 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				channel,
 				client,
 				locales,
-				localize: (key = "", ...formats) => {
-					const lang = settingsWrapper.get("lang");
-
-					const thisLocal = lang ? (locales[lang] || locales["en-US"]) : locales["en-US"];
-					const msg = thisLocal[key] || locales["en-US"][key];
-
-					if (msg) {
-						const msgChosen = chanceFormats(msg);
-
-						const formatted = format(msgChosen, ...formats);
-						return lang === "uǝ" ? upsidedown(formatted) : formatted;
-					} else {
-						return undefined;
-					}
+				/**
+				 * Formats a string based on the set language of the subreddit/DM.
+				 */
+				localize: (...args) => {
+					return localize(settingsWrapper.get("lang"), ...args);
 				},
+				localizeO: localize,
 				log: log.commands,
 				message,
 				prefix,
 				reddit,
 				registry: parser.getCommandRegistry(),
+				reload,
 				sb,
 				send: content => {
 					return new Promise((resolve, reject) => {
@@ -188,11 +213,11 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 		log.invites("invited to channel");
 		pify(channel.acceptInvitation.bind(channel)).then(() => {
 			log.invites(`automatically accepted channel invitation to ${channel.name}`);
-			pify(channel.sendUserMessage.bind(channel), [
-				`Thanks for inviting me to this channnel, u/${inviter.nickname}!`,
-				`I'm u/${client.nickname}, your friendly bot asssistant,`,
-				`and you can do ${prefix}commands to get started.`,
-			].join(" ")).then(() => {
+			pify(channel.sendUserMessage.bind(channel), channel.sendUserMessage(localize("en-US", "invite_message", {
+					inviter: inviter.nickname,
+					me: client.nickname,
+					prefix,
+				}))).then(() => {
 				log.invites("sent introductory message");
 			}).catch(() => {
 				log.invites("failed to send introductory message");

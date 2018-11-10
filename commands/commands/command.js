@@ -37,7 +37,7 @@ module.exports = {
 		// Arguments
 		if (command.arguments && command.arguments.length > 0) {
 			const arglist = command.arguments.map(arg => {
-				const argtype = args.localize("argument_type" + arg.type) || arg.type;
+				const argtype = args.localize("argument_type_" + arg.type) || arg.type;
 				const desc = arg.description ? ": " + arg.description : "";
 
 				return `• ${arg.key} (${argtype})` + desc;
