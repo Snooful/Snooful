@@ -1,11 +1,15 @@
 module.exports = {
-	command: "echo <text...>",
-	describe: "Repeats a message.",
-	builder: cmd => {
-		cmd.positional("text", {
-			type: "string",
-			describe: "The message to echo."
-		})
+	aliases: [
+		"repeat",
+	],
+	arguments: [{
+		description: "The message to echo.",
+		key: "text",
+		type: "string",
+	}],
+	description: "Repeats a message.",
+	handler: args => {
+		args.send("Sorry, but this command is temporarily disabled until our command restriction system is implemented. Sorry!");
 	},
-	handler: args => args.send("\u200B" + args.text.join(" ")),
+	name: "echo",
 };

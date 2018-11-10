@@ -1,33 +1,47 @@
 const namer = require("color-namer");
+const chance = require("chance").Chance();
 
 module.exports = {
-	command: "namecolor [color] [count]",
 	aliases: [
 		"colorname",
 	],
+	arguments: [{
+		description: "The color to name.",
+		key: "color",
+		type: "string",
+	}, {
+		default: 1,
+		description: "The amount of names to assign.",
+		key: "count",
+		type: "integer",
+	}],
 	describe: "Names a color.",
-	builder = build => {
-		build.positional("color", {
-			type: "string",
-			describe: "The color to name.",
-		});
-		build.positional("count", {
-			type: "number",
-			describe: "The amount of names to assign.";
-			default: 1,
-		});
-	},
 	handler: args => {
 		if (args.color) {
-			const names = namer(args.color).ntc;
-			
-			if (args.count === 1) {
-				args.send(`This color is called ${names[0]}.`); 
-			} else {
-				args.send(`The closest names for this color are ${names.slice(0, args.count).join(", ")}.`);
+			try {
+				const names = namer(args.color).ntc.map(result => result.name);
+				if (args.count === 1) {
+					args.send(args.localize("color_name", names[0]));
+				} else if (Number.isInteger(args.count)) {
+					if (args.count > 10) {
+						args.send(args.localize("color_amount_too_high", args.count));
+					} else if (args.count < 1) {
+						args.send(args.localize("color_amount_too_low"));
+					} else {
+						args.send(args.localize("color_names", names.slice(0, args.count).join(", ")));
+					}
+				} else {
+					args.send(args.localize("color_amount_invalid"));
+				}
+			} catch (error) {
+				args.send(args.localize("color_invalid", chance.color({
+					casing: "upper",
+					format: "hex",
+				})));
 			}
 		} else {
-			args.send("Give me a color to name.");
+			args.send(args.localize("color_unspecified"));
 		}
 	},
+	name: "namecolor",
 };
