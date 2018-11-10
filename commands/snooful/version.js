@@ -6,23 +6,19 @@ try {
 	canUseHash = false;
 }
 
-function sendVersion(args) {
-	return args.send(args.localize("version", args.version));
-}
-
 module.exports = {
 	description: "Shows the version of the bot.",
 	handler: args => {
 		if (canUseHash) {
 			glc.getLastCommit((error, git) => {
 				if (error) {
-					sendVersion(args);
+					return args.send(args.localize("version", args.version));
 				} else {
 					args.send(args.localize("version_hash", args.version, git.shortHash));
 				}
 			});
 		} else {
-			sendVersion(args);
+			return args.send(args.localize("version", args.version));
 		}
 	},
 	name: "version",

@@ -1,5 +1,12 @@
 const got = require("got");
 
+/**
+ * Localizes a message, using a custom prefix if possible.
+ * @param {Function} localize The function to localize messages with.
+ * @param {string} prefix The prefix of the localization keys.
+ * @param {string} otherPart The localization key excluding the prefix.
+ * @param  {...any} formats Formatting to apply to the localized message.
+ */
 function safeLocal(localize, prefix, otherPart, ...formats) {
 	const customed = localize(prefix + "_" + otherPart, ...formats);
 	if (customed) {
@@ -9,6 +16,14 @@ function safeLocal(localize, prefix, otherPart, ...formats) {
 	}
 }
 
+/**
+ * Handles an error.
+ * @param {Error} error The error to handle.
+ * @param {Function} send The function to send messages with.
+ * @param {Function} localize The function to localize messages with.
+ * @param {string} type The type of data that failed to be fetched.
+ * @param {string} prefix The prefix of the localization keys.
+ */
 function errorHandler(error, send, localize, type, prefix) {
 	if (error instanceof got.CacheError) {
 		send(safeLocal(localize, prefix, "cache_error", type));
@@ -50,17 +65,19 @@ function errorHandler(error, send, localize, type, prefix) {
  * @param {string} opts.contentType The type of content being requested for use in the error handler.
  * @returns {Promise} A promise that resolves to got's response.
  */
-module.exports = (url, args = {}, opts) => {
-	const optsFixed = Object.assign({
+function fetch(url, args = {}, opts) {
+	const optsFixed = {
 		contentType: "data",
 		errorKeyPrefix: "fetch",
 		got: {},
 		handleErrors: true,
-	}, opts);
+		...opts,
+	};
 
 	return got(url, optsFixed.got || {}).catch(error => {
 		if (optsFixed.handleErrors) {
 			errorHandler(error, args.send, args.localize, args.localize(optsFixed.contentType), optsFixed.errorKeyPrefix);
 		}
 	});
-};
+}
+module.exports = fetch;
