@@ -1,6 +1,7 @@
 const config = {
 	credentials: {},
 	prefix: "!",
+	settingsManager: "",
 	...require("./config.json"),
 };
 
@@ -10,11 +11,10 @@ const log = require("./debug.js");
 
 const version = require("./package.json").version;
 
-const sqlite = require("sqlite");
 const path = require("path");
 
-const SettingsManager = require("./settings.js");
-let settings = {};
+const { SettingsManager, extension } = require(config.settingsManager);
+const settings = new SettingsManager(path.resolve("./settings" + extension));
 
 const locales = require("./locales.json");
 const format = require("string-format");
@@ -34,11 +34,6 @@ function chanceFormats(msg) {
 		return msg.toString();
 	}
 }
-
-sqlite.open(path.normalize("./settings.sqlite3")).then(database => {
-	log.main("opened settings database");
-	settings = new SettingsManager(database);
-});
 
 /**
  * The prefix required by commands to be considered by the bot.
