@@ -11,9 +11,9 @@ module.exports = {
 	handler: args => {
 		const zone = moment.tz.zone(args.zone);
 		if (zone === null) {
-			args.send("invalid_timezone");
+			args.send(args.localize("invalid_timezone"));
 		} else {
-			args.send("current_time", zone.name, moment().tz(zone.name).format("MMMM Do YYYY, h:mm:ss A"));
+			args.send(args.localize("current_time", zone.name, moment().tz(zone.name).format("MMMM Do YYYY, h:mm:ss A")));
 		}
 	},
 	name: "time",
