@@ -20,7 +20,7 @@ const locales = require("./locales.json");
 const format = require("string-format");
 const upsidedown = require("upsidedown");
 
-const pify = require("./utils/promisify").sb;
+const pify = require("./utils/promisify");
 
 const chance = new require("chance").Chance();
 /**
@@ -159,6 +159,9 @@ const Sendbird = require("sendbird");
 const sb = new Sendbird({
 	appId: "2515BDA8-9D3A-47CF-9325-330BC37ADA13",
 });
+
+// Use error-first callbacks, like every other library does
+sb.setErrorFirstCallback(true);
 
 /**
  * Accepts invites to all channels with pending invitations.
