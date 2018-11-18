@@ -170,14 +170,16 @@ function acceptInvitesLate() {
 	try {
 		const query = sb.GroupChannel.createMyGroupChannelListQuery();
 		query.next(list => {
-			list.filter(channel => {
-				return channel.myMemberState = "invited";
-			}).forEach(async channel => {
-				await pify(channel.acceptInvitation.bind(channel)).catch(() => {
-					log.invites("failed to accept late channel invitation to '%s'", channel.name);
+			if (list) {
+				list.filter(channel => {
+					return channel.myMemberState = "invited";
+				}).forEach(async channel => {
+					await pify(channel.acceptInvitation.bind(channel)).catch(() => {
+						log.invites("failed to accept late channel invitation to '%s'", channel.name);
+					});
+					log.invites("accepted late channel invitation to '%s'", channel.name);
 				});
-				log.invites("accepted late channel invitation to '%s'", channel.name);
-			});
+			}
 		});
 	} catch (error) {
 		log.invites("an error occured while trying to accept late channel invitations: %O", error);
