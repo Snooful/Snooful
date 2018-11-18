@@ -1,11 +1,12 @@
 const pify = require("pify");
 
-module.exports.sb = (input, ...args) => {
-	return pify(input, {
-		errorFirst: false,
-	})(...args);
-};
-module.exports.pify = (input, ...args) => {
+/**
+ * Promisifies then runs a function.
+ * @param {Function} The function to promisify and run.
+ * @param {*[]} The arguments to pass to the function when running it.
+ * @returns {Promise}
+ */
+module.exports = (input, ...args) => {
 	return pify(input, {
 		errorFirst: true,
 	})(...args);
