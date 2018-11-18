@@ -164,16 +164,22 @@ const sb = new Sendbird({
  * Accepts invites to all channels with pending invitations.
  */
 function acceptInvitesLate() {
-	const query = sb.GroupChannel.createMyGroupChannelListQuery();
-	query.next(list => {
-		list.filter(channel => {
-			return channel.myMemberState = "invited";
-		}).forEach(channel => {
-			pify(channel.acceptInvitation.bind(channel)).then(() => {
-				log.invites(`accepted channel invitation to ${channel.name} (late)`);
+	try {
+		const query = sb.GroupChannel.createMyGroupChannelListQuery();
+		query.next(list => {
+			list.filter(channel => {
+				return channel.myMemberState = "invited";
+			}).forEach(channel => {
+				pify(channel.acceptInvitation.bind(channel)).then(() => {
+					log.invites("accepted late channel invitation to '%s'", channel.name);
+				}).catch(() => {
+					log.invites("failed to accept late channel invitation to '%s'", channel.name);
+				});
 			});
 		});
-	});
+	} catch (error) {
+		log.invites("an error occured while trying to accept late channel invitations: %O", error);
+	}
 }
 
 const reddit = new Snoowrap(Object.assign(config.credentials, {
