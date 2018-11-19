@@ -169,15 +169,15 @@ sb.setErrorFirstCallback(true);
 function acceptInvitesLate() {
 	// Query for group channels
 	const query = sb.GroupChannel.createMyGroupChannelListQuery();
-	const list = pify(query.next.bind(query)).then(() => {
+	pify(query.next.bind(query)).then(list => {
 		// Accept the invites!
 		list.filter(channel => {
-			return channel.myMemberState = "invited";
+			return channel.myMemberState === "invited";
 		}).forEach(channel => {
-			pify(channel.acceptInvitation.bind(channel)).catch(() => {
-				log.invites("failed to accept late channel invitation to '%s'", channel.name);
-			}).then(() => {
+			pify(channel.acceptInvitation.bind(channel)).then(() => {
 				log.invites("accepted late channel invitation to '%s'", channel.name);
+			}).catch(() => {
+				log.invites("failed to accept late channel invitation to '%s'", channel.name);
 			});
 		});
 	}).catch(() => {
@@ -199,27 +199,27 @@ function launch() {
 		baseUrl: "https://s.reddit.com/api/v1",
 		method: "get",
 		uri: "/sendbird/me",
-	}).catch(() => {
-		log.main("could not get access token");
 	}).then(sbInfo => {
 		// Get our Reddit user ID
 		log.main("getting id");
-		reddit.getMe().id.catch(() => {
-			log.main("could not get id");
-		}).then(id => {
+		reddit.getMe().id.then(id => {
 			// We have both necessary values, so let's connect to Sendbird!
 			log.main("connecting to sendbird");
-			pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).catch(() => {
-				log.main("couldn't connect to sendbird");
-			}).then(userInfo => {
+			pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
 				// We did it! Let's store the user info in a higher scope.
 				log.main("connected to sendbird");
 				client = userInfo;
 
 				// Let's catch up on the invites we might've missed while offline.
 				acceptInvitesLate();
+			}).catch(() => {
+				log.main("couldn't connect to sendbird");
 			});
+		}).catch(() => {
+			log.main("could not get id");
 		});
+	}).catch(() => {
+		log.main("could not get access token");
 	});
 }
 launch();
@@ -233,9 +233,7 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 		log.invites("invited to channel");
 
 		// Let's join!
-		pify(channel.acceptInvitation.bind(channel)).catch(() => {
-			log.invites("failed to accept channel invitation");
-		}).then(() => {
+		pify(channel.acceptInvitation.bind(channel)).then(() => {
 			log.invites(`automatically accepted channel invitation to ${channel.name}`);
 
 			// Now that we've joined, let's send our introductory message!
@@ -243,11 +241,13 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 				inviter: inviter.nickname,
 				me: client.nickname,
 				prefix,
-			}))).catch(() => {
-				log.invites("failed to send introductory message");
-			}).then(() => {
+			}))).then(() => {
 				log.invites("sent introductory message");
+			}).catch(() => {
+				log.invites("failed to send introductory message");
 			});
+		}).catch(() => {
+			log.invites("failed to accept channel invitation");
 		});
 	}
 };
@@ -272,10 +272,10 @@ handler.onUserJoined = (channel, user) => {
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "join_message") !== undefined) {
-		pify(channel.sendUserMessage.bind(channel), settings.get(sub, "join_message").replace(/{USER}/g, user.nickname)).catch(() => {
-			log.gateway("failed to send join message");
-		}).then(() => {
+		pify(channel.sendUserMessage.bind(channel), settings.get(sub, "join_message").replace(/{USER}/g, user.nickname)).then(() => {
 			log.gateway("sent join message");
+		}).catch(() => {
+			log.gateway("failed to send join message");
 		});
 	}
 };
@@ -286,10 +286,10 @@ handler.onUserLeft = (channel, user) => {
 
 	const sub = channelSub(channel);
 	if (settings.get(sub, "leave_message") !== undefined) {
-		pify(channel.sendUserMessage.bind(channel), settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname)).catch(() => {
-			log.gateway("failed to send leave message");
-		}).then(() => {
+		pify(channel.sendUserMessage.bind(channel), settings.get(sub, "leave_message").replace(/{USER}/g, user.nickname)).then(() => {
 			log.gateway("sent leave message");
+		}).catch(() => {
+			log.gateway("failed to send leave message");
 		});
 	}
 };
