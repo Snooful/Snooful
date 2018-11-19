@@ -14,6 +14,7 @@ const version = require("./package.json").version;
 const path = require("path");
 
 const { SettingsManager, extension } = require(config.settingsManager);
+log.settings("passing off settings handling to the '%s' module", config.settingsManager);
 const settings = new SettingsManager(path.resolve("./settings" + extension));
 
 const locales = require("./locales.json");
