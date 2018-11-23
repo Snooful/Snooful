@@ -14,6 +14,7 @@
         "argument_type_subreddit": "subreddit",
         "argument_type_user": "user",
         "argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
+        "astronauts_datatype": "astronauts in space",
         "birthday_message": "Happy {0}, {1}!",
         "birthday_song": "Happy {0} to you,\nhappy {0} to you!\nHappy {0}, dear {1}...\nhappy {0} to you!",
         "birthday_type": [
