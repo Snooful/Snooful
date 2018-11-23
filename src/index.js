@@ -2,14 +2,14 @@ const config = {
 	credentials: {},
 	prefix: "!",
 	settingsManager: "",
-	...require("./config.json"),
+	...require("./../config.json"),
 };
 
 const Snoowrap = require("snoowrap");
 
 const log = require("./debug.js");
 
-const version = require("./package.json").version;
+const version = require("./../package.json").version;
 
 const path = require("path");
 
@@ -52,7 +52,7 @@ const creq = require("clear-require");
 function reload() {
 	parser.clear();
 	creq.all();
-	parser.registerDirectory("./commands");
+	parser.registerDirectory("./src/commands");
 }
 reload();
 

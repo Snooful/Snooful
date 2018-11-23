@@ -43,11 +43,11 @@
 	},
 	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "./src/index.js",
 	"scripts": {
 		"lint": "eslint \"./**/*.js\"",
-		"test": "mocha test.js",
-		"start": "pm2 stop snooful; pm2 start index.js --name snooful"
+		"test": "mocha ./test.js",
+		"start": "pm2 stop snooful; pm2 start ./src/index.js --name snooful"
 	},
 	"repository": {
 		"type": "git",
