@@ -154,6 +154,7 @@
 		"command_arguments": "Arguments:",
 
 		"birthday_song": "Happy {0} to you,\nhappy {0} to you!\nHappy {0}, dear {1}...\nhappy {0} to you!",
+		"birthday_message": "Happy {0}, {1}!",
 		"birthday_type": [
 			"birthday",
 			"cake day"
