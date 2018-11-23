@@ -21,8 +21,10 @@ module.exports = {
 		msg.push(args.prefix + command.usage());
 
 		// Description
-		if (command.description) {
+		if (command.longDescription) {
 			msg.push(command.longDescription);
+		} else if (command.description) {
+			msg.push(command.description);
 		}
 
 		// Aliases
