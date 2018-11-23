@@ -128,6 +128,8 @@
         "invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {prefix}commands to get started.",
         "isalias_false": "The command, {}, is not an alias.",
         "isalias_true": "The command, {}, is an alias of {}.",
+        "iss_location": "The ISS is currently at {}°, {}°.",
+        "iss_location_type": "ISS location",
         "lang_datatype": "languages",
         "langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
         "language": "English (American)",
