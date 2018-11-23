@@ -1,4 +1,8 @@
-const got = require("got");
+const mem = require("mem");
+const got = mem(require("got"), {
+	// Cache results for 15 minutes
+	maxAge: 15 * 60 * 1000,
+});
 
 /**
  * Localizes a message, using a custom prefix if possible.
