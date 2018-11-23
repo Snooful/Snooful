@@ -109,7 +109,6 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			try {
 				chData = JSON.parse(channel.data);
 			} catch (error) {
-				log.commands("couldn't parse extra channel data, this is fine");
 			}
 		}
 
