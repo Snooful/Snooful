@@ -32,7 +32,8 @@ module.exports = {
 			if (command.aliases.length === 1) {
 				msg.push(args.localize("command_aliases_single") + " " + args.prefix + command.aliases[0]);
 			} else {
-				msg.push(args.localize("command_aliases") + "\n• " + args.prefix + command.aliases.join("\n• " + args.prefix));
+				const aliases = command.aliases.splice(0, 5);
+				msg.push(args.localize("command_aliases") + "\n• " + args.prefix + aliases.join("\n• " + args.prefix));
 			}
 		}
 
