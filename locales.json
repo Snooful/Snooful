@@ -224,6 +224,7 @@
 			"How am I supposed to name nothing? You need to provide me with a color."
 		],
 
+		"boolean_argument_invalid": "The {2} for the '{key}' argument must be a valid yes/no option.",
 		"command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
 		"command_argument_nonexistent": "The {2} specified in the '{key}' argument does not exist.",
 		"argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
@@ -241,6 +242,7 @@
 		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
 		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
 
+		"argument_type_boolean": "boolean",
 		"argument_type_command": "command",
 		"argument_type_generic": "value",
 		"argument_type_integer": "integer",
