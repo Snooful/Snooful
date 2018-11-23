@@ -16,8 +16,8 @@ module.exports = {
 		"setbyemsg",
 		"byemsg",
 	],
-	builder: [{
-		describe: "The new leave message.",
+	arguments: [{
+		description: "The new leave message.",
 		key: "leave-message",
 		type: "string",
 	}],
