@@ -104,11 +104,19 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		const unprefixedCmd = command.replace(prefix, "");
 		log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
-		let chData = {};
+		let chData = {
+			parsable: null,
+		};
 		if (channel.data) {
 			try {
-				chData = JSON.parse(channel.data);
+				chData = {
+					parsable: true,
+					...JSON.parse(channel.data),
+				};
 			} catch (error) {
+				chData = {
+					parsable: false,
+				};
 			}
 		}
 
