@@ -21,7 +21,7 @@ module.exports = {
 		key: "leave-message",
 		type: "string",
 	}],
-	description: "Sets the message for channel leavers. {USER} is replaced with the user's name.",
+	description: "Sets the message announced after a user leaves.",
 	handler: args => {
 		const oldMsg = args.settings.get("join_message");
 		if (args.leaveMessage) {
@@ -38,5 +38,6 @@ module.exports = {
 			args.send(args.localize("clear_leave_message"));
 		}
 	},
+	longDescription: "Sets the message that is sent when a user leaves the channel. {USER} is replaced with the user's name.",
 	name: "setleavemessage",
 };

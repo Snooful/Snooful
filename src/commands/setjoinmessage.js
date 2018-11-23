@@ -17,7 +17,7 @@ module.exports = {
 		key: "join-message",
 		type: "string",
 	}],
-	description: "Sets the message for channel joiners. {USER} is replaced with the user's name.",
+	description: "Sets the message announced after a user joins.",
 	handler: args => {
 		const oldMsg = args.settings.get("join_message");
 		if (args.joinMessage) {
@@ -34,5 +34,6 @@ module.exports = {
 			args.send(args.localize("clear_join_message"));
 		}
 	},
+	longDescription: "Sets the message that is sent when a user joins the channel. {USER} is replaced with the user's name.",
 	name: "setjoinmessage",
 };
