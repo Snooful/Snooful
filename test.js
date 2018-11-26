@@ -13,8 +13,8 @@ describe("localizations", () => {
 				assert.isTrue(validate(key));
 			});
 			it("is a non-empty object", () => {
-				assert.isObject(value);
-				assert.notDeepEqual(value, {});
+				assert.isObject(locale);
+				assert.notDeepEqual(locale, {});
 			});
 		});
 	});
