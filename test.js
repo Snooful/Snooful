@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-
 const assert = require("chai").assert;
 
 const locales = require("./src/locales.json");
@@ -7,14 +6,14 @@ const validate = require("locale-code").validate;
 
 const sorted = require("is-sorted");
 /**
-  * Checks if an array is alphabetically sorted.
-  * @param {string[]} array The array to check if is alphabetically sorted.
-  * @returns {boolean} Whether the array is alphabetically sorted.
-  */
+ * Checks if an array is alphabetically sorted.
+ * @param {string[]} array The array to check if is alphabetically sorted.
+ * @returns {boolean} Whether the array is alphabetically sorted.
+ */
 function alphaSorted(array = []) {
 	return sorted(array, (a, b) => {
 		return a.localeCompare(b);
-	}); 
+	});
 }
 
 function localizationFormatTests(locale) {
@@ -78,9 +77,9 @@ describe("localizations", () => {
 			it("has alphabetically-sorted keys", () => {
 				assert.isTrue(alphaSorted(Object.keys(locale)));
 			});
-			
+
 			describe("localization formats", () => {
-				localizationFormatTests(locale);	
+				localizationFormatTests(locale);
 			});
 		});
 	});
