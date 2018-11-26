@@ -16,7 +16,12 @@ function alphaSorted(array = []) {
 	});
 }
 
-function localizationFormatTests(locale) {
+/**
+ * Tests a locale for correct values.
+ * @param {Object} The locale to test.
+ * @returns {undefined}
+ */
+function localizationFormatTests(locale = {}) {
 	// Our main values
 	const values = Object.values(locale);
 
