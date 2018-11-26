@@ -5,33 +5,17 @@ const assert = require("chai").assert;
 const locales = require("./locales.json");
 const validate = require("locale-code").validate;
 
-/**
- * Loops through every locale.
- * @param {Function} callback
- */
-function eachLocale(callback) {
+describe("localizations", () => {
 	Object.keys(locales).forEach(key => {
-		callback(locales[key], key);
-	});
-}
-
-describe("localization", () => {
-	it("has english", () => {
-		assert.isDefined(locales["en-US"]);
-	});
-	it("locale codes are correct", () => {
-		eachLocale((_, key) => {
-			assert.isTrue(validate(key));
-		});
-	});
-	it("each locale is an object", () => {
-		eachLocale(value => {
-			assert.isObject(value);
-		});
-	});
-	it("each locale is not empty", () => {
-		eachLocale(value => {
-			assert.notDeepEqual(value, {});
+		const locale = locales[key];
+		describe(`${locale.language} (${key}) locale`, () => {
+			it("has a correct locale code", () => {
+				assert.isTrue(validate(key));
+			});
+			it("is a non-empty object", () => {
+				assert.isObject(value);
+				assert.notDeepEqual(value, {});
+			});
 		});
 	});
 });
