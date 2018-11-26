@@ -6,6 +6,11 @@ const locales = require("./src/locales.json");
 const validate = require("locale-code").validate;
 
 const sorted = require("is-sorted");
+/**
+  * Checks if an array is alphabetically sorted.
+  * @param {string[]} array The array to check if is alphabetically sorted.
+  * @returns {boolean} Whether the array is alphabetically sorted.
+  */
 function alphaSorted(array = []) {
 	return sorted(array, (a, b) => {
 		return a.localeCompare(b);
