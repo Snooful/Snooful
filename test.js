@@ -2,7 +2,7 @@
 
 const assert = require("chai").assert;
 
-const locales = require("./locales.json");
+const locales = require("./src/locales.json");
 const validate = require("locale-code").validate;
 
 describe("localizations", () => {
