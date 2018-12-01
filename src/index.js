@@ -13,7 +13,11 @@ const version = require("./../package.json").version;
 
 const path = require("path");
 
-const { SettingsManager, extension } = require(config.settingsManager);
+// Set up in a way where legacy settings managers work too
+const setMan = require(config.settingsManager);
+const SettingsManager = setMan.SettingsManager || setMan;
+const extension = setMan.extension || "";
+
 log.settings("passing off settings handling to the '%s' module", config.settingsManager);
 const settings = new SettingsManager(path.resolve("./settings" + extension));
 
