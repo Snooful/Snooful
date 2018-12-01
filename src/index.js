@@ -61,14 +61,17 @@ function reload() {
 reload();
 
 /**
- * Logs an end user-initiated fail (non-interrupting) to console.
- * @param {*} error The error that occured.
- * @returns {undefined} Nothing is returned.
+ * Logs an error to console.
+ * @param {*} error The error that occurred.
+ * @returns {string} The error message.
  */
 function safeFail(error) {
 	const errMsg = error instanceof Error ? error.message : error;
-	log.commands("an error occured during command parsing/execution: %s", errMsg);
+	log.main("an error occurred: %s", errMsg);
+	return errMsg;
 }
+process.on("unhandledRejection", safeFail);
+process.on("unhandledException", safeFail);
 
 /**
  * The client information.
