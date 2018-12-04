@@ -66,6 +66,7 @@ reload();
  * @returns {string} The error message.
  */
 function safeFail(error) {
+	console.log(error);
 	const errMsg = error instanceof Error ? error.message : error;
 	log.main("an error occurred: %s", errMsg);
 	return errMsg;
@@ -152,7 +153,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				sb,
 				send: content => {
 					return new Promise((resolve, reject) => {
-						channel.sendUserMessage(content.toString(), (sentMessage, error) => {
+						channel.sendUserMessage(content.toString(), (error, sentMessage) => {
 							if (error) {
 								reject(error);
 							} else {
