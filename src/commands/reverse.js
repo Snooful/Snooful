@@ -1,12 +1,4 @@
-let rev;
-try {
-	rev = require("esrever").reverse;
-} catch (_) {
-	// Simplified version of what esrever does (not accurate!)
-	rev = text => {
-		return text.split("").reverse().join("");
-	};
-}
+const rev = require("./../utils/reverse.js");
 
 module.exports = {
 	arguments: [{
