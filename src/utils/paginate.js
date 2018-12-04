@@ -21,32 +21,27 @@ try {
 	* @param {string} command The name of the command.
 	* @param {(DataGetFunction|*)} [data] The data to paginate.
 	* @param [opts] Other options.
-	* @param {string} [opts.description] The command description.
-	* @param {string[]} [opts.aliases] The command's aliases.
+	* @param {Object} [opts.command] Other values for the command.
 	* @param {string} [opts.dataType] The localization key for a plural word used to describe the data.
 	* @param {string} [opts.footer] Text to display after the data as a footer.
 	* @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = {
-		aliases: [],
+		command: {},
 		dataType: "generic_datatype",
-		description: "",
 		footer: "",
-		longDescription: opts.description || "",
 		noItemsMessage: "",
 		...opts,
 	};
 
 	return {
-		aliases: options.aliases,
 		arguments: [{
 			default: 1,
 			description: "The page index to view.",
 			key: "page",
 			type: "integer",
 		}],
-		description: options.description,
 		handler: async args => {
 			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
 			const dataType = args.localize(options.dataType);
@@ -74,7 +69,7 @@ module.exports = (command, data = [], opts = {}) => {
 				args.send(args.localize("page_number_invalid"));
 			}
 		},
-		longDescription: options.longDescription,
 		name: command,
+		...options.command,
 	};
 };

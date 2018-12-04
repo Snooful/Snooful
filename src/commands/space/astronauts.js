@@ -13,10 +13,12 @@ module.exports = paginate("astronauts", async args => {
 		return astro.name + " (" + astro.craft + ")";
 	});
 }, {
-	aliases: [
-		"astros",
-	],
+	command: {
+		aliases: [
+			"astros",
+		],
+		description: "Lists the astronauts in space.",
+		longDescription: "Gives a list of astronauts that are currently in space, including the spacecraft that they are on.",
+	},
 	dataType: "astronauts_datatype",
-	description: "Lists the astronauts in space.",
-	longDescription: "Gives a list of astronauts that are currently in space, including the spacecraft that they are on.",
 });
