@@ -12,6 +12,7 @@
         "argument_type_integer": "integer",
         "argument_type_string": "string",
         "argument_type_subreddit": "subreddit",
+        "argument_type_url": "url",
         "argument_type_user": "user",
         "argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
         "astronauts_datatype": "astronauts in space",
@@ -198,6 +199,7 @@
             "That word is not currently in Urban Dictionary."
         ],
         "urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
+        "url_argument_invalid": "The value provided for the '{key}' argument is not a valid URL.",
         "user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
         "user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
         "version": "I am running version {}! 😄",
