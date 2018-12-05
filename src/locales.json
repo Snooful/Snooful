@@ -35,7 +35,7 @@
         "clear_leave_message": "The leave message will not be sent.",
         "clear_leave_message_no_change": [
             "I haven't been sending the leave message.",
-            "I'd stop sending the join message, if not for the fact that I haven't been doing that in the first place."
+            "I'd stop sending the leave message, if not for the fact that I haven't been doing that in the first place."
         ],
         "color_amount_invalid": "Please provide a proper integer for the amount of color names you would like to me to give.",
         "color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
