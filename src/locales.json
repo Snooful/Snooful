@@ -139,14 +139,6 @@
             "My language has been updated to {} here.",
             "I'll now speak {} here."
         ],
-        "matrix_amount_too_high": [
-            "If I give you that much, it'll spam up the channel. Out of courtesy, please give me an amount lower than that.",
-            "Woah there! That's a lot of binary. If I post that, we might hack the simulation."
-        ],
-        "matrix_amount_too_low": [
-            "We need at least some binary. Give me a number bigger than that.",
-            "To hack into the NSA, we need to have some binary. Please give me a number bigger than that."
-        ],
         "new_language_unspecified": "To change my language, you must specify the new language.",
         "no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
         "no_pagination_items": "There are no {} to view.",
