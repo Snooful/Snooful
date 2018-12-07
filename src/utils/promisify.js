@@ -1,10 +1,10 @@
 const pify = require("pify");
 
 /**
- * Promisifies then runs a function.
- * @param {Function} The function to promisify and run.
- * @param {*[]} The arguments to pass to the function when running it.
- * @returns {Promise}
+ * Promisifies and runs a function.
+ * @param {Function} input The function to promisify and run.
+ * @param {*[]} ...args The arguments to pass to the function when running it.
+ * @returns {Promise} A promise resolving to the output of the function and rejecting to an error if
  */
 module.exports = (input, ...args) => {
 	if (!input) {
