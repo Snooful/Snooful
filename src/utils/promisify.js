@@ -7,6 +7,12 @@ const pify = require("pify");
  * @returns {Promise}
  */
 module.exports = (input, ...args) => {
+	if (!input) {
+		throw new TypeError("The input parameter is required.");
+	} else if (typeof input !== "function") {
+		throw new TypeError("The input parameter must be a function with a callback to promisify.");
+	}
+	
 	return pify(input, {
 		errorFirst: true,
 	})(...args);
