@@ -147,7 +147,8 @@
         "page_counter": "(page {} of {})",
         "page_number_invalid": "That's an invalid page number!",
         "page_number_not_integer": "Page numbers must be integers.",
-        "ping_response": [
+        "ping_result": "Snooful has a ping of {}ms.",
+        "ping_test": [
             "Pong!",
             "Plink!",
             "Dink!"
@@ -234,7 +235,7 @@
         "no_faqs": "No hay {type}. Puedes hacer uno usando {prefix}setfaq.",
         "no_pagination_items": "No hay {} para ver.",
         "page_counter": "(página {} de {})",
-        "ping_response": "¡Doop!",
+        "ping_test": "¡Doop!",
         "version": "Mi versión es {}.",
         "version_hash": "Mi versión es {} ({}).",
         "whoami": "Te llaman u/{}."
@@ -264,7 +265,6 @@
         "number_created": "O numero é {}. Não tinha numero antes",
         "page_number_invalid": "Isso é um numero de pagina invalido!",
         "page_number_not_integer": "Numeros de pagina precisam ser numeros inteiros.",
-        "ping_response": "Pong!",
         "reverse": "Invertendo isso nos da: {}",
         "support_channel_missing": "Desculpa, eu não achei o chat que queria convidar!",
         "support_invite_error": "Desculpa, algo deu errado no convite!",
