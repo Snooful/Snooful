@@ -66,7 +66,6 @@ reload();
  * @returns {string} The error message.
  */
 function safeFail(error) {
-	console.log(error);
 	const errMsg = error instanceof Error ? error.message : error;
 	log.main("an error occurred: %s", errMsg);
 	return errMsg;
