@@ -101,6 +101,9 @@ function localize(lang = "en-US", key = "", ...formats) {
 	}
 }
 
+// We use this to make a channel's settings wrapper
+const channelSub = require("./utils/channel-sub.js");
+
 /**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
