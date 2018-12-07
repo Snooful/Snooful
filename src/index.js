@@ -1,15 +1,17 @@
+// Used to expose version and include config from `snooful` object
+const { version, pkgConfig } = require("./../package.json");
+
 const config = {
 	credentials: {},
 	prefix: "!",
 	settingsManager: "",
+	...pkgConfig,
 	...require("./../config.json"),
 };
 
 const Snoowrap = require("snoowrap");
 
 const log = require("./debug.js");
-
-const version = require("./../package.json").version;
 
 const path = require("path");
 
