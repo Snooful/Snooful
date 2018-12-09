@@ -11,7 +11,7 @@ const { gateway } = require("./../debug.js");
  * @param {boolean} handleSelf Whether to handle the event message for events caused by the client.
  * @returns {Function}
  */
-function eventMessageHandler(type = "event", settings, clientName, handleSelf = false) {
+function eventMessageHandler(type = "event", settings, clientName = "Snooful", handleSelf = false) {
 	return (channel, user) => {
 		if (user.nickname === clientName && !handleSelf) return;
 
