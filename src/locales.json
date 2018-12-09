@@ -6,6 +6,7 @@
 		"argument_invalid": "The value provided for the '{key}' argument is invalid.",
 		"argument_required": "You must provide a {2} for the '{key}' argument.",
 		"argument_type_boolean": "boolean",
+		"argument_type_bytes": "bytes",
 		"argument_type_color": "color",
 		"argument_type_command": "command",
 		"argument_type_duration": "duration",
@@ -28,6 +29,7 @@
 			"Wait a second... who am I singing happy {} to again?"
 		],
 		"boolean_argument_invalid": "The {2} for the '{key}' argument must be a valid yes/no option.",
+		"bytes_argument_invalid": "The value provided for the '{key}' argument must be a proper value and unit of digital storage.",
 		"clear_join_message": "The join message will not be sent.",
 		"clear_join_message_no_change": [
 			"I haven't been sending the join message.",
