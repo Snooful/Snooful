@@ -1,7 +1,7 @@
 const channelSub = require("./channel-sub.js");
 const pify = require("./promisify.js");
 
-const { gateway } = require("./../debug.js");
+const { gateway } = require("./debug.js");
 
 /**
  * Makes a message-sending handler for an event.

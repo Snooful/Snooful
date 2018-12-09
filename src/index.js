@@ -11,7 +11,7 @@ const config = {
 
 const Snoowrap = require("snoowrap");
 
-const log = require("./debug.js");
+const log = require("./utils/debug.js");
 
 const path = require("path");
 
