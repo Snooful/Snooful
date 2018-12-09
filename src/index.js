@@ -1,11 +1,11 @@
 // Used to expose version and include config from `snooful` object
-const { version, pkgConfig } = require("./../package.json");
+const { version, snooful } = require("./../package.json");
 
 const config = {
 	credentials: {},
 	prefix: "!",
 	settingsManager: "",
-	...pkgConfig,
+	...snooful,
 	...require("./../config.json"),
 };
 
