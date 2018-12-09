@@ -10,27 +10,22 @@ try {
 }
 
 /**
- * All debuggers.
- */
-module.exports = {
-	/**
 	 * Debug for handling/parsing commands.
 	 */
-	commands: debug("snooful:commands"),
-	/**
+module.exports.commands = debug("snooful:commands");
+/**
 	 * Debug for join and leave messages.
 	 */
-	gateway: debug("snooful:gateway"),
-	/**
+module.exports.gateway = debug("snooful:gateway");
+/**
 	 * Debug for automatically accepting invites to channels.
 	 */
-	invites: debug("snooful:invites"),
-	/**
+module.exports.invites = debug("snooful:invites");
+/**
 	 * Debug for initializing Snooful.
 	 */
-	main: debug("snooful:main"),
-	/**
+module.exports.main = debug("snooful:main");
+/**
 	 * Debug for the settings manager.
 	 */
-	settings: debug("snooful:settings"),
-};
+module.exports.settings = debug("snooful:settings");
