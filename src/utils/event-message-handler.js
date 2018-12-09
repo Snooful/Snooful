@@ -10,7 +10,7 @@ const pify = require("./promisify.js");
  * @param {boolean} handleSelf Whether to handle the event message for events caused by the client.
  * @returns {Function}
  */
-function eventMessageFactory(type = "event", settings, client, log, handleSelf = false) {
+function eventMessageHandler(type = "event", settings, client, log, handleSelf = false) {
 	return (channel, user) => {
 		if (user.nickname === client.nickname && !handleSelf) return;
 
@@ -26,4 +26,4 @@ function eventMessageFactory(type = "event", settings, client, log, handleSelf =
 		}
 	};
 }
-module.exports = eventMessageFactory;
+module.exports = eventMessageHandler;

@@ -272,7 +272,7 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	}
 };
 
-const eventMessageFactory = require("./utils/event-message-factory.js");
+const eventMessageFactory = require("./utils/event-message-handler.js");
 handler.onUserJoined = eventMessageFactory("join", settings, client, log);
 handler.onUserLeft = eventMessageFactory("leave", settings, client, log);
 
