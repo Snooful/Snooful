@@ -6,6 +6,7 @@
 		"argument_invalid": "The value provided for the '{key}' argument is invalid.",
 		"argument_required": "You must provide a {2} for the '{key}' argument.",
 		"argument_type_boolean": "boolean",
+		"argument_type_color": "color",
 		"argument_type_command": "command",
 		"argument_type_duration": "duration",
 		"argument_type_generic": "value",
@@ -39,6 +40,7 @@
 		],
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
+		"color_argument_invalid": "The {2} for the '{key}' argument must be specified as a name, RGB, HSL, or hexadecimal code.",
 		"color_name": [
 			"This color is called {}.",
 			"They call this color... {}..."
