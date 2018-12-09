@@ -30,6 +30,8 @@
 		],
 		"boolean_argument_invalid": "The {2} for the '{key}' argument must be a valid yes/no option.",
 		"bytes_argument_invalid": "The value provided for the '{key}' argument must be a proper value and unit of digital storage.",
+		"bytes_conversion": "Converting that amount of bytes gives us {}.",
+		"bytes_conversion_failed": "I could not convert those bytes.",
 		"clear_join_message": "The join message will not be sent.",
 		"clear_join_message_no_change": [
 			"I haven't been sending the join message.",
