@@ -41,12 +41,20 @@
         "color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
         "color_amount_too_low": "I need to provide you with at least one name for this color.",
         "color_invalid": "That color is invalid. Please provide a hexadecimal color, such as {}.",
-        "color_name": "This color is called {}.",
-        "color_names": "The closest names for this color are {}.",
+        "color_name": [
+			"This color is called {}.",
+			"They call this color... {}..."
+		],
+        "color_names": [
+			"The closest names for this color are {}.",
+			"This color's similar to {}."
+		],
         "color_unspecified": [
             "Give me a color to name.",
             "In order to name your color, I need a color to name.",
-            "How am I supposed to name nothing? You need to provide me with a color."
+			"How am I supposed to name nothing? You need to provide me with a color.",
+			"What would I say if you don't give me a color? Transparent, maybe?",
+			"Clear, possibly? I'd probably give a more accurate name if you actually gave me a color to begin with."
         ],
         "command_aliases": "Aliases:",
         "command_aliases_single": "Alias:",
@@ -54,13 +62,21 @@
         "command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
         "command_arguments": "Arguments:",
         "command_datatype": "commands",
-        "current_language": "Snooful's language is currently set to {}. You can change it with {}setlang.",
+        "current_language": [
+			"My language is currently set to {}. You can change it with {}setlang.",
+			"Right now I am speaking {}, but you can change it using {}setlang.",
+			"I'm speaking in {} currently, but it is changeable with {}setlang."
+		],
         "current_time": [
             "The current time in {} is {}.",
-            "Right now in {}, it is {}."
+			"Right now in {}, it is {}.",
+			"It's {} in {} currently."
         ],
         "custom_roll_max": "Sorry, but I will not be able to handle that request; it's simply too much for me.",
-        "custom_roll_notation_invalid": "That seems to be invalid syntax. Please use proper dice notation.",
+        "custom_roll_notation_invalid": [
+			"That seems to be invalid syntax. Please use proper dice notation.",
+			"The custom roll's in an invalid syntax. It must be proper dice notation."
+		],
         "custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
         "custom_roll_results": "Dice output: {}, with a total of {}.",
         "definition_vote_count": "({} votes)",
@@ -68,17 +84,19 @@
             "That FAQ doesn't even exist, silly. See {}listfaq for a list of deletable FAQs.",
             "I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one, as viewable in {0}listfaq?",
             "I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
-            "There is no FAQ with that ID, so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {}listfaq."
+            "There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
         ],
         "delete_faq_success": [
             "That FAQ has been deleted.",
-            "That FAQ has been purged from existence."
+			"That FAQ has been purged from existence.",
+			"You will no longer see that FAQ."
         ],
         "delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
         "die_land": [
             "The die lands on a {}.",
             "After a couple of bounces, the die finally settles on a {}.",
-            "The die falls off the table, but lands on a {}."
+			"The die falls off the table, but lands on a {}.",
+			"The die decides its number, a {}, but not before bouncing around a bit."
         ],
         "duration": "That duration is {} seconds.",
         "duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
@@ -95,7 +113,10 @@
             "Your feedback has been passed on to my creator. Thank you for sending it!",
             "Thanks! I've given that feedback to my creator."
         ],
-        "feedback_unspecified": "You need to provide some feedback!",
+        "feedback_unspecified": [
+			"You need to provide some feedback!",
+			"What feedback would you like to give?"
+		],
         "fetch_4xx_error": "There was a client error!",
         "fetch_5xx_error": "The server had an error!",
         "fetch_cache_error": "There was an error reading from the cache!",
@@ -129,12 +150,18 @@
         "invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {prefix}commands to get started.",
         "isalias_false": "The command, {}, is not an alias.",
         "isalias_true": "The command, {}, is an alias of {}.",
-        "iss_location": "The ISS is currently at {}°, {}°.",
+        "iss_location": [
+			"The ISS is currently at {}°, {}°.",
+			"Right now, the ISS is in space (obviously), at {}°, {}°."
+		],
         "iss_location_type": "ISS location",
         "lang_datatype": "languages",
         "langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
         "language": "English (American)",
-        "language_not_available": "Sorry, but I cannot speak that language currently.",
+        "language_not_available": [
+			"Sorry, but I cannot speak that language currently.",
+			"I don't know that language. You should consider helping with localizations!"
+		],
         "language_updated": [
             "My language has been updated to {} here.",
             "I'll now speak {} here."
@@ -142,12 +169,21 @@
         "new_language_unspecified": "To change my language, you must specify the new language.",
         "no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
         "no_pagination_items": "There are no {} to view.",
-        "number_changed": "The new number is {}. The previous number was {}.",
-        "number_created": "The number is {}. There was no number before.",
+        "number_changed": [
+			"The new number is {}. The previous number was {}.",
+			"The new number is {}, which is a change from the previous number, {}."
+		],
+        "number_created": [
+			"The number is {}. There was no number before.",
+			"The number is {}, which is a change from not having a number at all."
+		],
         "page_counter": "(page {} of {})",
         "page_number_invalid": "That's an invalid page number!",
         "page_number_not_integer": "Page numbers must be integers.",
-        "ping_result": "Snooful has a ping of {}ms.",
+        "ping_result": [
+			"Snooful has a ping of {}ms.",
+			"Snooful's ping is currently at {}ms."
+		],
         "ping_test": [
             "Pong!",
             "Plink!",
@@ -177,7 +213,8 @@
         "support_invite_error": "Sorry, something went wrong with the invitation!",
         "support_invited": [
             "I've invited you to the support channel.",
-            "Check your channel invites; I've sent an invite for the support channel to you."
+			"Check your channel invites; I've sent an invite for the support channel to you.",
+			"You should see an invite to the support channel appear soon."
         ],
         "unspecified_reverse_message": [
             "Please specify the text to reverse.",
@@ -191,11 +228,14 @@
             "There was no result for that word on Urban Dictionary!",
             "That word is not currently in Urban Dictionary."
         ],
-        "urban_dictionary_unspecified_word": "undefined: A subtle hint that you need to tell me which word to define.",
+        "urban_dictionary_unspecified_word": [
+			"undefined: A subtle hint that you need to tell me which word to define.",
+			"undefined: The state of being when someone uses this command without specifying the word that should be defined."
+		],
         "url_argument_invalid": "The value provided for the '{key}' argument is not a valid URL.",
         "user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
         "user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
-        "version": "I am running version {}! 😄",
+        "version": "I am running version {}!",
         "version_hash": "I am running version {}, with the most recent commit being {}!",
         "whereami": [
             "You are in {}.",
@@ -205,7 +245,10 @@
         "whoami": [
             "Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
             "You need a nametag, u/{}...",
-            "Do you need to write 'u/{}' on your hand so you can remember?"
+			"Do you need to write 'u/{}' on your hand so you can remember?",
+			"I'm diagnosing you with amnesia, u/{}.",
+			"It's a bit sad that you have to rely on me to figure out what your name is, u/{}.",
+			"u/{}, welcome to my class: Not Forgetting Your Name 101."
         ],
         "wikipedia_article_not_found": "That Wikipedia article could not be found."
     },
