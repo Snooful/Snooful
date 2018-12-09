@@ -1,5 +1,4 @@
 const namer = require("color-namer");
-const chance = require("chance").Chance();
 
 module.exports = {
 	aliases: [

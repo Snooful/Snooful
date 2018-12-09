@@ -37,10 +37,8 @@
             "I haven't been sending the leave message.",
             "I'd stop sending the leave message, if not for the fact that I haven't been doing that in the first place."
         ],
-        "color_amount_invalid": "Please provide a proper integer for the amount of color names you would like to me to give.",
         "color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
         "color_amount_too_low": "I need to provide you with at least one name for this color.",
-        "color_invalid": "That color is invalid. Please provide a hexadecimal color, such as {}.",
         "color_name": [
 			"This color is called {}.",
 			"They call this color... {}..."
@@ -49,13 +47,6 @@
 			"The closest names for this color are {}.",
 			"This color's similar to {}."
 		],
-        "color_unspecified": [
-            "Give me a color to name.",
-            "In order to name your color, I need a color to name.",
-			"How am I supposed to name nothing? You need to provide me with a color.",
-			"What would I say if you don't give me a color? Transparent, maybe?",
-			"Clear, possibly? I'd probably give a more accurate name if you actually gave me a color to begin with."
-        ],
         "command_aliases": "Aliases:",
         "command_aliases_single": "Alias:",
         "command_argument_nonexistent": "The {2} specified in the '{key}' argument does not exist.",
