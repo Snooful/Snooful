@@ -8,7 +8,7 @@ module.exports = {
 		args.send(args.localize("ping_test")).then(() => {
 			// Milliseconds
 			const time = Math.round(performance.now() - initial);
-			args.send(args.localize("ping_result", time);
+			args.send(args.localize("ping_result", time));
 		});
 	},
 };

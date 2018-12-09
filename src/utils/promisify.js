@@ -12,7 +12,7 @@ module.exports = (input, ...args) => {
 	} else if (typeof input !== "function") {
 		throw new TypeError("The input parameter must be a function with a callback to promisify.");
 	}
-	
+
 	return pify(input, {
 		errorFirst: true,
 	})(...args);

@@ -1,7 +1,7 @@
 const channelSub = require("./channel-sub.js");
 const pify = require("./promisify.js");
 
-function eventMessageFactory(type, handleSelf = false) {
+function eventMessageFactory(type, settings, client, log, handleSelf = false) {
 	return (channel, user) => {
 		if (user.nickname === client.nickname && !handleSelf) return;
 

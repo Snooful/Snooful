@@ -7,10 +7,10 @@ module.exports = {
 	}],
 	description: "Checks if a given command is an alias.",
 	handler: args => {
-		if (cmd.name === cmd.originalName) {
-			args.send(args.localize("isalias_false", args.prefix + cmd.name));
+		if (args.command.name === args.command.originalName) {
+			args.send(args.localize("isalias_false", args.prefix + args.command.name));
 		} else {
-			args.send(args.localize("isalias_true", args.prefix + cmd.name, args.prefix + cmd.originalName));
+			args.send(args.localize("isalias_true", args.prefix + args.command.name, args.prefix + args.command.originalName));
 		}
 	},
 	longDescription: "Checks if the given command is an alias of another. If so, gives the name of the command it is an alias of.",
