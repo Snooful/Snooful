@@ -17,6 +17,7 @@ module.exports = {
 	description: "Converts bytes to a unit.",
 	handler: args => {
 		const convert = bytes.format(args.value, {
+			decimalPlaces: 4,
 			unit: args.unit,
 		});
 
