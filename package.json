@@ -50,7 +50,7 @@
 	"scripts": {
 		"lint": "eslint \"./**/*.js\"",
 		"test": "mocha ./test.js",
-		"start": "pm2 stop snooful; pm2 start ./src/index.js --name snooful"
+		"start": "pm2 start"
 	},
 	"repository": {
 		"type": "git",
