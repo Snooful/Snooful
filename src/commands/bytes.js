@@ -3,6 +3,8 @@ const bytes = require("bytes");
 module.exports = {
 	arguments: [{
 		key: "value",
+		required: true,
+		type: "bytes",
 	}, {
 		choices: [
 			"b",
@@ -11,6 +13,7 @@ module.exports = {
 			"gb",
 			"tb",
 		],
+		default: "gb",
 		key: "unit",
 		type: "string",
 	}],
