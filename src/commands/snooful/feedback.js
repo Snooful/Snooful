@@ -1,5 +1,5 @@
 const toChannel = "sendbird_group_channel_961019_3546ab525611fe34f46eb0e7b93257a9f2c0a4b2";
-const pify = require("./../../utils/promisify.js").sb;
+const pify = require("./../../utils/promisify.js");
 
 module.exports = {
 	aliases: [
