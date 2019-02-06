@@ -2,6 +2,10 @@
  * Creates a setter command for event messages.
  */
 module.exports = (command, opts = {}) => {
+	if (!opts.storageKey) {
+		throw new Error(`Missing the storage key for the event message set by command ${command}`);
+	}
+
 	const options = {
 		longDescription: "Sets the message sent when an event occurs.",
 		msgType: "event_message",
