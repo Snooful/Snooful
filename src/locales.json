@@ -99,6 +99,7 @@
 		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
 		"emoji_datatype": "emoji",
 		"emoji_info": "{} is the '{}' emoji.",
+		"emoji_not_found": "That emoji could not be found.",
 		"faq_datatype": "FAQs",
 		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
 		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",

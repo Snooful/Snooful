@@ -26,7 +26,11 @@ module.exports = {
 		const key = getEmojiKey(args.emoji);
 		const emoji = emojiAPI.find(key);
 
-		args.send(args.localize("emoji_info", emoji.emoji, emoji.key.replace(/_/g, " ")));
+		if (emoji && emoji.emoji && emoji.key) {
+			args.send(args.localize("emoji_info", emoji.emoji, emoji.key.replace(/_/g, " ")));
+		} else {
+			args.send(args.localize("emoji_not_found"));
+		}
 	},
 	name: "emojiinfo",
 };
