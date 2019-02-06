@@ -29,7 +29,14 @@ module.exports = {
 		if (emoji && emoji.emoji && emoji.key) {
 			args.send(args.localize("emoji_info", emoji.emoji, emoji.key.replace(/_/g, " ")));
 		} else {
-			args.send(args.localize("emoji_not_found"));
+			// Search for names
+			const search = emojiAPI.search(key);
+
+			if (search[0] && search[0].emoji && search[0].key) {
+				args.send(args.localize("emoji_info_closest", search[0].emoji, search[0].key.replace(/_/g, " ")));
+			} else {
+				args.send(args.localize("emoji_not_found"));
+			}
 		}
 	},
 	name: "emojiinfo",
