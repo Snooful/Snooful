@@ -39,6 +39,8 @@ Switching the settings manager does not transfer the existing data. However, you
 
 You can also configure the prefix from the default `!` by setting `prefix`. The prefix is the thing that differentiates a command from a message. Basically, with a prefix of `?`, you must type `?ping` to run the `ping` command.
 
+*Please change the prefix if you are hosting your own version of Snooful.*
+
 ### Debugging
 
 Since this project uses [`debug`](https://www.npmjs.com/package/debug), you can also set the environment variable `DEBUG` to `snooful:*` to recieve logs of everything notable happening with Snooful. This package also has [other environment variables](https://github.com/visionmedia/debug#environment-variables) that can be set, which are:
