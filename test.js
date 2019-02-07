@@ -82,6 +82,14 @@ describe("localizations", () => {
 			it("has alphabetically-sorted keys", () => {
 				assert.isTrue(alphaSorted(Object.keys(locale)));
 			});
+			
+			it("language name is in proper format", () => {
+				if (key.split("_")[1]) {
+					assert.match(locale.language, /\w+ \(\w+\)/);
+				} else {
+					assert.match(locale.language, /\w+/);
+				}
+			});
 
 			describe("localization formats", () => {
 				localizationFormatTests(locale);
