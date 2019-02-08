@@ -11,7 +11,11 @@ const config = {
 
 const Snoowrap = require("snoowrap");
 
+// Utilities
 const log = require("./utils/debug.js");
+const pify = require("./utils/promisify");
+const channelSub = require("./utils/channel-sub.js");
+const eventMessageFactory = require("./utils/event-message-handler.js");
 
 const path = require("path");
 
@@ -26,8 +30,6 @@ const settings = new SettingsManager(path.resolve("./settings" + extension));
 const locales = require("./locales.json");
 const format = require("string-format");
 const upsidedown = require("upsidedown");
-
-const pify = require("./utils/promisify");
 
 const chance = new require("chance").Chance();
 /**
@@ -100,9 +102,6 @@ function localize(lang = "en-US", key = "", ...formats) {
 		return null;
 	}
 }
-
-// We use this to make a channel's settings wrapper
-const channelSub = require("./utils/channel-sub.js");
 
 /**
  * Runs a command.
@@ -272,7 +271,6 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	}
 };
 
-const eventMessageFactory = require("./utils/event-message-handler.js");
 handler.onUserJoined = eventMessageFactory("join", settings, client.nickname);
 handler.onUserLeft = eventMessageFactory("leave", settings, client.nickname);
 
