@@ -184,7 +184,8 @@
 		"ping_test": [
 			"Pong!",
 			"Plink!",
-			"Dink!"
+			"Dink!",
+			"Plang!",
 		],
 		"record": "The world record for {} is at {}. For more information, view {}.",
 		"record_game_type": "game",
@@ -207,7 +208,10 @@
 		"subreddit_argument_too_long": "The {2} provided for the '{key}' is too long; subreddits can only have up to 20 characters in their name.",
 		"subreddit_argument_too_short": "The {2} provided for the '{key}' is too long; subreddits must have at least 3 characters in their name.",
 		"support_channel_missing": "Sorry, I couldn't find the channel I wanted to invite you to!",
-		"support_invite_error": "Sorry, something went wrong with the invitation!",
+		"support_invite_error": [
+			"Sorry, something went wrong with the invitation!",
+			"Unfortunately, it seems my invitation was lost in transit."
+		],
 		"support_invited": [
 			"I've invited you to the support channel.",
 			"Check your channel invites; I've sent an invite for the support channel to you.",
@@ -237,7 +241,8 @@
 		"whereami": [
 			"You are in {}.",
 			"Don't you have a GPS or something? Whatever, you're in {} right now.",
-			"Do I really have to tell you this? You're in {}..."
+			"Do I really have to tell you this? You're in {}...",
+			"Doesn't that device you're using include GPS? Well, you're in {} currently."
 		],
 		"whoami": [
 			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
@@ -247,7 +252,10 @@
 			"It's a bit sad that you have to rely on me to figure out what your name is, u/{}.",
 			"u/{}, welcome to my class: Not Forgetting Your Name 101."
 		],
-		"wikipedia_article_not_found": "That Wikipedia article could not be found."
+		"wikipedia_article_not_found": [
+			"That Wikipedia article could not be found.",
+			"The biggest encyclomedia on this planet doesn't have that article. What a shame."
+		]
 	},
 	"es-ES": {
 		"argument_required": "Es necesario proporcionar un {2} para el argumento '{key}'.",
