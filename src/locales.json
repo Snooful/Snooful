@@ -1,5 +1,8 @@
 {
 	"en-US": {
+		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
+		"mod_update_success": "The moderator list was updated successfully.",
+		"mod_update_failure": "The moderator list could not be updated.",
 		"alias_datatype": "aliases",
 		"alias_listing": "{} (alias of {})",
 		"alternate_case": "Let's mock this text: {}",
