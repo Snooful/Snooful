@@ -1,15 +1,5 @@
 {
 	"en-US": {
-		"permission_invalid": "That permission is invalid.",
-		"permission_already_granted": "That role already has that permission.",
-		"permission_granted": "You have granted that permission.",
-		"role_doesnt_have_permission": "That role already doesn't have that permission.",
-		"permission_taken": "You have taken that permission away.",
-		"user_doesnt_have_role": "u/{} doesn't have that role.",
-		"user_taken_role": "You have taken that role away from u/{}.",
-		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
-		"mod_update_success": "The moderator list was updated successfully.",
-		"mod_update_failure": "The moderator list could not be updated.",
 		"alias_datatype": "aliases",
 		"alias_listing": "{} (alias of {})",
 		"alternate_case": "Let's mock this text: {}",
@@ -161,8 +151,6 @@
 			"The ISS is currently at {}°, {}°.",
 			"Right now, the ISS is in space (obviously), at {}°, {}°."
 		],
-		"permissions_datatype": "permissions",
-		"roles_datatype": "roles",
 		"iss_location_type": "ISS location",
 		"lang_datatype": "languages",
 		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
@@ -175,10 +163,13 @@
 			"My language has been updated to {} here.",
 			"I'll now speak {} here."
 		],
-		"no_permission": "You are not allowed to use this command.",
+		"mod_update_failure": "The moderator list could not be updated.",
+		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
+		"mod_update_success": "The moderator list was updated successfully.",
 		"new_language_unspecified": "To change my language, you must specify the new language.",
 		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
 		"no_pagination_items": "There are no {} to view.",
+		"no_permission": "You are not allowed to use this command.",
 		"nonexistent_role": "That role doesn't exist.",
 		"number_changed": [
 			"The new number is {}. The previous number was {}.",
@@ -191,6 +182,11 @@
 		"page_counter": "(page {} of {})",
 		"page_number_invalid": "That's an invalid page number!",
 		"page_number_not_integer": "Page numbers must be integers.",
+		"permission_already_granted": "That role already has that permission.",
+		"permission_granted": "You have granted that permission.",
+		"permission_invalid": "That permission is invalid.",
+		"permission_taken": "You have taken that permission away.",
+		"permissions_datatype": "permissions",
 		"ping_result": [
 			"Snooful has a ping of {}ms.",
 			"Snooful's ping is currently at {}ms."
@@ -214,6 +210,8 @@
 		],
 		"role_already_exists": "A role with that name already exists.",
 		"role_created": "That role has been created.",
+		"role_doesnt_have_permission": "That role already doesn't have that permission.",
+		"roles_datatype": "roles",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
 		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
@@ -253,7 +251,9 @@
 		"user_already_has_role": "u/{} already has that role.",
 		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
 		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
+		"user_doesnt_have_role": "u/{} doesn't have that role.",
 		"user_given_role": "You have given u/{} that role.",
+		"user_taken_role": "You have taken that role away from u/{}.",
 		"version": "I am running version {}!",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
 		"whereami": [
