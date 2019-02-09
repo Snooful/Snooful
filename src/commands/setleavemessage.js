@@ -22,4 +22,6 @@ module.exports = ems("setleavemessage", {
 		description: "Sets the message announced after a user leaves.",
 	},
 	longDescription: "Sets the message that is sent when a user leaves the channel.",
+	msgType: "leave_message",
+	storageKey: "leave_message",
 });
