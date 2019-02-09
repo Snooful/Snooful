@@ -8,7 +8,7 @@ module.exports = {
 		type: "string",
 	}],
 	handler: args => {
-		const roleName = args.role.replace(/[^a-z]*/g, "");
+		const roleName = args.role.toLowerCase().replace(/[^a-z]*/g, "");
 
 		if (args.settings.get("roles") === undefined) {
 			args.settings.set("roles", {});
