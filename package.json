@@ -2,6 +2,7 @@
 	"name": "snooful",
 	"dependencies": {
 		"@snooful/orangered-parser": "^4.0.0",
+		"@snooful/periwinkle-permissions": "^1.0.0",
 		"alternating-case": "^1.0.0",
 		"bytes": "^3.0.0",
 		"chance": "^1.0.17",
