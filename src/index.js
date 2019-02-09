@@ -137,6 +137,10 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
 
 		const author = message._sender.nickname;
+
+		if (!settingsWrapper.get("roles")) {
+			settingsWrapper.set("roles", {});
+		}
 		const perms = userPerms(author, settingsWrapper.get("roles"));
 
 		try {
@@ -173,6 +177,11 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				},
 				settings: settingsWrapper,
 				testPermission: perm => {
+					// Mods and group DMs don't get permissions
+					if (!chData.subreddit) {
+						return true;
+					}
+
 					return pp.test(perm, perms);
 				},
 				version,

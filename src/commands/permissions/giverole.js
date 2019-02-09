@@ -9,11 +9,6 @@ module.exports = {
 	}],
 	handler: args => {
 		const roleName = roleNameify(args.role);
-
-		if (args.settings.get("roles") === undefined) {
-			args.settings.set("roles", {});
-		}
-
 		const roles = args.settings.get("roles");
 
 		if (!roles[roleName]) {
