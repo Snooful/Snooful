@@ -159,6 +159,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				localizeO: localize,
 				log: log.commands,
 				message,
+				perms,
 				prefix,
 				reddit,
 				registry: parser.getCommandRegistry(),

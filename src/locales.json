@@ -151,6 +151,7 @@
 			"The ISS is currently at {}°, {}°.",
 			"Right now, the ISS is in space (obviously), at {}°, {}°."
 		],
+		"permissions_datatype": "permissions",
 		"iss_location_type": "ISS location",
 		"lang_datatype": "languages",
 		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
