@@ -1,5 +1,8 @@
 {
 	"en-US": {
+		"permission_invalid": "That permission is invalid.",
+		"permission_already_granted": "That role already has that permission.",
+		"permission_granted": "You have granted that permission.",
 		"user_doesnt_have_role": "u/{} doesn't have that role.",
 		"user_taken_role": "You have taken that role away from u/{}.",
 		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
