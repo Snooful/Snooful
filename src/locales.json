@@ -210,6 +210,7 @@
 		],
 		"role_already_exists": "A role with that name already exists.",
 		"role_created": "That role has been created.",
+		"role_deleted": "That role has been deleted.",
 		"role_doesnt_have_permission": "That role already doesn't have that permission.",
 		"roles_datatype": "roles",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
