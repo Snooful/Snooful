@@ -1,3 +1,4 @@
+const roleNameify = require("./../../utils/role-name.js");
 module.exports = {
 	arguments: [{
 		key: "user",
@@ -7,7 +8,7 @@ module.exports = {
 		type: "string",
 	}],
 	handler: args => {
-		const roleName = args.role.toLowerCase().replace(/[^a-z]*/g, "");
+		const roleName = roleNameify(args.role);
 
 		if (args.settings.get("roles") === undefined) {
 			args.settings.set("roles", {});
