@@ -178,12 +178,18 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				},
 				settings: settingsWrapper,
 				testPermission: perm => {
-					// Mods and group DMs don't get permissions
-					if (!chData.subreddit) {
-						return true;
+					if (chData.subreddit) {
+						// Mods have all permissions
+						const mods = settingsWrapper.get("mods");
+						if (mods && mods.includes(author)) {
+							return true;
+						} else {
+							return pp.test(perm, perms);
+						}
 					}
 
-					return pp.test(perm, perms);
+					// If it's not a subreddit, don't give it permissions
+					return true;
 				},
 				version,
 			});
