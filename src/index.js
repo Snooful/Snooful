@@ -103,6 +103,9 @@ function localize(lang = "en-US", key = "", ...formats) {
 	}
 }
 
+const pp = require("@snooful/periwinkle-permissions");
+const userPerms = require("./utils/user-perms.js");
+
 /**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
@@ -133,9 +136,12 @@ function handleCommand(command = "", channel = {}, message = {}) {
 
 		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
 
+		const author = message._sender.nickname;
+		const perms = userPerms(author, settingsWrapper.get("roles"));
+
 		try {
 			parser.parse(unprefixedCmd, {
-				author: message._sender.nickname,
+				author,
 				chData,
 				channel,
 				client,
@@ -166,6 +172,9 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					});
 				},
 				settings: settingsWrapper,
+				testPermission: perm => {
+					return pp.test(perm, perms);
+				},
 				version,
 			});
 		} catch (error) {

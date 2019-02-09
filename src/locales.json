@@ -163,7 +163,7 @@
 			"My language has been updated to {} here.",
 			"I'll now speak {} here."
 		],
-		"missing_permission": "You are not allowed to use this command.",
+		"no_permission": "You are not allowed to use this command.",
 		"new_language_unspecified": "To change my language, you must specify the new language.",
 		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
 		"no_pagination_items": "There are no {} to view.",
