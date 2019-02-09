@@ -200,6 +200,8 @@
 			"Reversing that gives us: {}",
 			"After swapping the order of that text, we get: {}"
 		],
+		"role_already_exists": "A role with that name already exists.",
+		"role_created": "That role has been created.",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
 		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
