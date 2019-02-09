@@ -163,9 +163,11 @@
 			"My language has been updated to {} here.",
 			"I'll now speak {} here."
 		],
+		"missing_permission": "You are not allowed to use this command.",
 		"new_language_unspecified": "To change my language, you must specify the new language.",
 		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
 		"no_pagination_items": "There are no {} to view.",
+		"nonexistent_role": "That role doesn't exist.",
 		"number_changed": [
 			"The new number is {}. The previous number was {}.",
 			"The new number is {}, which is a change from the previous number, {}."
@@ -185,7 +187,7 @@
 			"Pong!",
 			"Plink!",
 			"Dink!",
-			"Plang!",
+			"Plang!"
 		],
 		"record": "The world record for {} is at {}. For more information, view {}.",
 		"record_game_type": "game",
@@ -234,8 +236,10 @@
 			"undefined: The state of being when someone uses this command without specifying the word that should be defined."
 		],
 		"url_argument_invalid": "The value provided for the '{key}' argument is not a valid URL.",
+		"user_already_has_role": "u/{} already has that role.",
 		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
 		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
+		"user_given_role": "You have given u/{} that role.",
 		"version": "I am running version {}!",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
 		"whereami": [
