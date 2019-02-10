@@ -7,6 +7,7 @@ module.exports = {
 		required: true,
 		type: "string",
 	}],
+	category: "wiki",
 	description: "Gets the link to a Wikipedia page.",
 	handler: args => wiki.page(args.page).catch(error => {
 		if (error.message === "No article found") {

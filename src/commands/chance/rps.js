@@ -18,6 +18,7 @@ module.exports = {
 		key: "option",
 		type: "string",
 	}],
+	category: "chance",
 	description: "Plays rock-paper-scissors with the bot.",
 	handler: args => {
 		if (args.option) {

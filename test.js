@@ -2,7 +2,7 @@
 const assert = require("chai").assert;
 
 const locales = require("./src/locales.json");
-const validate = require("locale-code").validate;
+const { validate, getLanguageCode, getCountryCode } = require("locale-code");
 
 const sorted = require("is-sorted");
 /**
@@ -81,6 +81,19 @@ describe("localizations", () => {
 			});
 			it("has alphabetically-sorted keys", () => {
 				assert.isTrue(alphaSorted(Object.keys(locale)));
+			});
+			
+			it("language name is in proper format", () => {
+				const langCode = getLanguageCode(key);
+				const countryCode = getCountryCode(key).toLowerCase();
+				
+				if (langCode !== countryCode) {
+					// Regional variant of language
+					assert.match(locale.language, /\w+ \(\w+\)/);
+				} else {
+					// Standard
+					assert.match(locale.language, /\w+/);
+				}
 			});
 
 			describe("localization formats", () => {

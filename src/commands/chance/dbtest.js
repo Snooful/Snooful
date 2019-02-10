@@ -1,6 +1,7 @@
 const chance = require("chance").Chance();
 
 module.exports = {
+	category: "chance",
 	description: "Tests persistency of the settings system.",
 	handler: args => {
 		const newNum = chance.integer({
