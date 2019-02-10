@@ -307,7 +307,7 @@
 		"github": "Meu codigo sorce esta disponivel em {}!",
 		"info": "Eu sou O u/{0}, pronto pra te ajudar!\nO meu prefixo é {1}, Faça {1}command para ver todos os comandos.\nEu fui feito por haykam821, e traduzido para Portugues por GammaRaul, mas por favor mande todas as perguntas via {1}feedback.",
 		"invalid_timezone": "Isso não é um fuso horario valido.",
-		"language": "Portugues",
+		"language": "Português (Brasileiro)",
 		"language_not_available": "Desculpa, mas, essa linguagem não esta disponivel no momento.",
 		"language_updated": "O indioma de Snooful foi mudado com sucesso.",
 		"new_language_unspecified": "Para mudar a linguagem de Snooful, voce precisa falar qual linguagem voce quer que ele fale.",
