@@ -97,6 +97,10 @@
 		],
 		"duration": "That duration is {} seconds.",
 		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
+		"emoji_datatype": "emoji",
+		"emoji_info": "{} is the '{}' emoji.",
+		"emoji_info_closest": "The closest emoji was {}, which is the '{}' emoji.",
+		"emoji_not_found": "That emoji could not be found.",
 		"faq_datatype": "FAQs",
 		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
 		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",
@@ -217,6 +221,8 @@
 			"Check your channel invites; I've sent an invite for the support channel to you.",
 			"You should see an invite to the support channel appear soon."
 		],
+		"text_includes_emoji": "That text does include emoji.",
+		"text_includes_no_emoji": "No emoji could be found in that text.",
 		"unspecified_reverse_message": [
 			"Please specify the text to reverse.",
 			"What text would you like me to reverse?"
