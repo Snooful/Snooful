@@ -1,9 +1,4 @@
-const emoji = require("node-emoji");
-
-function hasEmoji(text) {
-	return text !== emoji.unemojify(text);
-}
-
+const hasEmoji = require("./../../utils/has-emoji.js");
 module.exports = {
 	arguments: [{
 		description: "The text to check if there's an emoji in.",
