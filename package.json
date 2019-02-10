@@ -22,6 +22,7 @@
 		"sendbird": "^3.0.91",
 		"snoowrap": "^1.15.2",
 		"string-format": "^2.0.0",
+		"truncate": "^2.0.1",
 		"upsidedown": "0.0.5",
 		"urban-dictionary": "^2.1.2",
 		"url-escape-tag": "^1.0.0",
