@@ -1,7 +1,6 @@
 const ems = require("./../../utils/event-message-setter.js");
 
 module.exports = ems("setleavemessage", {
-	category: "eventmessage",
 	command: {
 		aliases: [
 			"leavemessage",
@@ -20,6 +19,7 @@ module.exports = ems("setleavemessage", {
 			"setbyemsg",
 			"byemsg",
 		],
+		category: "eventmessage",
 		description: "Sets the message announced after a user leaves.",
 	},
 	longDescription: "Sets the message that is sent when a user leaves the channel.",

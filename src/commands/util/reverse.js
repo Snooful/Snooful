@@ -1,4 +1,4 @@
-const rev = require("./../utils/reverse.js");
+const rev = require("./../../utils/reverse.js");
 
 module.exports = {
 	arguments: [{
