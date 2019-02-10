@@ -13,6 +13,7 @@ module.exports = {
 		key: "full-song",
 		type: "boolean",
 	}],
+	category: "fun",
 	description: "Sings a birthday song to a user!",
 	handler: args => {
 		if (args.user) {
