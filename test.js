@@ -82,11 +82,18 @@ describe("localizations", () => {
 			it("has alphabetically-sorted keys", () => {
 				assert.isTrue(alphaSorted(Object.keys(locale)));
 			});
-			
+
+			if (key !== "en-US") {
+				it("has all keys in English localization", () => {
+					const keyPercent = Math.floor(Object.keys(locale).length / Object.keys(locales["en-US"]).length * 100);
+					assert.strictEqual(keyPercent, 100, `Only has ${keyPercent}% of keys`);
+				});
+			}
+
 			it("language name is in proper format", () => {
 				const langCode = getLanguageCode(key);
 				const countryCode = getCountryCode(key).toLowerCase();
-				
+
 				if (langCode !== countryCode) {
 					// Regional variant of language
 					assert.match(locale.language, /\w+ \(\w+\)/);
