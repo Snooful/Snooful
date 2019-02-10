@@ -442,7 +442,7 @@
 			"La ISS está ahora mismo en la posición {}°, {}°.",
 			"Ahora mismo, la ISS está en el espacio (obviamente), en la posición {}°, {}°."
 		],
-		"iss_location_type": "Ubicación de la ISS",
+		"iss_location_type": "Ubicación de la ISS (Estación Espacial Internacional)",
 		"join_message": "mensaje de bienvenida",
 		"lang_datatype": "idiomas",
 		"langs_footer": "Puedes cambiar el idioma con {prefix}setlang <idioma>, donde <idioma> es uno de los códigos arriba descritos.",
@@ -488,7 +488,7 @@
 			"¡Pong!",
 			"¡Plink!",
 			"¡Dink!",
-			"¡Plang!",
+			"¡Plang!"
 		],
 		"record": "El record mundial de {} es de {}. Para más información, ver {}.",
 		"record_game_type": "juego",
