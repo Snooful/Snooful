@@ -1,6 +1,7 @@
-const ems = require("./../utils/event-message-setter.js");
+const ems = require("./../../utils/event-message-setter.js");
 
 module.exports = ems("setleavemessage", {
+	category: "eventmessage",
 	command: {
 		aliases: [
 			"leavemessage",

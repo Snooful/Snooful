@@ -1,6 +1,7 @@
-const ems = require("./../utils/event-message-setter.js");
+const ems = require("./../../utils/event-message-setter.js");
 
 module.exports = ems("setjoinmessage", {
+	category: "eventmessage",
 	command: {
 		aliases: [
 			"joinmessage",
