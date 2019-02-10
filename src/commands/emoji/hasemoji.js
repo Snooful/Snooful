@@ -6,6 +6,7 @@ module.exports = {
 		required: true,
 		type: "string",
 	}],
+	category: "emoji",
 	description: "Checks for emoji in text.",
 	handler: args => {
 		if (hasEmoji(args.text)) {

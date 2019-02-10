@@ -9,6 +9,7 @@ module.exports = paginate("emojis", () => {
 	});
 }, {
 	command: {
+		category: "emoji",
 		description: "Gives a list of emojis.",
 	},
 	dataType: "emoji_datatype",

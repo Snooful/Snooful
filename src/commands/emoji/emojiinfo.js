@@ -21,6 +21,7 @@ module.exports = {
 		required: true,
 		type: "string",
 	}],
+	category: "emoji",
 	description: "Gets the name for an emoji.",
 	handler: args => {
 		const key = getEmojiKey(args.emoji);
