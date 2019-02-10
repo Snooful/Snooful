@@ -23,9 +23,23 @@ Snooful uses JSON for configuration. This file is located at `./config.json`, an
 
 To use Snooful, you must provide credentials, which are taken from [snoowrap](https://not-an-aardvark.github.io/snoowrap/snoowrap.html#snoowrap__anchor). The user agent cannot be set as it is automatically set to one containing the version. To get these, go to [applications](https://www.reddit.com/prefs/apps/) and generate a new app. Fill in the `credentials` object of configuration (see the [example config](#example_config) for what a script-type config would look like).
 
+### Settings Manager
+
+Snooful can store data for subreddits and groups. This is left to a separate module, which is configured with the `settingsManager` option. This value must be resolvable by `require()`, or else Snooful will not run. Because of this, it is necessary to `npm install` the settings manager before you set that option.
+
+Here are some official settings manager modules:
+
+* [`@snooful/sqlite-settings`](https://github.com/Snooful/SQLite-Settings)
+* [`@snooful/json-settings`](https://github.com/Snooful/JSON-Settings)
+* [`@snooful/yaml-settings`](https://github.com/Snooful/YAML-Settings)
+
+Switching the settings manager does not transfer the existing data. However, you can use a tool to do this yourself.
+
 ### Prefix
 
 You can also configure the prefix from the default `!` by setting `prefix`. The prefix is the thing that differentiates a command from a message. Basically, with a prefix of `?`, you must type `?ping` to run the `ping` command.
+
+*Please change the prefix if you are hosting your own version of Snooful.*
 
 ### Debugging
 
