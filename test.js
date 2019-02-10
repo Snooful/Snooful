@@ -42,30 +42,36 @@ function localizationFormatTests(locale = {}) {
 	});
 
 	// Now we can test these
-	it("arrays contain only strings", () => {
-		arrValues.every(arrValue => {
-			return arrValue.every(arrValueElem => {
-				return typeof arrValueElem === "string";
+	if (arrValues.length > 0) {
+		it("arrays contain only strings", () => {
+			arrValues.every(arrValue => {
+				return arrValue.every(arrValueElem => {
+					return typeof arrValueElem === "string";
+				});
 			});
 		});
-	});
-	describe("object values", () => {
-		it("keys are integers", () => {
-			Object.keys(objValues).every(intMaybe => {
-				return Number.isInteger(intMaybe);
+	}
+	if (objValues.length > 0) {
+		describe("object values", () => {
+			it("keys are integers", () => {
+				Object.keys(objValues).every(intMaybe => {
+					return Number.isInteger(intMaybe);
+				});
+			});
+			it("values are strings", () => {
+				Object.values(objValues).every(strMaybe => {
+					return typeof strMaybe === "string";
+				});
 			});
 		});
-		it("values are strings", () => {
-			Object.values(objValues).every(strMaybe => {
-				return typeof strMaybe === "string";
+	}
+	if (otrValues.length > 0) {
+		it("other values are strings", () => {
+			otrValues.every(otrValue => {
+				return typeof otrValue === "string";
 			});
 		});
-	});
-	it("other values are strings", () => {
-		otrValues.every(otrValue => {
-			return typeof otrValue === "string";
-		});
-	});
+	}
 }
 
 describe("localizations", () => {
