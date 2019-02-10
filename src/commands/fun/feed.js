@@ -31,6 +31,7 @@ module.exports = {
 		key: "user",
 		type: "string",
 	}],
+	category: "fun",
 	description: "Feeds you or a specified user food.",
 	handler: args => {
 		if (args.user === undefined || args.user === args.author) {

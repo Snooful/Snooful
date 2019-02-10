@@ -12,6 +12,7 @@ module.exports = {
 		required: true,
 		type: "string",
 	}],
+	category: "fun",
 	description: "Alternates a message's case.",
 	handler: args => {
 		const transformed = altCase(args.text);

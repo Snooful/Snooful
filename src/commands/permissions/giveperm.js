@@ -14,6 +14,7 @@ module.exports = {
 		key: "permission",
 		type: "string",
 	}],
+	category: "permissions",
 	handler: args => {
 		if (!validate(args.permission)) {
 			return args.send(args.localize("invalid_permission"));

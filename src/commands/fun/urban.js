@@ -10,6 +10,7 @@ module.exports = {
 		key: "term",
 		type: "string",
 	}],
+	category: "fun",
 	describe: "Gets a term from Urban Dictionary.",
 	handler: args => {
 		if (args.term) {

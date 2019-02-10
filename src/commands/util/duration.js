@@ -8,6 +8,7 @@ module.exports = {
 		required: true,
 		type: "duration",
 	}],
+	category: "util",
 	description: "Gets the length of a duration in seconds.",
 	handler: args => {
 		args.send(args.localize("duration", args.duration / 1000));

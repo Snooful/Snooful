@@ -2,6 +2,7 @@ module.exports = {
 	aliases: [
 		"updatemoderators",
 	],
+	category: "permissions",
 	handler: args => {
 		if (!args.chData.subreddit) {
 			return args.send(args.localize("mod_update_not_subreddit"));

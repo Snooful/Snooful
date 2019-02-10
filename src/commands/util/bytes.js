@@ -17,6 +17,7 @@ module.exports = {
 		key: "unit",
 		type: "string",
 	}],
+	category: "util",
 	description: "Converts bytes to a unit.",
 	handler: args => {
 		const convert = bytes.format(args.value, {
