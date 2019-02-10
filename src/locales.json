@@ -311,16 +311,6 @@
 		"bytes_argument_invalid": "El valor proporcionado para el argumento '{key}' debe ser un valor y una unidad de almacenamiento digital apropiados.",
 		"bytes_conversion": "Al convertir esa cantidad de bytes nos sale {}.",
 		"bytes_conversion_failed": "No he podido convertir esos bytes.",
-		"clear_join_message": "El mensaje de bienvenida no se enviará.",
-		"clear_join_message_no_change": [
-			"No estaba enviando ningún mensaje de bienvenida.",
-			"Dejaría de enviar el mensaje de bienvenida, si no fuera por el hecho de que no estaba enviando ninguno."
-		],
-		"clear_leave_message": "El mensaje de despedida no se enviará.",
-		"clear_leave_message_no_change": [
-			"No estaba enviando ningún mensaje de despedida.",
-			"Dejaría de enviar el mensaje de despedida, si no fuera por el hecho de que no estaba enviando ninguno."
-		],
 		"color_amount_too_high": "No puedo proporcionarte los colores {} porque llenaría el chat de spam.",
 		"color_amount_too_low": "Necesito proporcionarte como mínimo un nombre para este color.",
 		"color_argument_invalid": "El {2} para el argumento '{key}' debe especificarse como un nombre, RGB, HSL, o código hexagesimal.",
@@ -531,10 +521,6 @@
 			"Por favor, introduce el texto al que hay que darle la vuelta.",
 			"¿A qué texto quieres que le dé la vuelta?"
 		],
-		"update_join_message": "El mensaje de bienvenida se ha actualizado.",
-		"update_join_message_no_change": "Ese ya es el actual mensaje de bienvenida.",
-		"update_leave_message": "El mensaje de despedida se ha actualizado.",
-		"update_leave_message_no_change": "Ese ya es el actual mensaje de despedida.",
 		"urban_dictionary_no_result": [
 			"¡No hay resultados con esa palabra en Urban Dictionary!",
 			"Esa palabra no está actualmente registrada en Urban Dictionary."
