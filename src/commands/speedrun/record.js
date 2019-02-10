@@ -15,6 +15,7 @@ module.exports = {
 		key: "game",
 		type: "string",
 	}],
+	category: "speedrun",
 	description: "Gets the world record for a game on speedrun.com.",
 	handler: args => {
 		if (args.game) {

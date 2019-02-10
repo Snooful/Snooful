@@ -9,6 +9,7 @@ try {
 const { pify } = require("./../../utils/promisify.js");
 
 module.exports = {
+		category: "snooful",
 	description: "Shows the version of the bot.",
 	handler: args => {
 		if (canUseHash) {

@@ -1,6 +1,7 @@
 const { performance } = require("perf_hooks");
 
 module.exports = {
+	category: "snooful",
 	command: "ping",
 	describe: "Measures the response time.",
 	handler: args => {

@@ -15,6 +15,7 @@ module.exports = {
 		key: "count",
 		type: "integer",
 	}],
+	category: "colors",
 	describe: "Names a color.",
 	handler: args => {
 		const names = namer(args.color.hex()).ntc.map(result => result.name);

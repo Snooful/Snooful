@@ -5,6 +5,7 @@ module.exports = {
 		required: true,
 		type: "command",
 	}],
+	category: "commands",
 	description: "Checks if a given command is an alias.",
 	handler: args => {
 		if (args.command.name === args.command.originalName) {

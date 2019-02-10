@@ -14,6 +14,7 @@ module.exports = paginate("langs", args => {
 			"listlanguage",
 			"listlanguages",
 		],
+		category: "lang",
 		description: "Lists Snooful's languages.",
 		longDescription: "Gives a list of all the languages that Snooful is localized in.",
 	},

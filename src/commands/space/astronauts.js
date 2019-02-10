@@ -17,6 +17,7 @@ module.exports = paginate("astronauts", async args => {
 		aliases: [
 			"astros",
 		],
+		category: "space",
 		description: "Lists the astronauts in space.",
 		longDescription: "Gives a list of astronauts that are currently in space, including the spacecraft that they are on.",
 	},

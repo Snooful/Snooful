@@ -8,6 +8,7 @@ module.exports = paginate("aliases", args => {
 	});
 }, {
 	command: {
+		category: "commands",
 		description: "Gives a list of aliases and their original name.",
 	},
 	dataType: "alias_datatype",
