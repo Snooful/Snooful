@@ -1,0 +1,351 @@
+{
+	"en-US": {
+		"alias_datatype": "aliases",
+		"alias_listing": "{} (alias of {})",
+		"alternate_case": "Let's mock this text: {}",
+		"argument_invalid": "The value provided for the '{key}' argument is invalid.",
+		"argument_required": "You must provide a {2} for the '{key}' argument.",
+		"argument_type_boolean": "boolean",
+		"argument_type_bytes": "bytes",
+		"argument_type_color": "color",
+		"argument_type_command": "command",
+		"argument_type_duration": "duration",
+		"argument_type_generic": "value",
+		"argument_type_integer": "integer",
+		"argument_type_string": "string",
+		"argument_type_subreddit": "subreddit",
+		"argument_type_url": "url",
+		"argument_type_user": "user",
+		"argument_unavailable_choice": "Your {2} for the '{key}' argument is not one of the available choices.",
+		"astronauts_datatype": "astronauts in space",
+		"birthday_message": "Happy {0}, {1}!",
+		"birthday_song": "Happy {0} to you,\nhappy {0} to you!\nHappy {0}, dear {1}...\nhappy {0} to you!",
+		"birthday_type": [
+			"birthday",
+			"cake day"
+		],
+		"birthday_user_unspecified": [
+			"Happy {} dear... uh... who again?",
+			"Wait a second... who am I singing happy {} to again?"
+		],
+		"boolean_argument_invalid": "The {2} for the '{key}' argument must be a valid yes/no option.",
+		"bytes_argument_invalid": "The value provided for the '{key}' argument must be a proper value and unit of digital storage.",
+		"bytes_conversion": "Converting that amount of bytes gives us {}.",
+		"bytes_conversion_failed": "I could not convert those bytes.",
+		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
+		"color_amount_too_low": "I need to provide you with at least one name for this color.",
+		"color_argument_invalid": "The {2} for the '{key}' argument must be specified as a name, RGB, HSL, or hexadecimal code.",
+		"color_name": [
+			"This color is called {}.",
+			"They call this color... {}..."
+		],
+		"color_names": [
+			"The closest names for this color are {}.",
+			"This color's similar to {}."
+		],
+		"command_aliases": "Aliases:",
+		"command_aliases_single": "Alias:",
+		"command_argument_nonexistent": "The {2} specified in the '{key}' argument does not exist.",
+		"command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
+		"command_arguments": "Arguments:",
+		"command_datatype": "commands",
+		"current_language": [
+			"My language is currently set to {}. You can change it with {}setlang.",
+			"Right now I am speaking {}, but you can change it using {}setlang.",
+			"I'm speaking in {} currently, but it is changeable with {}setlang."
+		],
+		"current_time": [
+			"The current time in {} is {}.",
+			"Right now in {}, it is {}.",
+			"It's {} in {} currently."
+		],
+		"custom_roll_max": "Sorry, but I will not be able to handle that request; it's simply too much for me.",
+		"custom_roll_notation_invalid": [
+			"That seems to be invalid syntax. Please use proper dice notation.",
+			"The custom roll's in an invalid syntax. It must be proper dice notation."
+		],
+		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
+		"custom_roll_results": "Dice output: {}, with a total of {}.",
+		"definition_vote_count": "({} votes)",
+		"delete_faq_nonexistent": [
+			"That FAQ doesn't even exist, silly. See {}listfaq for a list of deletable FAQs.",
+			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one, as viewable in {0}listfaq?",
+			"I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
+			"There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
+		],
+		"delete_faq_success": [
+			"That FAQ has been deleted.",
+			"That FAQ has been purged from existence.",
+			"You will no longer see that FAQ."
+		],
+		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
+		"die_land": [
+			"The die lands on a {}.",
+			"After a couple of bounces, the die finally settles on a {}.",
+			"The die falls off the table, but lands on a {}.",
+			"The die decides its number, a {}, but not before bouncing around a bit."
+		],
+		"duration": "That duration is {} seconds.",
+		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
+		"emoji_datatype": "emoji",
+		"emoji_info": "{} is the '{}' emoji.",
+		"emoji_info_closest": "The closest emoji was {}, which is the '{}' emoji.",
+		"emoji_not_found": "That emoji could not be found.",
+		"event_message": "event message",
+		"event_message_clear": "The {} will not be sent.",
+		"event_message_clear_no_change": [
+			"I haven't been sending the {}.",
+			"I'd stop sending the {}, if not for the fact that I haven't been doing that in the first place."
+		],
+		"event_message_update": "The {} has been updated.",
+		"event_message_update_no_change": "That is already the {}.",
+		"faq_datatype": "FAQs",
+		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
+		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",
+		"feedback_error": [
+			"I couldn't send the feedback.",
+			"Sorry, but something went wrong when I tried to send the feedback."
+		],
+		"feedback_recieved": "I have recieved the following message from u/{} in {}:\n\n{}",
+		"feedback_success": [
+			"I have contacted my creator for you.",
+			"Your feedback has been passed on to my creator. Thank you for sending it!",
+			"Thanks! I've given that feedback to my creator."
+		],
+		"feedback_unspecified": [
+			"You need to provide some feedback!",
+			"What feedback would you like to give?"
+		],
+		"fetch_4xx_error": "There was a client error!",
+		"fetch_5xx_error": "The server had an error!",
+		"fetch_cache_error": "There was an error reading from the cache!",
+		"fetch_cancel_error": "The request was cancelled.",
+		"fetch_generic_error": "I could not fetch the {}!",
+		"fetch_http_error": "There was an HTTP error!",
+		"fetch_parse_error": "There was an error while trying to parse the {}!",
+		"fetch_protocol_error": "The protocol is unsupported!",
+		"fetch_read_error": "There was an error reading from the response stream!",
+		"fetch_redirect_error": "There were too many redirects!",
+		"fetch_request_error": "There was an error when trying to make a request to get the {}!",
+		"fetch_timeout_error": "The {} lookup took too long!",
+		"generic_datatype": "items",
+		"github": [
+			"My source code is available at {}!",
+			"You can find my source code at {}."
+		],
+		"github_contribute": "There are {issues} issues and {prs} pull requests open right now. If you would like to contribute, the GitHub repository with my source code is available at {url}!",
+		"gitlab": [
+			"The GitLab mirror of the GitHub repository can be found at {}.",
+			"There is a mirror of the GitHub repository on GitLab, which you can find at {}."
+		],
+		"info": "I am u/{0}, ready to help you with anything you need!\nMy prefix is {1}, so to find a command you just do {1}command.\nI was made by haykam821, but please direct all questions and concerns via {1}feedback!",
+		"integer_argument_invalid": "The value provided for the '{key}' argument must be an integer.",
+		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
+		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}.",
+		"invalid_timezone": [
+			"That's not a valid time zone.",
+			"That's not a time zone I've heard of!"
+		],
+		"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {prefix}commands to get started.",
+		"isalias_false": "The command, {}, is not an alias.",
+		"isalias_true": "The command, {}, is an alias of {}.",
+		"iss_location": [
+			"The ISS is currently at {}°, {}°.",
+			"Right now, the ISS is in space (obviously), at {}°, {}°."
+		],
+		"iss_location_type": "ISS location",
+		"join_message": "join message",
+		"lang_datatype": "languages",
+		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
+		"language": "English (American)",
+		"language_not_available": [
+			"Sorry, but I cannot speak that language currently.",
+			"I don't know that language. You should consider helping with localizations!"
+		],
+		"language_updated": [
+			"My language has been updated to {} here.",
+			"I'll now speak {} here."
+		],
+		"leave_message": "leave message",
+		"mod_update_failure": "The moderator list could not be updated.",
+		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
+		"mod_update_success": "The moderator list was updated successfully.",
+		"new_language_unspecified": "To change my language, you must specify the new language.",
+		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
+		"no_pagination_items": "There are no {} to view.",
+		"no_permission": "You are not allowed to use this command.",
+		"nonexistent_role": "That role doesn't exist.",
+		"number_changed": [
+			"The new number is {}. The previous number was {}.",
+			"The new number is {}, which is a change from the previous number, {}."
+		],
+		"number_created": [
+			"The number is {}. There was no number before.",
+			"The number is {}, which is a change from not having a number at all."
+		],
+		"page_counter": "(page {} of {})",
+		"page_number_invalid": "That's an invalid page number!",
+		"page_number_not_integer": "Page numbers must be integers.",
+		"permission_already_granted": "That role already has that permission.",
+		"permission_granted": "You have granted that permission.",
+		"permission_invalid": "That permission is invalid.",
+		"permission_taken": "You have taken that permission away.",
+		"permissions_datatype": "permissions",
+		"ping_result": [
+			"Snooful has a ping of {}ms.",
+			"Snooful's ping is currently at {}ms."
+		],
+		"ping_test": [
+			"Pong!",
+			"Plink!",
+			"Dink!",
+			"Plang!"
+		],
+		"record": "The world record for {} is at {}. For more information, view {}.",
+		"record_game_type": "game",
+		"record_game_unspecified": "Please specify a game.",
+		"record_parse_error": "The speedrun.com API isn't sending valid JSON, for some reason!",
+		"record_request_error": "There was an error when trying to make a request to the speedrun.com API!",
+		"record_runs_type": "runs",
+		"reload_success": "All commands have been reloaded.",
+		"reverse": [
+			"Reversing that gives us: {}",
+			"After swapping the order of that text, we get: {}"
+		],
+		"role_already_exists": "A role with that name already exists.",
+		"role_created": "That role has been created.",
+		"role_deleted": "That role has been deleted.",
+		"role_doesnt_have_permission": "That role already doesn't have that permission.",
+		"roles_datatype": "roles",
+		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
+		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
+		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
+		"set_faq_message_unspecified": "You need to specify the message for the FAQ. If you would like to get rid of this FAQ, use {}delfaq.",
+		"string_argument_regexp_fail": "The {2} provided for the '{key}' argument does not follow the allowed format.",
+		"string_argument_too_long": "The {2} provided for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
+		"string_argument_too_short": "The {2} provided for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
+		"subreddit_argument_too_long": "The {2} provided for the '{key}' is too long; subreddits can only have up to 20 characters in their name.",
+		"subreddit_argument_too_short": "The {2} provided for the '{key}' is too long; subreddits must have at least 3 characters in their name.",
+		"support_channel_missing": "Sorry, I couldn't find the channel I wanted to invite you to!",
+		"support_invite_error": [
+			"Sorry, something went wrong with the invitation!",
+			"Unfortunately, it seems my invitation was lost in transit."
+		],
+		"support_invited": [
+			"I've invited you to the support channel.",
+			"Check your channel invites; I've sent an invite for the support channel to you.",
+			"You should see an invite to the support channel appear soon."
+		],
+		"text_includes_emoji": "That text does include emoji.",
+		"text_includes_no_emoji": "No emoji could be found in that text.",
+		"unspecified_reverse_message": [
+			"Please specify the text to reverse.",
+			"What text would you like me to reverse?"
+		],
+		"urban_dictionary_no_result": [
+			"There was no result for that word on Urban Dictionary!",
+			"That word is not currently in Urban Dictionary."
+		],
+		"urban_dictionary_unspecified_word": [
+			"undefined: A subtle hint that you need to tell me which word to define.",
+			"undefined: The state of being when someone uses this command without specifying the word that should be defined."
+		],
+		"url_argument_invalid": "The value provided for the '{key}' argument is not a valid URL.",
+		"user_already_has_role": "u/{} already has that role.",
+		"user_argument_too_long": "The {2} provided for the '{key}' is too long; usernames can only be up to 20 characters long.",
+		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
+		"user_doesnt_have_role": "u/{} doesn't have that role.",
+		"user_given_role": "You have given u/{} that role.",
+		"user_taken_role": "You have taken that role away from u/{}.",
+		"version": "I am running version {}!",
+		"version_hash": "I am running version {}, with the most recent commit being {}!",
+		"whereami": [
+			"You are in {}.",
+			"Don't you have a GPS or something? Whatever, you're in {} right now.",
+			"Do I really have to tell you this? You're in {}...",
+			"Doesn't that device you're using include GPS? Well, you're in {} currently."
+		],
+		"whoami": [
+			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
+			"You need a nametag, u/{}...",
+			"Do you need to write 'u/{}' on your hand so you can remember?",
+			"I'm diagnosing you with amnesia, u/{}.",
+			"It's a bit sad that you have to rely on me to figure out what your name is, u/{}.",
+			"u/{}, welcome to my class: Not Forgetting Your Name 101."
+		],
+		"wikipedia_article_not_found": [
+			"That Wikipedia article could not be found.",
+			"The biggest encyclomedia on this planet doesn't have that article. What a shame."
+		]
+	},
+	"es-ES": {
+		"argument_required": "Es necesario proporcionar un {2} para el argumento '{key}'.",
+		"argument_type_command": "comando",
+		"argument_type_duration": "duración",
+		"argument_type_generic": "contenido",
+		"argument_type_integer": "entero",
+		"argument_type_string": "texto",
+		"argument_type_subreddit": "comunidad",
+		"argument_type_user": "usuario",
+		"birthday_song": "Feliz {0} a ti,\n¡feliz {0} a ti!\nFeliz {0} a {1},\n¡feliz {0} a ti!",
+		"birthday_type": "cumpleaños",
+		"birthday_user_unspecified": "¿Feliz {0} a quién?",
+		"command_aliases": "Alternativas:",
+		"command_aliases_single": "Alternativa:",
+		"command_arguments": "Opciones:",
+		"command_datatype": "comandos",
+		"definition_vote_count": "({} votos)",
+		"faq_datatype": "preguntas frecuentes",
+		"generic_datatype": "artículos",
+		"lang_datatype": "idiomas",
+		"language": "Español",
+		"language_not_available": "Ese lenguaje no está disponible.",
+		"language_updated": "Mi idioma se ha actualizado aquí.",
+		"no_faqs": "No hay {type}. Puedes hacer uno usando {prefix}setfaq.",
+		"no_pagination_items": "No hay {} para ver.",
+		"page_counter": "(página {} de {})",
+		"ping_test": "¡Doop!",
+		"version": "Mi versión es {}.",
+		"version_hash": "Mi versión es {} ({}).",
+		"whoami": "Te llaman u/{}."
+	},
+	"pt-BR": {
+		"birthday_song": "Feliz {0} pra voce,\nfeliz {0} pra voce!\nFeliz {0} {1}...\nfeliz {0} pra voce!",
+		"birthday_type": "aniversario",
+		"birthday_user_unspecified": "Feliz {} pra voce,\nfeliz {} pra voce!\nFeliz {} pra... uh... quem mesmo?",
+		"clear_join_message": "A mensagem de boas vindas não vai ser enviada.",
+		"clear_leave_message": "A mensagem de até mais não vai ser enviada.",
+		"command_not_found": "Não existe comando assim.",
+		"command_unspecified": "Porfavor especifique que comando voce quer ver. Para ver todos os comandos, faça {}commands.",
+		"current_language": "A linguagem do Snooful é {}. Voce pode mudar a linguagem com {}setlang.",
+		"current_time": "O horario agora em {} é {}.",
+		"feedback_error": "Eu não consegui mandar o feedback",
+		"feedback_recieved": "Voce recebi uma mensagem de u/{} via {}:\n\n{}",
+		"feedback_success": "Eu contatei o meu criador para voce.",
+		"feedback_unspecified": "Voce precisa colocar feedback para manda-lo!",
+		"github": "Meu codigo sorce esta disponivel em {}!",
+		"info": "Eu sou O u/{0}, pronto pra te ajudar!\nO meu prefixo é {1}, Faça {1}command para ver todos os comandos.\nEu fui feito por haykam821, e traduzido para Portugues por GammaRaul, mas por favor mande todas as perguntas via {1}feedback.",
+		"invalid_timezone": "Isso não é um fuso horario valido.",
+		"language": "Português (Brasileiro)",
+		"language_not_available": "Desculpa, mas, essa linguagem não esta disponivel no momento.",
+		"language_updated": "O indioma de Snooful foi mudado com sucesso.",
+		"new_language_unspecified": "Para mudar a linguagem de Snooful, voce precisa falar qual linguagem voce quer que ele fale.",
+		"number_changed": "O numero novo é {}. O numera velho era {}.",
+		"number_created": "O numero é {}. Não tinha numero antes",
+		"page_number_invalid": "Isso é um numero de pagina invalido!",
+		"page_number_not_integer": "Numeros de pagina precisam ser numeros inteiros.",
+		"reverse": "Invertendo isso nos da: {}",
+		"support_channel_missing": "Desculpa, eu não achei o chat que queria convidar!",
+		"support_invite_error": "Desculpa, algo deu errado no convite!",
+		"support_invited": "Eu te convidei pro canal de suporte.",
+		"unspecified_reverse_message": "Porfavor especifique oque voce quer inverter.",
+		"update_join_message": "A messagem de boas vindas foi mudada.",
+		"update_leave_message": "A mensagem de até mais foi mudada.",
+		"urban_dictionary_no_result": "Não tem resultado pra isso no Dicionario Urbano!",
+		"urban_dictionary_unspecified_word": "indefinido: Me diga oque procurar no Dicionario Urbano.",
+		"version": "Eu estou andando na versão {}! 😄",
+		"version_hash": "Eu estou andando na versão {}, com o ultimo commit sendo {}!",
+		"whereami": "Voce esta dentro de {}.",
+		"whoami": "Ah, humanos bobos, sempre esquecendo seus nomes. Mas eu nao vou te jogar muito na sombra, u/{}."
+	}
+}
