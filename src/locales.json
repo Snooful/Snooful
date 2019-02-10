@@ -217,6 +217,8 @@
 			"Check your channel invites; I've sent an invite for the support channel to you.",
 			"You should see an invite to the support channel appear soon."
 		],
+		"text_includes_emoji": "That text does include emoji.",
+		"text_includes_no_emoji": "No emoji could be found in that text.",
 		"unspecified_reverse_message": [
 			"Please specify the text to reverse.",
 			"What text would you like me to reverse?"

@@ -13,11 +13,10 @@ module.exports = {
 	}],
 	description: "Checks for emoji in text.",
 	handler: args => {
-		// todo: proper localizations
 		if (hasEmoji(args.text)) {
-			args.send("text does have emoji");
+			args.send(args.localize("text_includes_emoji"));
 		} else {
-			args.send("no emoji in text");
+			args.send(args.localize("text_includes_no_emoji"));
 		}
 	},
 	name: "hasemoji",
