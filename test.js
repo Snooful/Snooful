@@ -69,8 +69,11 @@ function localizationFormatTests(locale = {}) {
 }
 
 describe("localizations", () => {
+	const englishKeys = Object.keys(locales["en-US"]);
 	Object.keys(locales).forEach(key => {
 		const locale = locales[key];
+		const keys = Object.keys(locale);
+
 		describe(`${key} locale`, () => {
 			it("has a correct locale code", () => {
 				assert.isTrue(validate(key));
@@ -80,12 +83,12 @@ describe("localizations", () => {
 				assert.notDeepEqual(locale, {});
 			});
 			it("has alphabetically-sorted keys", () => {
-				assert.isTrue(alphaSorted(Object.keys(locale)));
+				assert.isTrue(alphaSorted(keys));
 			});
 
 			if (key !== "en-US") {
 				it("has all keys in English localization", () => {
-					const keyPercent = Math.floor(Object.keys(locale).length / Object.keys(locales["en-US"]).length * 100);
+					const keyPercent = Math.floor(keys.length / englishKeys.length * 100);
 					assert.strictEqual(keyPercent, 100, `Only has ${keyPercent}% of keys`);
 				});
 			}
