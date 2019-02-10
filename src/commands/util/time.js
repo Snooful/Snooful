@@ -7,6 +7,7 @@ module.exports = {
 		key: "zone",
 		type: "string",
 	}],
+	category: "util",
 	description: "Gets the current time.",
 	handler: args => {
 		const zone = moment.tz.zone(args.zone);
