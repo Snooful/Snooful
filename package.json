@@ -51,7 +51,7 @@
 	"main": "./src/index.js",
 	"scripts": {
 		"lint": "eslint \"./**/*.js\"",
-		"test": "mocha ./test.js",
+		"test": "mocha ./tests",
 		"start": "pm2 start"
 	},
 	"repository": {
