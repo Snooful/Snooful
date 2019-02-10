@@ -8,6 +8,7 @@ module.exports = {
 		key: "value",
 		type: "string",
 	}],
+	category: "faq",
 	description: "Sets or creates a FAQ message.",
 	handler: args => {
 		if (args.id) {

@@ -32,16 +32,6 @@
 		"bytes_argument_invalid": "The value provided for the '{key}' argument must be a proper value and unit of digital storage.",
 		"bytes_conversion": "Converting that amount of bytes gives us {}.",
 		"bytes_conversion_failed": "I could not convert those bytes.",
-		"clear_join_message": "The join message will not be sent.",
-		"clear_join_message_no_change": [
-			"I haven't been sending the join message.",
-			"I'd stop sending the join message, if not for the fact that I haven't been doing that in the first place."
-		],
-		"clear_leave_message": "The leave message will not be sent.",
-		"clear_leave_message_no_change": [
-			"I haven't been sending the leave message.",
-			"I'd stop sending the leave message, if not for the fact that I haven't been doing that in the first place."
-		],
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
 		"color_argument_invalid": "The {2} for the '{key}' argument must be specified as a name, RGB, HSL, or hexadecimal code.",
@@ -97,6 +87,18 @@
 		],
 		"duration": "That duration is {} seconds.",
 		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
+		"emoji_datatype": "emoji",
+		"emoji_info": "{} is the '{}' emoji.",
+		"emoji_info_closest": "The closest emoji was {}, which is the '{}' emoji.",
+		"emoji_not_found": "That emoji could not be found.",
+		"event_message": "event message",
+		"event_message_clear": "The {} will not be sent.",
+		"event_message_clear_no_change": [
+			"I haven't been sending the {}.",
+			"I'd stop sending the {}, if not for the fact that I haven't been doing that in the first place."
+		],
+		"event_message_update": "The {} has been updated.",
+		"event_message_update_no_change": "That is already the {}.",
 		"faq_datatype": "FAQs",
 		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
 		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",
@@ -152,6 +154,7 @@
 			"Right now, the ISS is in space (obviously), at {}°, {}°."
 		],
 		"iss_location_type": "ISS location",
+		"join_message": "join message",
 		"lang_datatype": "languages",
 		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
 		"language": "English (American)",
@@ -163,6 +166,7 @@
 			"My language has been updated to {} here.",
 			"I'll now speak {} here."
 		],
+		"leave_message": "leave message",
 		"mod_update_failure": "The moderator list could not be updated.",
 		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
 		"mod_update_success": "The moderator list was updated successfully.",
@@ -232,14 +236,12 @@
 			"Check your channel invites; I've sent an invite for the support channel to you.",
 			"You should see an invite to the support channel appear soon."
 		],
+		"text_includes_emoji": "That text does include emoji.",
+		"text_includes_no_emoji": "No emoji could be found in that text.",
 		"unspecified_reverse_message": [
 			"Please specify the text to reverse.",
 			"What text would you like me to reverse?"
 		],
-		"update_join_message": "The join message has been updated.",
-		"update_join_message_no_change": "That is already the join message.",
-		"update_leave_message": "The leave message has been updated.",
-		"update_leave_message_no_change": "That is already the leave message.",
 		"urban_dictionary_no_result": [
 			"There was no result for that word on Urban Dictionary!",
 			"That word is not currently in Urban Dictionary."
@@ -324,7 +326,7 @@
 		"github": "Meu codigo sorce esta disponivel em {}!",
 		"info": "Eu sou O u/{0}, pronto pra te ajudar!\nO meu prefixo é {1}, Faça {1}command para ver todos os comandos.\nEu fui feito por haykam821, e traduzido para Portugues por GammaRaul, mas por favor mande todas as perguntas via {1}feedback.",
 		"invalid_timezone": "Isso não é um fuso horario valido.",
-		"language": "Portugues",
+		"language": "Português (Brasileiro)",
 		"language_not_available": "Desculpa, mas, essa linguagem não esta disponivel no momento.",
 		"language_updated": "O indioma de Snooful foi mudado com sucesso.",
 		"new_language_unspecified": "Para mudar a linguagem de Snooful, voce precisa falar qual linguagem voce quer que ele fale.",

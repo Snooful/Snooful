@@ -12,6 +12,7 @@ module.exports = paginate("commands", args => {
 			"help",
 			"cmds",
 		],
+		category: "commands",
 		description: "Gives a list of commands.",
 		longDescription: "Gives a list of all non-alias commands and their description.",
 	},

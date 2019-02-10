@@ -5,10 +5,11 @@ module.exports = {
 		"dice",
 		"d6",
 	],
-	command: "roll",
-	describe: "Rolls a six-sided die.",
+	category: "chance",
+	description: "Rolls a six-sided die.",
 	handler: args => args.send(args.localize("die_land", chance.integer({
 		max: 6,
 		min: 1,
 	}))),
+	name: "roll",
 };

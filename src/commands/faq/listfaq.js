@@ -5,6 +5,7 @@ module.exports = paginate("listfaq", args => {
 	return Object.keys(messages).map(key => `${key} (${messages[key].length} characters long)`);
 }, {
 	command: {
+		category: "faq",
 		description: "Lists all the FAQs.",
 	},
 	dataType: "faq_datatype",

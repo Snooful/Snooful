@@ -10,6 +10,7 @@ module.exports = {
 		key: "text",
 		type: "string",
 	}],
+	category: "snooful",
 	description: "Send feedback to Snooful's creator.",
 	handler: args => {
 		if (args.text) {

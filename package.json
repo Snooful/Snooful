@@ -15,6 +15,7 @@
 		"moment": "^2.22.2",
 		"moment-duration-format": "^2.2.2",
 		"moment-timezone": "^0.5.23",
+		"node-emoji": "^1.8.1",
 		"pify": "^4.0.1",
 		"pm2": "^3.0.4",
 		"rpg-dice-roller": "^2.0.0",

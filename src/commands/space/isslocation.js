@@ -4,6 +4,7 @@ module.exports = {
 		"issposition",
 		"isscoordinates",
 	],
+	category: "space",
 	description: "Gets the location of the ISS.",
 	handler: async args => {
 		const response = await fetch("http://api.open-notify.org/iss-now.json", args, {

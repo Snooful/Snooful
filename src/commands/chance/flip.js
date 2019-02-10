@@ -2,8 +2,8 @@ const chance = require("chance").Chance();
 
 module.exports = {
 	alias: "coin",
-	command: "flip",
-	describe: "Flips a coin.",
+	category: "chance",
+	description: "Flips a coin.",
 	handler: args => args.send(`The coin landed on ${chance.weighted([
 		"heads",
 		"tails",
@@ -13,4 +13,5 @@ module.exports = {
 		25,
 		1,
 	])}!`),
+	name: "flip",
 };

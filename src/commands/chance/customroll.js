@@ -13,8 +13,8 @@ module.exports = {
 			type: "string",
 		});
 	},
-	command: "customroll",
-	describe: "Rolls dice with a custom notation.",
+	category: "chance",
+	description: "Rolls dice with a custom notation.",
 	handler: args => {
 		if (args.dice) {
 			const roll = DiceRoller.roll(args.dice);
@@ -30,4 +30,5 @@ module.exports = {
 			args.send(args.localize("custom_roll_notation_unspecified"));
 		}
 	},
+	name: "customroll",
 };

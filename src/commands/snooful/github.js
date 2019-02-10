@@ -11,6 +11,7 @@ module.exports = {
 		"homepage",
 		"website",
 	],
+	category: "snooful",
 	description: "Links to the GitHub repository for Snooful.",
 	handler: args => {
 		get(`https://api.github.com/repos/${github}/issues`, args, {

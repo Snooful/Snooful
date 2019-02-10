@@ -11,6 +11,7 @@ module.exports = {
 		key: "lang",
 		type: "string",
 	}],
+	category: "lang",
 	description: "Changes the language of Snooful.",
 	handler: args => {
 		if (args.lang) {

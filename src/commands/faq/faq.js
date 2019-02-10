@@ -7,6 +7,7 @@ module.exports = {
 		key: "id",
 		type: "string",
 	}],
+	category: "faq",
 	description: "Shows a prewritten FAQ.",
 	handler: args => {
 		const faqs = args.settings.get("faq_messages");

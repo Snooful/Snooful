@@ -1,4 +1,5 @@
 module.exports = {
+	category: "commands",
 	description: "Reloads all commands.",
 	handler: args => {
 		args.reload();
