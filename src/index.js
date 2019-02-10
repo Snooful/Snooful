@@ -103,6 +103,9 @@ function localize(lang = "en-US", key = "", ...formats) {
 	}
 }
 
+const pp = require("@snooful/periwinkle-permissions");
+const userPerms = require("./utils/user-perms.js");
+
 /**
  * Runs a command.
  * @param {string} command The command to run, including prefix.
@@ -133,9 +136,16 @@ function handleCommand(command = "", channel = {}, message = {}) {
 
 		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
 
+		const author = message._sender.nickname;
+
+		if (!settingsWrapper.get("roles")) {
+			settingsWrapper.set("roles", {});
+		}
+		const perms = userPerms(author, settingsWrapper.get("roles"));
+
 		try {
 			parser.parse(unprefixedCmd, {
-				author: message._sender.nickname,
+				author,
 				chData,
 				channel,
 				client,
@@ -149,6 +159,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				localizeO: localize,
 				log: log.commands,
 				message,
+				perms,
 				prefix,
 				reddit,
 				registry: parser.getCommandRegistry(),
@@ -166,6 +177,20 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					});
 				},
 				settings: settingsWrapper,
+				testPermission: perm => {
+					if (chData.subreddit) {
+						// Mods have all permissions
+						const mods = settingsWrapper.get("mods");
+						if (mods && mods.includes(author)) {
+							return true;
+						} else {
+							return pp.test(perm, perms);
+						}
+					}
+
+					// If it's not a subreddit, don't give it permissions
+					return true;
+				},
 				version,
 			});
 		} catch (error) {
