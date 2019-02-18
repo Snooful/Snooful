@@ -1,4 +1,4 @@
-const disabledMsg = “Sorry, but this command is temporarily disabled until our command restriction system is implemented. Sorry!”;
+const disabledMsg = "Sorry, but this command is temporarily disabled until our command restriction system is implemented. Sorry!";
 
 module.exports = {
 	aliases: [
