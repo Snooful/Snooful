@@ -1,3 +1,5 @@
+const disabledMsg = “Sorry, but this command is temporarily disabled until our command restriction system is implemented. Sorry!”;
+
 module.exports = {
 	aliases: [
 		"repeat",
@@ -10,7 +12,11 @@ module.exports = {
 	category: "fun",
 	description: "Repeats a message.",
 	handler: args => {
-		args.send("Sorry, but this command is temporarily disabled until our command restriction system is implemented. Sorry!");
+		if (args.text === disabledMsg) {
+			args.send("Very funny, but no.");
+		} else {
+			args.send(disabledMsg);
+		}
 	},
 	name: "echo",
 };
