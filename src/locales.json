@@ -156,6 +156,8 @@
 		"iss_location_type": "ISS location",
 		"join_message": "join message",
 		"karma": "The user {name} has {total} karma ({link} post and {comment} comment).",
+		"karma_error": "That user's karma could not be retrieved.",
+		"karma_user_not_found": "That user's karma could not be retrieved because they do not exist.",
 		"lang_datatype": "languages",
 		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
 		"language": "English (American)",
