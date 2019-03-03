@@ -18,7 +18,7 @@ module.exports = {
 			}));
 		}).catch(error => {
 			// There has to be a better way...
-			if (error.error.error === 404) {
+			if (error.statusCode === 404) {
 				args.send(args.localize("karma_user_not_found"));
 			} else {
 				args.send(args.localize("karma_error"));
