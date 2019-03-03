@@ -85,8 +85,6 @@
 			"The die falls off the table, but lands on a {}.",
 			"The die decides its number, a {}, but not before bouncing around a bit."
 		],
-		"ipv4_address": "Here is a random IP address: {}",
-		"ipv6_address": "Here is a random IPv6 address: {}",
 		"duration": "That duration is {} seconds.",
 		"duration_argument_invalid": "The {2} provided for the '{key}' argument could not be parsed.",
 		"emoji_datatype": "emoji",
@@ -149,6 +147,8 @@
 			"That's not a time zone I've heard of!"
 		],
 		"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {prefix}commands to get started.",
+		"ipv4_address": "Here is a random IP address: {}",
+		"ipv6_address": "Here is a random IPv6 address: {}",
 		"isalias_false": "The command, {}, is not an alias.",
 		"isalias_true": "The command, {}, is an alias of {}.",
 		"iss_location": [

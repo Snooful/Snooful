@@ -14,7 +14,7 @@ module.exports = {
 		type: "boolean",
 	}],
 	category: "fun",
-	description: "Sings a birthday song to a user!",
+	description: "Sings a birthday song to a user.",
 	handler: args => {
 		if (args.user) {
 			args.send(args.localize(args.fullSong ? "birthday_song" : "birthday_message", args.localize("birthday_type"), "u/" + args.user));
