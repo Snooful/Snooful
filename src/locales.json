@@ -102,6 +102,12 @@
 		"faq_datatype": "FAQs",
 		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
 		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",
+		"feed": [
+			"You should have this {}: {}",
+			"Eat this {}: {}",
+			"Have a bite of this {}: {}"
+		],
+		"feed_other": "u/{2}, you have been offered this {0}: {1}",
 		"feedback_error": [
 			"I couldn't send the feedback.",
 			"Sorry, but something went wrong when I tried to send the feedback."
