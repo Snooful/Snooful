@@ -5,30 +5,30 @@ const orangered = require("@snooful/orangered-parser");
 orangered.registerDirectory("./src/commands");
 
 // Non-aliases, to prevent clogging
-const registry = orangered.getCommandRegistry().filter(cmd => {
-	return cmd.name === cmd.originalName;
+const registry = orangered.getCommandRegistry().filter(({ name, originalName }) => {
+	return name === originalName;
 });
 
 describe("commands", () => {
 	it("have categories", () => {
-		registry.forEach(cmd => {
-			assert.isString(cmd.category, `${cmd.name} does not have a category`);
+		registry.forEach(({ category, name }) => {
+			assert.isString(category, `${name} does not have a category`);
 		});
 	});
 	it("have short descriptions", () => {
-		registry.forEach(cmd => {
-			assert.isString(cmd.description, `${cmd.name} does not have a description`);
+		registry.forEach(({ description, name }) => {
+			assert.isString(description, `${name} does not have a description`);
 
 			// Length
-			assert(cmd.description.length < 50, `${cmd.name}'s description is too long`);
-			assert(cmd.description.length > 8, `${cmd.name}'s description is too short`);
+			assert(description.length < 50, `${name}'s description is too long`);
+			assert(description.length > 8, `${name}'s description is too short`);
 
 			// Capital letter
-			const firstLetter = cmd.description[0];
-			assert.strictEqual(firstLetter.toUpperCase(), firstLetter, `${cmd.name}'s description doesn't start with a capital letter`);
+			const firstLetter = description[0];
+			assert.strictEqual(firstLetter.toUpperCase(), firstLetter, `${name}'s description doesn't start with a capital letter`);
 
 			// Period at end
-			assert(cmd.description.endsWith("."), `${cmd.name}'s description doesn't end with a period`);
+			assert(description.endsWith("."), `${name}'s description doesn't end with a period`);
 		});
 	});
 });
