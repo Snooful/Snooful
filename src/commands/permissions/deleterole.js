@@ -8,6 +8,7 @@ module.exports = {
 		type: "string",
 	}],
 	category: "permissions",
+	description: "Deletes a role.",
 	handler: args => {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");

@@ -9,6 +9,7 @@ module.exports = {
 		type: "string",
 	}],
 	category: "permissions",
+	description: "Creates a role.",
 	handler: args => {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");

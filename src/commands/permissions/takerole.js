@@ -11,6 +11,7 @@ module.exports = {
 		type: "string",
 	}],
 	category: "permissions",
+	description: "Takes a role from a user.",
 	handler: args => {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");

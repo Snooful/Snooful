@@ -3,6 +3,7 @@ module.exports = {
 		"updatemoderators",
 	],
 	category: "permissions",
+	description: "Updates the moderator list.",
 	handler: args => {
 		if (!args.chData.subreddit) {
 			return args.send(args.localize("mod_update_not_subreddit"));
