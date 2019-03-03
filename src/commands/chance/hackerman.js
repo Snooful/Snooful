@@ -1,20 +1,19 @@
 const chance = require("chance").Chance();
-
-/**
- * Gets a random hackerman statement that can include randomized values.
- * @returns {string} A random hackerman statement.
- */
-function getValue() {
-	return chance.pickone([
-		"I'm in.",
-		`Too late, I just connected to your IP, ${chance.ip()}...`,
-		`Oh no, this IP is encrypted!! We can never hack into ${chance.ipv6()}!!!`,
-	]);
-}
-
 module.exports = {
+	arguments: [{
+		default: false,
+		description: "Whether to use IPv6 addresses instead of IPv4.",
+		key: "ipv6",
+		type: "boolean",
+	}],
 	category: "chance",
-	description: "Transform yourself into Hackerman!",
-	handler: args => args.send(getValue()),
+	description: "Gets a random IP.",
+	handler: args => {
+		if (args.ipv6) {
+			args.send(args.localize("ipv6_address", chance.ipv6()));
+		} else {
+			args.send(args.localize("ipv4_address", chance.ip()));
+		}
+	},
 	name: "hackerman",
 };
