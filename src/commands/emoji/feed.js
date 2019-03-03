@@ -9,7 +9,7 @@ module.exports = {
 		key: "user",
 		type: "user",
 	}],
-	category: "fun",
+	category: "emoji",
 	description: "Feeds you or a specified user food.",
 	handler: args => {
 		const emoji = chance.pickone(tastyFood);
