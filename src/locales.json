@@ -54,6 +54,11 @@
 			"Right now I am speaking {}, but you can change it using {}setlang.",
 			"I'm speaking in {} currently, but it is changeable with {}setlang."
 		],
+		"current_language_no_permission": [
+			"My language is currently set to {}.",
+			"Right now I am speaking {}.",
+			"I'm speaking in {} currently."
+		],
 		"current_time": [
 			"The current time in {} is {}.",
 			"Right now in {}, it is {}.",
@@ -73,12 +78,19 @@
 			"I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
 			"There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
 		],
+		"delete_faq_no_permission": [
+			"That FAQ doesn't even exist, silly.",
+			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'.",
+			"I don't see a FAQ with an identifier of '{1}'.",
+			"There is no FAQ with the ID of '{1}', so I cannot delete it."
+		],
 		"delete_faq_success": [
 			"That FAQ has been deleted.",
 			"That FAQ has been purged from existence.",
 			"You will no longer see that FAQ."
 		],
 		"delete_faq_unspecified": "You need to specify a FAQ to delete. To get a list of FAQs, type {}listfaq.",
+		"delete_faq_unspecified_no_permission": "You need to specify a FAQ to delete.",
 		"die_land": [
 			"The die lands on a {}.",
 			"After a couple of bounces, the die finally settles on a {}.",
@@ -101,7 +113,9 @@
 		"event_message_update_no_change": "That is already the {}.",
 		"faq_datatype": "FAQs",
 		"faq_nonexistent": "There is no FAQ with that identifier. For a list of FAQs that exist, type {}listfaq.",
+		"faq_nonexistent_no_permission": "There is no FAQ with that identifier.",
 		"faq_unspecified": "You need to specify an identifier for the FAQ you want to show. To find this list, type {}listfaq.",
+		"faq_unspecified_no_permission": "You need to specify an identifier for the FAQ you want to show.",
 		"feed": [
 			"You should have this {}: {}",
 			"Eat this {}: {}",
@@ -182,7 +196,8 @@
 		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
 		"mod_update_success": "The moderator list was updated successfully.",
 		"new_language_unspecified": "To change my language, you must specify the new language.",
-		"no_faqs": "There are no {type}. You can make one by using {prefix}setfaq.",
+		"no_faqs": "There are no {type}, but you can make one by using {prefix}setfaq.",
+		"no_faqs_no_permission": "There are no {type}.",
 		"no_pagination_items": "There are no {} to view.",
 		"no_permission": "You are not allowed to use this command.",
 		"nonexistent_role": "That role doesn't exist.",
@@ -229,9 +244,11 @@
 		"role_doesnt_have_permission": "That role already doesn't have that permission.",
 		"roles_datatype": "roles",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
+		"set_faq_id_unspecified_no_permission": "You need to specify a FAQ to change.",
 		"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
 		"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
 		"set_faq_message_unspecified": "You need to specify the message for the FAQ. If you would like to get rid of this FAQ, use {}delfaq.",
+		"set_faq_message_unspecified_no_permission": "You need to specify the message for the FAQ.",
 		"string_argument_regexp_fail": "The {2} provided for the '{key}' argument does not follow the allowed format.",
 		"string_argument_too_long": "The {2} provided for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
 		"string_argument_too_short": "The {2} provided for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
