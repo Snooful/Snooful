@@ -1,13 +1,25 @@
-// Used to expose version and include config from `snooful` object
-const { version, snooful } = require("./../package.json");
+const { version } = require("./../package.json");
 
-const config = {
-	credentials: {},
-	prefix: "!",
-	settingsManager: "",
-	...snooful,
-	...require("./../config.json"),
-};
+const cosmic = require("cosmiconfig");
+const explorer = cosmic("snooful", {
+	searchPlaces: [
+		"package.json",
+		"config.json",
+		".snoofulrc",
+		".snoofulrc.json",
+		".snoofulrc.yaml",
+		".snoofulrc.yml",
+		".snoofulrc.js",
+		"snooful.config.js",
+	],
+	transform: result => ({
+		credentials: {},
+		prefix: "!",
+		settingsManager: "",
+		...result,
+	}),
+});
+const config = explorer.searchSync();
 
 const Snoowrap = require("snoowrap");
 
