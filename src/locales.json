@@ -192,9 +192,18 @@
 			"I'll now speak {} here."
 		],
 		"leave_message": "leave message",
-		"mod_update_failure": "The moderator list could not be updated.",
-		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
-		"mod_update_success": "The moderator list was updated successfully.",
+		"mod_update_failure": [
+			"The moderator list could not be updated.",
+			"The moderator list update was unsuccessful."
+		],
+		"mod_update_not_subreddit": [
+			"You cannot update the moderator list because this is not a subreddit chat.",
+			"This is a subreddit chat, so the moderator list cannot be updated."
+		],
+		"mod_update_success": [
+			"The moderator list was updated successfully.",
+			"The moderator list is now up to date."
+		],
 		"new_language_unspecified": "To change my language, you must specify the new language.",
 		"no_faqs": "There are no {type}, but you can make one by using {prefix}setfaq.",
 		"no_faqs_no_permission": "There are no {type}.",
