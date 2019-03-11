@@ -65,3 +65,5 @@ settings*
 
 # config
 config.json
+.snoofulrc*
+snooful.config.js
