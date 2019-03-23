@@ -59,7 +59,6 @@ Here is an example configuration:
 ```json
 {
   "prefix": "?",
-  "id": "t2_a1b2c3",
   "credentials": {
     "clientId": "a897d89f89e",
     "clientSecret": "0202390301209919219810929012",
