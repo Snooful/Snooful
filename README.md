@@ -2,7 +2,7 @@
 
 ![GitHub issues](https://img.shields.io/github/issues/Snooful/Snooful.svg?style=popout)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Snooful/Snooful.svg?style=popout)
-[![Travis (.com)](https://img.shields.io/travis/com/Snooful/Snooful.svg?style=popout)](https://travis-ci.com/Snooful/Snooful)
+[![Travis (.com)](https://img.shields.io/travis/com/Snooful/Snooful.svg?style=popout)](https://travis-ci.com/Snooful/Snooful) [![Join the chat at https://gitter.im/Snooful/Snooful](https://badges.gitter.im/Snooful/Snooful.svg)](https://gitter.im/Snooful/Snooful?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The most complete bot for moderation, utility, and fun in Reddit Chat.
 
