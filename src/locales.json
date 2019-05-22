@@ -251,6 +251,8 @@
 		"role_created": "That role has been created.",
 		"role_deleted": "That role has been deleted.",
 		"role_doesnt_have_permission": "That role already doesn't have that permission.",
+		"role_nonexistent": "That role does not exist.",
+		"role_priority_set": "That role's priority has been changed to {}. Its permissions will now overrule permissions of roles with a lower priority.",
 		"roles_datatype": "roles",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 		"set_faq_id_unspecified_no_permission": "You need to specify a FAQ to change.",

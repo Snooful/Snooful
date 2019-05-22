@@ -1,12 +1,14 @@
 const roleNameify = require("./../../utils/role-name.js");
 module.exports = {
 	aliases: [
-		"addrole",
-		"newrole",
+		"changerolepriority",
 	],
 	arguments: [{
 		key: "role",
 		type: "string",
+	}, {
+		key: "new-priority",
+		type: "integer",
 	}],
 	category: "permissions",
 	description: "Creates a role.",
@@ -14,18 +16,14 @@ module.exports = {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");
 
-		if (roles[roleName]) {
-			return args.send(args.localize("role_already_exists"));
+		if (!roles[roleName]) {
+			return args.send(args.localize("role_nonexistent"));
 		}
 
-		roles[roleName] = {
-			perms: [],
-			priority: 0,
-			users: [],
-		};
+		roles[roleName].priority = args.newPriority;
 		args.settings.set("roles", roles);
 
-		args.send(args.localize("role_created"));
+		args.send(args.localize("role_priority_set", args.newPriority));
 	},
-	name: "createrole",
+	name: "setrolepriority",
 };
