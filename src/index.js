@@ -233,37 +233,61 @@ const reddit = new Snoowrap(Object.assign(config.credentials, {
 	userAgent: `Snooful v${version}`,
 }));
 
+const FormData = require("form-data");
+const { CookieJar } = require("tough-cookie");
+
+const got = require("got");
+
 /**
  * Grabs a new access token and connects to Sendbird.
  */
 function launch() {
-	// Fetch our access token.
-	log.main("fetching new access token");
-	reddit.oauthRequest({
-		baseUrl: "https://s.reddit.com/api/v1",
-		method: "get",
-		uri: "/sendbird/me",
-	}).then(sbInfo => {
-		// Get our Reddit user ID
-		log.main("getting id");
-		reddit.getMe().id.then(id => {
-			// We have both necessary values, so let's connect to Sendbird!
-			log.main("connecting to sendbird");
-			pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
-				// We did it! Let's store the user info in a higher scope.
-				log.main("connected to sendbird");
-				client = userInfo;
+	const form = new FormData();
+	form.append("user", config.credentials.username);
+	form.append("passwd", config.credentials.password);
+	form.append("api_type", "json");
 
-				// Let's catch up on the invites we might've missed while offline.
-				acceptInvitesLate();
+	log.main("fetching session token");
+	got.post({
+		body: form,
+		url: "https://ssl.reddit.com/api/login",
+	}).then(res => {
+		const cookieJar = new CookieJar();
+		cookieJar.setCookieSync("reddit_session=" + encodeURIComponent(JSON.parse(res.body).json.data.cookie), "https://s.reddit.com");
+
+		// Fetch our access token.
+		log.main("fetching new access token");
+		got({
+			cookieJar,
+			method: "get",
+			url: "https://s.reddit.com/api/v1/sendbird/me",
+		}).then(sbRes => {
+			const sbInfo = JSON.parse(sbRes.body);
+
+			// Get our Reddit user ID
+			log.main("getting id");
+			reddit.getMe().id.then(id => {
+				// We have both necessary values, so let's connect to Sendbird!
+				log.main("connecting to sendbird");
+				pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
+					// We did it! Let's store the user info in a higher scope.
+					log.main("connected to sendbird");
+					client = userInfo;
+
+					// Let's catch up on the invites we might've missed while offline.
+					acceptInvitesLate();
+				}).catch(e => {
+					console.log(e, sbInfo);
+					log.main("couldn't connect to sendbird");
+				});
 			}).catch(() => {
-				log.main("couldn't connect to sendbird");
+				log.main("could not get id");
 			});
 		}).catch(() => {
-			log.main("could not get id");
+			log.main("could not get access token");
 		});
 	}).catch(() => {
-		log.main("could not get access token");
+		log.main("could not get session token");
 	});
 }
 launch();
