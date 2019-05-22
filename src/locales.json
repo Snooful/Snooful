@@ -72,17 +72,17 @@
 		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
 		"custom_roll_results": "Dice output: {}, with a total of {}.",
 		"definition_vote_count": "({} votes)",
-		"delete_faq_nonexistent": [
-			"That FAQ doesn't even exist, silly. See {}listfaq for a list of deletable FAQs.",
-			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one, as viewable in {0}listfaq?",
-			"I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
-			"There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
-		],
 		"delete_faq_no_permission": [
 			"That FAQ doesn't even exist, silly.",
 			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'.",
 			"I don't see a FAQ with an identifier of '{1}'.",
 			"There is no FAQ with the ID of '{1}', so I cannot delete it."
+		],
+		"delete_faq_nonexistent": [
+			"That FAQ doesn't even exist, silly. See {}listfaq for a list of deletable FAQs.",
+			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one, as viewable in {0}listfaq?",
+			"I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
+			"There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
 		],
 		"delete_faq_success": [
 			"That FAQ has been deleted.",
