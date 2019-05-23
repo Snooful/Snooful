@@ -6,7 +6,7 @@
  * @param {...any} vals The values to provide for placeholders.
  * @return {?string} A string if a permission-based localization could be provided, or null.
 */
-function permLocalization(args, perm, locKey, ...vals) => {
+function permLocalization(args, perm, locKey, ...vals) {
 	const hasPerm = args.testPermission(perm);
 	if (hasPerm) {
 		vals.prefix = args.prefix;
