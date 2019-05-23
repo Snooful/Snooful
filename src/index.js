@@ -276,8 +276,7 @@ function launch() {
 
 					// Let's catch up on the invites we might've missed while offline.
 					acceptInvitesLate();
-				}).catch(e => {
-					console.log(e, sbInfo);
+				}).catch(() => {
 					log.main("couldn't connect to sendbird");
 				});
 			}).catch(() => {
