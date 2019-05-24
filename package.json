@@ -46,13 +46,16 @@
 		"eslint-plugin-markdown": "^1.0.0-rc.1",
 		"eslint-plugin-unicorn": "^6.0.1",
 		"is-sorted": "^1.0.5",
+		"jsdoc": "^3.6.2",
 		"locale-code": "^2.0.2",
+		"minami": "^1.2.3",
 		"mocha": "^5.2.0"
 	},
 	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
 	"main": "./src/index.js",
 	"scripts": {
+		"docs": "jsdoc ./src --destination ./docs/snooful -r -t node_modules/minami",
 		"lint": "eslint \"./**/*.js\"",
 		"test": "mocha ./tests",
 		"start": "pm2 start"
