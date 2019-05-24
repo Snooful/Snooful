@@ -254,6 +254,7 @@
 		"role_created": "That role has been created.",
 		"role_deleted": "That role has been deleted.",
 		"role_doesnt_have_permission": "That role already doesn't have that permission.",
+		"role_listing_priority": "(priority: {})",
 		"role_nonexistent": "That role does not exist.",
 		"role_priority_set": "That role's priority has been changed to {}. Its permissions will now overrule permissions of roles with a lower priority.",
 		"roles_datatype": "roles",
