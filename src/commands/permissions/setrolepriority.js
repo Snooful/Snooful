@@ -17,7 +17,9 @@ module.exports = {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");
 
-		if (!roles[roleName]) {
+		if (roleName === "user") {
+			return args.send(args.localize("cannot_set_user_role_priority"));
+		} else if (!roles[roleName]) {
 			return args.send(args.localize("role_nonexistent"));
 		}
 

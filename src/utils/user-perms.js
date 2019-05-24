@@ -10,7 +10,10 @@ module.exports = (user, roles) => {
 		startingPerms.push(roles.user.perms);
 	}
 
-	const perms = Object.entries(roles).sort(([ nameA, { priority: priorityA } ], [ nameB, { priority: priorityB }]) => {
+	const perms = Object.entries(roles).filter(([ name ]) => {
+		// Remove user role, just in case
+		return name !== "user";
+	}).sort(([ nameA, { priority: priorityA } ], [ nameB, { priority: priorityB }]) => {
 		if (priorityA > priorityB) {
 			return 1;
 		} else if (priorityA < priorityB) {
@@ -31,6 +34,5 @@ module.exports = (user, roles) => {
 			return acc;
 		}
 	}, startingPerms);
-	console.log(perms)
 	return perms;
 };

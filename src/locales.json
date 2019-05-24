@@ -33,6 +33,7 @@
 		"bytes_conversion": "Converting that amount of bytes gives us {}.",
 		"bytes_conversion_failed": "I could not convert those bytes.",
 		"cannot_give_user_role": "The 'user' role cannot be given, since it applies to all users automatically.",
+		"cannot_set_user_role_priority": "The 'user' role's priority cannot be set. It has the lowest priority.",
 		"cannot_take_user_role": "The 'user' role cannot be taken, since it applies to all users automatically.",
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
