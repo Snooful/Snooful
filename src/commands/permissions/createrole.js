@@ -25,7 +25,7 @@ module.exports = {
 		};
 		args.settings.set("roles", roles);
 
-		args.send(args.localize("role_created"));
+		args.send(args.localize(roleName === "user" ? "user_role_created" : "role_created"));
 	},
 	name: "createrole",
 };
