@@ -184,7 +184,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 						if (mods && mods.includes(author)) {
 							return true;
 						} else {
-							return pp.test(perm, perms);
+							return pp.test(perm, perms, true);
 						}
 					}
 

@@ -28,6 +28,5 @@ module.exports = (user, roles) => {
 	}, [
 		defaults,
 	]);
-	console.log(perms);
 	return perms;
 };
