@@ -9,6 +9,8 @@ module.exports = {
 	}, {
 		key: "new-priority",
 		type: "integer",
+		min: -1,
+		max: 100,
 	}],
 	category: "permissions",
 	description: "Sets a role's priority.",
