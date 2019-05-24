@@ -8,13 +8,12 @@ module.exports = {
 		type: "string",
 	}, {
 		key: "new-priority",
-		type: "integer",
-		min: -1,
 		max: 100,
+		min: -1,
+		type: "integer",
 	}],
 	category: "permissions",
 	description: "Sets a role's priority.",
-	longDescription: "Sets the priority of a role. Roles with higher priority override roles with lower priority when there is a permission conflict.",
 	handler: args => {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");
@@ -30,5 +29,6 @@ module.exports = {
 
 		args.send(args.localize("role_priority_set", args.newPriority));
 	},
+	longDescription: "Sets the priority of a role. Roles with higher priority override roles with lower priority when there is a permission conflict.",
 	name: "setrolepriority",
 };
