@@ -11,7 +11,8 @@ module.exports = {
 		type: "integer",
 	}],
 	category: "permissions",
-	description: "Creates a role.",
+	description: "Sets a role's priority.",
+	longDescription: "Sets the priority of a role. Roles with higher priority override roles with lower priority when there is a permission conflict.",
 	handler: args => {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");
