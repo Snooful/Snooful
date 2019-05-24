@@ -34,7 +34,7 @@ const upsidedown = require("upsidedown");
 const chance = new require("chance").Chance();
 /**
  * Selects a string.
- * @param {(object|*[]|*)} msg If an object, selects an key based on the weight value. If an array, picks a random element. Otherwise, converts to a string.
+ * @param {(Object|any[]|*)} msg If an object, selects an key based on the weight value. If an array, picks a random element. Otherwise, converts to a string.
  */
 function chanceFormats(msg) {
 	if (Array.isArray(msg)) {
