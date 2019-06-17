@@ -3,6 +3,9 @@ const got = require("got");
 const moment = require("moment");
 
 module.exports = {
+	aliases: [
+		"npmlookup",
+	],
 	arguments: [{
 		description: "The package to look up.",
 		key: "package",
