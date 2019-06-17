@@ -13,7 +13,7 @@ module.exports = (user, roles) => {
 	const perms = Object.entries(roles).filter(([ name ]) => {
 		// Remove user role, just in case
 		return name !== "user";
-	}).sort(([ nameA, { priority: priorityA } ], [ nameB, { priority: priorityB }]) => {
+	}).sort(([ nameA, { priority: priorityA = 0 } ], [ nameB, { priority: priorityB = 0 }]) => {
 		if (priorityA > priorityB) {
 			return 1;
 		} else if (priorityA < priorityB) {
