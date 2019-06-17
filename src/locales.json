@@ -165,6 +165,7 @@
 		"integer_argument_invalid": "The value provided for the '{key}' argument must be an integer.",
 		"integer_argument_too_high": "The maximum for the '{key}' argument is {max}, but you gave {1}.",
 		"integer_argument_too_low": "The minimum for the '{key}' argument is {min}, but you gave {1}.",
+		"invalid_npm_package_name": "That npm package name is invalid.",
 		"invalid_timezone": [
 			"That's not a valid time zone.",
 			"That's not a time zone I've heard of!"
@@ -213,6 +214,8 @@
 		"no_pagination_items": "There are no {} to view.",
 		"no_permission": "You are not allowed to use this command.",
 		"nonexistent_role": "That role doesn't exist.",
+		"npm_package_not_found": "A npm package with that name could not be found.",
+		"npm_package_result": "The npm package, {name}, is currently at version {version} and is by the author {author}. It was last published at {lastPublished} and is licensed under {license}. Its description is: \"{description}\". For more information, visit {link}.",
 		"number_changed": [
 			"The new number is {}. The previous number was {}.",
 			"The new number is {}, which is a change from the previous number, {}."
