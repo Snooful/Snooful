@@ -215,6 +215,8 @@
 		"no_permission": "You are not allowed to use this command.",
 		"nonexistent_role": "That role doesn't exist.",
 		"npm_package_exists": "A npm package with the name exists.",
+		"npm_package_exists_error": "There was an error while checking for the existance of an npm package.",
+		"npm_package_lookup_error": "There was an error while looking up an npm package.",
 		"npm_package_not_found": "A npm package with that name could not be found.",
 		"npm_package_result": "The npm package, {name}, is currently at version {version} and is by the author {author}. It was last published at {lastPublished} and is licensed under {license}. Its description is: \"{description}\". For more information, visit {link}.",
 		"number_changed": [

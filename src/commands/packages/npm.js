@@ -18,7 +18,9 @@ module.exports = {
 				json: true,
 				url: "https://api.npms.io/v2/package/" + encodeURIComponent(args.package),
 			}).then(response => {
-				if (!(response && response.body && response.body.collected && response.body.collected.metadata)) return;
+				if (!(response && response.body && response.body.collected && response.body.collected.metadata)) {
+					return args.send(args.localize("npm_package_lookup_error"));
+				}
 
 				const metadata = response.body.collected.metadata;
 				args.send(args.localize("npm_package_result", {
@@ -33,6 +35,8 @@ module.exports = {
 			}).catch(error => {
 				if (error && error.body && error.body.code === "NOT_FOUND") {
 					args.send(args.localize("npm_package_not_found"));
+				} else {
+					args.send(args.localize("npm_package_lookup_error"));
 				}
 			});
 		} else {
