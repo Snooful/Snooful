@@ -19,8 +19,20 @@ const eventMessageFactory = require("./utils/event-message-handler.js");
 
 const path = require("path");
 
+let setMan = {};
+try {
+	setMan = require(config.settingsManager);
+} catch (error) {
+	if (error instanceof SyntaxError) {
+		return log.settings("could not load the settings manager module due to a syntax error");
+	} else if (error.code === "MODULE_NOT_FOUND") {
+		return log.settings("could not find a settings manager module with the id '%s'", config.settingsManager);
+	} else {
+		return log.settings("could not load the settings manager module (error code '%s', message '%s')", error.code, error.message);
+	}
+}
+
 // Set up in a way where legacy settings managers work too
-const setMan = require(config.settingsManager);
 const SettingsManager = setMan.SettingsManager || setMan;
 const extension = setMan.extension || "";
 
