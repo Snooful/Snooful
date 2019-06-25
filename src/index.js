@@ -52,7 +52,7 @@ function chanceFormats(msg) {
 const prefix = config.prefix || "!";
 
 const parser = require("@snooful/orangered-parser");
-const creq = require("clear-require");
+const creq = require("clear-module");
 
 /**
  * Reloads the commands.
