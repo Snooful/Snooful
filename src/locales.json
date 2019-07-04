@@ -309,6 +309,12 @@
 			"Do I really have to tell you this? You're in {}...",
 			"Doesn't that device you're using include GPS? Well, you're in {} currently."
 		],
+		"whereami_direct": [
+			"a direct channel with me"
+		],
+		"whereami_group": [
+			"a group channel called '{}'"
+		],
 		"whoami": [
 			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",
 			"You need a nametag, u/{}...",
