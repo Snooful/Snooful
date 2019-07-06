@@ -6,7 +6,7 @@ try {
 	canUseHash = false;
 }
 
-const { pify } = require("./../../utils/promisify.js");
+const pify = require("./../../utils/promisify.js");
 
 module.exports = {
 	category: "snooful",
