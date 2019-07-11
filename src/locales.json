@@ -197,6 +197,7 @@
 		"leave_message": "leave message",
 		"minecraft_name_history_entry": "{} (since {})",
 		"minecraft_name_history_result": "{} has previously had the following names: {}",
+		"minecraft_name_history_single": "{} has never changed their Minecraft username before.",
 		"mod_update_failure": [
 			"The moderator list could not be updated.",
 			"The moderator list update was unsuccessful."

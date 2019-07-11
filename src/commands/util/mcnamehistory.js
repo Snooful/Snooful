@@ -21,6 +21,10 @@ module.exports = {
 					json: true,
 				},
 			}).then(historyResult => {
+				if (historyResult.body.length === 1) {
+					return args.send(args.localize("minecraft_name_history_single", args.user));
+				}
+
 				return args.send(args.localize("minecraft_name_history_result", args.user, historyResult.body.map(entry => {
 					if (entry.changedToAt) {
 						return args.localize("minecraft_name_history_entry", entry.name, new Date(entry.changedToAt).toUTCString());
