@@ -58,9 +58,7 @@
 		"docs": "jsdoc ./src --destination ./docs/snooful -r -t node_modules/minami",
 		"lint": "eslint \"./**/*.js\"",
 		"test": "mocha ./tests",
-		"start": "pm2 start",
-		"snyk-protect": "snyk protect",
-		"prepublish": "npm run snyk-protect"
+		"start": "pm2 start"
 	},
 	"repository": {
 		"type": "git",
