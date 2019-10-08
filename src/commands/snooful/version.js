@@ -1,4 +1,5 @@
-let glc, canUseHash;
+let glc;
+let canUseHash;
 try {
 	glc = require("git-last-commit");
 	canUseHash = true;
