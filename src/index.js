@@ -47,8 +47,14 @@ try {
 const SettingsManager = setMan.SettingsManager || setMan;
 const extension = setMan.extension || "";
 
+const init = SettingsManager.prototype.init;
+SettingsManager.prototype.init = () => {
+	return false;
+};
+
 log.settings("passing off settings handling to the '%s' module", config.settingsManager);
 const settings = new SettingsManager(path.resolve("./settings" + extension));
+init.call(settings);
 
 const locales = require("./locales.json");
 const format = require("string-format");
