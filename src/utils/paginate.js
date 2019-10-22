@@ -44,7 +44,9 @@ module.exports = (command, data = [], opts = {}) => {
 			type: "integer",
 		}],
 		handler: async args => {
-			const resolvedData = [].concat(typeof data === "function" ? await data(args) : data);
+			const dataValue = typeof data === "function" ? await data(args) : data;
+			const resolvedData = dataValue === undefined ? [] : [].concat();
+
 			const dataType = args.localize(options.dataType);
 
 			/**
