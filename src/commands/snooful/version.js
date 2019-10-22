@@ -1,4 +1,5 @@
-let glc, canUseHash;
+let glc;
+let canUseHash;
 try {
 	glc = require("git-last-commit");
 	canUseHash = true;
@@ -6,7 +7,7 @@ try {
 	canUseHash = false;
 }
 
-const { pify } = require("./../../utils/promisify.js");
+const pify = require("./../../utils/promisify.js");
 
 module.exports = {
 	category: "snooful",

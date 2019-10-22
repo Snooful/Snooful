@@ -32,6 +32,9 @@
 		"bytes_argument_invalid": "The value provided for the '{key}' argument must be a proper value and unit of digital storage.",
 		"bytes_conversion": "Converting that amount of bytes gives us {}.",
 		"bytes_conversion_failed": "I could not convert those bytes.",
+		"cannot_give_user_role": "The 'user' role cannot be given, since it applies to all users automatically.",
+		"cannot_set_user_role_priority": "The 'user' role's priority cannot be set. It has the lowest priority.",
+		"cannot_take_user_role": "The 'user' role cannot be taken, since it applies to all users automatically.",
 		"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 		"color_amount_too_low": "I need to provide you with at least one name for this color.",
 		"color_argument_invalid": "The {2} for the '{key}' argument must be specified as a name, RGB, HSL, or hexadecimal code.",
@@ -72,17 +75,17 @@
 		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
 		"custom_roll_results": "Dice output: {}, with a total of {}.",
 		"definition_vote_count": "({} votes)",
-		"delete_faq_nonexistent": [
-			"That FAQ doesn't even exist, silly. See {}listfaq for a list of deletable FAQs.",
-			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one, as viewable in {0}listfaq?",
-			"I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
-			"There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
-		],
 		"delete_faq_no_permission": [
 			"That FAQ doesn't even exist, silly.",
 			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'.",
 			"I don't see a FAQ with an identifier of '{1}'.",
 			"There is no FAQ with the ID of '{1}', so I cannot delete it."
+		],
+		"delete_faq_nonexistent": [
+			"That FAQ doesn't even exist, silly. See {}listfaq for a list of deletable FAQs.",
+			"I'm looking at the list of FAQs right now and don't see one with an identifier of '{1}'. Are you sure you gave me the right one, as viewable in {0}listfaq?",
+			"I don't see a FAQ with an identifier of '{1}'. Is the FAQ you gave me one of the ones seen in {0}listfaq?",
+			"There is no FAQ with the ID of '{1}', so I cannot delete it. For a list of FAQs that exist and thus are able to be deleted, type {0}listfaq."
 		],
 		"delete_faq_success": [
 			"That FAQ has been deleted.",
@@ -192,9 +195,18 @@
 			"I'll now speak {} here."
 		],
 		"leave_message": "leave message",
-		"mod_update_failure": "The moderator list could not be updated.",
-		"mod_update_not_subreddit": "You cannot update the moderator list because this is not a subreddit chat.",
-		"mod_update_success": "The moderator list was updated successfully.",
+		"mod_update_failure": [
+			"The moderator list could not be updated.",
+			"The moderator list update was unsuccessful."
+		],
+		"mod_update_not_subreddit": [
+			"You cannot update the moderator list because this is not a subreddit chat.",
+			"This is a subreddit chat, so the moderator list cannot be updated."
+		],
+		"mod_update_success": [
+			"The moderator list was updated successfully.",
+			"The moderator list is now up to date."
+		],
 		"new_language_unspecified": "To change my language, you must specify the new language.",
 		"no_faqs": "There are no {type}, but you can make one by using {prefix}setfaq.",
 		"no_faqs_no_permission": "There are no {type}.",
@@ -242,6 +254,9 @@
 		"role_created": "That role has been created.",
 		"role_deleted": "That role has been deleted.",
 		"role_doesnt_have_permission": "That role already doesn't have that permission.",
+		"role_listing_priority": "(priority: {})",
+		"role_nonexistent": "That role does not exist.",
+		"role_priority_set": "That role's priority has been changed to {}. Its permissions will now overrule permissions of roles with a lower priority.",
 		"roles_datatype": "roles",
 		"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 		"set_faq_id_unspecified_no_permission": "You need to specify a FAQ to change.",
@@ -284,6 +299,7 @@
 		"user_argument_too_short": "The {2} provided for the '{key}' is too long; usernames must be at least 3 characters long.",
 		"user_doesnt_have_role": "u/{} doesn't have that role.",
 		"user_given_role": "You have given u/{} that role.",
+		"user_role_created": "The 'user' role has been created. This role is given to all users automatically.",
 		"user_taken_role": "You have taken that role away from u/{}.",
 		"version": "I am running version {}!",
 		"version_hash": "I am running version {}, with the most recent commit being {}!",
@@ -292,6 +308,12 @@
 			"Don't you have a GPS or something? Whatever, you're in {} right now.",
 			"Do I really have to tell you this? You're in {}...",
 			"Doesn't that device you're using include GPS? Well, you're in {} currently."
+		],
+		"whereami_direct": [
+			"a direct channel with me"
+		],
+		"whereami_group": [
+			"a group channel called '{}'"
 		],
 		"whoami": [
 			"Ah, silly humans, always forgetting their names. I won't throw you under the shade too much this time, though, u/{}.",

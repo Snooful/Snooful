@@ -31,6 +31,8 @@ module.exports = {
 		}
 
 		roles[roleName].perms.push(args.permission);
+		args.settings.set("roles", roles);
+
 		args.send(args.localize("permission_granted"));
 	},
 	name: "giveperm",

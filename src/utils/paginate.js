@@ -1,4 +1,5 @@
-let chunk, properChunk;
+let chunk;
+let properChunk;
 try {
 	chunk = require("lodash.chunk");
 	properChunk = true;

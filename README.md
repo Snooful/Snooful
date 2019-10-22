@@ -59,7 +59,6 @@ Here is an example configuration:
 ```json
 {
   "prefix": "?",
-  "id": "t2_a1b2c3",
   "credentials": {
     "clientId": "a897d89f89e",
     "clientSecret": "0202390301209919219810929012",
@@ -68,3 +67,9 @@ Here is an example configuration:
   }
 }
 ```
+
+## Commands
+
+Commands are stored in the `src/commands` folder. They are organized by category. You can add your own command by placing a file ending with `.js` in the folder. It must export an object adhering to the comamnd format as seen in the [`info` command](src/commands/snooful/info.js).
+
+Please do not remove the commands in the `snooful` category, especially `info` and `github`.

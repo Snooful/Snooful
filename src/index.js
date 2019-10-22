@@ -31,19 +31,20 @@ const eventMessageFactory = require("./utils/event-message-handler.js");
 
 const path = require("path");
 
-// Set up in a way where legacy settings managers work too
-let setMan;
+let setMan = {};
 try {
 	setMan = require(config.settingsManager);
 } catch (error) {
-	switch (error.code) {
-		case "MODULE_NOT_FOUND":
-			log.settings("could not find settings manager (you must run `npm install %s`)", config.settingsManager);
-			break;
-		default:
-			log.settings("error while loading settings manager");
+	if (error instanceof SyntaxError) {
+		return log.settings("could not load the settings manager module due to a syntax error");
+	} else if (error.code === "MODULE_NOT_FOUND") {
+		return log.settings("could not find a settings manager module with the id '%s'", config.settingsManager);
+	} else {
+		return log.settings("could not load the settings manager module (error code '%s', message '%s')", error.code, error.message);
 	}
 }
+
+// Set up in a way where legacy settings managers work too
 const SettingsManager = setMan.SettingsManager || setMan;
 const extension = setMan.extension || "";
 
@@ -63,7 +64,7 @@ const upsidedown = require("upsidedown");
 const chance = new require("chance").Chance();
 /**
  * Selects a string.
- * @param {(object|*[]|*)} msg If an object, selects an key based on the weight value. If an array, picks a random element. Otherwise, converts to a string.
+ * @param {(Object|any[]|*)} msg If an object, selects an key based on the weight value. If an array, picks a random element. Otherwise, converts to a string.
  */
 function chanceFormats(msg) {
 	if (Array.isArray(msg)) {
@@ -81,7 +82,7 @@ function chanceFormats(msg) {
 const prefix = config.prefix || "!";
 
 const parser = require("@snooful/orangered-parser");
-const creq = require("clear-require");
+const creq = require("clear-module");
 
 /**
  * Reloads the commands.
@@ -213,7 +214,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 						if (mods && mods.includes(author)) {
 							return true;
 						} else {
-							return pp.test(perm, perms);
+							return pp.test(perm, perms, true);
 						}
 					}
 
@@ -262,37 +263,60 @@ const reddit = new Snoowrap(Object.assign(config.credentials, {
 	userAgent: `Snooful v${version}`,
 }));
 
+const FormData = require("form-data");
+const { CookieJar } = require("tough-cookie");
+
+const got = require("got");
+
 /**
  * Grabs a new access token and connects to Sendbird.
  */
 function launch() {
-	// Fetch our access token.
-	log.main("fetching new access token");
-	reddit.oauthRequest({
-		baseUrl: "https://s.reddit.com/api/v1",
-		method: "get",
-		uri: "/sendbird/me",
-	}).then(sbInfo => {
-		// Get our Reddit user ID
-		log.main("getting id");
-		reddit.getMe().id.then(id => {
-			// We have both necessary values, so let's connect to Sendbird!
-			log.main("connecting to sendbird");
-			pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
-				// We did it! Let's store the user info in a higher scope.
-				log.main("connected to sendbird");
-				client = userInfo;
+	const form = new FormData();
+	form.append("user", config.credentials.username);
+	form.append("passwd", config.credentials.password);
+	form.append("api_type", "json");
 
-				// Let's catch up on the invites we might've missed while offline.
-				acceptInvitesLate();
+	log.main("fetching session token");
+	got.post({
+		body: form,
+		url: "https://ssl.reddit.com/api/login",
+	}).then(res => {
+		const cookieJar = new CookieJar();
+		cookieJar.setCookieSync("reddit_session=" + encodeURIComponent(JSON.parse(res.body).json.data.cookie), "https://s.reddit.com");
+
+		// Fetch our access token.
+		log.main("fetching new access token");
+		got({
+			cookieJar,
+			method: "get",
+			url: "https://s.reddit.com/api/v1/sendbird/me",
+		}).then(sbRes => {
+			const sbInfo = JSON.parse(sbRes.body);
+
+			// Get our Reddit user ID
+			log.main("getting id");
+			reddit.getMe().id.then(id => {
+				// We have both necessary values, so let's connect to Sendbird!
+				log.main("connecting to sendbird");
+				pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
+					// We did it! Let's store the user info in a higher scope.
+					log.main("connected to sendbird");
+					client = userInfo;
+
+					// Let's catch up on the invites we might've missed while offline.
+					acceptInvitesLate();
+				}).catch(() => {
+					log.main("couldn't connect to sendbird");
+				});
 			}).catch(() => {
-				log.main("couldn't connect to sendbird");
+				log.main("could not get id");
 			});
 		}).catch(() => {
-			log.main("could not get id");
+			log.main("could not get access token");
 		});
 	}).catch(() => {
-		log.main("could not get access token");
+		log.main("could not get session token");
 	});
 }
 launch();

@@ -30,7 +30,9 @@ module.exports = {
 			return args.send(args.localize("role_doesnt_have_permission"));
 		}
 
-		roles[roleName].perms.push(args.permission);
+		roles[roleName].perms = roles[roleName].perms.filter(perm => perm === args.permission);
+		args.settings.set("roles", roles);
+
 		args.send(args.localize("permission_taken"));
 	},
 	name: "takeperm",

@@ -13,11 +13,11 @@ module.exports = {
 		const roleName = roleNameify(args.role);
 		const roles = args.settings.get("roles");
 
-		if (roles[roleName]) {
+		if (!roles[roleName]) {
 			return args.send(args.localize("nonexistent_role"));
 		}
 
-		roles[roleName] = undefined;
+		delete roles[roleName];
 		args.settings.set("roles", roles);
 
 		args.send(args.localize("role_deleted"));
