@@ -1,13 +1,5 @@
-// Used to expose version and include config from `snooful` object
-const { version, snooful } = require("./../package.json");
-
-const config = {
-	credentials: {},
-	prefix: "!",
-	settingsManager: "",
-	...snooful,
-	...require("./../config.json"),
-};
+const { version } = require("./../package.json");
+const config = require("./utils/get-config.js")();
 
 const Snoowrap = require("snoowrap");
 
@@ -36,8 +28,14 @@ try {
 const SettingsManager = setMan.SettingsManager || setMan;
 const extension = setMan.extension || "";
 
+const init = SettingsManager.prototype.init;
+SettingsManager.prototype.init = () => {
+	return false;
+};
+
 log.settings("passing off settings handling to the '%s' module", config.settingsManager);
 const settings = new SettingsManager(path.resolve("./settings" + extension));
+init.call(settings);
 
 const locales = require("./locales.json");
 const format = require("string-format");
