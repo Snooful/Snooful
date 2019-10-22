@@ -1,25 +1,5 @@
 const { version } = require("./../package.json");
-
-const cosmic = require("cosmiconfig");
-const explorer = cosmic("snooful", {
-	searchPlaces: [
-		"package.json",
-		"config.json",
-		".snoofulrc",
-		".snoofulrc.json",
-		".snoofulrc.yaml",
-		".snoofulrc.yml",
-		".snoofulrc.js",
-		"snooful.config.js",
-	],
-	transform: result => ({
-		credentials: {},
-		prefix: "!",
-		settingsManager: "@snooful/sqlite-settings",
-		...result.config,
-	}),
-});
-const config = explorer.searchSync();
+const config = require("./utils/get-config.js")();
 
 const Snoowrap = require("snoowrap");
 
