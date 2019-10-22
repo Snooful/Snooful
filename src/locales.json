@@ -26,6 +26,7 @@
 		],
 		"time_since": "It has been {} since {}.",
 		"time_until": "{1} occurs in {0}.",
+		"moderator_datatype": "moderators",
 		"birthday_user_unspecified": [
 			"Happy {} dear... uh... who again?",
 			"Wait a second... who am I singing happy {} to again?"
