@@ -15,8 +15,8 @@ const explorer = cosmic("snooful", {
 	transform: result => ({
 		credentials: {},
 		prefix: "!",
-		settingsManager: "",
-		...result,
+		settingsManager: "@snooful/sqlite-settings",
+		...result.config,
 	}),
 });
 const config = explorer.searchSync();
@@ -32,7 +32,18 @@ const eventMessageFactory = require("./utils/event-message-handler.js");
 const path = require("path");
 
 // Set up in a way where legacy settings managers work too
-const setMan = require(config.settingsManager);
+let setMan;
+try {
+	setMan = require(config.settingsManager);
+} catch (error) {
+	switch (error.code) {
+		case "MODULE_NOT_FOUND":
+			log.settings("could not find settings manager (you must run `npm install %s`)", config.settingsManager);
+			break;
+		default:
+			log.settings("error while loading settings manager");
+	}
+}
 const SettingsManager = setMan.SettingsManager || setMan;
 const extension = setMan.extension || "";
 
