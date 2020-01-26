@@ -39,8 +39,9 @@ init.call(settings);
 
 /**
  * The prefix required by commands to be considered by the bot.
+ * @type {Object}
  */
-const prefix = config.prefix || "!";
+const prefix = config.prefix;
 
 const parser = require("@snooful/orangered-parser");
 const creq = require("clear-module");
@@ -84,91 +85,98 @@ const userPerms = require("./utils/user-perms.js");
  * @param {string} command The command to run, including prefix.
  * @param {*} channel The channel the command was sent from.
  * @param {*} message The message representing the command.
- * @returns {undefined} Nothing is returned.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
-	if (command.startsWith(prefix) && message._sender.nickname !== client.nickname) {
-		const unprefixedCmd = command.replace(prefix, "");
-		log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
+	if (message._sender.nickname === client.nickname) return;
 
-		let chData = {
-			parsable: null,
-		};
-		if (channel.data) {
-			try {
-				chData = {
-					parsable: true,
-					...JSON.parse(channel.data),
-				};
-			} catch (error) {
-				chData = {
-					parsable: false,
-				};
-			}
-		}
+	let unprefixedCmd = "";
+	if (prefix.start && command.startsWith(prefix.start)) {
+		unprefixedCmd = command.replace(prefix.start, "");
+	} else if (prefix.global && command.includes(prefix.global)) {
+		unprefixedCmd = command.slice(command.indexOf(prefix.global) + prefix.global.length);
+	} else {
+		return;
+	}
 
-		const settingsWrapper = settings.subredditWrapper(channelSub(channel));
+	log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
-		const author = message._sender.nickname;
-
-		if (!settingsWrapper.get("roles")) {
-			settingsWrapper.set("roles", {});
-		}
-		const perms = userPerms(author, settingsWrapper.get("roles"));
-
+	let chData = {
+		parsable: null,
+	};
+	if (channel.data) {
 		try {
-			parser.parse(unprefixedCmd, {
-				author,
-				chData,
-				channel,
-				client,
-				locales,
-				/**
+			chData = {
+				parsable: true,
+				...JSON.parse(channel.data),
+			};
+		} catch (error) {
+			chData = {
+				parsable: false,
+			};
+		}
+	}
+
+	const settingsWrapper = settings.subredditWrapper(channelSub(channel));
+
+	const author = message._sender.nickname;
+
+	if (!settingsWrapper.get("roles")) {
+		settingsWrapper.set("roles", {});
+	}
+	const perms = userPerms(author, settingsWrapper.get("roles"));
+
+	try {
+		parser.parse(unprefixedCmd, {
+			author,
+			chData,
+			channel,
+			client,
+			locales,
+			/**
 				 * Formats a string based on the set language of the subreddit/DM.
 				 */
-				localize: (...args) => {
-					return localize(settingsWrapper.get("lang"), ...args);
-				},
-				localizeO: localize,
-				log: log.commands,
-				message,
-				perms,
-				prefix,
-				reddit,
-				registry: parser.getCommandRegistry(),
-				reload,
-				sb,
-				send: content => {
-					return new Promise((resolve, reject) => {
-						channel.sendUserMessage(content.toString(), (error, sentMessage) => {
-							if (error) {
-								reject(error);
-							} else {
-								resolve(sentMessage);
-							}
-						});
-					});
-				},
-				settings: settingsWrapper,
-				testPermission: perm => {
-					if (chData.subreddit) {
-						// Mods have all permissions
-						const mods = settingsWrapper.get("mods");
-						if (mods && mods.includes(author)) {
-							return true;
+			localize: (...args) => {
+				return localize(settingsWrapper.get("lang"), ...args);
+			},
+			localizeO: localize,
+			log: log.commands,
+			message,
+			perms,
+			prefix,
+			reddit,
+			registry: parser.getCommandRegistry(),
+			reload,
+			sb,
+			send: content => {
+				return new Promise((resolve, reject) => {
+					channel.sendUserMessage(content.toString(), (error, sentMessage) => {
+						if (error) {
+							reject(error);
 						} else {
-							return pp.test(perm, perms, true);
+							resolve(sentMessage);
 						}
+					});
+				});
+			},
+			settings: settingsWrapper,
+			testPermission: perm => {
+				if (chData.subreddit) {
+					// Mods have all permissions
+					const mods = settingsWrapper.get("mods");
+					if (mods && mods.includes(author)) {
+						return true;
+					} else {
+						return pp.test(perm, perms, true);
 					}
+				}
 
-					// If it's not a subreddit, don't give it permissions
-					return true;
-				},
-				version,
-			});
-		} catch (error) {
-			safeFail(error);
-		}
+				// If it's not a subreddit, don't give it permissions
+				return true;
+			},
+			version,
+		});
+	} catch (error) {
+		safeFail(error);
 	}
 }
 
