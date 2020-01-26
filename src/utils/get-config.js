@@ -1,4 +1,5 @@
 const cosmic = require("cosmiconfig");
+const { configuration: log } = require("./debug.js");
 
 /**
  * Transforms a config.
@@ -15,6 +16,9 @@ function transformConfig(result) {
 	};
 
 	if (typeof newConfig.prefix === "string") {
+		log("changed prefix configuration to use object instead of string");
+
+		newConfig.prefix = {};
 		newConfig.prefix.start = result.config.prefix;
 		newConfig.prefix.global = null;
 	}
@@ -41,6 +45,12 @@ function getConfig() {
 		],
 		transform: transformConfig,
 	});
-	return explorer.searchSync().config;
+
+	const result = explorer.searchSync();
+
+	log("loaded configuration from '%s'", result.filepath);
+	log("loaded configuration: %O", result.config);
+
+	return result.config;
 }
 module.exports = getConfig;

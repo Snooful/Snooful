@@ -14,6 +14,10 @@ try {
 	 */
 module.exports.commands = debug("snooful:commands");
 /**
+	 * Debug for configuration loading and parsing.
+	 */
+module.exports.configuration = debug("snooful:configuration");
+/**
 	 * Debug for join and leave messages.
 	 */
 module.exports.gateway = debug("snooful:gateway");
