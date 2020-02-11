@@ -1,4 +1,31 @@
 const cosmic = require("cosmiconfig");
+const { configuration: log } = require("./debug.js");
+
+/**
+ * Transforms a config.
+ */
+function transformConfig(result) {
+	const newConfig = {
+		credentials: {},
+		prefix: {
+			global: null,
+			start: "!",
+		},
+		settingsManager: "@snooful/sqlite-settings",
+		...result.config,
+	};
+
+	if (typeof newConfig.prefix === "string") {
+		log("changed prefix configuration to use object instead of string");
+
+		newConfig.prefix = {};
+		newConfig.prefix.start = result.config.prefix;
+		newConfig.prefix.global = null;
+	}
+
+	result.config = newConfig;
+	return result;
+}
 
 /**
  * Gets the user-defined configuration for Snooful with defaults.
@@ -16,13 +43,14 @@ function getConfig() {
 			".snoofulrc.js",
 			"snooful.config.js",
 		],
-		transform: result => ({
-			credentials: {},
-			prefix: "!",
-			settingsManager: "@snooful/sqlite-settings",
-			...result.config,
-		}),
+		transform: transformConfig,
 	});
-	return explorer.searchSync();
+
+	const result = explorer.searchSync();
+
+	log("loaded configuration from '%s'", result.filepath);
+	log("loaded configuration: %O", result.config);
+
+	return result.config;
 }
 module.exports = getConfig;

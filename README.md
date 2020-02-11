@@ -37,7 +37,9 @@ Switching the settings manager does not transfer the existing data. However, you
 
 ### Prefix
 
-You can also configure the prefix from the default `!` by setting `prefix`. The prefix is the thing that differentiates a command from a message. Basically, with a prefix of `?`, you must type `?ping` to run the `ping` command.
+You can also configure the prefix from the default `!` by setting `prefix.start`. The prefix is the thing that differentiates a command from a message. Basically, with a prefix of `?`, you must type `?ping` to run the `ping` command.
+
+While disabled by default, it is also possible to configure a global prefix at `prefix.global`. This prefix works anywhere in a message, and everything after the prefix will be considered an argument to the command.
 
 *Please change the prefix if you are hosting your own version of Snooful.*
 
@@ -58,7 +60,10 @@ Here is an example configuration:
 
 ```json
 {
-  "prefix": "?",
+  "prefix": {
+	"start": "?",
+	"global": "--"
+  },
   "credentials": {
     "clientId": "a897d89f89e",
     "clientSecret": "0202390301209919219810929012",
