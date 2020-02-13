@@ -19,7 +19,7 @@ module.exports = {
 		if (roleName === "user") {
 			return args.send(args.localize("cannot_take_user_role"));
 		} else if (!roles[roleName]) {
-			return args.send(args.localize("nonexistent_role", args.prefix));
+			return args.send(args.localize("nonexistent_role", args.usedPrefix));
 		} else if (!roles[roleName].users.includes(args.user)) {
 			return args.send(args.localize("user_doesnt_have_role", args.user));
 		}

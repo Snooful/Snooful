@@ -9,7 +9,7 @@
 function permLocalization(args, perm, locKey, ...vals) {
 	const hasPerm = args.testPermission(perm);
 	if (hasPerm) {
-		vals.prefix = args.prefix;
+		vals.usedPrefix = args.usedPrefix;
 		return args.localize(locKey, ...vals);
 	} else {
 		return args.localize(locKey + "_no_permission", ...vals);

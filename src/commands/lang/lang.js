@@ -7,7 +7,7 @@ module.exports = {
 	category: "lang",
 	description: "Gets the current language of Snooful.",
 	handler: args => {
-		args.send(args.localize("current_language", args.localize("language"), args.prefix));
+		args.send(args.localize("current_language", args.localize("language"), args.usedPrefix));
 	},
 	name: "lang",
 };

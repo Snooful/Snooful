@@ -16,10 +16,10 @@ module.exports = {
 			if (faqs && faqs[args.id]) {
 				args.send("ℹ️ " + faqs[args.id]);
 			} else {
-				args.send(args.localize("faq_nonexistent", args.prefix));
+				args.send(args.localize("faq_nonexistent", args.usedPrefix));
 			}
 		} else {
-			args.send(args.localize("faq_unspecified", args.prefix));
+			args.send(args.localize("faq_unspecified", args.usedPrefix));
 		}
 	},
 	longDescription: "Shows a FAQ message that has been set previously.",

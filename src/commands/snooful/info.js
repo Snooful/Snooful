@@ -4,6 +4,6 @@ module.exports = {
 	],
 	category: "snooful",
 	description: "Shows info about this bot.",
-	handler: args => args.send(args.localize("info", args.client.nickname, args.prefix)),
+	handler: args => args.send(args.localize("info", args.client.nickname, args.usedPrefix)),
 	name: "info",
 };

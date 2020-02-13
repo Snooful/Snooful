@@ -19,7 +19,7 @@ module.exports = {
 		const msg = [];
 
 		// Full command template
-		msg.push(args.prefix + command.usage());
+		msg.push(args.usedPrefix + command.usage());
 
 		// Description
 		if (command.longDescription) {
@@ -31,10 +31,10 @@ module.exports = {
 		// Aliases
 		if (command.aliases && command.aliases.length > 0) {
 			if (command.aliases.length === 1) {
-				msg.push(args.localize("command_aliases_single") + " " + args.prefix + command.aliases[0]);
+				msg.push(args.localize("command_aliases_single") + " " + args.usedPrefix + command.aliases[0]);
 			} else {
 				const aliases = command.aliases.splice(0, 5);
-				msg.push(args.localize("command_aliases") + "\n• " + args.prefix + aliases.join("\n• " + args.prefix));
+				msg.push(args.localize("command_aliases") + "\n• " + args.usedPrefix + aliases.join("\n• " + args.usedPrefix));
 			}
 		}
 

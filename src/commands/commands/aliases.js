@@ -4,7 +4,7 @@ module.exports = paginate("aliases", args => {
 		// Include only aliases
 		return command.name !== command.originalName;
 	}).map(command => {
-		return args.localize("alias_listing", args.prefix + command.name, command.originalName);
+		return args.localize("alias_listing", args.usedPrefix + command.name, command.originalName);
 	});
 }, {
 	command: {

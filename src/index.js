@@ -90,10 +90,13 @@ function handleCommand(command = "", channel = {}, message = {}) {
 	if (message._sender.nickname === client.nickname) return;
 
 	let unprefixedCmd = "";
+	let usedPrefixType = "";
 	if (prefix.start && command.startsWith(prefix.start)) {
 		unprefixedCmd = command.replace(prefix.start, "");
+		usedPrefixType = "start";
 	} else if (prefix.global && command.includes(prefix.global)) {
 		unprefixedCmd = command.slice(command.indexOf(prefix.global) + prefix.global.length);
+		usedPrefixType = "global";
 	} else {
 		return;
 	}
@@ -142,7 +145,6 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			log: log.commands,
 			message,
 			perms,
-			prefix,
 			reddit,
 			registry: parser.getCommandRegistry(),
 			reload,
@@ -173,6 +175,8 @@ function handleCommand(command = "", channel = {}, message = {}) {
 				// If it's not a subreddit, don't give it permissions
 				return true;
 			},
+			usedPrefix: prefix[usedPrefixType],
+			usedPrefixType,
 			version,
 		});
 	} catch (error) {

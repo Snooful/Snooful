@@ -16,10 +16,10 @@ module.exports = {
 
 				args.send(args.localize("delete_faq_success"));
 			} else {
-				args.send(args.localize("delete_faq_nonexistent", args.prefix, args.id));
+				args.send(args.localize("delete_faq_nonexistent", args.usedPrefix, args.id));
 			}
 		} else {
-			args.send(args.localize("delete_faq_unspecified", args.prefix));
+			args.send(args.localize("delete_faq_unspecified", args.usedPrefix));
 		}
 	},
 	name: "delfaq",

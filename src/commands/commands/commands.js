@@ -4,7 +4,7 @@ module.exports = paginate("commands", args => {
 		// Remove aliases
 		return command.name === command.originalName;
 	}).map(command => {
-		return `${args.prefix}${command.name}: ${command.description}`;
+		return `${args.usedPrefix}${command.name}: ${command.description}`;
 	});
 }, {
 	command: {

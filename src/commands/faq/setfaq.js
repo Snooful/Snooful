@@ -21,10 +21,10 @@ module.exports = {
 
 				args.send(idDoesExist ? args.localize("set_faq_message_success_update", args.id) : args.localize("set_faq_message_success_create", args.id));
 			} else {
-				args.send(args.localize("set_faq_message_unspecified", args.prefix));
+				args.send(args.localize("set_faq_message_unspecified", args.usedPrefix));
 			}
 		} else {
-			args.send(args.localize("set_faq_id_unspecified", args.prefix));
+			args.send(args.localize("set_faq_id_unspecified", args.usedPrefix));
 		}
 	},
 	name: "setfaq",
