@@ -172,7 +172,7 @@
 			"That's not a valid time zone.",
 			"That's not a time zone I've heard of!"
 		],
-		"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {prefix}commands to get started.",
+		"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {usedPrefix}commands to get started.",
 		"ipv4_address": "Here is a random IP address: {}",
 		"ipv6_address": "Here is a random IPv6 address: {}",
 		"isalias_false": "The command, {}, is not an alias.",
@@ -187,7 +187,7 @@
 		"karma_error": "That user's karma could not be retrieved.",
 		"karma_user_not_found": "That user's karma could not be retrieved because they do not exist.",
 		"lang_datatype": "languages",
-		"langs_footer": "You can change the language with {prefix}setlang <lang>, where <lang> is one of the codes seen above.",
+		"langs_footer": "You can change the language with {usedPrefix}setlang <lang>, where <lang> is one of the codes seen above.",
 		"language": "English (American)",
 		"language_not_available": [
 			"Sorry, but I cannot speak that language currently.",
@@ -211,7 +211,7 @@
 			"The moderator list is now up to date."
 		],
 		"new_language_unspecified": "To change my language, you must specify the new language.",
-		"no_faqs": "There are no {type}, but you can make one by using {prefix}setfaq.",
+		"no_faqs": "There are no {type}, but you can make one by using {usedPrefix}setfaq.",
 		"no_faqs_no_permission": "There are no {type}.",
 		"no_pagination_items": "There are no {} to view.",
 		"no_permission": "You are not allowed to use this command.",
@@ -482,7 +482,7 @@
 			"Esa no es una zona horaria válida.",
 			"¡Nunca he oído hablar de esa zona horaria!"
 		],
-		"invite_message": "¡Gracias por invitarme a este canal, u/{inviter}!\nSoy u/{me}, tu simpático bot asistente,\ny para comenzar puedes escribir {prefix}commands.",
+		"invite_message": "¡Gracias por invitarme a este canal, u/{inviter}!\nSoy u/{me}, tu simpático bot asistente,\ny para comenzar puedes escribir {usedPrefix}commands.",
 		"isalias_false": "El comando, {}, no es un alias.",
 		"isalias_true": "El comando, {}, es un alias de {}.",
 		"iss_location": [
@@ -492,7 +492,7 @@
 		"iss_location_type": "Ubicación de la ISS (Estación Espacial Internacional)",
 		"join_message": "mensaje de bienvenida",
 		"lang_datatype": "idiomas",
-		"langs_footer": "Puedes cambiar el idioma con {prefix}setlang <idioma>, donde <idioma> es uno de los códigos arriba descritos.",
+		"langs_footer": "Puedes cambiar el idioma con {usedPrefix}setlang <idioma>, donde <idioma> es uno de los códigos arriba descritos.",
 		"language": "Español",
 		"language_not_available": [
 			"Lo siento, pero no sé hablar ese idioma en este momento.",
@@ -507,7 +507,7 @@
 		"mod_update_not_subreddit": "No puedes actualizar la lista de moderadores porque esto no es el chat de un subreddit.",
 		"mod_update_success": "La lista de moderadores se ha actualizado correctamente.",
 		"new_language_unspecified": "Para cambiar mi idioma, debes introducir el nuevo idioma.",
-		"no_faqs": "No hay {type}. Puedes crear uno usando {prefix}setfaq.",
+		"no_faqs": "No hay {type}. Puedes crear uno usando {usedPrefix}setfaq.",
 		"no_pagination_items": "No hay {} para ver.",
 		"no_permission": "No tienes los permisos necesarios para usar este comando.",
 		"nonexistent_role": "Ese rol no existe.",
