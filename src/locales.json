@@ -249,6 +249,10 @@
 		"record_request_error": "There was an error when trying to make a request to the speedrun.com API!",
 		"record_runs_type": "runs",
 		"reload_success": "All commands have been reloaded.",
+		"rename_faq_nonexistent": "That FAQ could not be renamed because it does not exist.",
+		"rename_faq_same": "That FAQ already has that name.",
+		"rename_faq_success": "That FAQ has been successfully renamed.",
+		"rename_faq_target_exists": "A FAQ message with the target ID already exists.",
 		"reverse": [
 			"Reversing that gives us: {}",
 			"After swapping the order of that text, we get: {}"
