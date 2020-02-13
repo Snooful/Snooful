@@ -9,6 +9,29 @@ try {
 }
 
 /**
+ * Converts a thing to an array.
+ * @param {*} thing The thing to convert to an array.
+ * @returns {*[]} The thing as an array.
+ */
+function toArray(thing) {
+	// Falsy value: empty array
+	if (!thing) return [];
+
+	// Array: return that array
+	if (Array.isArray(thing)) return thing;
+
+	// Object: key/value pair
+	if (typeof thing === "object") {
+		return Object.entries().map(([key, value]) => {
+			return key + ": " + value;
+		});
+	}
+
+	// Array-like: convert to array
+	return [...thing];
+}
+
+/**
 	* Gets data for pagination.
 	* @name DataGetFunction
 	* @function
@@ -45,7 +68,7 @@ module.exports = (command, data = [], opts = {}) => {
 		}],
 		handler: async args => {
 			const dataValue = typeof data === "function" ? await data(args) : data;
-			const resolvedData = dataValue === undefined ? [] : [].concat();
+			const dataArray = toArray(dataValue);
 
 			const dataType = args.localize(options.dataType);
 
@@ -56,15 +79,15 @@ module.exports = (command, data = [], opts = {}) => {
 				type: dataType,
 			});
 
-			const list = chunk(resolvedData.sort(), 5);
-			if (resolvedData.length === 0) {
+			const list = chunk(dataArray.sort(), 5);
+			if (dataArray.length === 0) {
 				args.send(options.noItemsMessage ? args.localize(options.noItemsMessage, expandedArgs) : args.localize("no_pagination_items", dataType));
 			} else if (args.page <= list.length && args.page > 0) {
 				if (Number.isSafeInteger(args.page)) {
 					const pageOfText = properChunk ? " " + args.localize("page_counter", args.page, list.length) : "";
 					const endText = options.footer ? "\n\n" + (args.localize(options.footer, expandedArgs) || options.footer) : "";
 
-					args.send(`${resolvedData.length} ${dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
+					args.send(`${dataArray.length} ${dataType}${pageOfText}: \n\n• ${list[args.page - 1].join("\n• ")}${endText}`);
 				} else {
 					args.send(args.localize("page_number_not_integer"));
 				}
