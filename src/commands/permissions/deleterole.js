@@ -1,6 +1,7 @@
 const roleNameify = require("./../../utils/role-name.js");
 module.exports = {
 	aliases: [
+		"delrole",
 		"eraserole",
 	],
 	arguments: [{

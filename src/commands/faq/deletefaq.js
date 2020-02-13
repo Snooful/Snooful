@@ -1,4 +1,7 @@
 module.exports = {
+	aliases: [
+		"delfaq",
+	],
 	arguments: [{
 		describe: "The ID of the FAQ to delete.",
 		key: "id",
@@ -22,5 +25,5 @@ module.exports = {
 			args.send(args.localize("delete_faq_unspecified", args.usedPrefix));
 		}
 	},
-	name: "delfaq",
+	name: "deletefaq",
 };
