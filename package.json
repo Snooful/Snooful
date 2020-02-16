@@ -29,6 +29,7 @@
 		"upsidedown": "0.0.5",
 		"urban-dictionary": "^2.1.2",
 		"url-escape-tag": "^1.0.0",
+		"validate-npm-package-name": "^3.0.0",
 		"wikijs": "^4.13.0"
 	},
 	"optionalDependencies": {
