@@ -1,6 +1,9 @@
 const wiki = require("wikijs").default();
 
 module.exports = {
+	aliases: [
+		"wiki",
+	],
 	arguments: [{
 		description: "The Wikipedia page to get a link to.",
 		key: "page",
