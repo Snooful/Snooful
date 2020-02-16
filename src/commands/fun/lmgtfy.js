@@ -3,6 +3,7 @@ module.exports = {
 	arguments: [{
 		description: "The query for LMGTFY.",
 		key: "query",
+		required: true,
 		type: "string",
 	}],
 	category: "fun",
