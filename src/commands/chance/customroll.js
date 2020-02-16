@@ -7,12 +7,11 @@ module.exports = {
 		"croll",
 		"cdice",
 	],
-	builder: build => {
-		build.positional("dice", {
-			describe: "The dice you want to roll, in standard RPG format.",
-			type: "string",
-		});
-	},
+	arguments: [{
+		description: "The dice you want to roll, in standard dice notation.",
+		key: "dice",
+		type: "string",
+	}],
 	category: "chance",
 	description: "Rolls dice with a custom notation.",
 	handler: args => {
