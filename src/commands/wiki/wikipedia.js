@@ -1,4 +1,5 @@
 const wiki = require("wikijs").default();
+const truncate = require("truncate");
 
 module.exports = {
 	aliases: [
@@ -14,7 +15,13 @@ module.exports = {
 	description: "Gets the link to a Wikipedia page.",
 	handler: args => {
 		wiki.page(args.page).then(page => {
-			args.send(page.raw.title + " - " + page.raw.canonicalurl);
+			const header = page.raw.title + " - " + page.raw.canonicalurl;
+			page.summary().then(fullSummary => {
+				const summary = truncate(fullSummary, 480);
+				args.send(header + "\n\n" + summary);
+			}).catch(() => {
+				args.send(header);
+			});
 		}).catch(error => {
 			if (error.message === "No article found") {
 				return args.send(args.localize("wikipedia_article_not_found"));
