@@ -84,9 +84,6 @@
 		"node": ">=8.5.0"
 	},
 	"eslintConfig": {
-		"extends": "eslint-config-haykam",
-		"rules": {
-			"valid-jsdoc": "off"
-		}
+		"extends": "eslint-config-haykam"
 	}
 }

@@ -10,6 +10,7 @@ const got = mem(require("got"), {
  * @param {string} prefix The prefix of the localization keys.
  * @param {string} otherPart The localization key excluding the prefix.
  * @param  {...any} formats Formatting to apply to the localized message.
+ * @returns {string} The localized message.
  */
 function safeLocal(localize, prefix, otherPart, ...formats) {
 	const customed = localize(prefix + "_" + otherPart, ...formats);

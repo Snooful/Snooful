@@ -136,8 +136,9 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			client,
 			locales,
 			/**
-				 * Formats a string based on the set language of the subreddit/DM.
-				 */
+			 * Formats a string based on the set language of the subreddit/DM.
+			 * @returns {*} The formatted localization based on the set language of the subreddit/DM.
+			 */
 			localize: (...args) => {
 				return localize(settingsWrapper.get("lang"), ...args);
 			},

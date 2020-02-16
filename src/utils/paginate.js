@@ -44,11 +44,12 @@ function toArray(thing) {
 	* If lodash.chunk is not installed, works but without pages.
 	* @param {string} command The name of the command.
 	* @param {(DataGetFunction|*)} [data] The data to paginate.
-	* @param [opts] Other options.
+	* @param {Object} [opts] Other options.
 	* @param {Object} [opts.command] Other values for the command.
 	* @param {string} [opts.dataType] The localization key for a plural word used to describe the data.
 	* @param {string} [opts.footer] Text to display after the data as a footer.
 	* @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
+	* @returns {Object} A paginated command object.
 */
 module.exports = (command, data = [], opts = {}) => {
 	const options = {

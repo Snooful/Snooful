@@ -3,6 +3,8 @@ const { configuration: log } = require("./debug.js");
 
 /**
  * Transforms a config.
+ * @param {Object} result The config result from cosmiconfig.
+ * @returns {Object} The result with the transformed config.
  */
 function transformConfig(result) {
 	const newConfig = {
@@ -29,7 +31,7 @@ function transformConfig(result) {
 
 /**
  * Gets the user-defined configuration for Snooful with defaults.
- * @returns {object} The configuration object.
+ * @returns {Object} The configuration object.
  */
 function getConfig() {
 	const explorer = cosmic("snooful", {

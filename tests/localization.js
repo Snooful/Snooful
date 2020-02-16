@@ -18,7 +18,7 @@ function alphaSorted(array = []) {
 
 /**
  * Tests a locale for correct values.
- * @param {Object} The locale to test.
+ * @param {Object} locale The locale to test.
  * @returns {undefined}
  */
 function localizationFormatTests(locale = {}) {

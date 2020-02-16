@@ -1,5 +1,8 @@
 /**
  * Creates a setter command for event messages.
+ * @param {string} command The name of the command.
+ * @param {Object} [opts] The command's options.
+ * @returns {Object} The setter command object.
  */
 module.exports = (command, opts = {}) => {
 	if (!opts.storageKey) {
