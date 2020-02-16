@@ -3,7 +3,7 @@ const got = require("got");
 
 module.exports = {
 	arguments: [{
-		description: "The package to check for existance on the npm registry.",
+		description: "The package to check for existence on the npm registry.",
 		key: "package",
 		required: true,
 		type: "string",
