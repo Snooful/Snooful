@@ -1,6 +1,27 @@
 const rpgDiceRoller = require("rpg-dice-roller");
 const DiceRoller = new rpgDiceRoller.DiceRoller();
 
+/**
+ * The maximum amount of lands to show individually.
+ * @type {number}
+ */
+const maxIndividualLands = 10;
+
+/**
+ * Stringifies lands, with a maximum amount of individual lands.
+ * @param {number[]} lands The lands.
+ * @param {Function} localize The localization function.
+ * @returns {string} The stringified lands.
+ */
+function getIndividualResults(lands, localize) {
+	if (lands.length < maxIndividualLands) {
+		return lands.join(", ");
+	}
+
+	const otherLandsCount = lands.length - maxIndividualLands;
+	return lands.slice(0, maxIndividualLands).join(", ") + ", " + localize("custom_roll_other_lands", otherLandsCount);
+}
+
 module.exports = {
 	aliases: [
 		"customdice",
@@ -23,7 +44,8 @@ module.exports = {
 				const lands = roll.rolls[0];
 				const sum = lands.reduce((prev, curr) => prev + curr);
 
-				args.send(args.localize("custom_roll_results", lands.join(", "), sum));
+				const results = getIndividualResults(lands, args.localize);
+				args.send(args.localize("custom_roll_results", results, sum));
 			}
 		} else {
 			args.send(args.localize("custom_roll_notation_unspecified"));

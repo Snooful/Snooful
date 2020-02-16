@@ -76,6 +76,7 @@
 			"The custom roll's in an invalid syntax. It must be proper dice notation."
 		],
 		"custom_roll_notation_unspecified": "Specify the dice you want to roll using standard notation.",
+		"custom_roll_other_lands": "and {} other lands",
 		"custom_roll_results": "Dice output: {}, with a total of {}.",
 		"definition_vote_count": "({} votes)",
 		"delete_faq_no_permission": [
