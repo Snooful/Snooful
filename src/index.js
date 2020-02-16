@@ -81,27 +81,42 @@ const pp = require("@snooful/periwinkle-permissions");
 const userPerms = require("./utils/user-perms.js");
 
 /**
- * Runs a command.
- * @param {string} command The command to run, including prefix.
- * @param {*} channel The channel the command was sent from.
- * @param {*} message The message representing the command.
+ * Parses a command for a prefix and handles the command.
+ * @param {Object} message The message representing the possible command.
+ * @param {Object} channel The channel the possible command was sent from.
  */
-function handleCommand(command = "", channel = {}, message = {}) {
+function handleMessage(message = {}, channel = {}) {
 	if (message._sender.nickname === client.nickname) return;
+
+	/**
+	 * The content of the message.
+	 */
+	const content = message.message;
 
 	let unprefixedCmd = "";
 	let usedPrefixType = "";
-	if (prefix.start && command.startsWith(prefix.start)) {
-		unprefixedCmd = command.replace(prefix.start, "");
+	if (prefix.start && content.startsWith(prefix.start)) {
+		unprefixedCmd = content.replace(prefix.start, "");
 		usedPrefixType = "start";
-	} else if (prefix.global && command.includes(prefix.global)) {
-		unprefixedCmd = command.slice(command.indexOf(prefix.global) + prefix.global.length);
+	} else if (prefix.global && content.includes(prefix.global)) {
+		unprefixedCmd = content.slice(content.indexOf(prefix.global) + prefix.global.length);
 		usedPrefixType = "global";
 	} else {
 		return;
 	}
 
-	log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
+	handleCommand(unprefixedCmd, message, channel, usedPrefixType);
+}
+
+/**
+ * Runs a command.
+ * @param {string} command The command to run, not including prefix.
+ * @param {Object} message The message representing the command.
+ * @param {Object} channel The channel the command was sent from.
+ * @param {string} usedPrefixType The type of prefix used to trigger the command.
+ */
+function handleCommand(command = "", message = {}, channel = {}, usedPrefixType) {
+	log.commands("recieved command '%s' from '%s' channel", command, channel.name);
 
 	let chData = {
 		parsable: null,
@@ -129,7 +144,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 	const perms = userPerms(author, settingsWrapper.get("roles"));
 
 	try {
-		parser.parse(unprefixedCmd, {
+		parser.parse(command, {
 			author,
 			chData,
 			channel,
@@ -279,7 +294,7 @@ launch();
 
 const handler = new sb.ChannelHandler();
 
-handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
+handler.onMessageReceived = (channel, message) => handleMessage(message, channel);
 handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
 		// I have been invited to a channel.
