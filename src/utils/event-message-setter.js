@@ -40,7 +40,7 @@ module.exports = (command, opts = {}) => {
 				args.send(args.localize("event_message_clear", msgTypeLocal));
 			}
 		},
-		longDescription: options.longDescription + " {USER} is replaced with the user's name.",
+		longDescription: options.longDescription + " {USER} is replaced with the user's name, and {WHEN} is replaced with when the event occurred.",
 		name: command,
 		...options.command,
 	};
