@@ -12,13 +12,17 @@ module.exports = {
 	}],
 	category: "wiki",
 	description: "Gets the link to a Wikipedia page.",
-	handler: args => wiki.page(args.page).catch(error => {
-		if (error.message === "No article found") {
-			args.send(args.localize("wikipedia_article_not_found"));
-		}
-	}).then(page => {
-		args.send(page.raw.title + " - " + page.raw.canonicalurl);
-	}),
+	handler: args => {
+		wiki.page(args.page).then(page => {
+			args.send(page.raw.title + " - " + page.raw.canonicalurl);
+		}).catch(error => {
+			if (error.message === "No article found") {
+				return args.send(args.localize("wikipedia_article_not_found"));
+			}
+
+			args.send(args.localize("wikipedia_error"));
+		});
+	},
 	longDescription: "Gets the link to the given page on Wikipedia, following redirects if present.",
 	name: "wikipedia",
 };

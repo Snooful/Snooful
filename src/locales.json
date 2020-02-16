@@ -339,7 +339,8 @@
 		"wikipedia_article_not_found": [
 			"That Wikipedia article could not be found.",
 			"The biggest encyclomedia on this planet doesn't have that article. What a shame."
-		]
+		],
+		"wikipedia_error": "An error occurred while looking up that article on Wikipedia."
 	},
 	"es-ES": {
 		"alias_datatype": "alias",
