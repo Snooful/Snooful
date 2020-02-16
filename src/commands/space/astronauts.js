@@ -6,7 +6,7 @@ module.exports = paginate("astronauts", async args => {
 		contentType: "astronauts_type",
 		errorKeyPrefix: "record",
 		got: {
-			json: true,
+			responseType: "json",
 		},
 	});
 	return response.body.people.map(astro => {

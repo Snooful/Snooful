@@ -14,7 +14,7 @@ module.exports = {
 		const validation = validate(args.package);
 		if (validation.validForOldPackages) {
 			got({
-				json: true,
+				responseType: "json",
 				url: "https://api.npms.io/v2/package/" + encodeURIComponent(args.package),
 			}).then(response => {
 				if (response && response.body && response.body.collected && response.body.collected.metadata) {

@@ -16,7 +16,7 @@ module.exports = {
 	handler: args => {
 		get(`https://api.github.com/repos/${github}/issues`, args, {
 			got: {
-				json: true,
+				responseType: "json",
 			},
 			handleErrors: false,
 		}).then(response => {

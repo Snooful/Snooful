@@ -23,7 +23,7 @@ module.exports = {
 				contentType: "record_game_type",
 				errorKeyPrefix: "record",
 				got: {
-					json: true,
+					responseType: "json",
 				},
 			}).then(gameResponse => {
 				const game = gameResponse.body.data[0];
@@ -31,7 +31,7 @@ module.exports = {
 					contentType: "record_runs_type",
 					errorKeyPrefix: "record",
 					got: {
-						json: true,
+						responseType: "json",
 					},
 				}).then(runsResponse => {
 					const topRun = runsResponse.body.data[0].runs[0].run;

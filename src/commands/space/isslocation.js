@@ -10,7 +10,7 @@ module.exports = {
 		const response = await fetch("http://api.open-notify.org/iss-now.json", args, {
 			contentType: "iss_location_type",
 			got: {
-				json: true,
+				responseType: "json",
 			},
 		});
 		const pos = response.body.iss_position;
