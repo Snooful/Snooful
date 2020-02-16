@@ -2,6 +2,7 @@ const { version } = require("./../package.json");
 const config = require("./utils/get-config.js")();
 
 const Snoowrap = require("snoowrap");
+const { CommentStream } = require("snoostorm");
 
 // Utilities
 const log = require("./utils/debug.js");
@@ -84,8 +85,9 @@ const userPerms = require("./utils/user-perms.js");
  * Parses a command for a prefix and handles the command.
  * @param {Object} message The message representing the possible command.
  * @param {Object} channel The channel the possible command was sent from.
+ * @param {Function} send A custom send function to use.
  */
-function handleMessage(message = {}, channel = {}) {
+function handleMessage(message = {}, channel = {}, send) {
 	if (message._sender.nickname === client.nickname) return;
 
 	/**
@@ -105,7 +107,7 @@ function handleMessage(message = {}, channel = {}) {
 		return;
 	}
 
-	handleCommand(unprefixedCmd, message, channel, usedPrefixType);
+	handleCommand(unprefixedCmd, message, channel, usedPrefixType, send);
 }
 
 /**
@@ -114,8 +116,9 @@ function handleMessage(message = {}, channel = {}) {
  * @param {Object} message The message representing the command.
  * @param {Object} channel The channel the command was sent from.
  * @param {string} usedPrefixType The type of prefix used to trigger the command.
+ * @param {Function} send A custom send function to use.
  */
-function handleCommand(command = "", message = {}, channel = {}, usedPrefixType) {
+function handleCommand(command = "", message = {}, channel = {}, usedPrefixType, send) {
 	log.commands("recieved command '%s' from '%s' channel", command, channel.name);
 
 	let chData = {
@@ -165,7 +168,7 @@ function handleCommand(command = "", message = {}, channel = {}, usedPrefixType)
 			registry: parser.getCommandRegistry(),
 			reload,
 			sb,
-			send: content => {
+			send: send || (content => {
 				return new Promise((resolve, reject) => {
 					channel.sendUserMessage(content.toString(), (error, sentMessage) => {
 						if (error) {
@@ -175,7 +178,7 @@ function handleCommand(command = "", message = {}, channel = {}, usedPrefixType)
 						}
 					});
 				});
-			},
+			}),
 			settings: settingsWrapper,
 			testPermission: perm => {
 				if (chData.subreddit) {
@@ -291,6 +294,33 @@ function launch() {
 	});
 }
 launch();
+
+const stream = new CommentStream(reddit, {
+	limit: 50,
+	pollTime: 2000,
+	subreddit: "pan_media",
+});
+stream.on("item", async comment => {
+	if (comment.saved) return;
+	comment.save();
+
+	const post = await reddit.getSubmission(comment.link_id).fetch();
+	if (post.allow_live_comments) {
+		handleMessage({
+			_sender: {
+				nickname: comment.author.name,
+			},
+			message: comment.body,
+		}, {
+			data: JSON.stringify({
+				subreddit: {
+					name: comment.subreddit.display_name,
+				},
+			}),
+			name: comment.link_title,
+		}, post.reply.bind(post));
+	}
+});
 
 const handler = new sb.ChannelHandler();
 
