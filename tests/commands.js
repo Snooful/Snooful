@@ -31,4 +31,15 @@ describe("commands", () => {
 			assert(description.endsWith("."), `${name}'s description doesn't end with a period`);
 		});
 	});
+	it("have concise aliases", () => {
+		registry.forEach(({ aliases, name }) => {
+			if (Array.isArray(aliases)) {
+				assert(aliases.length <= 10, `${name} has too many aliases (over 10)`);
+				aliases.forEach(alias => {
+					assert(alias.length <= 20, `${name}'s alias (${alias}) is too long (over 20 characters)`);
+					assert(alias.length >= 2, `${name}'s alias (${alias}) is too short (under 2 characters)`);
+				});
+			}
+		});
+	});
 });
