@@ -1,4 +1,4 @@
-const locales = require("../locales.js");
+const locales = require("./get-locales.js")();
 const format = require("string-format");
 const upsidedown = require("upsidedown");
 

@@ -20,6 +20,7 @@
 		"node-emoji": "^1.10.0",
 		"pify": "^4.0.1",
 		"pm2": "^3.5.1",
+		"require-all": "^3.0.0",
 		"rpg-dice-roller": "^2.0.0",
 		"sendbird": "^3.0.100",
 		"snoowrap": "^1.15.2",
