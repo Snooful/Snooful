@@ -74,7 +74,7 @@ process.on("unhandledException", safeFail);
  */
 let client = {};
 
-const locales = require("./locales.json");
+const locales = require("./locales.js");
 const localize = require("./utils/localize.js");
 
 const pp = require("@snooful/periwinkle-permissions");
