@@ -20,8 +20,8 @@ describe("commands", () => {
 			assert.isString(description, `${name} does not have a description`);
 
 			// Length
-			assert(description.length < 50, `${name}'s description is too long`);
-			assert(description.length > 8, `${name}'s description is too short`);
+			assert(description.length <= 50, `${name}'s description is too long (over 50 characters)`);
+			assert(description.length >= 8, `${name}'s description is too short (under 8 characters)`);
 
 			// Capital letter
 			const firstLetter = description[0];
