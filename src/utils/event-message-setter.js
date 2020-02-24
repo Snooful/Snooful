@@ -4,7 +4,7 @@
  * @param {Object} [opts] The command's options.
  * @returns {Object} The setter command object.
  */
-module.exports = (command, opts = {}) => {
+function eventMessageSetter(command, opts = {}) {
 	if (!opts.storageKey) {
 		throw new Error(`Missing the storage key for the event message set by command ${command}`);
 	}
@@ -44,4 +44,5 @@ module.exports = (command, opts = {}) => {
 		name: command,
 		...options.command,
 	};
-};
+}
+module.exports = eventMessageSetter;

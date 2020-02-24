@@ -6,7 +6,7 @@ const pify = require("pify");
  * @param {any[]} ...args The arguments to pass to the function when running it.
  * @returns {Promise} A promise resolving to the output of the function and rejecting to an error if
  */
-module.exports = (input, ...args) => {
+function promisify(input, ...args) {
 	if (!input) {
 		throw new TypeError("The input parameter is required.");
 	} else if (typeof input !== "function") {
@@ -16,4 +16,5 @@ module.exports = (input, ...args) => {
 	return pify(input, {
 		errorFirst: true,
 	})(...args);
-};
+}
+module.exports = promisify;

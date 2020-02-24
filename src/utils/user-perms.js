@@ -4,7 +4,7 @@ const defaults = [
 	"-commands.eventmessage.*",
 ];
 
-module.exports = (user, roles) => {
+function userPerms(user, roles) {
 	const startingPerms = [defaults];
 	if (roles.user && roles.user.perms) {
 		startingPerms.push(roles.user.perms);
@@ -35,4 +35,5 @@ module.exports = (user, roles) => {
 		}
 	}, startingPerms);
 	return perms;
-};
+}
+module.exports = userPerms;

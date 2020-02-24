@@ -51,7 +51,7 @@ function toArray(thing) {
 	* @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
 	* @returns {Object} A paginated command object.
 */
-module.exports = (command, data = [], opts = {}) => {
+function paginate(command, data = [], opts = {}) {
 	const options = {
 		command: {},
 		dataType: "generic_datatype",
@@ -99,4 +99,5 @@ module.exports = (command, data = [], opts = {}) => {
 		name: command,
 		...options.command,
 	};
-};
+}
+module.exports = paginate;
