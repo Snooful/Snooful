@@ -1,7 +1,7 @@
 const defaults = [
 	"commands.*",
 	"-commands.permissions.*",
-	"-commands.eventmessages.*",
+	"-commands.eventmessage.*",
 ];
 
 module.exports = (user, roles) => {
