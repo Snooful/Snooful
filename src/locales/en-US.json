@@ -195,6 +195,11 @@
 		"Sorry, but I cannot speak that language currently.",
 		"I don't know that language. You should consider helping with localizations!"
 	],
+	"members_count": [
+		"This channel has {} members.",
+		"There are {} people in this channel."
+	],
+	"members_direct": "There are 2 members in this direct channel: you and me.",
 	"language_updated": [
 		"My language has been updated to {} here.",
 		"I'll now speak {} here."
