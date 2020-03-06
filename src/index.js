@@ -7,6 +7,7 @@ const Snoowrap = require("snoowrap");
 const log = require("./utils/debug.js");
 const pify = require("./utils/promisify");
 const channelSub = require("./utils/channel-sub.js");
+const unprefixCommand = require("./utils/unprefix-command.js");
 const eventMessageFactory = require("./utils/event-message-handler.js");
 
 const path = require("path");
@@ -89,17 +90,9 @@ const userPerms = require("./utils/user-perms.js");
 function handleCommand(command = "", channel = {}, message = {}) {
 	if (message._sender.nickname === client.nickname) return;
 
-	let unprefixedCmd = "";
-	let usedPrefixType = "";
-	if (prefix.start && command.startsWith(prefix.start)) {
-		unprefixedCmd = command.replace(prefix.start, "");
-		usedPrefixType = "start";
-	} else if (prefix.global && command.includes(prefix.global)) {
-		unprefixedCmd = command.slice(command.indexOf(prefix.global) + prefix.global.length);
-		usedPrefixType = "global";
-	} else {
-		return;
-	}
+	const unprefixed = unprefixCommand(command, prefix);
+	if (unprefixed === null) return;
+	const { unprefixedCmd, usedPrefixType } = unprefixed;
 
 	log.commands("recieved command '%s' from '%s' channel", unprefixedCmd, channel.name);
 
