@@ -2,6 +2,7 @@ const defaults = [
 	"commands.*",
 	"-commands.permissions.*",
 	"-commands.eventmessage.*",
+	"commands.eventmessage.contextformats",
 ];
 
 function userPerms(user, roles) {

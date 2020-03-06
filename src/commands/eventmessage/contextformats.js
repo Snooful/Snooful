@@ -1,9 +1,14 @@
 const paginate = require("./../../utils/paginate.js");
 const { contextFormats } = require("./../../utils/context-formats.js");
 
-module.exports = paginate("contextformats", () => {
+module.exports = paginate("contextformats", args => {
 	return contextFormats.map(contextFormat => {
-		return "{" + contextFormat.id.toUpperCase() + "}";
+		const placeholder = "{" + contextFormat.id.toUpperCase() + "}";
+
+		const description = contextFormat.getDescription(args.localize);
+		const descriptionSuffix = description ? ": " + description : "";
+
+		return placeholder + descriptionSuffix;
 	});
 }, {
 	command: {

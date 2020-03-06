@@ -40,7 +40,7 @@ function eventMessageSetter(command, opts = {}) {
 				args.send(args.localize("event_message_clear", msgTypeLocal));
 			}
 		},
-		longDescription: options.longDescription + " {USER} is replaced with the user's name, and {WHEN} is replaced with when the event occurred.",
+		longDescription: options.longDescription + " This message supports context formats.",
 		name: command,
 		...options.command,
 	};

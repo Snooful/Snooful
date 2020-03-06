@@ -27,6 +27,15 @@ class ContextFormat {
 			return message;
 		}
 	}
+
+	/**
+	 * Gets the localized description of this context format.
+	 * @param {Function} localize The localization function.
+	 * @returns {string} The localized description of this context format.
+	 */
+	getDescription(localize) {
+		return localize("context_format_" + this.id + "_description");
+	}
 }
 
 class CustomContextFormat extends ContextFormat {
