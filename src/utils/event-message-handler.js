@@ -32,15 +32,15 @@ function eventMessageHandler(type = "event", settings, clientName = "Snooful", h
 		// Ignore events from self if not handling self
 		if (user && user.nickname === clientName && !handleSelf) return;
 
-		gateway("handling %s event message", type);
+		gateway("handling %s event message in '%s' channel", type, channel.name);
 
 		const sub = channelSub(channel);
 		const eventMessage = settings.get(sub, type + "_message");
 		if (eventMessage !== undefined) {
 			pify(channel.sendUserMessage.bind(channel), applyContextFormats(eventMessage, user && user.nickname, settings.get(sub, "lang"))).then(() => {
-				gateway("sent %s event message", type);
+				gateway("sent %s event message in '%s' channel", type, channel.name);
 			}).catch(() => {
-				gateway("failed to send %s event message", type);
+				gateway("failed to send %s event message in '%s' channel", type, channel.name);
 			});
 		}
 	};
