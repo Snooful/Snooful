@@ -3,21 +3,7 @@ const pify = require("./promisify.js");
 
 const { gateway } = require("./debug.js");
 
-/**
- * Applies context formats to a message.
- * @param {string} message The message to apply context formats to.
- * @param {string} username The target username of the event.
- * @param {string} lang The language of the channel the event message is being sent to.
- * @returns {string} The message with context formats applied.
- */
-function applyContextFormats(message, username, lang = "en-US") {
-	if (username) {
-		message = message.replace(/{USER}/g, username);
-	}
-	message = message.replace(/{WHEN}/g, new Date().toLocaleString(lang));
-
-	return message;
-}
+const { applyContextFormats } = require("./context-formats.js");
 
 /**
  * Makes a message-sending handler for an event.
@@ -37,7 +23,7 @@ function eventMessageHandler(type = "event", settings, clientName = "Snooful", h
 		const sub = channelSub(channel);
 		const eventMessage = settings.get(sub, type + "_message");
 		if (eventMessage !== undefined) {
-			pify(channel.sendUserMessage.bind(channel), applyContextFormats(eventMessage, user && user.nickname, settings.get(sub, "lang"))).then(() => {
+			pify(channel.sendUserMessage.bind(channel), applyContextFormats(eventMessage, channel, settings.get(sub, "lang"), user)).then(() => {
 				gateway("sent %s event message in '%s' channel", type, channel.name);
 			}).catch(() => {
 				gateway("failed to send %s event message in '%s' channel", type, channel.name);
