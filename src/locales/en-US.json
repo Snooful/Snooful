@@ -38,6 +38,13 @@
 	"cannot_give_user_role": "The 'user' role cannot be given, since it applies to all users automatically.",
 	"cannot_set_user_role_priority": "The 'user' role's priority cannot be set. It has the lowest priority.",
 	"cannot_take_user_role": "The 'user' role cannot be taken, since it applies to all users automatically.",
+	"coin_flip_result": [
+		"The coin has landed on {}!",
+		"After spinning for a while, the coin lands on {}."
+	],
+	"coin_flip_side_heads": "heads",
+	"coin_flip_side_side": "its side",
+	"coin_flip_side_tails": "tails",
 	"color_amount_too_high": "I cannot provide you with {} colors because that would spam this chat.",
 	"color_amount_too_low": "I need to provide you with at least one name for this color.",
 	"color_argument_invalid": "The {2} for the '{key}' argument must be specified as a name, RGB, HSL, or hexadecimal code.",
