@@ -17,7 +17,10 @@ function getCoinSide() {
 }
 
 module.exports = {
-	alias: "coin",
+	aliases: [
+		"coin",
+		"coinflip",
+	],
 	category: "chance",
 	description: "Flips a coin.",
 	handler: args => {
