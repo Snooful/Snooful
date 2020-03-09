@@ -1,5 +1,5 @@
 const paginate = require("./../../utils/paginate.js");
-const { contextFormats } = require("./../../utils/context-formats.js");
+const { contextFormats } = require("../../utils/context-formats");
 
 module.exports = paginate("contextformats", args => {
 	return contextFormats.map(contextFormat => {

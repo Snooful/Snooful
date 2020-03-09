@@ -3,7 +3,7 @@ const pify = require("./promisify.js");
 
 const { gateway } = require("./debug.js");
 
-const { applyContextFormats } = require("./context-formats.js");
+const applyContextFormats = require("./context-formats/apply.js");
 
 /**
  * Makes a message-sending handler for an event.
