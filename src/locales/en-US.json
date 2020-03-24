@@ -315,6 +315,7 @@
 	],
 	"text_includes_emoji": "That text does include emoji.",
 	"text_includes_no_emoji": "No emoji could be found in that text.",
+	"units_datatype": "units",
 	"unspecified_reverse_message": [
 		"Please specify the text to reverse.",
 		"What text would you like me to reverse?"
