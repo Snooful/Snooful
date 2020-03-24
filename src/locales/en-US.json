@@ -66,8 +66,10 @@
 	"context_format_when_description": "When the event occured.",
 	"context_formats_datatype": "context formats",
 	"conversion_result": "{} {} is {} {}.",
+	"conversion_unit_already_best": "That already is the best unit.",
 	"conversion_unit_unsupported": "That unit is unsupported.",
 	"conversion_units_incompatible": "The units {} and {} are incompatible.",
+	"conversion_units_same": "You cannot convert to the same unit.",
 	"current_language": [
 		"My language is currently set to {}. You can change it with {}setlang.",
 		"Right now I am speaking {}, but you can change it using {}setlang.",
