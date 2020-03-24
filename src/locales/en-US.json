@@ -65,6 +65,9 @@
 	"context_format_user_description": "The user's name.",
 	"context_format_when_description": "When the event occured.",
 	"context_formats_datatype": "context formats",
+	"conversion_result": "{} {} is {} {}.",
+	"conversion_unit_unsupported": "That unit is unsupported.",
+	"conversion_units_incompatible": "The units {} and {} are incompatible.",
 	"current_language": [
 		"My language is currently set to {}. You can change it with {}setlang.",
 		"Right now I am speaking {}, but you can change it using {}setlang.",
