@@ -7,7 +7,7 @@ const rqAll = require("require-all");
  */
 function getLocales() {
 	const locales = rqAll({
-		dirname: path.resolve(__dirname, "../locales"),
+		dirname: path.resolve(__dirname, "../../locales"),
 		filter: /(.+)\.json$/,
 	});
 	return locales;

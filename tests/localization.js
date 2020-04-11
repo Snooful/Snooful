@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const assert = require("chai").assert;
 
-const locales = require("../src/utils/get-locales.js")();
+const locales = require("../src/utils/localization/get-locales.js")();
 const { validate, getLanguageCode, getCountryCode } = require("locale-code");
 
 const sorted = require("is-sorted");
