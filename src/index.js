@@ -114,7 +114,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 
 	const settingsWrapper = settings.subredditWrapper(channelSub(channel));
 
-	const author = message._sender.nickname;
+	const author = message.sender.nickname;
 
 	if (!settingsWrapper.get("roles")) {
 		settingsWrapper.set("roles", {});
@@ -123,7 +123,6 @@ function handleCommand(command = "", channel = {}, message = {}) {
 
 	try {
 		parser.parse(unprefixedCmd, {
-			author,
 			chData,
 			channel,
 			client,
@@ -154,6 +153,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 					});
 				});
 			},
+			sender: message.sender,
 			settings: settingsWrapper,
 			testPermission: perm => {
 				if (chData.subreddit) {

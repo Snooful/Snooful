@@ -1,4 +1,4 @@
-const contextFormats = require("./get");
+const contextFormats = require("./get.js")();
 
 /**
  * Applies context formats to a message.

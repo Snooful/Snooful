@@ -15,7 +15,7 @@ module.exports = {
 	handler: args => {
 		if (args.text) {
 			pify(args.sb.GroupChannel.getChannel.bind(args.sb.GroupChannel), toChannel).then(channel => {
-				const feedbackMsg = args.localize("feedback_recieved", args.author, args.channel.name, args.text);
+				const feedbackMsg = args.localize("feedback_recieved", args.sender.nickname, args.channel.name, args.text);
 				pify(channel.sendUserMessage.bind(channel), feedbackMsg).then(() => {
 					args.log("sent feedback to channel");
 					args.send(args.localize("feedback_success"));
