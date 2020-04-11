@@ -17,7 +17,7 @@ module.exports = {
 		if (args.id) {
 			if (faqs && faqs[args.id]) {
 				const faq = faqs[args.id];
-				const formattedFaq = applyContextFormats(faq, args.channel, args.settings.get("lang"), args.sender);
+				const formattedFaq = applyContextFormats(faq, args.channel, args.settings.get("lang"), args.sender, args.usedPrefix);
 
 				args.send("ℹ️ " + formattedFaq);
 			} else {
