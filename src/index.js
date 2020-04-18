@@ -10,33 +10,8 @@ const channelSub = require("./utils/channel-sub.js");
 const unprefixCommand = require("./utils/unprefix-command.js");
 const eventMessageFactory = require("./utils/event-message-handler.js");
 
-const path = require("path");
-
-let setMan = {};
-try {
-	setMan = require(config.settingsManager);
-} catch (error) {
-	if (error instanceof SyntaxError) {
-		return log.settings("could not load the settings manager module due to a syntax error");
-	} else if (error.code === "MODULE_NOT_FOUND") {
-		return log.settings("could not find a settings manager module with the id '%s'", config.settingsManager);
-	} else {
-		return log.settings("could not load the settings manager module (error code '%s', message '%s')", error.code, error.message);
-	}
-}
-
-// Set up in a way where legacy settings managers work too
-const SettingsManager = setMan.SettingsManager || setMan;
-const extension = setMan.extension || "";
-
-const init = SettingsManager.prototype.init;
-SettingsManager.prototype.init = () => {
-	return false;
-};
-
-log.settings("passing off settings handling to the '%s' module", config.settingsManager);
-const settings = new SettingsManager(path.resolve("./settings" + extension));
-init.call(settings);
+const getSettingsManager = require("./utils/get-settings-manager.js");
+const settings = getSettingsManager(config.settingsManager);
 
 /**
  * The prefix required by commands to be considered by the bot.
@@ -112,7 +87,7 @@ function handleCommand(command = "", channel = {}, message = {}) {
 		}
 	}
 
-	const settingsWrapper = settings.subredditWrapper(channelSub(channel));
+	const settingsWrapper = settings.createWrapper(channelSub(channel));
 
 	const author = message.sender.nickname;
 
@@ -226,49 +201,57 @@ function launch() {
 	form.append("passwd", config.credentials.password);
 	form.append("api_type", "json");
 
-	log.main("fetching session token");
-	got.post({
-		body: form,
-		url: "https://ssl.reddit.com/api/login",
-	}).then(res => {
-		const cookieJar = new CookieJar();
-		cookieJar.setCookieSync("reddit_session=" + encodeURIComponent(JSON.parse(res.body).json.data.cookie), "https://s.reddit.com");
+	log.settings("initializing settings manager");
+	settings.init().then(() => {
+		log.main("fetching session token");
+		got.post({
+			body: form,
+			url: "https://ssl.reddit.com/api/login",
+		}).then(res => {
+			const cookieJar = new CookieJar();
+			cookieJar.setCookieSync("reddit_session=" + encodeURIComponent(JSON.parse(res.body).json.data.cookie), "https://s.reddit.com");
 
-		// Fetch our access token.
-		log.main("fetching new access token");
-		got({
-			cookieJar,
-			method: "get",
-			url: "https://s.reddit.com/api/v1/sendbird/me",
-		}).then(sbRes => {
-			const sbInfo = JSON.parse(sbRes.body);
+			// Fetch our access token.
+			log.main("fetching new access token");
+			got({
+				cookieJar,
+				method: "get",
+				url: "https://s.reddit.com/api/v1/sendbird/me",
+			}).then(sbRes => {
+				const sbInfo = JSON.parse(sbRes.body);
 
-			// Get our Reddit user ID
-			log.main("getting id");
-			reddit.getMe().id.then(id => {
-				// We have both necessary values, so let's connect to Sendbird!
-				log.main("connecting to sendbird");
-				pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
-					// We did it! Let's store the user info in a higher scope.
-					log.main("connected to sendbird");
-					client = userInfo;
+				// Get our Reddit user ID
+				log.main("getting id");
+				reddit.getMe().id.then(id => {
+					// We have both necessary values, so let's connect to Sendbird!
+					log.main("connecting to sendbird");
+					pify(sb.connect.bind(sb), "t2_" + id, sbInfo.sb_access_token).then(userInfo => {
+						// We did it! Let's store the user info in a higher scope.
+						log.main("connected to sendbird");
+						client = userInfo;
 
-					// Let's catch up on the invites we might've missed while offline.
-					acceptInvitesLate();
+						// Let's catch up on the invites we might've missed while offline.
+						acceptInvitesLate();
+					}).catch(() => {
+						log.main("couldn't connect to sendbird");
+					});
 				}).catch(() => {
-					log.main("couldn't connect to sendbird");
+					log.main("could not get id");
 				});
 			}).catch(() => {
-				log.main("could not get id");
+				log.main("could not get access token");
 			});
 		}).catch(() => {
-			log.main("could not get access token");
+			log.main("could not get session token");
 		});
 	}).catch(() => {
-		log.main("could not get session token");
+		log.settings("failed to initialize the settings manager");
 	});
 }
-launch();
+if (settings != null) {
+	log.settings("passing off settings handling to the '%s' module", settings.constructor.name);
+	launch();
+}
 
 const handler = new sb.ChannelHandler();
 

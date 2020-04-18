@@ -13,9 +13,18 @@ function transformConfig(result) {
 			global: null,
 			start: "!",
 		},
-		settingsManager: "@snooful/sqlite-settings",
+		settingsManager: {
+			require: "@snooful/sqlite-settings",
+		},
 		...result.config,
 	};
+
+	if (typeof newConfig.settingsManager === "string") {
+		log("changed settings manager configuration to use object instead of string");
+
+		newConfig.settingsManager = {};
+		newConfig.settingsManager.require = result.config.settingsManager;
+	}
 
 	if (typeof newConfig.prefix === "string") {
 		log("changed prefix configuration to use object instead of string");
