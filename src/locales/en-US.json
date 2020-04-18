@@ -60,6 +60,7 @@
 	"command_argument_not_original": "You can not specify an alias of another {2} for the '{key}' argument.",
 	"command_arguments": "Arguments:",
 	"command_datatype": "commands",
+	"context_format_prefix_description": "The used prefix.",
 	"context_format_user_description": "The user's name.",
 	"context_format_when_description": "When the event occured.",
 	"context_formats_datatype": "context formats",
