@@ -82,7 +82,7 @@
 	"current_time": [
 		"The current time in {} is {}.",
 		"Right now in {}, it is {}.",
-		"It's {} in {} currently."
+		"It's {1} in {0} currently."
 	],
 	"custom_roll_max": "Sorry, but I will not be able to handle that request; it's simply too much for me.",
 	"custom_roll_notation_invalid": [
