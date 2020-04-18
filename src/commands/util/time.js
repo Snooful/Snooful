@@ -1,6 +1,9 @@
 const moment = require("moment-timezone");
 
 module.exports = {
+	aliases: [
+		"currenttime",
+	],
 	arguments: [{
 		default: "EST",
 		description: "The timezone to get the time in.",
