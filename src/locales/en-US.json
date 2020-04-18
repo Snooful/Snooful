@@ -33,8 +33,6 @@
 	],
 	"boolean_argument_invalid": "The {2} for the '{key}' argument must be a valid yes/no option.",
 	"bytes_argument_invalid": "The value provided for the '{key}' argument must be a proper value and unit of digital storage.",
-	"bytes_conversion": "Converting that amount of bytes gives us {}.",
-	"bytes_conversion_failed": "I could not convert those bytes.",
 	"cannot_give_user_role": "The 'user' role cannot be given, since it applies to all users automatically.",
 	"cannot_set_user_role_priority": "The 'user' role's priority cannot be set. It has the lowest priority.",
 	"cannot_take_user_role": "The 'user' role cannot be taken, since it applies to all users automatically.",
@@ -65,6 +63,11 @@
 	"context_format_user_description": "The user's name.",
 	"context_format_when_description": "When the event occured.",
 	"context_formats_datatype": "context formats",
+	"conversion_result": "{} {} is {} {}.",
+	"conversion_unit_already_best": "That already is the best unit.",
+	"conversion_unit_unsupported": "That unit is unsupported.",
+	"conversion_units_incompatible": "The units {} and {} are incompatible.",
+	"conversion_units_same": "You cannot convert to the same unit.",
 	"current_language": [
 		"My language is currently set to {}. You can change it with {}setlang.",
 		"Right now I am speaking {}, but you can change it using {}setlang.",
@@ -310,6 +313,7 @@
 	],
 	"text_includes_emoji": "That text does include emoji.",
 	"text_includes_no_emoji": "No emoji could be found in that text.",
+	"units_datatype": "units",
 	"unspecified_reverse_message": [
 		"Please specify the text to reverse.",
 		"What text would you like me to reverse?"

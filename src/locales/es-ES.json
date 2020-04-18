@@ -29,8 +29,6 @@
 	],
 	"boolean_argument_invalid": "El {2} para el argumento '{key}' debe ser una opción válida Sí/No.",
 	"bytes_argument_invalid": "El valor proporcionado para el argumento '{key}' debe ser un valor y una unidad de almacenamiento digital apropiados.",
-	"bytes_conversion": "Al convertir esa cantidad de bytes nos sale {}.",
-	"bytes_conversion_failed": "No he podido convertir esos bytes.",
 	"color_amount_too_high": "No puedo proporcionarte los colores {} porque llenaría el chat de spam.",
 	"color_amount_too_low": "Necesito proporcionarte como mínimo un nombre para este color.",
 	"color_argument_invalid": "El {2} para el argumento '{key}' debe especificarse como un nombre, RGB, HSL, o código hexagesimal.",
