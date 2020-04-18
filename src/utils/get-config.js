@@ -13,6 +13,7 @@ function transformConfig(result) {
 			global: null,
 			start: "!",
 		},
+		selfBot: false,
 		settingsManager: {
 			require: "@snooful/sqlite-settings",
 		},

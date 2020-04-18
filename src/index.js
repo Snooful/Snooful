@@ -63,7 +63,7 @@ const userPerms = require("./utils/user-perms.js");
  * @param {*} message The message representing the command.
  */
 function handleCommand(command = "", channel = {}, message = {}) {
-	if (message._sender.nickname === client.nickname) return;
+	if (message._sender.nickname === client.nickname && !config.selfBot) return;
 
 	const unprefixed = unprefixCommand(command, prefix);
 	if (unprefixed === null) return;
@@ -119,13 +119,19 @@ function handleCommand(command = "", channel = {}, message = {}) {
 			sb,
 			send: content => {
 				return new Promise((resolve, reject) => {
-					channel.sendUserMessage(content.toString(), (error, sentMessage) => {
+					const callback = (error, sentMessage) => {
 						if (error) {
 							reject(error);
 						} else {
 							resolve(sentMessage);
 						}
-					});
+					};
+
+					if (message._sender.nickname === client.nickname) {
+						channel.updateUserMessage(message.messageId, message.message + "\n\n" + content.toString(), null, null, callback);
+					} else {
+						channel.sendUserMessage(content.toString(), callback);
+					}
 				});
 			},
 			sender: message.sender,
