@@ -13,7 +13,8 @@ module.exports = paginate("contextformats", args => {
 }, {
 	command: {
 		category: "eventmessage",
-		description: "Lists the context formats available for use in event messages.",
+		description: "Lists the available context formats.",
+		longDescription: "Lists the context formats available for use in event messages and FAQs.",
 	},
 	dataType: "context_formats_datatype",
 });
