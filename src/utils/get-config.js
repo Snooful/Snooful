@@ -1,4 +1,4 @@
-const cosmic = require("cosmiconfig");
+const { cosmiconfigSync: cosmic } = require("cosmiconfig");
 const { configuration: log } = require("./debug.js");
 
 /**
@@ -58,7 +58,7 @@ function getConfig() {
 		transform: transformConfig,
 	});
 
-	const result = explorer.searchSync();
+	const result = explorer.search();
 
 	log("loaded configuration from '%s'", result.filepath);
 	log("loaded configuration: %O", result.config);
