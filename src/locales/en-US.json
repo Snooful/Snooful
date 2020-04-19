@@ -36,6 +36,8 @@
 	"cannot_give_user_role": "The 'user' role cannot be given, since it applies to all users automatically.",
 	"cannot_set_user_role_priority": "The 'user' role's priority cannot be set. It has the lowest priority.",
 	"cannot_take_user_role": "The 'user' role cannot be taken, since it applies to all users automatically.",
+	"category_commands_count": "This category has {} commands.",
+	"category_nonexistent": "That category does not exist.",
 	"coin_flip_result": [
 		"The coin has landed on {}!",
 		"After spinning for a while, the coin lands on {}."
