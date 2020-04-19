@@ -1,4 +1,4 @@
-const rev = require("./../../utils/reverse.js");
+const rev = require("../../utils/reverse.js");
 
 module.exports = {
 	arguments: [{
@@ -6,7 +6,7 @@ module.exports = {
 		key: "text",
 		type: "string",
 	}],
-	category: "util",
+	category: "fun",
 	description: "Reverses text.",
 	handler: args => {
 		if (args.text) {
