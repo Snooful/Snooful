@@ -8,7 +8,7 @@ const log = require("./utils/debug.js");
 const pify = require("./utils/promisify");
 const channelSub = require("./utils/channel-sub.js");
 const unprefixCommand = require("./utils/unprefix-command.js");
-const eventMessageFactory = require("./utils/event-message-handler.js");
+const eventMessageFactory = require("./utils/event-messages/handler.js");
 
 const getSettingsManager = require("./utils/get-settings-manager.js");
 const settings = getSettingsManager(config.settingsManager);

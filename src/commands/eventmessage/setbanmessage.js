@@ -1,6 +1,6 @@
-const ems = require("./../../utils/event-message-setter.js");
+const eventMessageSetter = require("../../utils/event-messages/setter.js");
 
-module.exports = ems("setbanmessage", {
+module.exports = eventMessageSetter("setbanmessage", {
 	command: {
 		aliases: [
 			"banmessage",
