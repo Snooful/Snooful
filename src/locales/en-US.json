@@ -300,6 +300,7 @@
 	"set_faq_message_success_update": "That FAQ message (with ID '{}') has been updated.",
 	"set_faq_message_unspecified": "You need to specify the message for the FAQ. If you would like to get rid of this FAQ, use {}delfaq.",
 	"set_faq_message_unspecified_no_permission": "You need to specify the message for the FAQ.",
+	"snoomoji_datatype": "snoomoji",
 	"string_argument_regexp_fail": "The {2} provided for the '{key}' argument does not follow the allowed format.",
 	"string_argument_too_long": "The {2} provided for the '{key}' argument is too long; the maximum length allowed is {maxLength} characters long.",
 	"string_argument_too_short": "The {2} provided for the '{key}' argument is too short; the minimum length allowed is {minLength} characters long.",
