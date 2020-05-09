@@ -270,6 +270,7 @@
 		"Dink!",
 		"Plang!"
 	],
+	"random_snoomoji_result": "Here is your random snoomoji:",
 	"record": "The world record for {} is at {}. For more information, view {}.",
 	"record_game_type": "game",
 	"record_game_unspecified": "Please specify a game.",
