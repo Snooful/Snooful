@@ -18,6 +18,7 @@ module.exports = {
 			if (args.value) {
 				msgs[args.id] = {
 					content: args.value,
+					lastUpdated: Date.now(),
 				};
 				args.settings.set("faq_messages", msgs);
 

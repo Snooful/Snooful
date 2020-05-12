@@ -16,6 +16,12 @@ class FAQ {
 		 * @type {string}
 		 */
 		this.content = data.content;
+
+		/**
+		 * The date the FAQ was last updated.
+		 * @type {Date}
+		 */
+		this.lastUpdated = new Date(data.lastUpdated) || new Date();
 	}
 
 	getLength() {
@@ -34,6 +40,7 @@ class FAQ {
 	toJSON() {
 		return {
 			content: this.content,
+			lastUpdated: this.lastUpdated.toISOString(),
 		};
 	}
 }
