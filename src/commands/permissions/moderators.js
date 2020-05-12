@@ -11,4 +11,5 @@ module.exports = paginate("moderators", args => {
 		description: "Lists the moderators of this subreddit..",
 	},
 	dataType: "moderator_datatype",
+	sorted: false,
 });

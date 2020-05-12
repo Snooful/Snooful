@@ -47,8 +47,9 @@ function toArray(thing) {
 	* @param {Object} [opts] Other options.
 	* @param {Object} [opts.command] Other values for the command.
 	* @param {string} [opts.dataType] The localization key for a plural word used to describe the data.
-	* @param {string} [opts.footer] Text to display after the data as a footer.
 	* @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
+	* @param {string} [opts.footer] Text to display after the data as a footer.
+	* @param {boolean} [opts.sorted] Whether the data should be sorted.
 	* @returns {Object} A paginated command object.
 */
 function paginate(command, data = [], opts = {}) {
@@ -80,7 +81,7 @@ function paginate(command, data = [], opts = {}) {
 				type: dataType,
 			});
 
-			const list = chunk(dataArray.sort(), 5);
+			const list = chunk(opts.sorted ? dataArray.sort() : dataArray, 5);
 			if (dataArray.length === 0) {
 				args.send(options.noItemsMessage ? args.localize(options.noItemsMessage, expandedArgs) : args.localize("no_pagination_items", dataType));
 			} else if (args.page <= list.length && args.page > 0) {
