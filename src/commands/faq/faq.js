@@ -1,4 +1,4 @@
-const applyContextFormats = require("../../utils/context-formats/apply.js");
+const FAQ = require("../../utils/faq.js");
 
 module.exports = {
 	aliases: [
@@ -16,10 +16,8 @@ module.exports = {
 
 		if (args.id) {
 			if (faqs && faqs[args.id]) {
-				const faq = faqs[args.id];
-				const formattedFaq = applyContextFormats(faq, args.channel, args.settings.get("lang"), args.sender, args.usedPrefix);
-
-				args.send("ℹ️ " + formattedFaq);
+				const faq = new FAQ(faqs[args.id]);
+				args.send("ℹ️ " + faq.getFormattedContent(args));
 			} else {
 				args.send(args.localize("faq_nonexistent", args.usedPrefix));
 			}

@@ -16,7 +16,9 @@ module.exports = {
 			const idDoesExist = msgs[args.id] !== undefined;
 
 			if (args.value) {
-				msgs[args.id] = args.value;
+				msgs[args.id] = {
+					content: args.value,
+				};
 				args.settings.set("faq_messages", msgs);
 
 				args.send(idDoesExist ? args.localize("set_faq_message_success_update", args.id) : args.localize("set_faq_message_success_create", args.id));
