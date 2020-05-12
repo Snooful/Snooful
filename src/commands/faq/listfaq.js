@@ -5,7 +5,7 @@ module.exports = paginate("listfaq", args => {
 	const faqs = args.settings.get("faq_messages") || {};
 	return Object.keys(faqs).map(key => {
 		const faq = new FAQ(faqs[key]);
-		return `${key} (${faq.getLength()} characters long)`;
+		return args.localize("faq_listing", key, faq.getLength());
 	});
 }, {
 	command: {
