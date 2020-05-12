@@ -16,8 +16,13 @@ module.exports = {
 			const idDoesExist = msgs[args.id] !== undefined;
 
 			if (args.value) {
+				const editors = {
+					...msgs && msgs[args.id] && msgs[args.id].editors || {},
+					[args.sender.nickname]: args.sender.userId,
+				};
 				msgs[args.id] = {
 					content: args.value,
+					editors,
 					lastUpdated: Date.now(),
 				};
 				args.settings.set("faq_messages", msgs);

@@ -18,6 +18,12 @@ class FAQ {
 		this.content = data.content;
 
 		/**
+		 * An object mapping each editor of the FAQ to their user ID.
+		 * @type {Object<string, string>}
+		 */
+		this.editors = data.editors;
+
+		/**
 		 * The date the FAQ was last updated.
 		 * @type {Date}
 		 */
@@ -40,6 +46,7 @@ class FAQ {
 	toJSON() {
 		return {
 			content: this.content,
+			editors: this.editors,
 			lastUpdated: this.lastUpdated.toISOString(),
 		};
 	}
