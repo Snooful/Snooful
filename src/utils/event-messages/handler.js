@@ -9,14 +9,14 @@ const applyContextFormats = require("../context-formats/apply.js");
  * Makes a message-sending handler for an event.
  * @param {string} type The type of event message being handled.
  * @param {SettingsManager} settings The settings to retrieve the channel's event message from.
- * @param {string} clientName The nickname of the client.
+ * @param {Function<string>} clientNameGetter A getter for the nickname of the client.
  * @param {boolean} handleSelf Whether to handle the event message for events caused by the client.
  * @returns {Function} The message-sending handler.
  */
-function eventMessageHandler(type = "event", settings, clientName = "Snooful", handleSelf = false) {
+function eventMessageHandler(type = "event", settings, clientNameGetter = "Snooful", handleSelf = false) {
 	return (channel, user) => {
 		// Ignore events from self if not handling self
-		if (user && user.nickname === clientName && !handleSelf) return;
+		if (user && user.nickname === clientNameGetter() && !handleSelf) return;
 
 		gateway("handling %s event message in '%s' channel", type, channel.name);
 

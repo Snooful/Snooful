@@ -287,8 +287,8 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 	}
 };
 
-handler.onUserJoined = eventMessageFactory("join", settings, client.nickname);
-handler.onUserLeft = eventMessageFactory("leave", settings, client.nickname);
-handler.onUserBanned = eventMessageFactory("ban", settings, client.nickname);
+handler.onUserJoined = eventMessageFactory("join", settings, () => client.nickname);
+handler.onUserLeft = eventMessageFactory("leave", settings, () => client.nickname);
+handler.onUserBanned = eventMessageFactory("ban", settings, () => client.nickname);
 
 sb.addChannelHandler("handler", handler);
