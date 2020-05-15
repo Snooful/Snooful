@@ -272,11 +272,11 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 			log.invites(`automatically accepted channel invitation to ${channel.name}`);
 
 			// Now that we've joined, let's send our introductory message!
-			pify(channel.sendUserMessage.bind(channel), channel.sendUserMessage(localize("en-US", "invite_message", {
+			pify(channel.sendUserMessage.bind(channel), localize("en-US", "invite_message", {
 				inviter: inviter.nickname,
 				me: client.nickname,
 				prefix,
-			}))).then(() => {
+			})).then(() => {
 				log.invites("sent introductory message");
 			}).catch(() => {
 				log.invites("failed to send introductory message");
