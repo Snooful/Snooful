@@ -275,7 +275,7 @@ handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
 			pify(channel.sendUserMessage.bind(channel), localize("en-US", "invite_message", {
 				inviter: inviter.nickname,
 				me: client.nickname,
-				prefix,
+				prefix: prefix.start,
 			})).then(() => {
 				log.invites("sent introductory message");
 			}).catch(() => {

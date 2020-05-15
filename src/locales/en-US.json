@@ -190,7 +190,7 @@
 		"That's not a valid time zone.",
 		"That's not a time zone I've heard of!"
 	],
-	"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot asssistant,\nand you can do {usedPrefix}commands to get started.",
+	"invite_message": "Thanks for inviting me to this channnel, u/{inviter}!\nI'm u/{me}, your friendly bot assistant,\nand you can do {prefix}commands to get started.",
 	"ipv4_address": "Here is a random IP address: {}",
 	"ipv6_address": "Here is a random IPv6 address: {}",
 	"isalias_false": "The command, {}, is not an alias.",
