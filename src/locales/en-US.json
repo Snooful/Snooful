@@ -227,10 +227,12 @@
 		"I'll now speak {} here."
 	],
 	"leave_message": "leave message",
-	"mod_update_failure": [
+	"mod_update_banned_error": "The moderator list could not be updated because the subreddit is banned.",
+	"mod_update_generic_error": [
 		"The moderator list could not be updated.",
 		"The moderator list update was unsuccessful."
 	],
+	"mod_update_not_found_error": "The moderator list could not be updated because the subreddit could not be found.",
 	"mod_update_not_subreddit": [
 		"You cannot update the moderator list because this is not a subreddit chat.",
 		"This is a subreddit chat, so the moderator list cannot be updated."

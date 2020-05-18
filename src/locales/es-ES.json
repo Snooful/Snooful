@@ -164,7 +164,7 @@
 		"A partir de ahora hablaré {} aquí."
 	],
 	"leave_message": "mensaje de despedida",
-	"mod_update_failure": "La lista de moderadores no se ha podido actualizar.",
+	"mod_update_generic_error": "La lista de moderadores no se ha podido actualizar.",
 	"mod_update_not_subreddit": "No puedes actualizar la lista de moderadores porque esto no es el chat de un subreddit.",
 	"mod_update_success": "La lista de moderadores se ha actualizado correctamente.",
 	"new_language_unspecified": "Para cambiar mi idioma, debes introducir el nuevo idioma.",
