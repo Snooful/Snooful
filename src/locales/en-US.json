@@ -302,6 +302,7 @@
 	"role_nonexistent": "That role does not exist.",
 	"role_priority_set": "That role's priority has been changed to {}. Its permissions will now overrule permissions of roles with a lower priority.",
 	"roles_datatype": "roles",
+	"rules_datatype": "rules",
 	"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 	"set_faq_id_unspecified_no_permission": "You need to specify a FAQ to change.",
 	"set_faq_message_success_create": "A FAQ message (with ID '{}') has been created!",
