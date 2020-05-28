@@ -167,23 +167,21 @@ const sb = new Sendbird({
 // Use error-first callbacks, like every other library does
 sb.setErrorFirstCallback(true);
 
+const acceptInvite = require("./utils/accept-invite.js");
+
 /**
  * Accepts invites to all channels with pending invitations.
  */
 function acceptInvitesLate() {
-	// Query for group channels
+	// Query for group channels with pending invites
 	const query = sb.GroupChannel.createMyGroupChannelListQuery();
-	pify(query.next.bind(query)).then(list => {
-		// Accept the invites!
-		list.filter(channel => {
-			return channel.myMemberState === "invited";
-		}).forEach(channel => {
-			pify(channel.acceptInvitation.bind(channel)).then(() => {
-				log.invites("accepted late channel invitation to '%s'", channel.name);
-			}).catch(() => {
-				log.invites("failed to accept late channel invitation to '%s'", channel.name);
-			});
-		});
+	query.memberStateFilter = "invited_only";
+
+	pify(query.next.bind(query)).then(async list => {
+		log.invites("accepting late invites from %d channels", list.length);
+		for await (const channel of list) {
+			await acceptInvite(channel, true);
+		}
 	}).catch(() => {
 		log.invites("failed to get list of channels to accept late invites");
 	});
@@ -262,27 +260,23 @@ if (settings != null) {
 const handler = new sb.ChannelHandler();
 
 handler.onMessageReceived = (channel, message) => handleCommand(message.message, channel, message);
-handler.onUserReceivedInvitation = (channel, inviter, invitees) => {
-	if (invitees.map(invitee => invitee.nickname).includes(client.nickname)) {
-		// I have been invited to a channel.
-		log.invites("invited to channel");
+handler.onUserReceivedInvitation = async (channel, inviter, invitees) => {
+	const isInvited = invitees.some(invitee => {
+		return invitee.nickname === client.nickname;
+	});
 
-		// Let's join!
-		pify(channel.acceptInvitation.bind(channel)).then(() => {
-			log.invites(`automatically accepted channel invitation to ${channel.name}`);
+	if (isInvited) {
+		log.invites("accepting invite to '%s' channel", channel.name);
 
-			// Now that we've joined, let's send our introductory message!
-			pify(channel.sendUserMessage.bind(channel), localize("en-US", "invite_message", {
-				inviter: inviter.nickname,
-				me: client.nickname,
-				prefix: prefix.start,
-			})).then(() => {
-				log.invites("sent introductory message");
-			}).catch(() => {
-				log.invites("failed to send introductory message");
-			});
+		await acceptInvite(channel);
+		pify(channel.sendUserMessage.bind(channel), localize("en-US", "invite_message", {
+			inviter: inviter.nickname,
+			me: client.nickname,
+			prefix: prefix.start,
+		})).then(() => {
+			log.invites("sent introductory message");
 		}).catch(() => {
-			log.invites("failed to accept channel invitation");
+			log.invites("failed to send introductory message");
 		});
 	}
 };
