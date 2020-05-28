@@ -3,6 +3,9 @@ const defaults = [
 	"-commands.permissions.*",
 	"-commands.eventmessage.*",
 	"commands.eventmessage.contextformats",
+	"-commands.faq.deletefaq",
+	"-commands.faq.renamefaq",
+	"-commands.faq.setfaq",
 ];
 
 function userPerms(user, roles) {
