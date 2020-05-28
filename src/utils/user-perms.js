@@ -8,6 +8,12 @@ const defaults = [
 	"-commands.faq.setfaq",
 ];
 
+/**
+ * Gets a user's permissions.
+ * @param {string} user The username of the user.
+ * @param {Object<string, Object>} roles The roles to get permissions from.
+ * @returns {string[]} The user's permissions.
+ */
 function userPerms(user, roles) {
 	const startingPerms = [defaults];
 	if (roles.user && roles.user.perms) {
