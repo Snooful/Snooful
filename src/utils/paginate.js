@@ -70,8 +70,11 @@ function paginate(command, data = [], opts = {}) {
 		}],
 		handler: async args => {
 			const dataValue = typeof data === "function" ? await data(args) : data;
-			const dataArray = toArray(dataValue);
+			if (dataValue instanceof Error) {
+				return args.send(dataValue.message);
+			}
 
+			const dataArray = toArray(dataValue);
 			const dataType = args.localize(options.dataType);
 
 			/**
