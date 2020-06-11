@@ -313,6 +313,13 @@
 		"You cannot view that rule because this is not a subreddit chat.",
 		"This is a subreddit chat, so that rule cannot be viewed."
 	],
+	"rules_banned_error": "The subreddit's rules could not be viewed because the subreddit is banned.",
+	"rules_generic_error": "The subreddit's rules could not be viewed.",
+	"rules_not_found_error": "The subreddit's rules could not be viewed because the subreddit could not be found.",
+	"rules_not_subreddit": [
+		"You cannot view the rules because this is not a subreddit chat.",
+		"This is not a subreddit chat, so the rules cannot be viewed."
+	],
 	"rules_datatype": "rules",
 	"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 	"set_faq_id_unspecified_no_permission": "You need to specify a FAQ to change.",
