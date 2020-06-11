@@ -302,6 +302,17 @@
 	"role_nonexistent": "That role does not exist.",
 	"role_priority_set": "That role's priority has been changed to {}. Its permissions will now overrule permissions of roles with a lower priority.",
 	"roles_datatype": "roles",
+	"rule_banned_error": "That rule could not be viewed because the subreddit is banned.",
+	"rule_generic_error": "That rule could not be viewed.",
+	"rule_kind_all": "(applies to posts and comments)",
+	"rule_kind_comment": "(applies to comments)",
+	"rule_kind_link": "(applies to posts)",
+	"rule_nonexistent": "That rule does not exist.",
+	"rule_not_found_error": "That rule could not be viewed because the subreddit could not be found.",
+	"rule_not_subreddit": [
+		"You cannot view that rule because this is not a subreddit chat.",
+		"This is a subreddit chat, so that rule cannot be viewed."
+	],
 	"rules_datatype": "rules",
 	"set_faq_id_unspecified": "You need to specify a FAQ to change. To get a list of FAQs, type {}listfaq.",
 	"set_faq_id_unspecified_no_permission": "You need to specify a FAQ to change.",
