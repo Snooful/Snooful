@@ -1,7 +1,6 @@
-const tastyFood = ["🍗", "🌭", "🍔", "🍕", "🌮", "🌯", "🍫", "🍿", "🍩", "🍪", "🍎", "🍏", "🍌", "🍉", "🍇", "🍓", "🍒", "🍍", "🌶", "🧀"];
+const tastyFood = ["🍗", "🌭", "🍔", "🍕", "🌮", "🌯", "🍫", "🍿", "🍩", "🍪", "🍎", "🍏", "🍌", "🍉", "🍇", "🍓", "🍒", "🍍", "🌶", "🧀", "🥐", "🥧", "🥨", "🧇", "🥭", "🥯", "🧁", "🥪", "🍝"];
 const chance = require("chance").Chance();
-
-const emojiAPI = require("node-emoji");
+const emojiToName = require("gemoji/emoji-to-name");
 
 module.exports = {
 	arguments: [{
@@ -14,8 +13,8 @@ module.exports = {
 	handler: args => {
 		const emoji = chance.pickone(tastyFood);
 
-		const emojiWhich = emojiAPI.which(emoji);
-		const emojiName = emojiWhich ? emojiWhich.toString().replace(/_/g, " ") : args.localize("feed_unknown_type");
+		const emojiWhich = emojiToName[emoji];
+		const emojiName = emojiWhich ? emojiWhich.replace(/_/g, " ") : args.localize("feed_unknown_type");
 
 		if (args.user && args.user !== "undefined") {
 			args.send(args.localize("feed_other", emojiName, emoji, args.user));
