@@ -16,7 +16,7 @@ module.exports = {
 		const emojiWhich = emojiToName[emoji];
 		const emojiName = emojiWhich ? emojiWhich.replace(/_/g, " ") : args.localize("feed_unknown_type");
 
-		if (args.user && args.user !== "undefined") {
+		if (args.user && args.user !== "undefined" && args.user != args.sender.nickname) {
 			args.send(args.localize("feed_other", emojiName, emoji, args.user));
 		} else {
 			// Feed the sender
