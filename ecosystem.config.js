@@ -13,6 +13,6 @@ module.exports = {
 		},
 		instances: 1,
 		name: "Snooful",
-		script: "./src/index.js",
+		script: "./src/app.js",
 	}],
 };

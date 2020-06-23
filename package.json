@@ -56,7 +56,7 @@
 	},
 	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
-	"main": "./src/index.js",
+	"main": "./src/app.js",
 	"scripts": {
 		"docs": "jsdoc ./src --destination ./docs/snooful -r -t node_modules/minami",
 		"lint": "eslint \"./**/*.js\"",
