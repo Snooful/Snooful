@@ -13,7 +13,9 @@ module.exports = {
 	description: "Feeds you or a specified user food.",
 	handler: args => {
 		const emoji = chance.pickone(tastyFood);
-		const emojiName = emojiAPI.which(emoji).toString().replace(/_/g, " ");
+
+		const emojiWhich = emojiAPI.which(emoji);
+		const emojiName = emojiWhich ? emojiWhich.toString().replace(/_/g, " ") : args.localize("feed_unknown_type");
 
 		if (args.user && args.user !== "undefined") {
 			args.send(args.localize("feed_other", emojiName, emoji, args.user));

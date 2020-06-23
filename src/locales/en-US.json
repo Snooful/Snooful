@@ -151,6 +151,7 @@
 		"Have a bite of this {}: {}"
 	],
 	"feed_other": "u/{2}, you have been offered this {0}: {1}",
+	"feed_unknown_type": "interesting food",
 	"feedback_error": [
 		"I couldn't send the feedback.",
 		"Sorry, but something went wrong when I tried to send the feedback."
