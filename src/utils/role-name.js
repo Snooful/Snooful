@@ -1,3 +1,6 @@
+/**
+ * @param name
+ */
 function roleName(name) {
 	return name.toString().toLowerCase().replace(/[^a-z]*/g, "");
 }

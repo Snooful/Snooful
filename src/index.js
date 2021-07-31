@@ -270,6 +270,7 @@ class Snooful {
 				locales,
 				/**
 				 * Formats a string based on the set language of the subreddit/DM.
+				 * @param {...any} args Arguments to pass to the localizer.
 				 * @returns {*} The formatted localization based on the set language of the subreddit/DM.
 				 */
 				localize: (...args) => {

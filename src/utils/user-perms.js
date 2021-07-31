@@ -5,6 +5,10 @@ const defaults = [
 	"commands.eventmessage.contextformats",
 ];
 
+/**
+ * @param user
+ * @param roles
+ */
 function userPerms(user, roles) {
 	const startingPerms = [defaults];
 	if (roles.user && roles.user.perms) {
@@ -30,7 +34,7 @@ function userPerms(user, roles) {
 		return entry[1];
 	}).reduce((acc, role) => {
 		if (role.users.includes(user) && role.perms.length > 0) {
-			return acc.concat([role.perms]);
+			return [...acc, role.perms];
 		} else {
 			return acc;
 		}

@@ -17,6 +17,7 @@ class ContextFormat {
 	/**
 	 * Applys this context format to a message.
 	 * @param {string} message The message to apply this context format to.
+	 * @param {...any} contexts
 	 * @returns {string} The message with the context format applied, if successful.
 	 */
 	format(message, ...contexts) {
