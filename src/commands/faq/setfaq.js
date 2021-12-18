@@ -17,7 +17,7 @@ module.exports = {
 
 			if (args.value) {
 				const editors = {
-					...msgs && msgs[args.id] && msgs[args.id].editors || {},
+					...msgs && msgs[args.id] && msgs[args.id].editors,
 					[args.sender.nickname]: args.sender.userId,
 				};
 				msgs[args.id] = {

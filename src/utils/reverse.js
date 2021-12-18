@@ -3,6 +3,6 @@ try {
 } catch (_) {
 	// Simplified version of what esrever does (not accurate!)
 	module.exports = text => {
-		return text.split("").reverse().join("");
+		return [...text].reverse().join("");
 	};
 }
