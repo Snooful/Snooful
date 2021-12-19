@@ -303,6 +303,22 @@
 	"role_nonexistent": "That role does not exist.",
 	"role_priority_set": "That role's priority has been changed to {}. Its permissions will now overrule permissions of roles with a lower priority.",
 	"roles_datatype": "roles",
+	"rps_countdown": "Rock... paper... scissors...",
+	"rps_lose": [
+		"Haha, you've lost; my {0} beats your {1}.",
+		"Sorry, but you're the loser; my {0} beats your {1}."
+	],
+	"rps_move_invalid": "You must choose a valid move! Your choices are {}.",
+	"rps_move_unspecified": "You need to specify the move you would like to make.",
+	"rps_tie": [
+		"Oh, we both chose {}! We should try this again.",
+		"That's a tie! Both of us chose {}."
+	],
+	"rps_win": [
+		"Darn, you've won; your {1} beats my {0}.",
+		"You won! Your {1} beats my {0}.",
+		"Your {1} beats my {0}, but I'll win next time."
+	],
 	"rule_banned_error": "That rule could not be viewed because the subreddit is banned.",
 	"rule_generic_error": "That rule could not be viewed.",
 	"rule_kind_all": "(applies to posts and comments)",
