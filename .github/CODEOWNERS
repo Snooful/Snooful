@@ -1,0 +1,3 @@
+src/**/*.js @Snooful/development
+src/locales.json @Snooful/localization
+src/locales/*.json @Snooful/localization

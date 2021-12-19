@@ -1,50 +1,62 @@
 {
 	"name": "snooful",
 	"dependencies": {
-		"chance": "^1.0.16",
+		"@snooful/orangered-parser": "^4.0.0",
+		"@snooful/periwinkle-permissions": "^1.1.0",
+		"alternating-case": "^1.0.0",
+		"chance": "^1.1.4",
+		"clear-module": "^3.2.0",
 		"color-namer": "^1.3.0",
+		"convert-units": "^2.3.4",
+		"cosmiconfig": "^6.0.0",
 		"didyoumean2": "^1.3.0",
-		"got": "^9.2.1",
-		"lodash.chunk": "^4.2.0",
+		"form-data": "^2.3.3",
+		"gemoji": "^5.0.1",
+		"got": "^10.5.5",
+		"mem": "^4.3.0",
 		"moment": "^2.22.2",
 		"moment-duration-format": "^2.2.2",
-		"moment-timezone": "^0.5.21",
-		"pm2": "^3.0.4",
+		"moment-timezone": "^0.5.25",
+		"node-emoji": "^1.10.0",
+		"pify": "^4.0.1",
+		"pm2": "^3.5.1",
+		"require-all": "^3.0.0",
 		"rpg-dice-roller": "^2.0.0",
-		"sendbird": "^3.0.77",
-		"sqlite": "^2.9.2",
+		"sendbird": "^3.0.100",
+		"snoowrap": "^1.15.2",
 		"string-format": "^2.0.0",
+		"tough-cookie": "^3.0.1",
+		"truncate": "^2.0.1",
 		"upsidedown": "0.0.5",
 		"urban-dictionary": "^2.1.2",
 		"url-escape-tag": "^1.0.0",
-		"yargs": "^12.0.1"
+		"validate-npm-package-name": "^3.0.0",
+		"wikijs": "^4.13.0"
 	},
 	"optionalDependencies": {
 		"debug": "^3.1.0",
-		"dotenv": "^6.0.0",
 		"esrever": "^0.2.0",
 		"git-last-commit": "^0.3.0",
 		"lodash.chunk": "^4.2.0"
 	},
 	"devDependencies": {
 		"chai": "^4.1.2",
-		"eslint": "^5.4.0",
-		"eslint-config-haykam": "^1.3.0",
-		"eslint-plugin-extra-rules": "0.0.0-development",
-		"eslint-plugin-html": "^4.0.5",
-		"eslint-plugin-json": "^1.2.1",
-		"eslint-plugin-markdown": "^1.0.0-beta.6",
-		"eslint-plugin-unicorn": "^5.0.0",
-		"locale-code": "^2.0.1",
+		"eslint": "^7.32.0",
+		"eslint-config-haykam": "^1.12.0",
+		"is-sorted": "^1.0.5",
+		"jsdoc": "^3.6.2",
+		"locale-code": "^2.0.2",
+		"minami": "^1.2.3",
 		"mocha": "^5.2.0"
 	},
 	"description": "The most complete bot for moderation, utility, and fun in Reddit Chat.",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "./src/app.js",
 	"scripts": {
+		"docs": "jsdoc ./src --destination ./docs/snooful -r -t node_modules/minami",
 		"lint": "eslint \"./**/*.js\"",
-		"test": "mocha test.js",
-		"start": "pm2 stop snooful; pm2 start index.js --name snooful"
+		"test": "mocha ./tests",
+		"start": "pm2 start"
 	},
 	"repository": {
 		"type": "git",
@@ -65,6 +77,9 @@
 	},
 	"homepage": "https://github.com/Snooful/Snooful#readme",
 	"engines": {
-		"node": ">=7.6.0"
+		"node": ">=8.5.0"
+	},
+	"eslintConfig": {
+		"extends": "eslint-config-haykam"
 	}
 }
