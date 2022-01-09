@@ -6,8 +6,9 @@ const defaults = [
 ];
 
 /**
- * @param user
- * @param roles
+ * Gets the permissions of a user.
+ * @param {string} user the username of the user to get permissions for
+ * @param {{name: string, users: string[], perms: string[]}[]} roles role definitions
  */
 function userPerms(user, roles) {
 	const startingPerms = [defaults];

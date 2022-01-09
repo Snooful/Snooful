@@ -32,26 +32,26 @@ function toArray(thing) {
 }
 
 /**
-	* Gets data for pagination.
-	* @name DataGetFunction
-	* @function
-	* @param args The arguments from Yargs.
-	* @returns *
-*/
+ * Gets data for pagination.
+ * @name DataGetFunction
+ * @function
+ * @param args The arguments from Yargs.
+ * @returns *
+ */
 
 /**
-	* Creates a paginated command using a set of data.
-	* If lodash.chunk is not installed, works but without pages.
-	* @param {string} command The name of the command.
-	* @param {(DataGetFunction|*)} [data] The data to paginate.
-	* @param {Object} [opts] Other options.
-	* @param {Object} [opts.command] Other values for the command.
-	* @param {string} [opts.dataType] The localization key for a plural word used to describe the data.
-	* @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
-	* @param {string} [opts.footer] Text to display after the data as a footer.
-	* @param {boolean} [opts.sorted] Whether the data should be sorted.
-	* @returns {Object} A paginated command object.
-*/
+ * Creates a paginated command using a set of data.
+ * If lodash.chunk is not installed, works but without pages.
+ * @param {string} command The name of the command.
+ * @param {(DataGetFunction|*)} [data] The data to paginate.
+ * @param {Object} [opts] Other options.
+ * @param {Object} [opts.command] Other values for the command.
+ * @param {string} [opts.dataType] The localization key for a plural word used to describe the data.
+ * @param {string} [opts.noItemsMessage] The localization key for a message to display if there are no items to view.
+ * @param {string} [opts.footer] Text to display after the data as a footer.
+ * @param {boolean} [opts.sorted] Whether the data should be sorted.
+ * @returns {Object} A paginated command object.
+ */
 function paginate(command, data = [], opts = {}) {
 	const options = {
 		command: {},
@@ -78,8 +78,8 @@ function paginate(command, data = [], opts = {}) {
 			const dataType = args.localize(options.dataType);
 
 			/**
-				* An expanded object for use in localization.
-			*/
+			 * An expanded object for use in localization.
+			 */
 			const expandedArgs = Object.assign(args, {
 				type: dataType,
 			});
